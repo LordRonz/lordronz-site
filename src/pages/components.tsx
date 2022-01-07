@@ -73,7 +73,11 @@ const Home: NextPage = () => {
                   <ArrowLink direction='left' href='#'>
                     ArrowLink
                   </ArrowLink>
-                  <ArrowLink as={UnstyledLink} className='inline-flex items-center' href='#'>
+                  <ArrowLink
+                    as={UnstyledLink}
+                    className='inline-flex items-center'
+                    href='#'
+                  >
                     ArrowLink
                   </ArrowLink>
                   <ArrowLink href='#' as={ButtonLink}>
@@ -112,7 +116,9 @@ const Home: NextPage = () => {
               </li>
             </ol>
           </div>
-          <footer className='py-4 flex justify-center items-center'>© Aaron Christopher {new Date().getFullYear()}</footer>
+          <footer className='py-4 flex justify-center items-center'>
+            © Aaron Christopher {new Date().getFullYear()}
+          </footer>
         </section>
       </main>
     </>

@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 
-import UnstyledLink, { UnstyledLinkProps } from '@/components/links/UnstyledLink';
+import UnstyledLink, {
+  UnstyledLinkProps,
+} from '@/components/links/UnstyledLink';
 
 enum ButtonVariant {
   'primary',
@@ -14,7 +16,12 @@ type ButtonLinkProps = {
   variant?: keyof typeof ButtonVariant;
 } & UnstyledLinkProps;
 
-const ButtonLink = ({ children, className = '', variant = 'primary', ...rest }: ButtonLinkProps) => (
+const ButtonLink = ({
+  children,
+  className = '',
+  variant = 'primary',
+  ...rest
+}: ButtonLinkProps) => (
   <UnstyledLink
     {...rest}
     className={clsx(
