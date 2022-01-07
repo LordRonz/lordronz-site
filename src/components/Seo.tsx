@@ -5,7 +5,9 @@ const defaultMeta = {
   title: 'Next.js TypeScript Starter',
   siteName: process.env.NEXT_PUBLIC_HOSTNAME || 'lordronz.github.io',
   description: 'NextJS Typescript Boilerplate.',
-  url: process.env.NEXT_PUBLIC_HOSTNAME ? `https://${process.env.NEXT_PUBLIC_HOSTNAME}` : 'https://lordronz.github.io',
+  url: process.env.NEXT_PUBLIC_HOSTNAME
+    ? `https://${process.env.NEXT_PUBLIC_HOSTNAME}`
+    : 'https://lordronz.github.io',
   image: '/vercel.svg',
   type: 'website',
   robots: 'follow, index',
@@ -24,7 +26,9 @@ const Seo = (props: SeoProps) => {
     ...props,
   };
 
-  meta['title'] = props.templateTitle ? `${props.templateTitle} | ${meta.siteName}` : meta.title;
+  meta['title'] = props.templateTitle
+    ? `${props.templateTitle} | ${meta.siteName}`
+    : meta.title;
 
   return (
     <Head>
@@ -50,7 +54,10 @@ const Seo = (props: SeoProps) => {
         <link key={linkProps.href} {...linkProps} />
       ))}
       <meta name='msapplication-TileColor' content='#000000' />
-      <meta name='msapplication-TileImage' content='/favicon/mstile-150x150.png' />
+      <meta
+        name='msapplication-TileImage'
+        content='/favicon/mstile-150x150.png'
+      />
       <meta name='theme-color' content='#000000' />
     </Head>
   );

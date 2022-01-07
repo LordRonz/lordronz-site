@@ -20,7 +20,14 @@ const ArrowLink = <C extends React.ElementType>({
   const Component = as;
 
   return (
-    <Component {...rest} className={clsx(className, 'gap-[0.25em] group', direction === 'left' && 'flex-row-reverse')}>
+    <Component
+      {...rest}
+      className={clsx(
+        className,
+        'gap-[0.25em] group',
+        direction === 'left' && 'flex-row-reverse'
+      )}
+    >
       <span>{children}</span>
       <svg
         viewBox='0 0 16 16'

@@ -4,7 +4,7 @@
  */
 module.exports = {
   // !STARTERCONF Change the siteUrl without additional '/' on the end
-  siteUrl: 'https://ronz-nextjs.vercel.app',
+  siteUrl: 'https://lordronz.vercel.app',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],

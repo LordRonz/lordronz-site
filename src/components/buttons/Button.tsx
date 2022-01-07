@@ -74,17 +74,21 @@ const Button = ({
           ],
         ],
         'disabled:cursor-not-allowed',
-        isLoading && 'relative !text-transparent hover:!text-transparent !cursor-wait !transition-none'
+        isLoading &&
+          'relative !text-transparent hover:!text-transparent !cursor-wait !transition-none'
       )}
       {...rest}
     >
       {isLoading && (
         <div
-          className={clsx('absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', {
-            'text-white': variant === 'dark' || variant === 'primary',
-            'text-black': variant === 'light',
-            'text-primary-500': variant === 'outline' || variant === 'ghost',
-          })}
+          className={clsx(
+            'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+            {
+              'text-white': variant === 'dark' || variant === 'primary',
+              'text-black': variant === 'light',
+              'text-primary-500': variant === 'outline' || variant === 'ghost',
+            }
+          )}
         >
           <ImSpinner2 className='animate-spin' />
         </div>
