@@ -42,7 +42,7 @@
     "next-sitemap": "^1.6.220",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
-    "tailwindcss": "^3.0.11",
+    "tailwindcss": "^3.0.12",
     "typescript": "4.5.4"
   }
 }
