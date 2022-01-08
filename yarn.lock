@@ -223,10 +223,10 @@
   dependencies:
     chalk "^4.0.0"
 
-"@corex/deepmerge@^2.6.34":
-  version "2.6.133"
-  resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-2.6.133.tgz#eb3aaa7e197ea69cbb129b4e988e669622089063"
-  integrity sha512-KrAg1G7NaXDJ/bihDHof3MKnE6KC0mKE89o7qTSHPaxs122pBB14Ll+QFyMo4FyTqpMIRcFJlv02G9PcDxDMEA==
+"@corex/deepmerge@^2.6.148":
+  version "2.6.148"
+  resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-2.6.148.tgz#8fa825d53ffd1cbcafce1b6a830eefd3dcc09dd5"
+  integrity sha512-6QMz0/2h5C3ua51iAnXMPWFbb1QOU1UvSM4bKBw5mzdT+WtLgjbETBBIQZ+Sh9WvEcGwlAt/DEdRpIC3XlDBMA==
 
 "@cspotcode/source-map-consumer@0.8.0":
   version "0.8.0"
@@ -2865,12 +2865,12 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-next-sitemap@^1.6.220:
-  version "1.6.220"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.6.220.tgz#118ba784e72ee10a4f6a7dd4da1c03d4a3ebfeb8"
-  integrity sha512-KEBZqtfuoTq3fL1lTb5o+TBro3r5rzfsKabFxzKiw6FlOPe4y22DffjYZykPiSmp9cWlPQ2stuXmAPoDo47aPw==
+next-sitemap@^1.6.245:
+  version "1.6.245"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.6.245.tgz#01734931b1fbcf553e409053c77b32c2c473edc7"
+  integrity sha512-n7pfIWoL4UyA/HIB1V7btOEVe6978opDSQpRjE7SKI9b2+cTVtaRn1UiELfHxgZ9qC6PjZKpyu+3H9NTnOC8wQ==
   dependencies:
-    "@corex/deepmerge" "^2.6.34"
+    "@corex/deepmerge" "^2.6.148"
     matcher "^4.0.0"
     minimist "^1.2.5"
 
