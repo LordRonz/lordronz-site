@@ -1,7 +1,8 @@
 name: PR Source Code Check
 
 on:
-  - push
+  workflow_dispatch:
+  push:
 
 jobs:
   lint:

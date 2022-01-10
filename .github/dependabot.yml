@@ -9,6 +9,8 @@ updates:
     directory: '/' # Location of package manifests
     schedule:
       interval: 'daily'
+    assignees:
+      - 'LordRonz'
     reviewers:
       - 'LordRonz'
     commit-message:
@@ -20,6 +22,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    assignees:
+      - 'LordRonz'
     reviewers:
       - 'LordRonz'
     commit-message:
