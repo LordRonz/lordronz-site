@@ -4,9 +4,9 @@ import * as React from 'react';
 import CustomLink from '@/components/links/CustomLink';
 import { UnstyledLinkProps } from '@/components/links/UnstyledLink';
 
-type ArrowLinkProps<C extends React.ElementType> = {
-  as?: C;
-  direction?: 'left' | 'right';
+export type ArrowLinkProps<C extends React.ElementType> = {
+  readonly as?: C;
+  readonly direction?: 'left' | 'right';
 } & UnstyledLinkProps &
   React.ComponentProps<C>;
 

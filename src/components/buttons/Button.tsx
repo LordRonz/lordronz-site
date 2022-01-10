@@ -10,10 +10,10 @@ enum ButtonVariant {
   'dark',
 }
 
-type ButtonProps = {
-  isLoading?: boolean;
-  isDarkBg?: boolean;
-  variant?: keyof typeof ButtonVariant;
+export type ButtonProps = {
+  readonly isLoading?: boolean;
+  readonly isDarkBg?: boolean;
+  readonly variant?: keyof typeof ButtonVariant;
 } & React.ComponentPropsWithoutRef<'button'>;
 
 const Button = ({
