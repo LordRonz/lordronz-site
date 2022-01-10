@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 
 export type CoolButtonProp = {
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
   className?: string;
   children: React.ReactNode;
 } & React.ComponentPropsWithoutRef<'svg'>;
@@ -14,7 +14,7 @@ const CoolButton = ({
   children,
   ...rest
 }: CoolButtonProp) => {
-  const a = 2 * (w + h);
+  const a = 2 * (+w + +h);
 
   return (
     <svg
