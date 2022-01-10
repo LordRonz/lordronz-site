@@ -12,8 +12,8 @@ enum ButtonVariant {
   'dark',
 }
 
-type ButtonLinkProps = {
-  variant?: keyof typeof ButtonVariant;
+export type ButtonLinkProps = {
+  readonly variant?: keyof typeof ButtonVariant;
 } & UnstyledLinkProps;
 
 const ButtonLink = ({

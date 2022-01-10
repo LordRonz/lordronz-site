@@ -1,11 +1,11 @@
 import Link, { LinkProps } from 'next/link';
 
 export type UnstyledLinkProps = {
-  href: string;
-  children: React.ReactNode;
-  openNewTab?: boolean;
-  className?: string;
-  nextLinkProps?: Omit<LinkProps, 'href'>;
+  readonly href: string;
+  readonly children: React.ReactNode;
+  readonly openNewTab?: boolean;
+  readonly className?: string;
+  readonly nextLinkProps?: Omit<LinkProps, 'href'>;
 } & React.ComponentPropsWithoutRef<'a'>;
 
 const UnstyledLink = ({
