@@ -13,7 +13,9 @@
     "tsc": "tsc --pretty --noEmit --incremental false",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cy": "cypress open",
+    "cy:headless": "cypress run"
   },
   "dependencies": {
     "clsx": "^1.1.1",
