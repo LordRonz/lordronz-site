@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       <main>
         <section className='bg-black text-primary-50'>
           <div className='layout flex flex-col justify-center items-center min-h-screen text-center'>
-            <h1>Next.js + Tailwind CSS + TypeScript Starter</h1>
+            <h1>Henlo there</h1>
             <p className='mt-2 text-sm text-primary-50'>
               This starter is heavily inspired by{' '}
               <CustomLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>

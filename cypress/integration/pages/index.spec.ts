@@ -6,6 +6,6 @@ describe('Index Page', () => {
   });
 
   it('should display correct heading', () => {
-    cy.get('h2').should('contain', 'Hi');
+    cy.get('h1').should('contain', 'Henlo there');
   });
 });
