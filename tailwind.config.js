@@ -1,22 +1,18 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
-const withOpacity = (variableName) => {
-  return ({ opacityValue }) => {
-    if (opacityValue !== undefined) {
-      return `rgba(var(${variableName}), ${opacityValue})`;
-    }
-    return `rgb(var(${variableName}))`;
-  };
-};
+const withOpacity =
+  (variable) =>
+  ({ opacityValue }) =>
+    opacityValue === undefined
+      ? `rgb(var(${variable}))`
+      : `rgb(var(${variable}) / ${opacityValue})`;
 
-const getColorShades = (shades, name = 'primary') => {
-  const colorShades = {};
-  shades.forEach((shade) => {
-    colorShades[shade] = withOpacity(`--tw-clr-${name}-${shade}`);
-  });
-  return colorShades;
-};
+const getColorShades = (shades, name = 'primary') =>
+  shades.reduce(
+    (a, v) => ({ ...a, [v]: withOpacity(`--tw-clr-${name}-${v}`) }),
+    {}
+  );
 
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
