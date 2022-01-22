@@ -5,14 +5,14 @@
 :root {
   /* Customize these variable */
   /* https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo */
-  --tw-clr-primary-50: 255, 209, 209;
-  --tw-clr-primary-100: 255, 154, 154;
-  --tw-clr-primary-200: 250, 128, 114;
-  --tw-clr-primary-300: 235, 39, 84;
-  --tw-clr-primary-400: 223, 40, 0;
-  --tw-clr-primary-500: 153, 35, 35;
-  --tw-clr-primary-600: 128, 0, 0;
-  --tw-clr-primary-700: 105, 0, 0;
+  --tw-clr-primary-50: 255 209 209;
+  --tw-clr-primary-100: 255 154 154;
+  --tw-clr-primary-200: 250 128 114;
+  --tw-clr-primary-300: 235 39 84;
+  --tw-clr-primary-400: 223 40 0;
+  --tw-clr-primary-500: 153 35 35;
+  --tw-clr-primary-600: 128 0 0;
+  --tw-clr-primary-700: 105 0 0;
 
   --clr-primary-50: rgb(var(--tw-clr-primary-50)); /* #ffd1d1 */
   --clr-primary-100: rgb(var(--tw-clr-primary-100)); /* #ff9a9a */
@@ -40,7 +40,7 @@
   }
 
   ::selection {
-    background: rgba(var(--tw-clr-primary-300), 0.3);
+    background: rgb(var(--tw-clr-primary-300) / 0.3);
   }
 
   /* #region  /**=========== Typography =========== */
