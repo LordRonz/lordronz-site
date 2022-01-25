@@ -15,5 +15,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          headless: true
           build: yarn build
           start: yarn start
