@@ -2,6 +2,7 @@
 import type { NextPage } from 'next';
 
 import Accent from '@/components/Accent';
+import Layout from '@/components/layout/Layout';
 import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
 import CustomLink from '@/components/links/CustomLink';
@@ -9,7 +10,7 @@ import Seo from '@/components/Seo';
 
 const Home: NextPage = () => {
   return (
-    <>
+    <Layout>
       <Seo />
       <main>
         <section className='bg-black text-primary-50'>
@@ -40,7 +41,7 @@ const Home: NextPage = () => {
           </div>
         </section>
       </main>
-    </>
+    </Layout>
   );
 };
 

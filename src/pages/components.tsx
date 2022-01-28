@@ -2,6 +2,7 @@
 import type { NextPage } from 'next';
 
 import Button from '@/components/buttons/Button';
+import Layout from '@/components/layout/Layout';
 import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
 import CustomLink from '@/components/links/CustomLink';
@@ -10,7 +11,7 @@ import Seo from '@/components/Seo';
 
 const Home: NextPage = () => {
   return (
-    <>
+    <Layout>
       <Seo templateTitle='Components' description='Component collections' />
       <main>
         <section className='bg-black text-primary-50'>
@@ -121,7 +122,7 @@ const Home: NextPage = () => {
           </footer>
         </section>
       </main>
-    </>
+    </Layout>
   );
 };
 
