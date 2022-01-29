@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 import CustomLink from '@/components/links/CustomLink';
-import { UnstyledLinkProps } from '@/components/links/UnstyledLink';
+import type { UnstyledLinkProps } from '@/components/links/UnstyledLink';
 
 export type ArrowLinkProps<C extends React.ElementType> = {
   readonly as?: C;
