@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 
-import UnstyledLink, {
-  UnstyledLinkProps,
-} from '@/components/links/UnstyledLink';
+import type { UnstyledLinkProps } from '@/components/links/UnstyledLink';
+import UnstyledLink from '@/components/links/UnstyledLink';
 
 const CustomLink = ({ children, className, ...rest }: UnstyledLinkProps) => (
   <UnstyledLink

@@ -1,4 +1,5 @@
-import Link, { LinkProps } from 'next/link';
+import type { LinkProps } from 'next/link';
+import Link from 'next/link';
 
 export type UnstyledLinkProps = {
   readonly href: string;
