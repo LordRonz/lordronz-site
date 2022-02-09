@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import type { UnstyledLinkProps } from '@/components/links/UnstyledLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
-enum ButtonVariant {
-  'primary',
-  'outline',
-  'ghost',
-  'light',
-  'dark',
+const enum ButtonVariant {
+  primary,
+  outline,
+  ghost,
+  light,
+  dark,
 }
 
 export type ButtonLinkProps = {

@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import { ImSpinner2 } from 'react-icons/im';
 
-enum ButtonVariant {
-  'primary',
-  'outline',
-  'ghost',
-  'light',
-  'dark',
+const enum ButtonVariant {
+  primary,
+  outline,
+  ghost,
+  light,
+  dark,
 }
 
 export type ButtonProps = {
