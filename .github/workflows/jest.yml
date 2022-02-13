@@ -1,0 +1,7 @@
+name: Jest Tests
+
+on:
+  workflow_dispatch:
+  push:
+
+
