@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       <Seo templateTitle='Components' description='Component collections' />
       <main>
         <section className='bg-black text-primary-50'>
-          <div className='layout flex flex-col min-h-screen'>
+          <div className='layout flex min-h-screen flex-col'>
             <h1 className='mt-10 mb-4'>Components</h1>
             <p className='mb-4'>
               <ArrowLink href='/' openNewTab={false} direction='left'>
@@ -117,7 +117,7 @@ const Home: NextPage = () => {
               </li>
             </ol>
           </div>
-          <footer className='py-4 flex justify-center items-center'>
+          <footer className='flex items-center justify-center py-4'>
             © Aaron Christopher {new Date().getFullYear()}
           </footer>
         </section>

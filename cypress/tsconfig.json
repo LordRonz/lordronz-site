@@ -13,14 +13,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "~/*": ["./public/*"]
-    },
-    "incremental": true
+    "incremental": true,
+    "types": ["cypress"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "cypress"],
-  "moduleResolution": ["node_modules", ".next", "node"]
+  "include": ["../node_modules/cypress", "./**/*.ts"]
 }

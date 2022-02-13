@@ -32,11 +32,11 @@ const Button = ({
       type='button'
       disabled={disabled}
       className={clsxm(
-        'inline-flex items-center px-4 py-2 font-semibold rounded',
+        'inline-flex items-center rounded px-4 py-2 font-semibold',
         'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
         'shadow-sm',
         !disabled
-          ? 'transform-gpu scale-100 hover:scale-[1.03] active:scale-[0.97]transition duration-300 animate-shadow'
+          ? 'active:scale-[0.97]transition animate-shadow scale-100 transform-gpu duration-300 hover:scale-[1.03]'
           : '',
         [
           variant === 'primary' && [
@@ -74,7 +74,7 @@ const Button = ({
         ],
         'disabled:cursor-not-allowed',
         isLoading &&
-          'relative !text-transparent hover:!text-transparent !cursor-wait !transition-none',
+          'relative !cursor-wait !text-transparent !transition-none hover:!text-transparent',
         className
       )}
       {...rest}
