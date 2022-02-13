@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       <Seo />
       <main>
         <section className='bg-black text-primary-50'>
-          <div className='layout flex flex-col justify-center items-center min-h-screen text-center'>
+          <div className='layout flex min-h-screen flex-col items-center justify-center text-center'>
             <h1>
               <Accent>Henlo there</Accent>
             </h1>
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
               </CustomLink>
               . I changed some stuff to fit my preference.
             </p>
-            <p className='mt-2 text-md text-primary-50'>
+            <p className='text-md mt-2 text-primary-50'>
               <ArrowLink href='https://github.com/LordRonz/nextjs-starter'>
                 See the repository
               </ArrowLink>

@@ -13,4 +13,9 @@ module.exports = {
 
     return config;
   },
+  experimental: {
+    removeConsole: {
+      exclude: ['error'],
+    },
+  },
 };
