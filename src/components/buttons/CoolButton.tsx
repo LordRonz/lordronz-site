@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import clsxm from '@/lib/clsxm';
 
 export type CoolButtonProp = {
   readonly width?: number | string;
@@ -20,7 +20,7 @@ const CoolButton = ({
     <svg
       width={w}
       height={h}
-      className={clsx(
+      className={clsxm(
         'overflow-visible cursor-pointer focus:outline-none group',
         className
       )}
