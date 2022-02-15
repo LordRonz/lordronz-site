@@ -36,7 +36,7 @@ const Button = ({
         'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
         'shadow-sm',
         !disabled
-          ? 'active:scale-[0.97]transition animate-shadow scale-100 transform-gpu duration-300 hover:scale-[1.03]'
+          ? 'animate-shadow scale-100 transform-gpu transition duration-300 hover:scale-[1.03] active:scale-[0.97]'
           : '',
         [
           variant === 'primary' && [
