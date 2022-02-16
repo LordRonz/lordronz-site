@@ -50,7 +50,7 @@ const ButtonLink = ({
         variant === 'light' && [
           'bg-white text-black',
           'border border-gray-300',
-          'hover:text-dark hover:bg-gray-100',
+          'hover:bg-gray-100 hover:text-dark',
           'active:bg-white/80 disabled:bg-gray-200',
         ],
         variant === 'dark' && [

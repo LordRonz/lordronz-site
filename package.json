@@ -46,6 +46,8 @@
     "eslint": "^8.9.0",
     "eslint-config-next": "^12.0.10",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^26.1.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.4",
