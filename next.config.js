@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  compiler: {
+    removeConsole: {
+      exclude: ['error'],
+    },
+  },
   reactStrictMode: true,
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
@@ -12,10 +17,5 @@ module.exports = {
     }
 
     return config;
-  },
-  experimental: {
-    removeConsole: {
-      exclude: ['error'],
-    },
   },
 };
