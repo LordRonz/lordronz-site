@@ -5,6 +5,7 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@next/next/recommended",
     "plugin:jest/all",
     "plugin:prettier/recommended",
     "prettier"
@@ -12,6 +13,7 @@
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint",
+    "@next/eslint-plugin-next",
     "simple-import-sort",
     "unused-imports",
     "jest"
