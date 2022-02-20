@@ -13,19 +13,19 @@ const Home: NextPage = () => {
     <Layout>
       <Seo />
       <main>
-        <section className='bg-black text-primary-50'>
+        <section className='bg-light text-dark  dark:bg-dark dark:text-primary-50'>
           <div className='layout flex min-h-screen flex-col items-center justify-center text-center'>
             <h1>
               <Accent>Henlo there</Accent>
             </h1>
-            <p className='mt-2 text-sm text-primary-50'>
+            <p className='mt-2 text-sm text-dark dark:text-primary-50'>
               This starter is heavily inspired by{' '}
               <CustomLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
                 this amazing starter
               </CustomLink>
               . I changed some stuff to fit my preference.
             </p>
-            <p className='text-md mt-2 text-primary-50'>
+            <p className='text-md mt-2 text-dark dark:text-primary-50'>
               <ArrowLink href='https://github.com/LordRonz/nextjs-starter'>
                 See the repository
               </ArrowLink>
