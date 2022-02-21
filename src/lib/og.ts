@@ -11,7 +11,7 @@ export const openGraph = ({
   description,
   logo = 'https://lordronz.vercel.app/images/logo.jpg',
 }: OpenGraphType): string => {
-  const ogLogo = encodeURIComponent(logo);
+  const ogLogo = encodeURIComponent(logo.trim());
   const ogSiteName = encodeURIComponent(siteName.trim());
   const ogTemplateTitle = templateTitle
     ? encodeURIComponent(templateTitle.trim())
