@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/LordRonz/lordronz-site/compare/v0.0.1...v0.0.2) (2022-02-21)
+
+### Features
+
+- add eslint plugin jest and eslint plugin prettier :rocket: ([7bb50e7](https://github.com/LordRonz/lordronz-site/commit/7bb50e7c428e1bafba09861b42271f99ae0c2f36))
+- add next bundle analyzer :rocket: ([625216f](https://github.com/LordRonz/lordronz-site/commit/625216f40e5398e9115cde072dc4f1cc5996a7d9))
+- dark and light mode color support :rocket: ([08a598e](https://github.com/LordRonz/lordronz-site/commit/08a598ecc74fdb09f3f717f9427ca02fd297ff4d))
+
+### Bug Fixes
+
+- button component classname typo ([f6d967c](https://github.com/LordRonz/lordronz-site/commit/f6d967cbc5cc00e1db6cfce5b9409327fb206fc7))
+
 ### 0.0.1 (2022-02-13)
 
 ### Features
