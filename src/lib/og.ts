@@ -3,6 +3,7 @@ export type OpenGraphType = {
   description: string;
   templateTitle?: string;
   logo?: string;
+  logoWidth?: string;
 };
 
 export const openGraph = ({
@@ -10,6 +11,7 @@ export const openGraph = ({
   templateTitle,
   description,
   logo = 'https://lordronz.vercel.app/images/logo.jpg',
+  logoWidth = '100',
 }: OpenGraphType): string => {
   const ogLogo = encodeURIComponent(logo.trim());
   const ogSiteName = encodeURIComponent(siteName.trim());
@@ -17,8 +19,9 @@ export const openGraph = ({
     ? encodeURIComponent(templateTitle.trim())
     : undefined;
   const ogDesc = encodeURIComponent(description.trim());
+  const ogLogoWidth = encodeURIComponent(logoWidth.trim());
 
-  return `https://lr-og.vercel.app/api/general?siteName=${ogSiteName}&description=${ogDesc}&logo=${ogLogo}${
+  return `https://lr-og.vercel.app/api/general?siteName=${ogSiteName}&description=${ogDesc}&logo=${ogLogo}&logoWidth=${ogLogoWidth}${
     ogTemplateTitle ? `&templateTitle=${ogTemplateTitle}` : ''
   }`;
 };
