@@ -33,6 +33,7 @@ const Seo = (props: SeoProps) => {
     : meta.title;
 
   meta['image'] = openGraph({
+    type: 'gradient',
     description: meta.description,
     siteName: props.templateTitle ? meta.siteName : meta.title,
     templateTitle: props.templateTitle,
