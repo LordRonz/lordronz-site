@@ -6,7 +6,7 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@next/next/recommended",
-    "plugin:jest/all",
+    "plugin:jest/recommended",
     "plugin:prettier/recommended",
     "prettier"
   ],
