@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 import { openGraph } from '@/lib/og';
 
 const defaultMeta = {
-  title: 'Next.js TypeScript Starter',
+  title: 'Aaron Christopher',
   siteName: process.env.NEXT_PUBLIC_HOSTNAME || 'lordronz.vercel.app',
-  description: 'NextJS Typescript Boilerplate.',
+  description: 'My online portfolio and blog website.',
   url: process.env.NEXT_PUBLIC_HOSTNAME
     ? `https://${process.env.NEXT_PUBLIC_HOSTNAME}`
     : 'https://lordronz.vercel.app',
