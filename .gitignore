@@ -43,3 +43,6 @@ sitemap*.xml
 # cypress
 cypress/videos
 cypress/screenshots
+
+# coveralls
+.coveralls.yml

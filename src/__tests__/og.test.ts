@@ -55,4 +55,29 @@ describe('open graph test', () => {
       'https://lr-og.vercel.app/api/general?siteName=lordronz.vercel.app&description=Test&logo=https%3A%2F%2Flordronz.vercel.app%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title'
     );
   });
+  it('should return correct logo', () => {
+    expect.hasAssertions();
+    const result = openGraph({
+      description: 'Test',
+      siteName: 'lordronz.vercel.app',
+      templateTitle: 'Test Title',
+      type: 'bruh' as keyof typeof OGType,
+    });
+
+    expect(result).toBe(
+      'https://lr-og.vercel.app/api/general?siteName=lordronz.vercel.app&description=Test&logo=https%3A%2F%2Flordronz.vercel.app%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title'
+    );
+  });
+  it('should return empty template title', () => {
+    expect.hasAssertions();
+    const result = openGraph({
+      description: 'Test',
+      siteName: 'lordronz.vercel.app',
+      type: 'bruh' as keyof typeof OGType,
+    });
+
+    expect(result).toBe(
+      'https://lr-og.vercel.app/api/general?siteName=lordronz.vercel.app&description=Test&logo=https%3A%2F%2Flordronz.vercel.app%2Fimages%2Flogo.jpg&logoWidth=100'
+    );
+  });
 });
