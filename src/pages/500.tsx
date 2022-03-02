@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 
+import Accent from '@/components/Accent';
 import Seo from '@/components/Seo';
 
 const ErrorPage: NextPage = () => (
@@ -9,7 +10,11 @@ const ErrorPage: NextPage = () => (
       <section className='bg-black text-primary-50'>
         <div className='layout flex min-h-screen flex-col items-center justify-center gap-y-40 text-center'>
           <div className='flex flex-col gap-y-4'>
-            <h1 className='text-8xl text-primary-300'>500</h1>
+            <h1 className='text-8xl'>
+              <Accent className='from-primary-300 via-primary-100/70 to-primary-400'>
+                404
+              </Accent>
+            </h1>
             <h2>Internal Server Error</h2>
           </div>
 
