@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+import 'react-tippy/dist/tippy.css';
 import '@/styles/nprogress.css';
 
 import type { AppProps } from 'next/app';
