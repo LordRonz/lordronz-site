@@ -1,3 +1,4 @@
+/* eslint-disable jest/expect-expect */
 import { beforeEach, cy, describe, it } from 'local-cypress';
 
 describe('Index Page', () => {

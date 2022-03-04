@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import 'react-tippy/dist/tippy.css';
 import '@/styles/nprogress.css';
+import 'react-typed/dist/animatedCursor.css';
 
 import type { AppProps } from 'next/app';
 import Router from 'next/router';
