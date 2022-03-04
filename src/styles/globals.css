@@ -97,3 +97,11 @@
     background-size: 0 2px, 100% 2px;
   }
 }
+
+.tippy-tooltip [x-circle] {
+  background-color: transparent !important;
+}
+
+.tippy-tooltip {
+  padding: 0 0.8rem;
+}
