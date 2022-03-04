@@ -65,7 +65,7 @@ const Footer = () => {
               hideOnClick={false}
               interactive
               html={
-                <div className='inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-gray-600 dark:bg-dark dark:text-gray-200'>
+                <div className='inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-primary-500 dark:bg-dark dark:text-gray-200'>
                   {copyStatus}
                   <Accent className='inline-block font-medium'>
                     christopher.19072@mhs.its.ac.id
