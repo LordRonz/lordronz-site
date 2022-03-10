@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // const nextJest = require('next/jest');
+import type { Config } from '@jest/types';
 import nextJest from 'next/jest';
 
 const createJestConfig = nextJest({
@@ -9,7 +10,7 @@ const createJestConfig = nextJest({
 
 // Add any custom config to be passed to Jest
 /** @type {import('@jest/types').Config.InitialOptions} */
-const customJestConfig = {
+const customJestConfig: Config.InitialOptions = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     // Handle module aliases (this will be automatically configured for you soon)
