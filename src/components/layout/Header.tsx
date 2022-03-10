@@ -1,6 +1,6 @@
+import Accent from '@/components/Accent';
+import PageProgress from '@/components/PageProgress';
 import clsxm from '@/lib/clsxm';
-
-import Accent from '../Accent';
 
 const Header = () => {
   return (
@@ -19,7 +19,8 @@ const Header = () => {
       >
         <Accent>Skip to main content</Accent>
       </a>
-      <div className='h-2 bg-gradient-to-tr from-primary-200 via-primary-300 to-primary-400' />
+      {/* <div className='h-2 bg-gradient-to-tr from-primary-200 via-primary-300 to-primary-400' /> */}
+      <PageProgress color='#ff9a9a' />
       <nav></nav>
     </header>
   );
