@@ -13,6 +13,8 @@
     "lint": "next lint",
     "lint:fix": "eslint src --fix && yarn format",
     "lint:strict": "eslint --max-warnings=0 src",
+    "stylelint": "stylelint \"**/*.css\"",
+    "stylelint:fix": "yarn stylelint --fix",
     "tsc": "tsc --pretty --noEmit --incremental false",
     "test:watch": "jest --watch",
     "test": "jest -i",
@@ -76,6 +78,9 @@
     "prettier-plugin-tailwindcss": "^0.1.8",
     "rimraf": "^3.0.2",
     "standard-version": "^9.3.2",
+    "stylelint": "^14.5.3",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
     "tailwindcss": "^3.0.23",
     "typescript": "^4.6.2"
   }

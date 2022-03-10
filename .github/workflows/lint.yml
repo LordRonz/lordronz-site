@@ -52,3 +52,19 @@ jobs:
         run: yarn
       - name: Run prettier
         run: yarn format
+
+  stylelint:
+    name: Run Stylelint Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Node
+        uses: actions/setup-node@v3.0.0
+        with:
+          node-version: '14'
+          cache: 'yarn'
+      - name: Install packages
+        run: yarn
+      - name: Run stylelint
+        run: yarn stylelint
