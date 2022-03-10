@@ -4,7 +4,9 @@
 
 :root {
   /* Customize these variable */
+
   /* https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo */
+
   --tw-clr-primary-50: 255 209 209;
   --tw-clr-primary-100: 255 154 154;
   --tw-clr-primary-200: 250 128 114;
@@ -13,7 +15,6 @@
   --tw-clr-primary-500: 153 35 35;
   --tw-clr-primary-600: 128 0 0;
   --tw-clr-primary-700: 105 0 0;
-
   --clr-primary-50: rgb(var(--tw-clr-primary-50)); /* #ffd1d1 */
   --clr-primary-100: rgb(var(--tw-clr-primary-100)); /* #ff9a9a */
   --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #fa8072 */
@@ -26,7 +27,7 @@
 
 @layer base {
   @font-face {
-    font-family: 'Inter';
+    font-family: Inter;
     font-style: normal;
     font-weight: 100 900;
     font-display: optional;
@@ -36,7 +37,7 @@
   }
 
   ::selection {
-    background: rgb(var(--tw-clr-primary-300) / 0.3);
+    background: rgb(var(--tw-clr-primary-300) / 30%);
   }
 
   /* #region  /**=========== Typography =========== */
@@ -59,6 +60,7 @@
   body {
     @apply font-primary text-sm md:text-base;
   }
+
   /* #endregion  /**======== Typography =========== */
 
   .layout {
@@ -79,7 +81,7 @@
 
 @layer utilities {
   .animated-underline {
-    background-image: linear-gradient(#33333300, #33333300),
+    background-image: linear-gradient(#3330, #3330),
       linear-gradient(to right, var(--clr-primary-300), var(--clr-primary-100));
     background-size: 100% 2px, 0 2px;
     background-position: 100% 100%, 0 100%;
@@ -92,6 +94,7 @@
         border-color;
     }
   }
+
   .animated-underline:hover,
   .animated-underline:focus-visible {
     background-size: 0 2px, 100% 2px;
