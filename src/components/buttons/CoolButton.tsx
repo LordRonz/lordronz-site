@@ -41,7 +41,7 @@ const CoolButton = ({
         height={h}
         className='pointer-events-none'
       >
-        <div className='font-[Helvetica,Inter,Arial,sans-serif]text-[14px] flex h-full items-center justify-center font-extralight uppercase text-primary-300'>
+        <div className='flex h-full items-center justify-center text-[14px] font-extralight uppercase text-primary-300'>
           {children}
         </div>
       </foreignObject>

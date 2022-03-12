@@ -38,8 +38,7 @@ const Tooltip = ({
     >
       {withUnderline ? (
         <span
-          className={clsxm(spanClassName, 'underline')}
-          style={{ textDecorationStyle: 'dotted' }}
+          className={clsxm(spanClassName, 'underline', 'decoration-dotted')}
         >
           {children}
         </span>
