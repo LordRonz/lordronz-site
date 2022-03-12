@@ -3,9 +3,15 @@ import { useEffect, useState } from 'react';
 export type PageProgressProps = {
   color?: string;
   height?: number;
+  dir?: 'ltr' | 'rtl';
 } & React.ComponentPropsWithoutRef<'div'>;
 
-const PageProgress = ({ color, height, ...props }: PageProgressProps) => {
+const PageProgress = ({
+  color,
+  height,
+  dir = 'ltr',
+  ...props
+}: PageProgressProps) => {
   const [width, setWidth] = useState<string>('0');
 
   const watchScrolling = () => {
@@ -31,6 +37,7 @@ const PageProgress = ({ color, height, ...props }: PageProgressProps) => {
     height: height ? height : 4,
     width: width,
     top: 0,
+    right: dir === 'ltr' ? 'auto' : 0,
     zIndex: 99,
     transition: 'width 200ms ease-out',
   };
