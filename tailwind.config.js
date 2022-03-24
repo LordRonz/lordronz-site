@@ -26,8 +26,8 @@ module.exports = {
       colors: {
         // Customize it on globals.css :root
         primary: getColorShades([50, 100, 200, 300, 400, 500, 600, 700]),
-        dark: '#111111',
-        light: '#dddddd',
+        dark: '#111',
+        light: '#ddd',
       },
     },
   },
