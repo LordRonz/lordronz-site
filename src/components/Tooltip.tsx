@@ -26,9 +26,9 @@ const Tooltip = ({
       html={
         <div
           className={clsxm(
-            className,
             'inline-block rounded-md bg-white p-2 text-gray-600 shadow-md dark:bg-dark dark:text-gray-200',
-            'border dark:border-primary-500 '
+            'border dark:border-primary-500 ',
+            className
           )}
         >
           {content}
@@ -38,7 +38,7 @@ const Tooltip = ({
     >
       {withUnderline ? (
         <span
-          className={clsxm(spanClassName, 'underline', 'decoration-dotted')}
+          className={clsxm('underline', 'decoration-dotted', spanClassName)}
         >
           {children}
         </span>
