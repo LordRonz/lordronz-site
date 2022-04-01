@@ -1,18 +1,21 @@
 name: Test Coveralls
 
-on: ['push', 'pull_request']
+on:
+  workflow_dispatch:
+  push:
 
 jobs:
-  build:
-    name: Build
+  coveralls:
+    name: Coveralls
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js 14.x
+      - name: Use Node.js 16.x
         uses: actions/setup-node@v3.0.0
         with:
-          node-version: '14'
+          node-version: '16'
+          cache: 'yarn'
 
       - name: yarn install, yarn test:coverage
         run: |
