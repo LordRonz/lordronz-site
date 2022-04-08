@@ -4,7 +4,7 @@ import clsxm from '@/lib/clsxm';
 
 type TooltipTextProps = {
   content?: React.ReactNode;
-  children?: React.ReactNode;
+  children: React.ReactNode;
   className?: string;
   spanClassName?: string;
   withUnderline?: boolean;
