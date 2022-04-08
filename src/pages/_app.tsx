@@ -6,6 +6,12 @@ import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import NextNProgress from 'nextjs-progressbar';
 
+declare module 'next-themes' {
+  interface ThemeProviderProps {
+    children: React.ReactNode;
+  }
+}
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider attribute='class' defaultTheme='dark' enableSystem={false}>

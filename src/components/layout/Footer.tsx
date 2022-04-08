@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import * as React from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FiMail } from 'react-icons/fi';
 import {
   SiGithub,

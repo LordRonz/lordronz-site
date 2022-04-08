@@ -2,9 +2,15 @@ import { Tooltip as TippyTooltip, TooltipProps } from 'react-tippy';
 
 import clsxm from '@/lib/clsxm';
 
+declare module 'react-tippy' {
+  interface TooltipProps {
+    children?: React.ReactNode;
+  }
+}
+
 type TooltipTextProps = {
   content?: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   spanClassName?: string;
   withUnderline?: boolean;
