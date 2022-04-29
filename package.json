@@ -44,7 +44,7 @@
     "tailwind-merge": "^1.2.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.3",
+    "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@next/bundle-analyzer": "^12.1.5",
     "@next/eslint-plugin-next": "^12.1.1",
