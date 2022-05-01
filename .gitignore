@@ -46,3 +46,6 @@ cypress/screenshots
 
 # coveralls
 .coveralls.yml
+
+# storybook
+storybook-static
