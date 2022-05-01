@@ -28,7 +28,7 @@
     "cy": "cypress open",
     "cy:headless": "cypress run",
     "release": "standard-version -s",
-    "storybook": "start-storybook -p 6006 -h localhost",
+    "storybook": "cross-env TS_NODE_PROJECT=.storybook/tsconfig.json cross-env BROWSER=none start-storybook -p 6006 -h localhost",
     "build-storybook": "build-storybook -h localhost"
   },
   "dependencies": {
@@ -93,6 +93,8 @@
     "prettier-plugin-tailwindcss": "^0.1.10",
     "rimraf": "^3.0.2",
     "standard-version": "^9.3.2",
+    "storybook-addon-next-router": "^3.1.1",
+    "storybook-dark-mode": "^1.1.0",
     "stylelint": "^14.8.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",
