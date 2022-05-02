@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "build-prod": "cross-env NODE_ENV=production next build",
-    "build-stats": "cross-env ANALYZE=true npm run build",
+    "build-stats": "cross-env ANALYZE=true yarn build",
     "postbuild": "next-sitemap",
     "export": "next export",
     "start": "next start",
@@ -19,6 +19,7 @@
     "test:watch": "jest --watch",
     "test": "jest -i",
     "test:coverage": "jest -i --coverage",
+    "fix-all": "concurrently \"yarn lint:fix\" \"yarn test\" \"yarn tsc\" \"yarn stylelint:fix\"",
     "coverage:coveralls": "jest -i --coverage --coverageReporters=text-lcov | coveralls",
     "test-all": "run-s test cy:headless",
     "clean": "rimraf .next out",
@@ -27,7 +28,9 @@
     "prepare": "husky install",
     "cy": "cypress open",
     "cy:headless": "cypress run",
-    "release": "standard-version -s"
+    "release": "standard-version -s",
+    "storybook": "cross-env TS_NODE_PROJECT=.storybook/tsconfig.json cross-env BROWSER=none start-storybook -p 6006 -h localhost",
+    "build-storybook": "build-storybook -h localhost"
   },
   "dependencies": {
     "clsx": "^1.1.1",
@@ -44,10 +47,20 @@
     "tailwind-merge": "^1.2.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.10",
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@next/bundle-analyzer": "^12.1.5",
     "@next/eslint-plugin-next": "^12.1.1",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack5": "^6.4.22",
+    "@storybook/manager-webpack5": "^6.4.22",
+    "@storybook/react": "^6.4.22",
+    "@storybook/testing-library": "^0.0.11",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@types/node": "^17.0.30",
@@ -57,6 +70,8 @@
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
     "autoprefixer": "^10.4.5",
+    "babel-loader": "^8.2.5",
+    "concurrently": "^7.1.0",
     "coveralls": "^3.1.1",
     "cross-env": "^7.0.3",
     "cypress": "^9.6.0",
@@ -66,6 +81,7 @@
     "eslint-plugin-jest": "^26.1.5",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-storybook": "^0.5.11",
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.4",
     "jest": "^28.0.3",
@@ -79,10 +95,15 @@
     "prettier-plugin-tailwindcss": "^0.1.10",
     "rimraf": "^3.0.2",
     "standard-version": "^9.3.2",
+    "storybook-addon-next-router": "^3.1.1",
+    "storybook-dark-mode": "^1.1.0",
     "stylelint": "^14.8.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",
     "tailwindcss": "^3.0.24",
     "typescript": "^4.6.4"
+  },
+  "resolutions": {
+    "webpack": "^5"
   }
 }

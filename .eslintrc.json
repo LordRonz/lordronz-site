@@ -8,6 +8,7 @@
     "plugin:@next/next/recommended",
     "plugin:jest/recommended",
     "plugin:prettier/recommended",
+    "plugin:storybook/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
