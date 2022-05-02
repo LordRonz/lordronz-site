@@ -1,6 +1,6 @@
-import './button.css';
-
 import React from 'react';
+
+import clsxm from '@/lib/clsxm';
 
 interface ButtonProps {
   /**
@@ -19,6 +19,7 @@ interface ButtonProps {
    * Button contents
    */
   label: string;
+  className?: string;
   /**
    * Optional click handler
    */
@@ -33,16 +34,23 @@ export const Button = ({
   size = 'medium',
   backgroundColor,
   label,
+  className,
   ...props
 }: ButtonProps) => {
-  const mode = primary
-    ? 'storybook-button-primary'
-    : 'storybook-button-secondary';
   return (
     <button
       type='button'
-      className={['storybook-button', `storybook-button-${size}`, mode].join(
-        ' '
+      className={clsxm(
+        "inline-block cursor-pointer rounded-[3em] border-0 font-['Nunito_Sans','Helvetica_Neue',Helvetica,Arial,sans-serif] font-bold leading-none",
+        primary
+          ? 'bg-[#1ea7fd] text-white'
+          : 'bg-transparent text-[#333] shadow-[rgb(0_0_0_/_15%)_0_0_0_1px_inset]',
+        [
+          size === 'small' && 'p-[10px_16px] text-[12px]',
+          size === 'medium' && 'p-[11px_20px] text-[14px]',
+          size === 'large' && 'p-[12px_24px] text-[16px]',
+        ],
+        className
       )}
       style={{ backgroundColor }}
       {...props}
