@@ -1,19 +1,21 @@
 {
   "name": "lordronz-site",
-  "private": true,
   "version": "0.0.2",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "build-prod": "cross-env NODE_ENV=production next build",
     "build-stats": "cross-env ANALYZE=true yarn build",
-    "postbuild": "next-sitemap",
     "export": "next export",
     "start": "next start",
     "deduplicate": "npx yarn-deduplicate && yarn install",
     "lint": "next lint",
     "lint:fix": "eslint src --fix && yarn format",
     "lint:strict": "eslint --max-warnings=0 src",
+    "lint:package": "sort-package-json",
+    "lint-staged": "lint-staged",
     "stylelint": "stylelint \"**/*.css\"",
     "stylelint:fix": "yarn stylelint --fix",
     "tsc": "tsc --pretty --noEmit --incremental false",
@@ -32,6 +34,9 @@
     "release": "standard-version -s",
     "storybook": "cross-env TS_NODE_PROJECT=.storybook/tsconfig.json cross-env BROWSER=none start-storybook -p 6006 -h localhost",
     "build-storybook": "cross-env TS_NODE_PROJECT=.storybook/tsconfig.json build-storybook"
+  },
+  "resolutions": {
+    "webpack": "^5"
   },
   "dependencies": {
     "clsx": "^1.1.1",
@@ -95,6 +100,7 @@
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.10",
     "rimraf": "^3.0.2",
+    "sort-package-json": "^1.57.0",
     "standard-version": "^9.3.2",
     "storybook-addon-next-router": "^3.1.1",
     "storybook-dark-mode": "^1.1.0",
@@ -103,8 +109,5 @@
     "stylelint-config-standard": "^25.0.0",
     "tailwindcss": "^3.0.24",
     "typescript": "^4.6.4"
-  },
-  "resolutions": {
-    "webpack": "^5"
   }
 }
