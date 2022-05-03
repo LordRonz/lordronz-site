@@ -10,6 +10,7 @@
     "postbuild": "next-sitemap",
     "export": "next export",
     "start": "next start",
+    "deduplicate": "npx yarn-deduplicate && yarn install",
     "lint": "next lint",
     "lint:fix": "eslint src --fix && yarn format",
     "lint:strict": "eslint --max-warnings=0 src",
@@ -30,7 +31,7 @@
     "cy:headless": "cypress run",
     "release": "standard-version -s",
     "storybook": "cross-env TS_NODE_PROJECT=.storybook/tsconfig.json cross-env BROWSER=none start-storybook -p 6006 -h localhost",
-    "build-storybook": "build-storybook -h localhost"
+    "build-storybook": "cross-env TS_NODE_PROJECT=.storybook/tsconfig.json build-storybook"
   },
   "dependencies": {
     "clsx": "^1.1.1",
