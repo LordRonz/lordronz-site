@@ -23,7 +23,7 @@ const Home: NextPage = () => {
             </h1>
             <p
               className={clsxm(
-                'mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6',
+                'mt-4 max-w-4xl md:mt-6',
                 'md:text-lg 2xl:text-xl'
               )}
             >
