@@ -10,7 +10,7 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import PageProgress from '@/components/PageProgress';
 import clsxm from '@/lib/clsxm';
 
-const links = [
+export const links = [
   { href: '/projects', label: 'Projects' },
   { href: '/about', label: 'About' },
 ];
@@ -65,7 +65,7 @@ const Header = () => {
         <nav className={clsxm('layout flex items-center justify-between py-4')}>
           <Link href='/' passHref>
             <motion.a
-              className='group relative whitespace-nowrap text-xl font-bold transition duration-300 hover:transition'
+              className='group relative z-50 whitespace-nowrap font-bold transition duration-300 hover:transition md:text-xl'
               animate={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: -10 }}
             >
