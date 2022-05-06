@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import * as React from 'react';
@@ -62,7 +63,7 @@ const Header = () => {
       <PageProgress color='#ff9a9a' />
       <div className='bg-light transition-colors dark:bg-dark dark:text-light'>
         <nav className={clsxm('layout flex items-center justify-between py-4')}>
-          <UnstyledLink href='/'>
+          <Link href='/' passHref>
             <motion.a
               className='group relative whitespace-nowrap text-xl font-bold transition duration-300 hover:transition'
               animate={{ opacity: 1, y: 0 }}
@@ -75,7 +76,7 @@ const Header = () => {
                 Aaron Christopher
               </Accent>
             </motion.a>
-          </UnstyledLink>
+          </Link>
           <ul className='flex items-center justify-between space-x-3 text-xs md:space-x-4 md:text-base'>
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
