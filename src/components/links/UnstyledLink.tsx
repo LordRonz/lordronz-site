@@ -22,7 +22,7 @@ const UnstyledLink = ({
 
   if (!isNewTab) {
     return (
-      <Link href={href} {...nextLinkProps}>
+      <Link href={href} {...nextLinkProps} passHref>
         <a {...rest} className={className}>
           {children}
         </a>

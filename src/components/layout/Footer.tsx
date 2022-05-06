@@ -84,26 +84,32 @@ const Footer = () => {
                   );
                 }}
               >
-                <button className='rounded-sm align-middle focus:outline-none focus-visible:ring focus-visible:ring-primary-300'>
+                <button
+                  aria-label='Mail button'
+                  className='rounded-sm align-middle focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+                >
                   <FiMail className='my-auto h-7 w-7 align-middle text-gray-600 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
                 </button>
               </CopyToClipboard>
             </TooltipTippy>
           </div>
-          {socials.map((social) => (
-            <Tooltip
-              interactive={false}
-              key={social.link}
-              content={social.label}
-            >
-              <UnstyledLink
-                className='inline-flex items-center justify-center rounded-sm focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
-                href={social.link}
+          {socials.map((social) => {
+            return (
+              <Tooltip
+                interactive={false}
+                key={social.link}
+                content={social.label}
               >
-                <social.icon className='my-auto h-6 w-6 align-middle text-gray-600 transition-colors hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
-              </UnstyledLink>
-            </Tooltip>
-          ))}
+                <UnstyledLink
+                  aria-label={social.label}
+                  className='inline-flex items-center justify-center rounded-sm focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+                  href={social.link}
+                >
+                  <social.icon className='my-auto h-6 w-6 align-middle text-gray-600 transition-colors hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
+                </UnstyledLink>
+              </Tooltip>
+            );
+          })}
         </div>
       </main>
     </footer>
