@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next';
 
 import Button from '@/components/buttons/Button';
