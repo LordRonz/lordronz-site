@@ -23,7 +23,7 @@ const ProjectCard = ({ project }: ProjectCardProp) => {
         <div className='relative h-56 overflow-hidden rounded-b-lg'>
           <Image
             alt={project.title}
-            src={`/projects${project.image}`}
+            src={`/images/projects/${project.image}`}
             layout='fill'
             objectFit='cover'
           />
@@ -49,7 +49,7 @@ const ProjectCard = ({ project }: ProjectCardProp) => {
               rel='noopener noreferrer'
               title='Open demo'
             >
-              <MdOpenInNew />
+              <MdOpenInNew className='h-6 w-6 align-middle text-gray-600 transition-colors hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
             </a>
           )}
           {project.github && (
@@ -61,7 +61,7 @@ const ProjectCard = ({ project }: ProjectCardProp) => {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <SiGithub />
+              <SiGithub className='h-6 w-6 align-middle text-gray-600 transition-colors hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
             </a>
           )}
           <div className='flex-1'></div>
