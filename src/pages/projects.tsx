@@ -55,7 +55,7 @@ const projects: Project[] = [
   },
   {
     title: 'Link Shortener',
-    content: 'Personal link shortener & link tree using Notion API',
+    content: 'Personal link shortener and link tree using Notion API',
     slug: 'short_link',
     type: 'website',
     github: 'LordRonz/short-link',
