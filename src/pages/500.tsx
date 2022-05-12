@@ -9,7 +9,7 @@ const ErrorPage: NextPage = () => (
     <Seo templateTitle='Error' />
     <main>
       <section className=''>
-        <div className='layout flex min-h-screen flex-col items-center justify-center gap-y-40 text-center'>
+        <div className='layout flex flex-col items-center justify-center gap-y-40 text-center'>
           <div className='flex flex-col gap-y-4'>
             <h1 className='text-8xl'>
               <Accent className='from-primary-300 via-primary-100/70 to-primary-400'>
