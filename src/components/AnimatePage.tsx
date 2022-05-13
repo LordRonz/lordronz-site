@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { ReactNode } from 'react';
 
 type AnimatePageProps = {
@@ -6,7 +6,7 @@ type AnimatePageProps = {
 };
 
 const AnimatePage = ({ children }: AnimatePageProps) => {
-  const variants = {
+  const variants: Variants = {
     hidden: { opacity: 0, x: 0, y: 100 },
     enter: { opacity: 1, x: 0, y: 0 },
     exit: { opacity: 0, x: 0, y: -100 },

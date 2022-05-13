@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import { MdOpenInNew } from 'react-icons/md';
 import { SiGithub } from 'react-icons/si';
+import { useInView } from 'react-intersection-observer';
+
+import clsxm from '@/lib/clsxm';
 
 export type Project = {
   image?: string;
@@ -17,8 +20,20 @@ export type ProjectCardProp = {
 };
 
 const ProjectCard = ({ project }: ProjectCardProp) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '-10% 0px',
+  });
+
   return (
-    <div className='relative transform overflow-hidden rounded-lg bg-gray-300 transition duration-200 hover:-translate-y-1 hover:shadow-2xl dark:bg-gray-800'>
+    <div
+      ref={ref}
+      className={clsxm(
+        'relative transform overflow-hidden rounded-lg bg-gray-300 transition duration-200 hover:-translate-y-1 hover:shadow-2xl dark:bg-gray-800',
+        'opacity-0 transition duration-500 ease-out motion-reduce:opacity-100',
+        inView && 'opacity-100'
+      )}
+    >
       {project.image && (
         <div className='relative h-56 overflow-hidden rounded-b-lg'>
           <Image

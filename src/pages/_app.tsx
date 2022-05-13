@@ -2,6 +2,7 @@ import '@/styles/globals.css';
 import 'react-tippy/dist/tippy.css';
 import 'react-typed/dist/animatedCursor.css';
 
+import { AnimatePresence } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import NextNProgress from 'nextjs-progressbar';
@@ -20,7 +21,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         startPosition={0.2}
         options={{ showSpinner: false }}
       />
-      <Component {...pageProps} />
+      <AnimatePresence
+        exitBeforeEnter
+        initial={false}
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        <Component {...pageProps} />
+      </AnimatePresence>
     </ThemeProvider>
   );
 };
