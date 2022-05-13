@@ -9,6 +9,11 @@
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/github/LordRonz/lordronz-site.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/LordRonz/lordronz-site/context:javascript)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/LordRonz/lordronz-site.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/LordRonz/lordronz-site/alerts/)
 ![vercel status](https://img.shields.io/github/deployments/lordronz/lordronz-site/production?logo=vercel&label=vercel)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=LordRonz_lordronz-site&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=LordRonz_lordronz-site)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=LordRonz_lordronz-site&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=LordRonz_lordronz-site)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=LordRonz_lordronz-site&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=LordRonz_lordronz-site)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=LordRonz_lordronz-site&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=LordRonz_lordronz-site)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=LordRonz_lordronz-site&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=LordRonz_lordronz-site)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
