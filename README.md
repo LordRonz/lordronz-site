@@ -1,3 +1,5 @@
+# My Personal Website
+
 ![[lordronz-site]](https://socialify.git.ci/LordRonz/lordronz-site/image?description=1&font=Source%20Code%20Pro&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark)
 
 [![Lint](https://github.com/LordRonz/lordronz-site/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/LordRonz/lordronz-site/actions/workflows/lint.yml)
@@ -10,23 +12,38 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+Welcome behind the curtain of my personal website/portfolio. Take a look around.
 
-First, run the development server:
+This website is build using Next.js (React Framework), TailwindCSS (CSS Framework) and TypeScript. Blogs coming soon!
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This project is a constant work in progress, so if you find any bugs, typos or other errors, please feel free to open an issue or pull request. This project is open source, so please feel free to fork and adapt for your own projects (credit would be appreciated).
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Getting this project up and running
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. **Fork or Clone**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+   Fork or clone this project from Github to get your own copy of it.
+
+2. **Start developing.**
+
+   Navigate into your new site’s directory and start it up.
+
+   ```sh
+   cd portfolio/
+   yarn dev
+   ```
+
+3. **Open the source code and start editing!**
+
+   Your site is now running at `http://localhost:3000`!
+
+   You can start editing the page by modifying `src/pages/index.tsx`. The page auto-updates as you edit the file.
+
+   [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+
+   The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Learn More
 
