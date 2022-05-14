@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 
 export type PageProgressProps = {
@@ -45,4 +46,4 @@ const PageProgress = ({
   return <div style={progressStyle} {...props} />;
 };
 
-export default PageProgress;
+export default React.memo(PageProgress);
