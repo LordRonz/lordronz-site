@@ -12,7 +12,7 @@ const ErrorPage: NextPage = () => (
         <div className='layout flex flex-col items-center justify-center gap-y-40 text-center'>
           <div className='flex flex-col gap-y-4'>
             <h1 className='text-8xl'>
-              <Accent className='from-primary-300 via-primary-100/70 to-primary-400'>
+              <Accent className='from-primary-300 via-pink-600/70 to-rose-600 dark:from-primary-300 dark:via-pink-500/70 dark:to-rose-500'>
                 500
               </Accent>
             </h1>
