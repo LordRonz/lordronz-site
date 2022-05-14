@@ -57,7 +57,7 @@ const Header = () => {
           '-translate-y-16 focus:translate-y-0'
         )}
       >
-        <Accent>Skip to main content</Accent>
+        <Accent>Skip to content</Accent>
       </a>
       {/* <div className='h-2 bg-gradient-to-tr from-primary-200 via-primary-300 to-primary-400' /> */}
       <PageProgress color='#ff9a9a' />
