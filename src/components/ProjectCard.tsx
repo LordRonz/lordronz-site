@@ -31,6 +31,7 @@ const ProjectCard = ({ project }: ProjectCardProp) => {
       className={clsxm(
         'relative transform overflow-hidden rounded-lg bg-gray-300 transition duration-200 hover:-translate-y-1 hover:shadow-2xl dark:bg-gray-800',
         'opacity-0 transition duration-500 ease-out motion-reduce:opacity-100',
+        'ring-primary-300 hover:ring',
         inView && 'opacity-100'
       )}
     >

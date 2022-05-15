@@ -10,7 +10,12 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import PageProgress from '@/components/PageProgress';
 import clsxm from '@/lib/clsxm';
 
-export const links = [
+type Links = {
+  href: string;
+  label: string;
+}[];
+
+export const links: Links = [
   { href: '/projects', label: 'Projects' },
   { href: '/about', label: 'About' },
 ];
