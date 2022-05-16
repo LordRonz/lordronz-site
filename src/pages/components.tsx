@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 import Button from '@/components/buttons/Button';
 import CoolButton from '@/components/buttons/CoolButton';
@@ -12,6 +13,12 @@ import Seo from '@/components/Seo';
 
 const Home: NextPage = () => {
   const { theme } = useTheme();
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <Layout>
@@ -30,10 +37,16 @@ const Home: NextPage = () => {
                 <h2 className='my-4'>Buttons</h2>
                 <div className='space-x-4'>
                   <Button variant='primary'>Button</Button>
-                  <Button variant='outline' isDarkBg={theme === 'dark'}>
+                  <Button
+                    variant='outline'
+                    isDarkBg={mounted && theme === 'dark'}
+                  >
                     Button Outline
                   </Button>
-                  <Button variant='ghost' isDarkBg={theme === 'dark'}>
+                  <Button
+                    variant='ghost'
+                    isDarkBg={mounted && theme === 'dark'}
+                  >
                     Button Ghost
                   </Button>
                   <Button variant='light'>Button Light</Button>
@@ -45,12 +58,16 @@ const Home: NextPage = () => {
                   </Button>
                   <Button
                     variant='outline'
-                    isDarkBg={theme === 'dark'}
+                    isDarkBg={mounted && theme === 'dark'}
                     disabled
                   >
                     Disabled
                   </Button>
-                  <Button variant='ghost' isDarkBg={theme === 'dark'} disabled>
+                  <Button
+                    variant='ghost'
+                    isDarkBg={mounted && theme === 'dark'}
+                    disabled
+                  >
                     Disabled
                   </Button>
                   <Button variant='light' disabled>
