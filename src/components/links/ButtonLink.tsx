@@ -38,12 +38,12 @@ const ButtonLink = ({
           'disabled:bg-primary-600 disabled:hover:bg-primary-600',
         ],
         variant === 'outline' && [
-          'text-primary-50',
+          'text-dark dark:text-primary-50',
           'border border-primary-500',
           'hover:bg-primary-700 hover:text-primary-50 active:bg-primary-600 disabled:bg-primary-100',
         ],
         variant === 'ghost' && [
-          'text-primary-50',
+          'text-dark dark:text-primary-50',
           'shadow-none',
           'hover:bg-primary-700 hover:text-primary-50 active:bg-primary-600 disabled:bg-primary-100',
         ],

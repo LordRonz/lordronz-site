@@ -1,6 +1,8 @@
 import type { NextPage } from 'next';
+import { useTheme } from 'next-themes';
 
 import Button from '@/components/buttons/Button';
+import CoolButton from '@/components/buttons/CoolButton';
 import Layout from '@/components/layout/Layout';
 import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
@@ -9,11 +11,13 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 
 const Home: NextPage = () => {
+  const { theme } = useTheme();
+
   return (
     <Layout>
       <Seo templateTitle='Components' description='Component collections' />
       <main>
-        <section className='bg-black text-primary-50'>
+        <section className=''>
           <div className='layout flex min-h-screen flex-col'>
             <h1 className='mt-10 mb-4'>Components</h1>
             <p className='mb-4'>
@@ -26,8 +30,12 @@ const Home: NextPage = () => {
                 <h2 className='my-4'>Buttons</h2>
                 <div className='space-x-4'>
                   <Button variant='primary'>Button</Button>
-                  <Button variant='outline'>Button Outline</Button>
-                  <Button variant='ghost'>Button Ghost</Button>
+                  <Button variant='outline' isDarkBg={theme === 'dark'}>
+                    Button Outline
+                  </Button>
+                  <Button variant='ghost' isDarkBg={theme === 'dark'}>
+                    Button Ghost
+                  </Button>
                   <Button variant='light'>Button Light</Button>
                   <Button variant='dark'>Button Dark</Button>
                 </div>
@@ -35,10 +43,14 @@ const Home: NextPage = () => {
                   <Button variant='primary' disabled>
                     Disabled
                   </Button>
-                  <Button variant='outline' disabled>
+                  <Button
+                    variant='outline'
+                    isDarkBg={theme === 'dark'}
+                    disabled
+                  >
                     Disabled
                   </Button>
-                  <Button variant='ghost' disabled>
+                  <Button variant='ghost' isDarkBg={theme === 'dark'} disabled>
                     Disabled
                   </Button>
                   <Button variant='light' disabled>
@@ -64,6 +76,9 @@ const Home: NextPage = () => {
                   <Button variant='dark' isLoading>
                     Disabled
                   </Button>
+                </div>
+                <div>
+                  <CoolButton>Yoo</CoolButton>
                 </div>
               </li>
               <li>
@@ -116,9 +131,6 @@ const Home: NextPage = () => {
               </li>
             </ol>
           </div>
-          <footer className='flex items-center justify-center py-4'>
-            © Aaron Christopher {new Date().getFullYear()}
-          </footer>
         </section>
       </main>
     </Layout>

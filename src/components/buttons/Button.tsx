@@ -47,14 +47,14 @@ const Button = ({
             'disabled:bg-primary-300 disabled:hover:bg-primary-300 disabled:hover:text-black',
           ],
           variant === 'outline' && [
-            'text-primary-50',
+            'text-dark dark:text-primary-50',
             'border border-primary-500',
             isDarkBg
               ? 'hover:bg-primary-700 hover:text-primary-50 active:bg-primary-600 disabled:bg-transparent'
               : 'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
           ],
           variant === 'ghost' && [
-            'text-primary-50',
+            'text-dark dark:text-primary-50',
             'shadow-none',
             isDarkBg
               ? 'hover:bg-primary-700 hover:text-primary-50 active:bg-primary-600 disabled:bg-transparent'

@@ -4,6 +4,9 @@ export type CoolButtonProp = {
   readonly width?: number | string;
   readonly height?: number | string;
   readonly className?: string;
+  readonly polygonClassName?: string;
+  readonly movingPolygonClassName?: string;
+  readonly wrapperClassName?: string;
   readonly children: React.ReactNode;
 } & React.ComponentPropsWithoutRef<'svg'>;
 
@@ -11,6 +14,9 @@ const CoolButton = ({
   width: w = 150,
   height: h = 50,
   className,
+  polygonClassName = '',
+  movingPolygonClassName = '',
+  wrapperClassName = '',
   children,
   ...rest
 }: CoolButtonProp) => {
@@ -28,11 +34,17 @@ const CoolButton = ({
     >
       <polygon
         points={`0,${h} 0,0 ${w},0 ${w},${h}`}
-        className='duration-800 delay-0 ease-default stroke-lrred stroke-0.5 pointer-events-none fill-transparent drop-shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all group-hover:fill-[rgba(255,0,255,0.2)]'
+        className={clsxm(
+          'pointer-events-none fill-transparent stroke-primary-300 stroke-0.5 drop-shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all duration-700 ease-in-out group-hover:fill-fuchsia-700/25',
+          polygonClassName
+        )}
       />
       <polygon
         points={`0,${h} 0,0 ${w},0 ${w},${h}`}
-        className='duration-800 delay-0 ease-default stroke-lrred dashEffect pointer-events-none fill-transparent stroke-2 transition-all'
+        className={clsxm(
+          'dashEffect pointer-events-none fill-transparent stroke-primary-300 stroke-2 transition-all duration-700 ease-in-out',
+          movingPolygonClassName
+        )}
       />
       <foreignObject
         x='0'
@@ -41,7 +53,12 @@ const CoolButton = ({
         height={h}
         className='pointer-events-none'
       >
-        <div className='flex h-full items-center justify-center text-[14px] font-extralight uppercase text-primary-300'>
+        <div
+          className={clsxm(
+            'flex h-full items-center justify-center text-sm font-extralight uppercase text-primary-300',
+            wrapperClassName
+          )}
+        >
           {children}
         </div>
       </foreignObject>

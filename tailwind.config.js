@@ -29,6 +29,9 @@ module.exports = {
         dark: '#111',
         light: '#ddd',
       },
+      strokeWidth: {
+        0.5: '0.5',
+      },
     },
   },
   variants: {
