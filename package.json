@@ -104,7 +104,7 @@
     "prettier-plugin-tailwindcss": "^0.1.10",
     "rimraf": "^3.0.2",
     "sort-package-json": "^1.57.0",
-    "standard-version": "^9.3.2",
+    "standard-version": "^9.5.0",
     "storybook-addon-next-router": "^3.1.1",
     "storybook-dark-mode": "^1.1.0",
     "stylelint": "^14.8.2",
