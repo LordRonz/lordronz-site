@@ -56,7 +56,7 @@ const CoolButton = ({
       >
         <div
           className={clsxm(
-            'flex h-full items-center justify-center text-sm font-extralight uppercase text-primary-300',
+            'flex h-full items-center justify-center',
             wrapperClassName
           )}
         >
