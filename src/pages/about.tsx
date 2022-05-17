@@ -4,6 +4,7 @@ import Accent from '@/components/Accent';
 import AnimatePage from '@/components/AnimatePage';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+import TechStack from '@/components/TechStack';
 import clsxm from '@/lib/clsxm';
 
 const Home: NextPage = () => {
@@ -12,7 +13,7 @@ const Home: NextPage = () => {
       <Seo templateTitle='About' />
       <AnimatePage>
         <main>
-          <section className={clsxm('flex flex-col justify-center')}>
+          <section className={clsxm('my-16 flex flex-col justify-center')}>
             <article className='layout'>
               <h1 className='text-3xl md:text-5xl 2xl:text-6xl'>
                 <Accent>Hey, I{"'"}m Aaron Christopher</Accent>
@@ -34,6 +35,14 @@ const Home: NextPage = () => {
                 GitHub Action to do CI/CD stuff. Through my college course, I am
                 expertised as a Linux SysAdmin, using it as my daily OS.
               </p>
+            </article>
+          </section>
+          <section className={clsxm('my-20 flex flex-col justify-center')}>
+            <article className='layout'>
+              <h2 className='mb-8 text-2xl md:text-4xl 2xl:text-5xl'>
+                Tech Stack
+              </h2>
+              <TechStack />
             </article>
           </section>
         </main>
