@@ -2,8 +2,10 @@ import {
   SiArchlinux,
   SiCplusplus,
   SiExpress,
+  SiMongodb,
   SiNextdotjs,
   SiNodedotjs,
+  SiPostgresql,
   SiPython,
   SiReact,
   SiTailwindcss,
@@ -136,6 +138,28 @@ const stacks = [
       <>
         <CustomLink href='https://archlinux.org/'>Arch Linux</CustomLink>, my
         main OS to do programming and work. I use Arch btw.
+      </>
+    ),
+  },
+  {
+    id: 'mongodb',
+    icon: SiMongodb,
+    tooltip: (
+      <>
+        <CustomLink href='https://www.mongodb.com/'>MongoDB</CustomLink>, when
+        it comes to NoSQL database, my choice is MongoDB, robust and flexible to
+        use.
+      </>
+    ),
+  },
+  {
+    id: 'postgresql',
+    icon: SiPostgresql,
+    tooltip: (
+      <>
+        <CustomLink href='https://www.postgresql.org/'>PostgreSQL</CustomLink>,
+        the world{"'"}s most advanced open source database. This is my SQL
+        database of choice because of its reputation, speed, and reliability.
       </>
     ),
   },

@@ -7,6 +7,8 @@ import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import NextNProgress from 'nextjs-progressbar';
 
+import ScrollButton from '@/components/ScrollButton';
+
 declare module 'next-themes' {
   interface ThemeProviderProps {
     children: React.ReactNode;
@@ -28,6 +30,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       >
         <Component {...pageProps} />
       </AnimatePresence>
+      <ScrollButton />
     </ThemeProvider>
   );
 };
