@@ -74,7 +74,7 @@ const projects: Project[] = [
 const Projects: NextPage = () => {
   return (
     <Layout>
-      <Seo templateTitle='Projects' />
+      <Seo templateTitle='Projects' description='List of my projects' />
       <AnimatePage>
         <main>
           <section className={clsxm('flex flex-col justify-center')}>

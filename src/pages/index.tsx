@@ -13,7 +13,7 @@ import clsxm from '@/lib/clsxm';
 const Home: NextPage = () => {
   return (
     <Layout>
-      <Seo templateTitle='About' />
+      <Seo />
       <AnimatePage>
         <main>
           <section className={clsxm('flex flex-col justify-center')}>
