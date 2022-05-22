@@ -1,6 +1,7 @@
 # My Personal Website
 
 ![[lordronz-site]](https://socialify.git.ci/LordRonz/lordronz-site/image?description=1&font=Source%20Code%20Pro&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark)
+![[Eva Banner]](./eva_banner.png)
 
 [![Lint](https://github.com/LordRonz/lordronz-site/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/LordRonz/lordronz-site/actions/workflows/lint.yml)
 [![Coverage Status](https://coveralls.io/repos/github/LordRonz/lordronz-site/badge.svg?branch=main)](https://coveralls.io/github/LordRonz/lordronz-site?branch=main)
