@@ -62,7 +62,7 @@
     "@next/eslint-plugin-next": "^12.1.1",
     "@storybook/addon-actions": "^6.5.5",
     "@storybook/addon-essentials": "^6.5.5",
-    "@storybook/addon-interactions": "^6.5.4",
+    "@storybook/addon-interactions": "^6.5.5",
     "@storybook/addon-links": "^6.5.5",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.5.5",
