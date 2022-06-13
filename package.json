@@ -61,7 +61,7 @@
     "@next/bundle-analyzer": "^12.1.6",
     "@next/eslint-plugin-next": "^12.1.1",
     "@storybook/addon-actions": "^6.5.8",
-    "@storybook/addon-essentials": "^6.5.8",
+    "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.8",
     "@storybook/addon-links": "^6.5.8",
     "@storybook/addon-postcss": "^2.0.0",
