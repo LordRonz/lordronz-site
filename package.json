@@ -52,7 +52,7 @@
     "react-intersection-observer": "^9.2.2",
     "react-tippy": "^1.4.0",
     "react-typed": "^1.2.0",
-    "tailwind-merge": "^1.2.1"
+    "tailwind-merge": "^1.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
