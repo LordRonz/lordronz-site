@@ -9374,10 +9374,10 @@ loader-utils@^2.0.0:
     emojis-list "^3.0.0"
     json5 "^2.1.2"
 
-local-cypress@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/local-cypress/-/local-cypress-1.2.5.tgz#fd83a8598acf4f4869e1652a4a0a66db0cb0e220"
-  integrity sha512-pRYKv4jm+ILkCYws3Jw8PYIJJ6qNW1p0yd++X2rVMo/gQOslrsZzNVvy3vTf0Rk9tZAkGo20O+Tj2M/9cs0UhA==
+local-cypress@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/local-cypress/-/local-cypress-1.2.6.tgz#13d49beb5112f9c06d710388b721be1512a54c60"
+  integrity sha512-F3d7eyZNkqOwEamtziRgzleCiKd05z3leIyVR/G9w6IMwnYn4wRtw68C/THx6C+PUFDsBgwNUVNuReRSKRj70A==
   dependencies:
     debug "4.3.4"
 
