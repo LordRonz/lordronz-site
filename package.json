@@ -41,7 +41,7 @@
   "dependencies": {
     "clsx": "^1.1.1",
     "framer-motion": "^6.3.16",
-    "next": "^12.1.6",
+    "next": "^12.2.0",
     "next-themes": "^0.2.0",
     "nextjs-progressbar": "^0.0.14",
     "preact": "^10.8.2",
@@ -93,7 +93,7 @@
     "eslint-plugin-storybook": "^0.5.13",
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.1",
-    "jest": "^28.1.1",
+    "jest": "^28.1.2",
     "jest-environment-jsdom": "^28.1.1",
     "lint-staged": "^13.0.3",
     "local-cypress": "^1.2.6",
