@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Accent from '@/components/Accent';
 import AnimatePage from '@/components/AnimatePage';
 import Layout from '@/components/layout/Layout';
+import ButtonLink from '@/components/links/ButtonLink';
 import Seo from '@/components/Seo';
 import TechStack from '@/components/TechStack';
 import clsxm from '@/lib/clsxm';
@@ -20,7 +21,7 @@ const Home: NextPage = () => {
               </h1>
               <p
                 className={clsxm(
-                  'mt-4 max-w-4xl md:mt-6',
+                  'my-4 max-w-4xl md:mt-6',
                   'md:text-lg 2xl:text-xl'
                 )}
               >
@@ -35,6 +36,7 @@ const Home: NextPage = () => {
                 GitHub Action to do CI/CD stuff. Through my college course, I am
                 expertised as a Linux SysAdmin, using it as my daily OS.
               </p>
+              <ButtonLink href='cv.pdf'>See My CV</ButtonLink>
             </article>
           </section>
           <section className={clsxm('my-20 flex flex-col justify-center')}>
