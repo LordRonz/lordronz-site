@@ -1,3 +1,4 @@
+import '@fontsource/inter/variable-full.css';
 import '@/styles/globals.css';
 import 'react-tippy/dist/tippy.css';
 import 'react-typed/dist/animatedCursor.css';
