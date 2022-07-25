@@ -69,6 +69,13 @@ const projects: Project[] = [
     type: 'line_bot',
     github: 'LordRonz/ronz-vulp',
   },
+  {
+    title: 'Validin',
+    content: 'Validating KTP with an auto-filled form using OCR',
+    slug: 'validin',
+    type: 'web_service, gcp, cloud',
+    github: 'capstone-bangkeith',
+  },
 ];
 
 const Projects: NextPage = () => {
