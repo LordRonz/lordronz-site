@@ -86,7 +86,7 @@
     "concurrently": "^7.3.0",
     "coveralls": "^3.1.1",
     "cross-env": "^7.0.3",
-    "cypress": "^10.3.1",
+    "cypress": "^10.4.0",
     "eslint": "^8.20.0",
     "eslint-config-next": "^12.2.3",
     "eslint-config-prettier": "^8.5.0",
