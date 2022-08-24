@@ -40,7 +40,7 @@
     "webpack": "^5"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.11",
+    "@fontsource/inter": "^4.5.12",
     "clsx": "^1.2.1",
     "framer-motion": "^6.5.1",
     "next": "^12.2.4",
