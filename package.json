@@ -40,7 +40,7 @@
     "webpack": "^5"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.11",
+    "@fontsource/inter": "^4.5.12",
     "clsx": "^1.2.1",
     "framer-motion": "^6.5.1",
     "next": "^12.2.4",
@@ -58,7 +58,7 @@
     "tailwind-merge": "^1.5.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.9",
+    "@babel/core": "^7.18.13",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@next/bundle-analyzer": "^12.2.4",
