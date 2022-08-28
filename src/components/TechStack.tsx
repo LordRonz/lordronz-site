@@ -26,7 +26,7 @@ const TechStack = () => {
             className={clsxm(
               'h-8 w-8 md:h-10 md:w-10',
               'text-gray-600 hover:text-primary-300 dark:text-gray-200 dark:hover:text-primary-300',
-              'transition-colors'
+              'transition-all'
             )}
           />
         </Tooltip>

@@ -76,6 +76,23 @@ const projects: Project[] = [
     type: 'web_service, gcp, cloud',
     github: 'capstone-bangkeith',
   },
+  {
+    title: 'Apimogus',
+    content: 'Amogus ascii art API, made with Cloudflare worker',
+    slug: 'apimogus',
+    type: 'api, serverless',
+    github: 'LordRonz/apimogus',
+    demo: 'https://apimogus.ronz.workers.dev/',
+    image: 'apimogus.png',
+  },
+  {
+    title: 'Telemogus',
+    content: 'Real nice telegram bot, made with python-telegram-bot',
+    slug: 'telemogus',
+    type: 'bot',
+    github: 'telemogus',
+    image: 'telemogus.png',
+  },
 ];
 
 const Projects: NextPage = () => {

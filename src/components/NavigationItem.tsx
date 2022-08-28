@@ -1,8 +1,9 @@
 import { motion, Variants } from 'framer-motion';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import clsxm from '@/lib/clsxm';
+
+import UnstyledLink from './links/UnstyledLink';
 
 export type NavigationItemProps = {
   href: string;
@@ -31,18 +32,17 @@ const NavigationItem = ({
       animate={animate}
       custom={customDelay}
     >
-      <Link href={href}>
-        <a
-          className={clsxm(
-            isActive
-              ? 'text-off-black dark:text-off-white font-bold'
-              : 'text-grey-700 md:text-grey-500 hover:text-off-black dark:hover:text-off-white font-medium',
-            'md:underlined relative block whitespace-nowrap text-2xl transition md:text-lg'
-          )}
-        >
-          {title}
-        </a>
-      </Link>
+      <UnstyledLink
+        href={href}
+        className={clsxm(
+          isActive
+            ? 'text-off-black dark:text-off-white font-bold'
+            : 'text-grey-700 md:text-grey-500 hover:text-off-black dark:hover:text-off-white font-medium',
+          'animated-underline relative block whitespace-nowrap text-2xl transition md:text-lg'
+        )}
+      >
+        {title}
+      </UnstyledLink>
     </motion.li>
   );
 };

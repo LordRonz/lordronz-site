@@ -34,7 +34,11 @@ const Home: NextPage = () => {
                 frontend skills by making some React projects.
               </p>
               <UnstyledLink href='/about' aria-label='About Page'>
-                <CoolButton wrapperClassName='text-md font-bold' width={180}>
+                <CoolButton
+                  wrapperClassName='text-md font-bold'
+                  width={210}
+                  height={45}
+                >
                   Learn More About Me
                 </CoolButton>
               </UnstyledLink>

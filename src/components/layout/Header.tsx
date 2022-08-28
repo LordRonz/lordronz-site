@@ -66,7 +66,7 @@ const Header = () => {
       </a>
       {/* <div className='h-2 bg-gradient-to-tr from-primary-200 via-primary-300 to-primary-400' /> */}
       <PageProgress color='#ff9a9a' />
-      <div className='bg-light transition-colors dark:bg-dark dark:text-light'>
+      <div className='bg-light transition-all dark:bg-dark dark:text-light'>
         <nav className={clsxm('layout flex items-center justify-between py-4')}>
           <Link href='/' passHref>
             <motion.a
@@ -88,7 +88,7 @@ const Header = () => {
                 <UnstyledLink
                   href={href}
                   className={clsxm(
-                    'rounded-sm py-2 transition-colors',
+                    'animated-underline rounded-sm py-1 transition-all',
                     'font-medium text-black dark:text-light',
                     'group dark:hover:text-primary-300',
                     'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
@@ -97,7 +97,7 @@ const Header = () => {
                 >
                   <span
                     className={clsxm(
-                      'transition-colors',
+                      'transition-all',
                       'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0',
                       href === baseRoute &&
                         'bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent'

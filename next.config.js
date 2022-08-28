@@ -11,7 +11,7 @@ const nextConfig = {
   poweredByHeader: false,
   compiler: {
     removeConsole: {
-      exclude: ['error'],
+      exclude: ['error', 'info'],
     },
   },
   reactStrictMode: true,
