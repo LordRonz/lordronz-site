@@ -13,13 +13,15 @@ export type Project = {
   github?: string;
   type?: string;
   slug: string;
+  i?: number;
 };
 
 export type ProjectCardProp = {
   project: Project;
+  onImgClick?: () => void;
 };
 
-const ProjectCard = ({ project }: ProjectCardProp) => {
+const ProjectCard = ({ project, onImgClick }: ProjectCardProp) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: '-10% 0px',
@@ -36,7 +38,10 @@ const ProjectCard = ({ project }: ProjectCardProp) => {
       )}
     >
       {project.image && (
-        <div className='relative h-56 overflow-hidden rounded-b-lg'>
+        <div
+          className='relative h-56 cursor-zoom-in overflow-hidden rounded-b-lg'
+          onClick={onImgClick}
+        >
           <Image
             alt={project.title}
             src={`/images/projects/${project.image}`}

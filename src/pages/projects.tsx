@@ -1,4 +1,6 @@
 import type { NextPage } from 'next';
+import { useState } from 'react';
+import Lightbox from 'react-image-lightbox';
 
 import Accent from '@/components/Accent';
 import AnimatePage from '@/components/AnimatePage';
@@ -93,9 +95,12 @@ const projects: Project[] = [
     github: 'telemogus',
     image: 'telemogus.png',
   },
-];
+].map((project, i) => ({ ...project, i }));
 
 const Projects: NextPage = () => {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [imgIndex, setImgIndex] = useState(0);
+
   return (
     <Layout>
       <Seo templateTitle='Projects' description='List of my projects' />
@@ -108,11 +113,25 @@ const Projects: NextPage = () => {
               </h1>
               <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
                 {projects.map((project) => (
-                  <ProjectCard project={project} key={project.slug} />
+                  <ProjectCard
+                    project={project}
+                    key={project.slug}
+                    onImgClick={() => {
+                      if (project.i === undefined) return;
+                      setImgIndex(project.i);
+                      setIsLightboxOpen(true);
+                    }}
+                  />
                 ))}
               </div>
             </article>
           </section>
+          {isLightboxOpen && (
+            <Lightbox
+              mainSrc={`/images/projects/${projects[imgIndex].image}`}
+              onCloseRequest={() => setIsLightboxOpen(false)}
+            />
+          )}
         </main>
       </AnimatePage>
     </Layout>
