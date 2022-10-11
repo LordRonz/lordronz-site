@@ -109,7 +109,7 @@
     "rimraf": "^3.0.2",
     "sort-package-json": "^2.0.0",
     "standard-version": "^9.5.0",
-    "storybook-addon-next-router": "^4.0.0",
+    "storybook-addon-next-router": "^4.0.1",
     "storybook-dark-mode": "^1.1.2",
     "stylelint": "^14.13.0",
     "stylelint-config-prettier": "^9.0.3",
