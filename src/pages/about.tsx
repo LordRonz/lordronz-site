@@ -36,9 +36,17 @@ const Home: NextPage = () => {
                 GitHub Action to do CI/CD stuff. Through my college course, I am
                 expertised as a Linux SysAdmin, using it as my daily OS.
               </p>
-              <ButtonLink href='https://lr-link.vercel.app/academic_resume'>
-                See My CV
-              </ButtonLink>
+              <div className='flex gap-x-3'>
+                <ButtonLink href='https://lr-link.vercel.app/academic_resume'>
+                  See My CV
+                </ButtonLink>
+                <ButtonLink
+                  href='https://lr-link.vercel.app/cloudskillboost'
+                  variant='outline'
+                >
+                  My Bio Links
+                </ButtonLink>
+              </div>
             </article>
           </section>
           <section className={clsxm('my-20 flex flex-col justify-center')}>

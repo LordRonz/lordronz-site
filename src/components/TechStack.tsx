@@ -2,12 +2,14 @@ import {
   SiArchlinux,
   SiCplusplus,
   SiExpress,
+  SiGo,
   SiMongodb,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
   SiPython,
   SiReact,
+  SiRedis,
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si';
@@ -69,6 +71,30 @@ const stacks = [
         , a strongly typed programming language that builds on JavaScript,
         giving you better tooling at any scale. I use this extensively because
         it is so good and less error-prone than JS.
+      </>
+    ),
+  },
+  {
+    id: 'golang',
+    icon: SiGo,
+    tooltip: (
+      <>
+        <CustomLink href='https://go.dev/'>Go</CustomLink>, is an open source
+        programming language supported by Google. I mainly use this language
+        along with Postgresql and Redis to build a Backend API.
+      </>
+    ),
+  },
+  {
+    id: 'redis',
+    icon: SiRedis,
+    tooltip: (
+      <>
+        <CustomLink href='https://redis.io/'>Redis</CustomLink> is the open
+        source, in-memory data store used by millions of developers as a
+        database, cache, streaming engine, and message broker. It is very
+        awesome as a caching mechanism, used it with nearly every backend
+        project I{"'"}ve build
       </>
     ),
   },
