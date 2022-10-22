@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 
 import Accent from '@/components/Accent';
 import ColorModeToggle from '@/components/ColorModeToggle';
@@ -18,6 +18,7 @@ type Links = {
 export const links: Links = [
   { href: '/projects', label: 'Projects' },
   { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 const Header = () => {
@@ -31,8 +32,8 @@ const Header = () => {
   //#endregion  //*======== Route Functionality ===========
 
   //#region  //*=========== Scroll Shadow ===========
-  const [onTop, setOnTop] = React.useState<boolean>(true);
-  React.useEffect(() => {
+  const [onTop, setOnTop] = useState<boolean>(true);
+  useEffect(() => {
     const handleScroll = () => {
       setOnTop(window.pageYOffset === 0);
     };
