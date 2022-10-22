@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-import * as React from 'react';
 import { BiGitRepoForked } from 'react-icons/bi';
 import { HiOutlineStar } from 'react-icons/hi';
 import { SiGithub } from 'react-icons/si';
@@ -7,6 +5,7 @@ import useSWR from 'swr';
 
 import Accent from '@/components/Accent';
 import UnstyledLink from '@/components/links/UnstyledLink';
+import clsxm from '@/lib/clsxm';
 
 interface GitHubRepo {
   full_name: string;
@@ -34,7 +33,7 @@ const GitHubCard = ({ repo, className }: GitHubCardProps) => {
     <div className='not-prose'>
       <UnstyledLink
         href={repository.html_url}
-        className={clsx(
+        className={clsxm(
           '!block max-w-xl',
           'not-prose px-4 py-3',
           'rounded-lg border border-gray-300 dark:border-gray-600',
@@ -46,11 +45,11 @@ const GitHubCard = ({ repo, className }: GitHubCardProps) => {
       >
         <div className='flex items-center gap-2 text-sm md:text-base'>
           <SiGithub className='ml-0.5 shrink-0 text-[1.2em]' />
-          <Accent className={clsx('truncate overflow-ellipsis font-semibold')}>
+          <Accent className={clsxm('truncate overflow-ellipsis font-semibold')}>
             {repository.full_name}
           </Accent>
         </div>
-        <p className={clsx('mt-2 text-sm text-gray-700 dark:text-gray-200')}>
+        <p className={clsxm('mt-2 text-sm text-gray-700 dark:text-gray-200')}>
           {repository.description}
         </p>
         <div className='mt-2 flex gap-3'>
@@ -67,7 +66,7 @@ const GitHubCard = ({ repo, className }: GitHubCardProps) => {
     </div>
   ) : (
     <div
-      className={clsx(
+      className={clsxm(
         'mx-auto !block max-w-xl',
         'not-prose px-4 py-3',
         'rounded-lg border border-gray-300 dark:border-gray-600',

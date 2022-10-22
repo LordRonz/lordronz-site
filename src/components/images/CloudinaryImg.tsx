@@ -1,10 +1,9 @@
-import 'react-image-lightbox/style.css';
-
 import { buildUrl } from 'cloudinary-build-url';
-import clsx from 'clsx';
 import Image from 'next/image';
 import { useState } from 'react';
 import Lightbox from 'react-image-lightbox';
+
+import clsxm from '@/lib/clsxm';
 
 type CloudinaryImgType = {
   publicId: string;
@@ -69,7 +68,7 @@ const CloudinaryImg = ({
 
   return (
     <figure
-      className={clsx(className, {
+      className={clsxm(className, {
         'overflow-hidden rounded shadow dark:shadow-none': !noStyle,
         'mx-auto w-full': mdx && width <= 800,
       })}

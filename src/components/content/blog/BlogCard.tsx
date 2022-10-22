@@ -1,12 +1,11 @@
-import clsx from 'clsx';
 import { format } from 'date-fns';
-import * as React from 'react';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 
 import Accent from '@/components/Accent';
 import Tag from '@/components/content/Tag';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
 import UnstyledLink from '@/components/links/UnstyledLink';
+import clsxm from '@/lib/clsxm';
 import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
 
 type BlogCardProps = {
@@ -17,7 +16,7 @@ type BlogCardProps = {
 const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
   return (
     <li
-      className={clsx(
+      className={clsxm(
         'w-full rounded-md border border-gray-300 bg-white dark:border-gray-600 dark:bg-dark',
         'scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu',
         'transition duration-100',
@@ -43,7 +42,7 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
             preview={false}
           />
           <div
-            className={clsx(
+            className={clsxm(
               'absolute bottom-0 w-full px-4 py-2',
               'mt-2 flex flex-wrap justify-end gap-y-1 gap-x-2 text-sm text-black dark:text-gray-100'
             )}

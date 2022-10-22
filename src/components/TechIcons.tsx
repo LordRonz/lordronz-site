@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-import * as React from 'react';
 import { IoLogoVercel } from 'react-icons/io5';
 import {
   SiFirebase,
@@ -20,6 +18,7 @@ import {
 } from 'react-icons/si';
 
 import Tooltip from '@/components/Tooltip';
+import clsxm from '@/lib/clsxm';
 
 export type TechListType = keyof typeof techList;
 
@@ -29,7 +28,7 @@ export type TechIconsProps = {
 
 const TechIcons = ({ className, techs }: TechIconsProps) => {
   return (
-    <ul className={clsx(className, 'flex gap-2')}>
+    <ul className={clsxm(className, 'flex gap-2')}>
       {techs.map((tech) => {
         if (!techList[tech]) return;
 

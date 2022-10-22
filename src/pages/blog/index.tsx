@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import { useEffect, useState } from 'react';
 import { HiCalendar, HiEye } from 'react-icons/hi';
@@ -13,6 +12,7 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 import SortListbox, { SortOption } from '@/components/SortListbox';
 import useInjectContentMeta from '@/hooks/useInjectContentMeta';
+import clsxm from '@/lib/clsxm';
 import { getFromSessionStorage } from '@/lib/helper';
 import { getAllFilesFrontmatter } from '@/lib/mdx';
 import { getTags, sortByDate, sortDateFn } from '@/lib/mdxClient';
@@ -125,7 +125,7 @@ const IndexPage = ({
       />
 
       <main>
-        <section className={clsx(isLoaded && 'fade-in-start')}>
+        <section className={clsxm(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
             <h1 className='text-3xl md:text-5xl'>
               <Accent>Blog {!isEnglish && 'Bahasa Indonesia'}</Accent>
