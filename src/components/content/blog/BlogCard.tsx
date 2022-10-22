@@ -34,7 +34,7 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
           <CloudinaryImg
             noStyle
             className='pointer-events-none overflow-hidden rounded-t-md'
-            publicId={`lordronz/banner/${post.banner}`}
+            publicId={`lordronz-site/banner/${post.banner}`}
             alt='Photo taken from unsplash'
             width={1200}
             height={(1200 * 2) / 5}

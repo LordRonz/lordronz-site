@@ -77,7 +77,7 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
           <div className='layout'>
             <div className='pb-4 dark:border-gray-600'>
               <CloudinaryImg
-                publicId={`v1666447681/banner/${frontmatter.banner}`}
+                publicId={`lordronz-site/banner/${frontmatter.banner}`}
                 alt='Banner image'
                 width={1200}
                 height={(1200 * 2) / 5}
