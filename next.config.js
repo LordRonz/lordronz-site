@@ -42,7 +42,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['cdn.discordapp.com'],
+    domains: ['cdn.discordapp.com', 'res.cloudinary.com'],
   },
 };
 

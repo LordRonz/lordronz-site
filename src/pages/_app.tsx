@@ -1,5 +1,7 @@
 import '@fontsource/inter/variable.css';
 import '@/styles/globals.css';
+import '@/styles/mdx.css';
+import '@/styles/dracula.css';
 import 'react-tippy/dist/tippy.css';
 import 'react-typed/dist/animatedCursor.css';
 import 'react-image-lightbox/style.css';
