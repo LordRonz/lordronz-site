@@ -56,3 +56,6 @@ cypress/screenshots
 
 # storybook
 storybook-static
+
+# firebase
+serviceAccountKey.json

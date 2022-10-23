@@ -45,6 +45,7 @@
     "@headlessui/react": "^1.7.3",
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^1.2.1",
+    "firebase-admin": "^11.2.0",
     "framer-motion": "^7.6.1",
     "lodash": "^4.17.21",
     "next": "^12.3.1",
