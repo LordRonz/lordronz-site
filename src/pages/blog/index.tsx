@@ -131,8 +131,8 @@ const IndexPage = ({
               <Accent>Blog {!isEnglish && 'Bahasa Indonesia'}</Accent>
             </h1>
             <p className='mt-2 text-gray-600 dark:text-gray-300'>
-              Thoughts, mental models, and tutorials about front-end
-              development.
+              Random thoughts about my expertise and hobby. It should be
+              informational for yall sussy bakas.
             </p>
             <StyledInput
               data-fade='2'

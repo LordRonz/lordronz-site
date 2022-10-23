@@ -28,13 +28,13 @@
 .prose blockquote {
   border-style: solid;
   border-width: 0 0 0 0.25rem;
-  border-image: linear-gradient(to top, #00ff94, #00e0f3, #00c4fd) 1;
+  border-image: linear-gradient(to top, #ff9a9a, #eb2754, #992323) 1;
 }
 
 .prose hr {
   border-style: solid;
   border-width: 0 0 1px;
-  border-image: linear-gradient(to right, #00ff9480, #00e0f380, #00c4fd80) 1;
+  border-image: linear-gradient(to right, #ff9a9a, #eb2754, #992323) 1;
 }
 
 .mdx.prose :where(h1, h2, h3, h4) {
@@ -77,7 +77,7 @@
 }
 
 .hash-anchor:hover {
-  background-image: linear-gradient(to right, #00ff94, #00e0f3, #00c4fd);
+  background-image: linear-gradient(to right, #ff9a9a, #eb2754, #992323);
   background-size: 100% 2px;
 }
 

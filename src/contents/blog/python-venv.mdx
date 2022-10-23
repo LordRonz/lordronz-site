@@ -1,13 +1,119 @@
 ---
 title: 'Virtual Environment in Python'
 publishedAt: '2022-10-22'
-description: 'Working with virtual environment in Python is tedious for some people, here is a simple tips.'
+description:
+  'Working with virtual environment in Python is tedious for some people, here
+  is a simple tips.'
 banner: 'senad-palic-Qcefx5xENeA-unsplash_k3gm2q.jpg'
 tags: 'python'
 ---
 
 ## Introduction
 
-Working with virtual environment in Python is tedious for some sussy bakas.
+Working with virtual environment in Python is tedious for some sussy bakas. In
+this article we will use [venv](https://docs.python.org/3/library/venv.html). It
+is a module that should be included when you install Python.
 
-(WIP)
+## Venv official definition
+
+> The venv module supports creating lightweight “virtual environments”, each
+> with their own independent set of Python packages installed in their site
+> directories. A virtual environment is created on top of an existing Python
+> installation, known as the virtual environment's “base” Python, and may
+> optionally be isolated from the packages in the base environment, so only
+> those explicitly installed in the virtual environment are available.
+
+You can read the documentation if you want to...
+
+### Definition simplified
+
+I know the explanation above is too technical for some sussy bakas, but here is
+my attempt to explain it.
+
+You install Python on your machine. This includes some standard packages. For a
+lot of projects though, you'll have to install additional packages (using
+[PIP](https://pypi.org/) for example). As you build more, and more complex
+projects, it becomes hard to track which projects use which packages. Also:
+different projects may use different versions of the same package.
+
+To make this more structured, you should create a virtual environment for each
+project. This basically contains a copy of your original Python installation,
+and you can add all your project-specific packages here. Other projects won't be
+affected. Take it a step further, and you arrive at Docker containers. These
+create isolated environments, containers, not only for your Python
+installations, but for all project dependencies. This makes it very easy to
+transfer your project to another machine as well. You just have to clone the
+Docker container.
+
+Enough talking, let's see how to do it.
+
+## Create a virtual environment
+
+```sh
+python -m venv .venv
+```
+
+The command will create a folder called `.venv`. Inside the folder, there is
+some subfolders and files that you should not be worried about.
+
+But the important file is inside the bin folder, called `activate`. This is an
+executable, which will activate the virtual environment.
+
+> Note: I'm assuming you are working on UNIX machine (Linux or Mac), if you're
+> on windows, consider
+> [this](https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv-win.html)
+
+## Activate the virtual environment
+
+```sh
+source .venv/bin/activate
+```
+
+The command will activate the virtual environment, so now if you have installed
+Numpy for example, you will lose it in the current env, because it creates a
+clean state of Python.
+
+### Installing packages in the virtual environment
+
+Now I'm going to install numpy on my new venv, let's do it.
+
+```sh
+pip install numpy
+```
+
+Now you can use numpy, but what if you want to tell people and your future self
+that this project uses numpy? The answer is by creating `requirements.txt` file.
+
+```sh
+pip freeze > requirements.txt
+```
+
+Now you should have a new file called `requirements.txt` that lists all your
+installed Python packages. If you want to install the packages listed in the
+`requirements.txt`, you can use the command below
+
+```sh
+pip install -r requirements.txt
+```
+
+Of course, we can use other tools like [Poetry](https://python-poetry.org/) to
+manage packages easily, but I tends to stick with the `requirements.txt` file
+whenever possible.
+
+You can add some more packages as you need, and the steps above are also doable,
+unless there is a dependency errors. Maybe I will explain this in another blog.
+
+## Deactivate the virtual environment
+
+To deactivate the virtual environment means you are going back to the main
+Python environment. You can achieve this by entering this command
+
+```sh
+deactivate
+```
+
+## Summary
+
+So now you have learned how to use the virtual environment in Python! I suggest
+you to try experimenting with it, because experience is the best teacher, ah me
+so wise .\_.
