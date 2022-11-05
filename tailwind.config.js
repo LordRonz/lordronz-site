@@ -21,7 +21,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['InterVariable', ...fontFamily.sans],
+        primary: ['var(--inter-font)', ...fontFamily.sans],
       },
       colors: {
         // Customize it on globals.css :root

@@ -70,7 +70,7 @@ const Header = () => {
       <div className='bg-light transition-all dark:bg-dark dark:text-light'>
         <nav className={clsxm('layout flex items-center justify-between py-4')}>
           <Link href='/' passHref>
-            <motion.a
+            <motion.span
               className='group relative z-50 whitespace-nowrap font-bold transition duration-300 hover:transition md:text-xl'
               animate={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: -10 }}
@@ -81,7 +81,7 @@ const Header = () => {
               <Accent className='absolute left-0 bg-clip-text text-transparent opacity-0 transition duration-300 hover:bg-gradient-to-r group-hover:opacity-100'>
                 Aaron Christopher
               </Accent>
-            </motion.a>
+            </motion.span>
           </Link>
           <ul className='flex items-center justify-between space-x-3 text-xs md:space-x-4 md:text-base'>
             {links.map(({ href, label }) => (

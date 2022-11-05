@@ -104,8 +104,8 @@ const CloudinaryImg = ({
         `}</style>
         <div className='absolute top-0 left-0'>
           <Image
-            width={width}
-            height={height}
+            width={+width}
+            height={+height}
             src={url}
             alt={alt}
             title={title || alt}

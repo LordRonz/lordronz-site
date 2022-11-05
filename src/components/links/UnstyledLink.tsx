@@ -22,10 +22,8 @@ const UnstyledLink = ({
 
   if (!isNewTab) {
     return (
-      <Link href={href} {...nextLinkProps}>
-        <a {...rest} className={className}>
-          {children}
-        </a>
+      <Link href={href} {...nextLinkProps} {...rest} className={className}>
+        {children}
       </Link>
     );
   }

@@ -43,7 +43,7 @@ const ProjectCard = ({ project, onImgClick }: ProjectCardProp) => {
           onClick={onImgClick}
         >
           <Image
-            alt={project.title}
+            alt={project.title ?? 'Project Image'}
             src={`/images/projects/${project.image}`}
             layout='fill'
             objectFit='cover'
