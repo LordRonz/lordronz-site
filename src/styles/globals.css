@@ -40,10 +40,6 @@
       U+2215, U+FEFF, U+FFFD;
   } */
 
-  ::selection {
-    background: rgb(var(--tw-clr-primary-300) / 30%);
-  }
-
   /* #region  /**=========== Typography =========== */
   h1 {
     @apply font-primary text-2xl font-bold md:text-4xl;

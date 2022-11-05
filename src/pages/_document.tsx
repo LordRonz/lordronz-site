@@ -11,7 +11,7 @@ class MyDocument extends Document {
     return (
       <Html lang='en' className='scroll-smooth'>
         <Head />
-        <body className='bg-light text-dark transition-all dark:bg-dark dark:text-light'>
+        <body className='bg-light text-dark transition-all selection:bg-[rgb(var(--tw-clr-primary-300)_/_30%)] dark:bg-dark dark:text-light'>
           <Main />
           <NextScript />
         </body>
