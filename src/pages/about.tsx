@@ -40,10 +40,7 @@ const Home: NextPage = () => {
                 <ButtonLink href='https://lr-link.vercel.app/academic_resume'>
                   See My CV
                 </ButtonLink>
-                <ButtonLink
-                  href='https://lr-link.vercel.app/cloudskillboost'
-                  variant='outline'
-                >
+                <ButtonLink href='https://lr-link.vercel.app' variant='outline'>
                   My Bio Links
                 </ButtonLink>
               </div>
