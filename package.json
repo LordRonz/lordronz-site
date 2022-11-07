@@ -125,7 +125,7 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "rimraf": "^3.0.2",
-    "sort-package-json": "^2.0.0",
+    "sort-package-json": "^2.1.0",
     "standard-version": "^9.5.0",
     "storybook-addon-next-router": "^4.0.1",
     "storybook-dark-mode": "^1.1.2",
