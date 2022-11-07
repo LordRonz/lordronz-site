@@ -1564,12 +1564,12 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@giscus/react@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@giscus/react/-/react-2.2.0.tgz#b5fcec12ea19ecbf832d44996346f21a0ae50621"
-  integrity sha512-MXjKAQyO85ZdC8OVApNQsJhPvTJcuUf5GmQw2KdvNcBVivUpVrA+NUppdwsrI+lK6jEX4ZMVOCnbJ5GaQddaAA==
+"@giscus/react@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@giscus/react/-/react-2.2.2.tgz#3b06c03bea6965ccbc6d26bd3abe038d91fb4cfc"
+  integrity sha512-UXU2pzJEnsjEh36//UlqmWd7j3FJTGL7ijZIaijwbrsERtzkPkRhOkJ7eqRytCOdpcJSji3XX07/5rPGknmm3w==
   dependencies:
-    giscus "^1.2.0"
+    giscus "^1.2.2"
 
 "@google-cloud/firestore@^6.4.0":
   version "6.4.0"
@@ -8229,12 +8229,12 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-giscus@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/giscus/-/giscus-1.2.0.tgz#c94477a1c571abc4ac6dca656da7be46f880a708"
-  integrity sha512-IpfWvU0/hYbMGQKuoPlED8wWmluRYIOjtrBCnL7logsWjMpPRxiAC2pUIC0+SC0pDMOqXrk1onTYMHgwgRpRzg==
+giscus@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/giscus/-/giscus-1.2.2.tgz#b186ede8bba56869f2a1b902031c54d528662677"
+  integrity sha512-H71M3V5K/mmWr5/OwCMCH+s7Z2wVT6uQ1AXe5B0f0jjAGvJ9unAklfp4cNJU5zamjDdMZFVFi/9xhhbHIG3ZTQ==
   dependencies:
-    lit "^2.2.8"
+    lit "^2.4.1"
 
 git-hooks-list@^3.0.0:
   version "3.0.0"
@@ -10637,10 +10637,10 @@ lit-html@^2.2.0, lit-html@^2.4.0:
   dependencies:
     "@types/trusted-types" "^2.0.2"
 
-lit@^2.2.8:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/lit/-/lit-2.4.0.tgz#e33a0f463e17408f6e7f71464e6a266e60a5bb77"
-  integrity sha512-fdgzxEtLrZFQU/BqTtxFQCLwlZd9bdat+ltzSFjvWkZrs7eBmeX0L5MHUMb3kYIkuS8Xlfnii/iI5klirF8/Xg==
+lit@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/lit/-/lit-2.4.1.tgz#21251ac14eb1ec8ca7cd15c9ac3564359809f7b5"
+  integrity sha512-qohSgLiyN1cFnJG26dIiY03S4F49857A0AHQfnS0zYtnUVnD2MFvx+UT52rtXsIuNFQrnUupX+zyGSATlk1f/A==
   dependencies:
     "@lit/reactive-element" "^1.4.0"
     lit-element "^3.2.0"
