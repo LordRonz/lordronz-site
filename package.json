@@ -40,7 +40,6 @@
     "webpack": "^5"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.14",
     "@giscus/react": "^2.2.0",
     "@headlessui/react": "^1.7.4",
     "@next/font": "^13.0.2",
