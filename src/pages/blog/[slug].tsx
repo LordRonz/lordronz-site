@@ -16,6 +16,7 @@ import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
+import useContentMeta from '@/hooks/useContentMeta';
 import useScrollSpy from '@/hooks/useScrollSpy';
 import { cleanBlogPrefix } from '@/lib/blog';
 import clsxm from '@/lib/clsxm';
@@ -35,9 +36,17 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
   //#endregion  //*======== Link Constants ===========
 
   //#region  //*=========== Blog Language ===========
-  const cleanSlug = cleanBlogPrefix(frontmatter.slug);
+  const cleanSlug = useMemo(
+    () => cleanBlogPrefix(frontmatter.slug),
+    [frontmatter.slug]
+  );
   const isEnglish = cleanSlug === frontmatter.slug;
   //#endregion  //*======== Blog Language ===========
+
+  //#region  //*=========== Content Meta ===========
+  const contentSlug = `b_${cleanSlug}`;
+  useContentMeta(contentSlug, { runIncrement: true });
+  //#endregion  //*======== Content Meta ===========
 
   //#region  //*=========== Scrollspy ===========
   const activeSection = useScrollSpy();

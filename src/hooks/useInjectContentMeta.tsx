@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import useSWR from 'swr';
 
 import { contentMetaFlag } from '@/constants/env';
@@ -19,19 +19,18 @@ const useInjectContentMeta = <T extends ContentType>(
     contentMetaFlag ? '/api/content' : null
   );
   const isLoading = !error && !contentMeta;
-  const meta = React.useMemo(
+  const meta = useMemo(
     () => pickContentMeta(contentMeta, type),
     [contentMeta, type]
   );
 
   type PopulatedContent = Array<PickFrontmatter<T> & InjectedMeta>;
 
-  const [populatedContent, setPopulatedContent] =
-    React.useState<PopulatedContent>(
-      () => [...frontmatter] as PopulatedContent
-    );
+  const [populatedContent, setPopulatedContent] = useState<PopulatedContent>(
+    () => [...frontmatter] as PopulatedContent
+  );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (meta) {
       const mapped = frontmatter.map((fm) => {
         const views = meta.find(
