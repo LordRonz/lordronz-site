@@ -15,9 +15,11 @@ const useInjectContentMeta = <T extends ContentType>(
   type: T,
   frontmatter: Array<PickFrontmatter<T>>
 ) => {
-  const { data: contentMeta, error } = useSWR<Array<ContentMeta>>(
+  const { data, error } = useSWR<{ result: ContentMeta[] }>(
     contentMetaFlag ? '/api/content' : null
   );
+  const contentMeta = data?.result;
+
   const isLoading = !error && !contentMeta;
   const meta = useMemo(
     () => pickContentMeta(contentMeta, type),
@@ -35,7 +37,7 @@ const useInjectContentMeta = <T extends ContentType>(
       const mapped = frontmatter.map((fm) => {
         const views = meta.find(
           (meta) => meta.slug === cleanBlogPrefix(fm.slug)
-        )?.views;
+        )?.currentViews;
         const likes = meta.find(
           (meta) => meta.slug === cleanBlogPrefix(fm.slug)
         )?.likes;

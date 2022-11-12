@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect, useMemo, useState } from 'react';
-import { HiOutlineClock } from 'react-icons/hi';
+import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 import { MdHistory } from 'react-icons/md';
 
 import Accent from '@/components/Accent';
@@ -45,7 +45,7 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
 
   //#region  //*=========== Content Meta ===========
   const contentSlug = `b_${cleanSlug}`;
-  useContentMeta(contentSlug, { runIncrement: true });
+  const meta = useContentMeta(contentSlug, { runIncrement: true });
   //#endregion  //*======== Content Meta ===========
 
   //#region  //*=========== Scrollspy ===========
@@ -124,6 +124,12 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
                 <div className='flex items-center gap-1'>
                   <HiOutlineClock className='inline-block text-base' />
                   <Accent>{frontmatter.readingTime.text}</Accent>
+                </div>
+                <div className='flex items-center gap-1'>
+                  <HiOutlineEye className='inline-block text-base' />
+                  <Accent>
+                    {meta?.currentViews?.toLocaleString() ?? '---'} views
+                  </Accent>
                 </div>
               </div>
               {!frontmatter?.englishOnly && (

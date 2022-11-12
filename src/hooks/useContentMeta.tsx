@@ -1,10 +1,13 @@
 import axios from 'axios';
 import { useEffect, useRef } from 'react';
+import useSWR from 'swr';
 
 const incrementViews = async (slug: string) => {
-  const res = await axios.post('/api/content/' + slug);
-
-  return res.data;
+  const { data: res } = await axios.post<{
+    currentViews: number;
+    message: string;
+  }>('/api/content/' + slug);
+  return res;
 };
 
 const useContentMeta = (
@@ -13,16 +16,20 @@ const useContentMeta = (
 ) => {
   const ran = useRef(0);
 
+  const { data: allContentMeta, mutate } = useSWR<{
+    result: { currentViews: number };
+  }>(`/api/content/${slug}`);
+
   useEffect(() => {
     if (runIncrement && ran.current === 0) {
       ran.current = 1;
-      incrementViews(slug);
+      incrementViews(slug).then((res) =>
+        mutate({ result: { currentViews: res.currentViews } })
+      );
     }
-  }, [runIncrement, slug]);
+  }, [mutate, runIncrement, slug]);
 
-  return {
-    msg: 'kontol',
-  };
+  return allContentMeta?.result;
 };
 
 export default useContentMeta;

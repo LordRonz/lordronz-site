@@ -1,1 +1,1 @@
-export const contentMetaFlag = false;
+export const contentMetaFlag = true;

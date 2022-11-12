@@ -67,7 +67,7 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
             </div>
             <div className='flex items-center gap-1'>
               <HiOutlineEye className='inline-block text-base' />
-              <Accent>{post?.views?.toLocaleString() ?? '–––'} views</Accent>
+              <Accent>{post?.views?.toLocaleString() ?? '---'} views</Accent>
             </div>
           </div>
           <p className='mt-4 mb-2 text-sm text-gray-600 dark:text-gray-300'>

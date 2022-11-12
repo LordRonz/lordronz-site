@@ -2,9 +2,9 @@ import { ContentType } from '@/types/frontmatters';
 import { ContentMeta } from '@/types/meta';
 
 export const pickContentMeta = <T extends ContentType>(
-  data: Array<ContentMeta> | undefined,
+  data: ContentMeta[] | undefined,
   type: T
-): Array<ContentMeta> => {
+): ContentMeta[] => {
   return (
     data
       ?.filter((item) => item.slug.startsWith(type.slice(0, 1)))

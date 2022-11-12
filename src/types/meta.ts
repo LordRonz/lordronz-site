@@ -1,6 +1,6 @@
 export type ContentMeta = {
   slug: string;
-  views: number;
+  currentViews: number;
   likes: number;
   likesByUser: number;
   devtoViews?: number;
