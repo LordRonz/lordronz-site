@@ -40,7 +40,7 @@
     "webpack": "^5"
   },
   "dependencies": {
-    "@giscus/react": "^2.2.2",
+    "@giscus/react": "^2.2.3",
     "@headlessui/react": "^1.7.4",
     "@next/font": "^13.0.3",
     "axios": "^1.1.3",
