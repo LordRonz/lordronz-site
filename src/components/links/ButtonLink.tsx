@@ -1,5 +1,6 @@
-import type { UnstyledLinkProps } from '@/components/links/UnstyledLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
+import UnstyledLink, {
+  type UnstyledLinkProps,
+} from '@/components/links/UnstyledLink';
 import clsxm from '@/lib/clsxm';
 
 const enum ButtonVariant {

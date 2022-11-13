@@ -1,5 +1,4 @@
-import type { FirebaseError, ServiceAccount } from 'firebase-admin';
-import admin from 'firebase-admin';
+import admin, { type FirebaseError, type ServiceAccount } from 'firebase-admin';
 
 import { DB_COLLECTION_NAME } from '@/constants/db';
 
