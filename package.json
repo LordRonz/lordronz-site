@@ -47,7 +47,7 @@
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^1.2.1",
     "firebase-admin": "^11.3.0",
-    "framer-motion": "^7.6.12",
+    "framer-motion": "^7.6.17",
     "lodash": "^4.17.21",
     "motion": "^10.14.3",
     "next": "^13.0.5",
