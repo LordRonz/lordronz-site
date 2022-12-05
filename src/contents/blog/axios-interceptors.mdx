@@ -1,0 +1,125 @@
+---
+title: 'Utilizing Axios interceptors'
+publishedAt: '2022-12-5'
+description:
+  'Axios is a very feature-rich HTTP Client. One of its feature is interceptors.
+  Here is how to use it nicely'
+banner: 'gracia-dharma-qTlbO6mkQH0-unsplash_arr5uc.jpg'
+tags: 'react,typescript,axios'
+---
+
+## Introduction
+
+[Axios](https://axios-http.com/docs/intro) is a promise-based HTTP Client for
+node.js and the browser. It is isomorphic (= it can run in the browser and
+nodejs with the same codebase). It is widely used by web applications to do HTTP
+requests. The reason why it is so popular is because of its feature-rich
+library. One of its feature is
+[Interceptors](https://axios-http.com/docs/interceptors). In this blog, I will
+demonstrate simple usage of it with JWT authentication.
+
+## What is Axios Interceptors
+
+Axios interceptors are the default configuration that are added automatically to
+every request or response that a user receives. In other words, you can define
+what you want to do before doing any requests or after response. Some use case
+of interceptors are to get JWT token and attach it to the request header, or
+checking status code of a response and do whatever suits your application.
+
+## Using Axios Interceptors
+
+Before actually using the interceptors, we should create a custom axios instance
+by calling `create` as shown below.
+
+```ts
+const customAxios = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
+});
+```
+
+Here I use `baseURL` options, you can use
+[other options](https://axios-http.com/docs/config_defaults) as well.
+
+After creating the instance, use interceptors like this.
+
+```ts
+customAxios.interceptors.request.use((config) => {
+  const authHeader = getAuthHeader();
+  if (authHeader === null || authHeader === undefined) return config;
+
+  config.headers = {
+    ...config.headers,
+    Authorization: authHeader,
+  };
+  return config;
+});
+```
+
+We pass the function that will be executed before any request. Here I am getting
+the JWT token and passing it in the request header. The function passed have
+config object in the parameter, we need to modify this.
+
+Another example is when you want to get JWT access token when the token expired
+by using refresh token, we can use HTTP status code returned.
+
+```ts
+customAxios.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  async function (error) {
+    const originalRequest = error.config;
+    if (
+      loginUrls.includes(originalRequest.url) &&
+      error.response.status === 401
+    ) {
+      return Promise.reject(error);
+    }
+    // TODO: please update this response status to 401 when BE already give correct response status on token expired
+    if (error.response.status !== 400 && !originalRequest._retry) {
+      originalRequest._retry = true;
+      const token = Cookies.get('accessToken');
+      const rToken = Cookies.get('refreshToken');
+      let usedToken = token || contextToken;
+      const usedRToken = rToken || contextRToken;
+      const now = moment().unix();
+      let expiry: number = now;
+      if (usedToken) {
+        const decodeToken = jwtDecode<JwtPayload>(usedToken);
+        expiry = decodeToken.exp - 3600;
+      }
+      if (expiry < now && usedRToken) {
+        return refreshingToken(usedRToken).then((reNew) => {
+          usedToken = reNew.accessToken;
+          setToken(usedToken);
+          setRefreshToken(reNew.refreshToken);
+          Cookies.set('accessToken', usedToken);
+          Cookies.set('refreshToken', reNew.refreshToken);
+          Cookies.set('googleToken', reNew.googleToken);
+          customAxios.defaults.headers.common.Authorization = `Bearer ${usedToken}`;
+          return customAxios(originalRequest);
+        });
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+```
+
+### Remove an interceptors
+
+If you need to remove an interceptor later you can do it like this.
+
+```ts
+const myInterceptor = axios.interceptors.request.use(function () {
+  /*...*/
+});
+axios.interceptors.request.eject(myInterceptor);
+```
+
+## Summary
+
+So now you have learned how to use interceptors effectively. I suggest you to
+try experimenting with it, because experience is the best teacher, ah me so wise
+.\_. The [documentation](https://axios-http.com/docs/intro) is also very nice,
+you can check it out!
