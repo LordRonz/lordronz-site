@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useRef } from 'react';
 
 import TOCLink from '@/components/links/TOCLink';
 
@@ -20,9 +20,9 @@ export const TableOfContents = ({
   minLevel,
 }: TableOfContentsProps) => {
   //#region  //*=========== Scroll into view ===========
-  const lastPosition = React.useRef<number>(0);
+  const lastPosition = useRef<number>(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const container = document.getElementById('toc-container');
     const activeLink = document.getElementById(`link-${activeSection}`);
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { HiOutlineArrowUp } from 'react-icons/hi';
 
 import clsxm from '@/lib/clsxm';
@@ -12,9 +12,9 @@ const ScrollButton = ({
   className,
   ...rest
 }: ScrollButtonProps): JSX.Element => {
-  const [visible, setVisible] = React.useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const offset = 300;
 
     const onScroll = (): void => {
