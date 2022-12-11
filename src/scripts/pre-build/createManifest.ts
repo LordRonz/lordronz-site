@@ -5,7 +5,7 @@ import path from 'path';
 import { IScriptParams } from '@/scripts/runner';
 
 const manifest = {
-  name: 'Kontol Site',
+  name: 'LordRonz Site',
   short_name: 'Ronz Site',
   start_url: '/',
   display: 'standalone',
