@@ -65,6 +65,8 @@ const execute = async (params: IScriptParams) => {
   }
 
   await fs.writeFile(manifestPath, JSON.stringify(manifest));
+
+  console.log('manifest.json generated!');
 };
 
 export default execute;
