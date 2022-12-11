@@ -156,7 +156,7 @@ const favicons: readonly Favicons[] = [
   },
   {
     rel: 'manifest',
-    href: '/favicon/manifest.json',
+    href: '/manifest.json',
   },
 ] as const;
 

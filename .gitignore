@@ -59,3 +59,8 @@ storybook-static
 
 # firebase
 serviceAccountKey.json
+
+# next PWA
+public/sw.js
+public/workbox*
+public/manifest.json
