@@ -2,7 +2,7 @@
 
 import '@testing-library/jest-dom';
 
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import Home from '@/pages/index';
 
@@ -24,6 +24,18 @@ describe('Home', () => {
     const heading = screen.getByRole('heading', {
       name: /henlo there/i,
     });
+
+    expect(heading).toBeInTheDocument();
+  });
+
+  it('can scroll', () => {
+    render(<Home />);
+
+    const heading = screen.getByRole('heading', {
+      name: /henlo there/i,
+    });
+
+    fireEvent.scroll(window, { target: { scrollY: 100 } });
 
     expect(heading).toBeInTheDocument();
   });

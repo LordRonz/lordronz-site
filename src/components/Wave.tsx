@@ -2,10 +2,12 @@ import clsxm from '@/lib/clsxm';
 
 export type WaveType = React.ComponentPropsWithoutRef<'span'>;
 
-const Wave = ({ children, className }: WaveType) => {
+const Wave = ({ children, className, ...rest }: WaveType) => {
   return (
     <>
-      <span className={clsxm('wave', className)}>{children}</span>
+      <span className={clsxm('wave', className)} {...rest}>
+        {children}
+      </span>
       <style jsx>{`
         .wave:hover {
           display: inline-block;

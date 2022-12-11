@@ -1,4 +1,4 @@
-import { OGType, openGraph } from '@/lib/og';
+import openGraphDefault, { OGType, openGraph } from '@/lib/og';
 
 describe('open graph test', () => {
   it('should return correct open graph url', () => {
@@ -78,6 +78,33 @@ describe('open graph test', () => {
 
     expect(result).toBe(
       'https://lr-og.vercel.app/api/general?siteName=lordronz.vercel.app&description=Test&logo=https%3A%2F%2Flordronz.vercel.app%2Fimages%2Flogo.jpg&logoWidth=100'
+    );
+  });
+  it('should return correct logo width', () => {
+    expect.hasAssertions();
+    const result = openGraph({
+      description: 'Test',
+      siteName: 'lordronz.vercel.app',
+      type: 'bruh' as keyof typeof OGType,
+      logoWidth: '169',
+    });
+
+    expect(result).toBe(
+      'https://lr-og.vercel.app/api/general?siteName=lordronz.vercel.app&description=Test&logo=https%3A%2F%2Flordronz.vercel.app%2Fimages%2Flogo.jpg&logoWidth=169'
+    );
+  });
+
+  it('should return correct logo width (default import)', () => {
+    expect.hasAssertions();
+    const result = openGraphDefault({
+      description: 'Test',
+      siteName: 'lordronz.vercel.app',
+      type: 'bruh' as keyof typeof OGType,
+      logoWidth: '169',
+    });
+
+    expect(result).toBe(
+      'https://lr-og.vercel.app/api/general?siteName=lordronz.vercel.app&description=Test&logo=https%3A%2F%2Flordronz.vercel.app%2Fimages%2Flogo.jpg&logoWidth=169'
     );
   });
 });

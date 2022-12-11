@@ -4,7 +4,9 @@ import useSWR from 'swr';
 
 import { NowPlayingSong } from '@/types/nowPlaying';
 
-const AnimatedBars = () => {
+export const AnimatedBars = ({
+  ...rest
+}: React.ComponentPropsWithoutRef<'div'>) => {
   useEffect(() => {
     animate(
       '#bar1',
@@ -56,7 +58,7 @@ const AnimatedBars = () => {
   }, []);
 
   return (
-    <div className='flex w-auto items-end overflow-hidden'>
+    <div className='flex w-auto items-end overflow-hidden' {...rest}>
       <span
         id='bar1'
         className='mr-[3px] h-2 w-1 bg-primary-300 opacity-75 dark:bg-primary-500'

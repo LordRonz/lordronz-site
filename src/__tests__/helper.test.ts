@@ -9,6 +9,16 @@ describe('storage functions', () => {
 
       expect(result).toBe('banger');
     });
+
+    it('should return null from localstorage', () => {
+      expect.hasAssertions();
+      Object.defineProperty(window, 'localStorage', {
+        value: undefined,
+      });
+      const result = getFromLocalStorage('a');
+
+      expect(result).toBeNull();
+    });
   });
 
   describe('get from session storage', () => {
@@ -18,6 +28,16 @@ describe('storage functions', () => {
       const result = getFromSessionStorage('a');
 
       expect(result).toBe('banger');
+    });
+
+    it('should return null from sessionstorage', () => {
+      expect.hasAssertions();
+      Object.defineProperty(window, 'sessionStorage', {
+        value: undefined,
+      });
+      const result = getFromSessionStorage('a');
+
+      expect(result).toBeNull();
     });
   });
 });
