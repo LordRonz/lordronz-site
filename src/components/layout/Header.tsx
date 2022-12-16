@@ -21,7 +21,7 @@ export const links: Links = [
   { href: '/blog', label: 'Blog' },
 ];
 
-const Header = () => {
+const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
   const { theme, setTheme } = useTheme();
 
   //#region  //*=========== Route Functionality ===========
@@ -50,6 +50,7 @@ const Header = () => {
         'sticky top-0 z-50 transition-shadow',
         !onTop && 'shadow-lg'
       )}
+      {...rest}
     >
       <a
         href='#skip-nav'

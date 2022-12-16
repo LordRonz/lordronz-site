@@ -14,13 +14,13 @@ const CoolButton = ({
   width: w = 150,
   height: h = 50,
   className,
-  polygonClassName = '',
-  movingPolygonClassName = '',
-  wrapperClassName = '',
+  polygonClassName,
+  movingPolygonClassName,
+  wrapperClassName,
   children,
   ...rest
 }: CoolButtonProp) => {
-  const a = 2 * (+w + +h);
+  const a = 2 * ((+w < 1 ? 150 : +w) + (+h < 1 ? 50 : +h));
 
   return (
     <svg

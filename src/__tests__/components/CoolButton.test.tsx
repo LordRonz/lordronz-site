@@ -18,6 +18,10 @@ jest.mock('next/router', () => ({
 }));
 
 describe('CoolButton', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    jest.useFakeTimers();
+  });
   it('renders a coolbutton', () => {
     render(<CoolButton>Test</CoolButton>);
 
@@ -70,6 +74,54 @@ describe('CoolButton', () => {
         className='balls'
         aria-checked='true'
       >
+        Test
+      </CoolButton>
+    );
+
+    const button = screen.getByText('Test');
+
+    expect(button).toBeInTheDocument();
+  });
+
+  it('renders a coolbutton with all props overwrite', () => {
+    render(
+      <CoolButton
+        wrapperClassName='justify-end'
+        polygonClassName='duration-100'
+        movingPolygonClassName='bg-dark'
+        className='duration-100'
+        aria-checked='true'
+      >
+        Test
+      </CoolButton>
+    );
+
+    const button = screen.getByText('Test');
+
+    expect(button).toBeInTheDocument();
+  });
+
+  it('renders a coolbutton with different props', () => {
+    render(
+      <CoolButton
+        wrapperClassName='justify-end'
+        polygonClassName='duration-100'
+        movingPolygonClassName='bg-dark'
+        className='duration-100'
+        aria-checked='true'
+      >
+        Test
+      </CoolButton>
+    );
+
+    const button = screen.getByText('Test');
+
+    expect(button).toBeInTheDocument();
+  });
+
+  it('renders a default coolbutton if given invalid size', () => {
+    render(
+      <CoolButton width={0} height={0}>
         Test
       </CoolButton>
     );
