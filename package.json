@@ -44,7 +44,7 @@
     "@giscus/react": "^2.2.6",
     "@headlessui/react": "^1.7.7",
     "@next/font": "^13.1.1",
-    "axios": "^1.2.1",
+    "axios": "^1.2.2",
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^1.2.1",
     "firebase-admin": "^11.4.1",
