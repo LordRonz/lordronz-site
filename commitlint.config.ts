@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
 import type { UserConfig } from '@commitlint/types';
 
-const Configuration: UserConfig = {
+export const Configuration: UserConfig = {
   extends: ['@commitlint/config-conventional'],
   rules: {
     // TODO Add Scope Enum Here

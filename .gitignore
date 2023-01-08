@@ -64,3 +64,6 @@ serviceAccountKey.json
 public/sw.js
 public/workbox*
 public/manifest.json
+
+# Cache
+.swc/
