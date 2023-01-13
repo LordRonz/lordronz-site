@@ -49,7 +49,7 @@
     "clsx": "^1.2.1",
     "daisyui": "^2.46.1",
     "firebase-admin": "^11.4.1",
-    "framer-motion": "^8.0.2",
+    "framer-motion": "^8.4.3",
     "lodash": "^4.17.21",
     "motion": "^10.15.3",
     "next": "^13.1.1",
