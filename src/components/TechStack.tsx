@@ -20,7 +20,7 @@ import clsxm from '@/lib/clsxm';
 
 const TechStack = () => {
   return (
-    <div className='flex space-x-2 md:space-x-4'>
+    <div className='flex flex-wrap gap-x-2 gap-y-3 md:gap-x-4'>
       {stacks.map((tech) => (
         <Tooltip key={tech.id} content={<p>{tech.tooltip}</p>}>
           <tech.icon

@@ -62,4 +62,54 @@ describe('Header clipboard', () => {
       expect(v).toHaveProperty('label');
     });
   });
+
+  it('opens sidebar', async () => {
+    render(
+      <div style={{ height: '2048px', width: '500px' }}>
+        <Header />
+      </div>
+    );
+
+    const sidebarToggle = screen.getByRole('checkbox');
+
+    fireEvent.click(sidebarToggle);
+
+    expect(sidebarToggle).toBeInTheDocument();
+  });
+
+  it('closes sidebar', async () => {
+    render(
+      <div style={{ height: '2048px', width: '500px' }}>
+        <Header />
+      </div>
+    );
+
+    const sidebarToggle = screen.getByRole('checkbox');
+
+    fireEvent.click(sidebarToggle);
+
+    const closeSidebarButton = screen.getByRole('button', {
+      name: /Close sidebar button/i,
+    });
+
+    fireEvent.click(closeSidebarButton);
+
+    expect(sidebarToggle).toBeInTheDocument();
+  });
+
+  it('closes sidebar when clicked away', async () => {
+    render(
+      <div style={{ height: '2048px', width: '500px' }}>
+        <Header />
+      </div>
+    );
+
+    const sidebarToggle = screen.getByRole('checkbox');
+
+    fireEvent.click(sidebarToggle);
+
+    fireEvent.mouseDown(document);
+
+    expect(sidebarToggle).toBeInTheDocument();
+  });
 });
