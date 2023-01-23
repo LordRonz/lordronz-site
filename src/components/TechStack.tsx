@@ -1,9 +1,11 @@
 import {
   SiArchlinux,
   SiCplusplus,
+  SiDjango,
   SiExpress,
   SiGo,
   SiMongodb,
+  SiNestjs,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
@@ -124,6 +126,30 @@ const stacks = [
     ),
   },
   {
+    id: 'nest',
+    icon: SiNestjs,
+    tooltip: (
+      <>
+        <CustomLink href='https://nestjs.com/'>Nest.js</CustomLink>, is full
+        featured Node.js backend framework. This is currently my go-to backend
+        framework if I{"'"}m about to develop a backend application.
+      </>
+    ),
+  },
+  {
+    id: 'django',
+    icon: SiDjango,
+    tooltip: (
+      <>
+        <CustomLink href='https://www.djangoproject.com/'>Django</CustomLink>,
+        is one of my favorite python web framework. It is a fully featured,
+        extremely scalable web framework. It has so many features, hence its
+        slogan {'"'}The web framework for perfectionists with deadlines.{'"'}.
+        It can be extended with Django REST Framework to work with REST APIs.
+      </>
+    ),
+  },
+  {
     id: 'express',
     icon: SiExpress,
     tooltip: (
@@ -141,7 +167,7 @@ const stacks = [
       <>
         <CustomLink href='https://www.cplusplus.com/'>C++</CustomLink>, language
         that I used to do Competitive Programming exercises, and Arduino
-        programming.
+        programming. I develop some games with it, too.
       </>
     ),
   },

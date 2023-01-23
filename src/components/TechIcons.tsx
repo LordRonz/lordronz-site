@@ -2,6 +2,7 @@ import { IoLogoVercel } from 'react-icons/io5';
 import {
   SiFirebase,
   SiGit,
+  SiGo,
   SiGoogleanalytics,
   SiJavascript,
   SiMarkdown,
@@ -54,6 +55,10 @@ const techList = {
   nextjs: {
     icon: SiNextdotjs,
     name: 'Next.js',
+  },
+  go: {
+    icon: SiGo,
+    name: 'Go',
   },
   tailwindcss: {
     icon: SiTailwindcss,
