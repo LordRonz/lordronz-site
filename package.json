@@ -43,7 +43,7 @@
   "dependencies": {
     "@giscus/react": "^2.2.6",
     "@headlessui/react": "^1.7.7",
-    "@next/font": "^13.1.4",
+    "@next/font": "^13.1.5",
     "axios": "^1.2.3",
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^1.2.1",
