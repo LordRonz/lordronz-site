@@ -2,7 +2,7 @@ import { getNowPlaying } from '@/lib/spotify';
 import { SpotifySong } from '@/types/spotify';
 
 export const config = {
-  runtime: 'experimental-edge',
+  runtime: 'edge',
 };
 
 const handler = async () => {

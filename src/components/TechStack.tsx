@@ -56,9 +56,12 @@ const stacks = [
     icon: SiReact,
     tooltip: (
       <>
-        <CustomLink href='https://reactjs.org/'>Create React App</CustomLink>,
-        first frontend framework that I learned, great if you are making an
-        authenticated website.
+        <CustomLink href='https://reactjs.org/'>Create React App</CustomLink>{' '}
+        and <CustomLink href='https://reactnative.dev'>React Native</CustomLink>{' '}
+        , first frontend framework that I learned, great if you are making an
+        authenticated website. I am using React Native to develop a native
+        multi-platform apps. I chose React Native because it is so convenient to
+        use if you know React.
       </>
     ),
   },
