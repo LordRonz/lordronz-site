@@ -75,7 +75,7 @@
     "@babel/core": "^7.20.7",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
-    "@next/bundle-analyzer": "^13.1.4",
+    "@next/bundle-analyzer": "^13.2.3",
     "@next/eslint-plugin-next": "^13.1.4",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
