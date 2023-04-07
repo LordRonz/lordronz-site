@@ -47,7 +47,7 @@ const ScrollButton = ({
   return (
     <div
       className={clsxm(
-        'fixed right-8 bottom-8 z-50',
+        'fixed bottom-8 right-8 z-50',
         !visible && 'hidden',
         wrapperClassName
       )}

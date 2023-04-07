@@ -15,7 +15,10 @@ type TooltipTextProps = {
   spanClassName?: string;
   withUnderline?: boolean;
 } & TooltipProps &
-  Omit<React.ComponentPropsWithoutRef<'div'>, 'children' | 'className'>;
+  Omit<
+    React.ComponentPropsWithoutRef<'div'>,
+    'children' | 'className' | 'content'
+  >;
 
 const Tooltip = ({
   content,

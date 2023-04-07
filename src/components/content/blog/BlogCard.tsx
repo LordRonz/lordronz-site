@@ -44,7 +44,7 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
           <div
             className={clsxm(
               'absolute bottom-0 w-full px-4 py-2',
-              'mt-2 flex flex-wrap justify-end gap-y-1 gap-x-2 text-sm text-black dark:text-gray-100'
+              'mt-2 flex flex-wrap justify-end gap-x-2 gap-y-1 text-sm text-black dark:text-gray-100'
             )}
           >
             {post.tags.split(',').map((tag) => (
@@ -70,7 +70,7 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
               <Accent>{post?.views?.toLocaleString() ?? '---'} views</Accent>
             </div>
           </div>
-          <p className='mt-4 mb-2 text-sm text-gray-600 dark:text-gray-300'>
+          <p className='mb-2 mt-4 text-sm text-gray-600 dark:text-gray-300'>
             <span className='font-bold text-gray-800 dark:text-gray-100'>
               {format(
                 new Date(post.lastUpdated ?? post.publishedAt),

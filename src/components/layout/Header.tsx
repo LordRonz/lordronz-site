@@ -69,7 +69,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
           'bg-light dark:bg-dark',
           'group dark:hover:text-primary-300',
           'focus:outline-none focus:ring focus:ring-primary-300',
-          'absolute top-4 left-4 z-[1000]',
+          'absolute left-4 top-4 z-[1000]',
           '-translate-y-16 focus:translate-y-0'
         )}
       >
@@ -168,7 +168,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
           type='button'
           aria-controls='drawer-navigation'
           aria-label='Close sidebar button'
-          className='absolute top-2.5 right-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white'
+          className='absolute right-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white'
           onClick={() => setSideNav(false)}
         >
           <svg

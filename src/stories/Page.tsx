@@ -70,7 +70,7 @@ export const Page: React.FC = () => {
           </a>
           .
         </p>
-        <div className='tip-wrapper mt-[40px] mb-[40px] text-[13px] leading-[20px]'>
+        <div className='tip-wrapper mb-[40px] mt-[40px] text-[13px] leading-[20px]'>
           <span className='tip mr-[10px] inline-block rounded-[1em] bg-[#e7fdd8] p-[4px_12px] align-top text-[11px] font-bold leading-[12px] text-[#66bf3c]'>
             Tip
           </span>{' '}

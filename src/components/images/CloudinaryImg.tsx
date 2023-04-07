@@ -70,10 +70,10 @@ const CloudinaryImg = ({
     <figure
       className={clsxm(className, {
         'overflow-hidden rounded shadow dark:shadow-none': !noStyle,
-        'mx-auto w-full': mdx && width <= 800,
+        'mx-auto w-full': mdx && +width <= 800,
       })}
       style={{
-        ...(mdx && width <= 800 ? { maxWidth: width } : {}),
+        ...(mdx && +width <= 800 ? { maxWidth: width } : {}),
         ...style,
       }}
       {...rest}
@@ -102,7 +102,7 @@ const CloudinaryImg = ({
             background-size: 100%;
           }
         `}</style>
-        <div className='absolute top-0 left-0'>
+        <div className='absolute left-0 top-0'>
           <Image
             width={+width}
             height={+height}

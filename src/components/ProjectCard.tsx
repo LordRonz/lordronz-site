@@ -45,12 +45,12 @@ const ProjectCard = ({ project, onImgClick }: ProjectCardProp) => {
           <Image
             alt={project.title ?? 'Project Image'}
             src={`/images/projects/${project.image}`}
-            layout='fill'
-            objectFit='cover'
+            fill
+            style={{ objectFit: 'cover' }}
           />
         </div>
       )}
-      <div className='space-y-2 px-4 pt-4 pb-16'>
+      <div className='space-y-2 px-4 pb-16 pt-4'>
         <a
           href={project.demo}
           target='_blank'

@@ -33,7 +33,11 @@ const Home: NextPage = () => {
                 backend technologies and SysAdmin. I also have developed
                 frontend skills by making some React projects.
               </p>
-              <UnstyledLink href='/about' aria-label='About Page'>
+              <UnstyledLink
+                href='/about'
+                aria-label='About Page'
+                className='inline-flex'
+              >
                 <CoolButton
                   wrapperClassName='text-md font-bold'
                   width={210}

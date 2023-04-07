@@ -69,7 +69,8 @@
     "react-use": "^17.4.0",
     "sharp": "^0.31.3",
     "swr": "^2.0.1",
-    "tailwind-merge": "^1.8.1"
+    "tailwind-merge": "^1.8.1",
+    "webpack": "^5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",

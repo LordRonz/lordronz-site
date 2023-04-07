@@ -35,7 +35,7 @@ const CustomCode = (props: React.ComponentPropsWithRef<'code'>) => {
       )}
 
       {language && (
-        <div className='absolute top-0 left-6 rounded-b-md border border-t-0 border-gray-600 px-3 py-1'>
+        <div className='absolute left-6 top-0 rounded-b-md border border-t-0 border-gray-600 px-3 py-1'>
           <span className='select-none bg-gradient-to-tr from-primary-300 to-primary-400 bg-clip-text font-medium text-transparent'>
             {language}
           </span>
@@ -49,7 +49,7 @@ const CustomCode = (props: React.ComponentPropsWithRef<'code'>) => {
             setTimeout(() => setIsCopied(false), 1500);
           }}
         >
-          <button className='absolute top-2 right-2 hidden rounded border border-gray-600 p-2 text-lg transition-colors hover:bg-gray-700 md:block'>
+          <button className='absolute right-2 top-2 hidden rounded border border-gray-600 p-2 text-lg transition-colors hover:bg-gray-700 md:block'>
             {isCopied ? <FiCheck className='text-green-400' /> : <FiCopy />}
           </button>
         </CopyToClipboard>

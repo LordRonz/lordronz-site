@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 
 import Accent from '@/components/Accent';
 import AnimatePage from '@/components/AnimatePage';
+import CloudinaryImg from '@/components/images/CloudinaryImg';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
 import Seo from '@/components/Seo';
@@ -16,9 +17,19 @@ const Home: NextPage = () => {
         <main>
           <section className={clsxm('my-16 flex flex-col justify-center')}>
             <article className='layout'>
-              <h1 className='text-3xl md:text-5xl 2xl:text-6xl'>
-                <Accent>Hey, I{"'"}m Aaron Christopher</Accent>
-              </h1>
+              <div className='flex items-center gap-x-3'>
+                <h1 className='text-3xl md:text-5xl 2xl:text-6xl'>
+                  <Accent>Hey, I{"'"}m Aaron Christopher</Accent>
+                </h1>
+                <CloudinaryImg
+                  className='float-right w-24 md:w-24'
+                  publicId={'lordronz-site/main/memoji-thonking-airpods'}
+                  alt='Me'
+                  width='420'
+                  height='420'
+                  noStyle
+                />
+              </div>
               <p
                 className={clsxm(
                   'my-4 max-w-4xl md:mt-6',
