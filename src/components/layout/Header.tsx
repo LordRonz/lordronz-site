@@ -125,7 +125,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
             <input
               type='checkbox'
               className='hidden'
-              onChange={() => setSideNav(!sideNav)}
+              onChange={() => setSideNav((s) => !s)}
               checked={sideNav}
             />
             <svg
