@@ -12,6 +12,7 @@ import {
 import { Tooltip as TooltipTippy } from 'react-tippy';
 
 import Accent from '@/components/Accent';
+import { Carbonbadge } from '@/components/Carbonbadge';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import NowPlaying from '@/components/NowPlaying';
 import Tooltip from '@/components/Tooltip';
@@ -62,6 +63,7 @@ const Footer = () => {
         <div className='flex justify-center'>
           <NowPlaying />
         </div>
+        <Carbonbadge />
         <div className='flex space-x-4'>
           <div className='flex items-center justify-center'>
             <TooltipTippy
