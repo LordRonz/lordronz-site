@@ -16,37 +16,37 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import NowPlaying from '@/components/NowPlaying';
 import Tooltip from '@/components/Tooltip';
 
-const mail = 'christopher.19072@mhs.its.ac.id';
-
+const mail = 'me@aaronct.dev';
+const url_shortener = 'https://go.aaronct.dev';
 const socials = [
   {
     label: 'GitHub',
-    link: 'https://lr-link.vercel.app/github',
+    link: `${url_shortener}/github`,
     icon: SiGithub,
   },
   {
     label: 'GitLab',
-    link: 'https://lr-link.vercel.app/gitlab',
+    link: `${url_shortener}/gitlab`,
     icon: SiGitlab,
   },
   {
     label: 'Hackerrank',
-    link: 'https://lr-link.vercel.app/hackerrank',
+    link: `${url_shortener}/hackerrank`,
     icon: SiHackerrank,
   },
   {
     label: 'LeetCode',
-    link: 'https://lr-link.vercel.app/leetcode',
+    link: `${url_shortener}/leetcode`,
     icon: SiLeetcode,
   },
   {
     label: 'LinkedIn',
-    link: 'https://lr-link.vercel.app/linkedin',
+    link: `${url_shortener}/linkedin`,
     icon: SiLinkedin,
   },
   {
     label: 'Stack Overflow',
-    link: 'https://lr-link.vercel.app/stackoverflow',
+    link: `${url_shortener}/stackoverflow`,
     icon: SiStackoverflow,
   },
 ] as const;
@@ -71,9 +71,7 @@ const Footer = () => {
               html={
                 <div className='inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-primary-500 dark:bg-dark dark:text-gray-200'>
                   {copyStatus}
-                  <Accent className='inline-block font-medium'>
-                    christopher.19072@mhs.its.ac.id
-                  </Accent>
+                  <Accent className='inline-block font-medium'>{mail}</Accent>
                 </div>
               }
             >
