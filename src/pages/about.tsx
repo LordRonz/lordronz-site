@@ -7,9 +7,10 @@ import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
 import Seo from '@/components/Seo';
 import TechStack from '@/components/TechStack';
+import { LINK_SHORTENER_URL } from '@/constants/env';
 import clsxm from '@/lib/clsxm';
 
-const Home: NextPage = () => {
+const AboutPage: NextPage = () => {
   return (
     <Layout>
       <Seo templateTitle='About' />
@@ -48,10 +49,10 @@ const Home: NextPage = () => {
                 expertised as a Linux SysAdmin, using it as my daily OS.
               </p>
               <div className='flex gap-x-3'>
-                <ButtonLink href='https://lr-link.vercel.app/academic_resume'>
+                <ButtonLink href={`${LINK_SHORTENER_URL}/academic_resume`}>
                   See My CV
                 </ButtonLink>
-                <ButtonLink href='https://lr-link.vercel.app' variant='outline'>
+                <ButtonLink href={LINK_SHORTENER_URL} variant='outline'>
                   My Bio Links
                 </ButtonLink>
               </div>
@@ -71,4 +72,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default AboutPage;

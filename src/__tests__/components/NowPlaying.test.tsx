@@ -40,7 +40,7 @@ describe('NowPlaying', () => {
   it('renders a now playing with swr value', async () => {
     jest.spyOn(axios, 'get').mockResolvedValueOnce({
       data: {
-        songUrl: 'https://ronz.vercel.app',
+        songUrl: `${WEBSITE_URL}`,
         title: 'banger',
       },
     });

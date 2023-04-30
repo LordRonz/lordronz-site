@@ -11,7 +11,7 @@ import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 
-const Home: NextPage = () => {
+const ComponentsPage: NextPage = () => {
   const { theme } = useTheme();
 
   const [mounted, setMounted] = useState(false);
@@ -154,4 +154,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default ComponentsPage;

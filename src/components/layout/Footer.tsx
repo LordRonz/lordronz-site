@@ -15,9 +15,10 @@ import Accent from '@/components/Accent';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import NowPlaying from '@/components/NowPlaying';
 import Tooltip from '@/components/Tooltip';
+import { LINK_SHORTENER_URL } from '@/constants/env';
 
 const mail = 'me@aaronct.dev';
-const url_shortener = 'https://go.aaronct.dev';
+const url_shortener = LINK_SHORTENER_URL;
 const socials = [
   {
     label: 'GitHub',
@@ -70,8 +71,10 @@ const Footer = () => {
               interactive
               html={
                 <div className='inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-primary-500 dark:bg-dark dark:text-gray-200'>
-                  {copyStatus}
-                  <Accent className='inline-block font-medium'> {mail}</Accent>
+                  {copyStatus}{' '}
+                  <code>
+                    <Accent className='inline-block font-medium'>{mail}</Accent>
+                  </code>
                 </div>
               }
             >

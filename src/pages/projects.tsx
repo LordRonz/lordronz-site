@@ -7,6 +7,7 @@ import AnimatePage from '@/components/AnimatePage';
 import Layout from '@/components/layout/Layout';
 import ProjectCard, { Project } from '@/components/ProjectCard';
 import Seo from '@/components/Seo';
+import { LINK_SHORTENER_URL } from '@/constants/env';
 import clsxm from '@/lib/clsxm';
 
 const projects: Project[] = [
@@ -61,7 +62,7 @@ const projects: Project[] = [
     slug: 'short_link',
     type: 'website',
     github: 'LordRonz/short-link',
-    demo: 'https://lr-link.vercel.app/',
+    demo: `${LINK_SHORTENER_URL}/`,
     image: 'short_link.png',
   },
   {

@@ -1,3 +1,5 @@
+import { OG_URL, WEBSITE_URL } from '@/constants/env';
+
 export enum OGType {
   general,
   gradient,
@@ -19,7 +21,7 @@ export const openGraph = ({
   templateTitle,
   description,
   type = 'general',
-  logo = 'https://lordronz.vercel.app/images/logo.jpg',
+  logo = `${WEBSITE_URL}/images/logo.jpg`,
   logoWidth = '100',
 }: OpenGraphType): string => {
   const ogLogo = encodeURIComponent(logo.trim());
@@ -33,7 +35,7 @@ export const openGraph = ({
     ? type.trim()
     : 'general';
 
-  return `https://lr-og.vercel.app/api/${ogType}?siteName=${ogSiteName}&description=${ogDesc}&logo=${ogLogo}&logoWidth=${ogLogoWidth}${
+  return `${OG_URL}/api/${ogType}?siteName=${ogSiteName}&description=${ogDesc}&logo=${ogLogo}&logoWidth=${ogLogoWidth}${
     ogTemplateTitle ? `&templateTitle=${ogTemplateTitle}` : ''
   }`;
 };
