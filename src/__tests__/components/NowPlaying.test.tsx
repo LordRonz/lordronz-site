@@ -7,6 +7,7 @@ import axios from 'axios';
 import { SWRConfig } from 'swr';
 
 import NowPlaying, { AnimatedBars } from '@/components/NowPlaying';
+import { WEBSITE_URL } from '@/constants/env';
 
 jest.mock('next/router', () => ({
   useRouter() {

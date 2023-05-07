@@ -1,21 +1,20 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { fontFamily } = require('tailwindcss/defaultTheme');
+import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
 const withOpacity =
-  (variable) =>
-  ({ opacityValue }) =>
+  (variable: string) =>
+  ({ opacityValue }: { opacityValue?: string }) =>
     opacityValue === undefined
       ? `rgb(var(${variable}))`
       : `rgb(var(${variable}) / ${opacityValue})`;
 
-const getColorShades = (shades, name = 'primary') =>
+const getColorShades = (shades: number[], name = 'primary') =>
   shades.reduce(
     (a, v) => ({ ...a, [v]: withOpacity(`--tw-clr-${name}-${v}`) }),
     {}
   );
 
-/** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
-module.exports = {
+export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
@@ -44,4 +43,4 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('daisyui'),
   ],
-};
+} satisfies Config;
