@@ -70,7 +70,7 @@
     "sharp": "^0.32.1",
     "swr": "^2.1.5",
     "tailwind-merge": "^1.8.1",
-    "webpack": "^5.82.0"
+    "webpack": "^5.83.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
