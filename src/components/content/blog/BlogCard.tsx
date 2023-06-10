@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 
 import Accent from '@/components/Accent';
@@ -73,8 +73,12 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
           <p className='mb-2 mt-4 text-sm text-gray-600 dark:text-gray-300'>
             <span className='font-bold text-gray-800 dark:text-gray-100'>
               {format(
-                new Date(post.lastUpdated ?? post.publishedAt),
-                'MMMM dd, yyyy'
+                parse(
+                  post.lastUpdated ?? post.publishedAt,
+                  'yyyy-MM-dd',
+                  new Date()
+                ),
+                'MMMM d, yyyy'
               )}
             </span>
           </p>
