@@ -5,10 +5,10 @@ import 'react-tippy/dist/tippy.css';
 import 'react-typed/dist/animatedCursor.css';
 import 'react-image-lightbox/style.css';
 
-import { Inter } from '@next/font/google';
 import axios from 'axios';
 import { AnimatePresence } from 'framer-motion';
 import type { AppProps } from 'next/app';
+import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import NextNProgress from 'nextjs-progressbar';
 import { SWRConfig } from 'swr';
