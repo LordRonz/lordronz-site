@@ -6261,13 +6261,14 @@ cypress@^12.14.0:
     untildify "^4.0.0"
     yauzl "^2.10.0"
 
-daisyui@^3.0.22:
-  version "3.0.22"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-3.0.22.tgz#2e1f3590fbaa62b9714c2b9b54c514abc79be21b"
-  integrity sha512-2xdRxQUUB+O0Mcww65QMwwo0fjnos4JmyLhX6F4WxWTngjy9eYyxdQChtsJB3GUl0jNYdZfmnK48gJNyhMBX8Q==
+daisyui@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-3.3.1.tgz#3ebec616b3f37b43903d9c935026b1aaed5542c1"
+  integrity sha512-0PVNl+0r2Ie+FRkDNQABYcv8qLc0bt0lhUfSf8PxGocqpDsCB6cNQ5k8jOlnZIjUhc1EXMIDPU9r0pVrfRGftw==
   dependencies:
     colord "^2.9"
     css-selector-tokenizer "^0.8"
+    postcss "^8"
     postcss-js "^4"
     tailwindcss "^3"
 
@@ -12335,6 +12336,15 @@ postcss@^7.0.14, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.5, postcss@^7.0.
   dependencies:
     picocolors "^0.2.1"
     source-map "^0.6.1"
+
+postcss@^8:
+  version "8.4.27"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.27.tgz#234d7e4b72e34ba5a92c29636734349e0d9c3057"
+  integrity sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==
+  dependencies:
+    nanoid "^3.3.6"
+    picocolors "^1.0.0"
+    source-map-js "^1.0.2"
 
 postcss@^8.2.15, postcss@^8.4.21, postcss@^8.4.23, postcss@^8.4.24:
   version "8.4.24"
