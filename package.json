@@ -46,7 +46,7 @@
     "axios": "^1.4.0",
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^1.2.1",
-    "daisyui": "^3.0.22",
+    "daisyui": "^3.5.0",
     "firebase-admin": "^11.9.0",
     "framer-motion": "^10.12.16",
     "lodash": "^4.17.21",
