@@ -14,8 +14,8 @@ import {
   PickFrontmatter,
 } from '@/types/frontmatters';
 
-export const getFiles = async (type: ContentType) =>
-  readdirSync(join(process.cwd(), 'src', 'contents', type));
+export const getFiles = async (type: ContentType, subfolders = '') =>
+  readdirSync(join(process.cwd(), 'src', 'contents', type, subfolders));
 
 export const getFileBySlug = async (type: ContentType, slug: string) => {
   const source = slug

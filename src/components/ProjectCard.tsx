@@ -19,9 +19,14 @@ export type Project = {
 export type ProjectCardProp = {
   project: Project;
   onImgClick?: () => void;
+  imageLinkPrefix?: string;
 };
 
-const ProjectCard = ({ project, onImgClick }: ProjectCardProp) => {
+const ProjectCard = ({
+  project,
+  onImgClick,
+  imageLinkPrefix = 'projects',
+}: ProjectCardProp) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: '-10% 0px',
@@ -44,7 +49,7 @@ const ProjectCard = ({ project, onImgClick }: ProjectCardProp) => {
         >
           <Image
             alt={project.title ?? 'Project Image'}
-            src={`/images/projects/${project.image}`}
+            src={`/images/${imageLinkPrefix}/${project.image}`}
             fill
             style={{ objectFit: 'cover' }}
           />
