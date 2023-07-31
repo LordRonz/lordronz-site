@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect, useMemo, useState } from 'react';
-import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
+import { HiOutlineClock } from 'react-icons/hi';
 import { MdHistory } from 'react-icons/md';
 
 import Accent from '@/components/Accent';
@@ -12,14 +12,11 @@ import MDXComponents from '@/components/content/MDXComponents';
 import TableOfContents, {
   HeadingScrollSpy,
 } from '@/components/content/TableOfContents';
-import CloudinaryImg from '@/components/images/CloudinaryImg';
 import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
-import useContentMeta from '@/hooks/useContentMeta';
 import useScrollSpy from '@/hooks/useScrollSpy';
-import { cleanBlogPrefix } from '@/lib/blog';
 import clsxm from '@/lib/clsxm';
 import { getFileBySlug, getFiles, getRecommendations } from '@/lib/mdx';
 import { BlogFrontmatter, BlogType } from '@/types/frontmatters';
@@ -38,19 +35,6 @@ const SingleProductContentPage = ({
   const COMMIT_HISTORY_LINK = `https://github.com/lordronz/lordronz-site/commits/main/src/contents/product/${frontmatter.slug}.mdx`;
   const GITHUB_EDIT_LINK = `https://github.com/lordronz/lordronz-site/blob/main/src/contents/product/${frontmatter.slug}.mdx`;
   //#endregion  //*======== Link Constants ===========
-
-  //#region  //*=========== Blog Language ===========
-  const cleanSlug = useMemo(
-    () => cleanBlogPrefix(frontmatter.slug),
-    [frontmatter.slug]
-  );
-  const isEnglish = cleanSlug === frontmatter.slug;
-  //#endregion  //*======== Blog Language ===========
-
-  //#region  //*=========== Content Meta ===========
-  const contentSlug = `b_${cleanSlug}`;
-  const meta = useContentMeta(contentSlug, { runIncrement: true });
-  //#endregion  //*======== Content Meta ===========
 
   //#region  //*=========== Scrollspy ===========
   const activeSection = useScrollSpy();
@@ -89,14 +73,6 @@ const SingleProductContentPage = ({
           <section className=''>
             <div className='layout'>
               <div className='pb-4 dark:border-gray-600'>
-                <CloudinaryImg
-                  publicId={`lordronz-site/banner/${frontmatter.banner}`}
-                  alt='Banner image'
-                  width={1200}
-                  height={(1200 * 2) / 5}
-                  aspect={{ height: 2, width: 5 }}
-                />
-
                 <h1 className='mt-4'>{frontmatter.title}</h1>
 
                 <p className='mt-2 text-sm text-gray-600 dark:text-gray-300'>
@@ -132,21 +108,7 @@ const SingleProductContentPage = ({
                     <HiOutlineClock className='inline-block text-base' />
                     <Accent>{frontmatter.readingTime.text}</Accent>
                   </div>
-                  <div className='flex items-center gap-1'>
-                    <HiOutlineEye className='inline-block text-base' />
-                    <Accent>
-                      {meta?.currentViews?.toLocaleString() ?? '---'} views
-                    </Accent>
-                  </div>
                 </div>
-                {!frontmatter?.englishOnly && (
-                  <CustomLink
-                    href={`/blog/${isEnglish ? 'id-' : ''}${cleanSlug}`}
-                    className='mt-4'
-                  >
-                    Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
-                  </CustomLink>
-                )}
               </div>
 
               <hr className='dark:border-gray-600' />
