@@ -11,16 +11,6 @@ import clsxm from '@/lib/clsxm';
 
 const products: Project[] = [
   {
-    title: 'Petto',
-    content:
-      'Petto Life provides users with relaxation activity reminder through game which is by taking care of a pet and compete through leaderboard.',
-    slug: 'petto',
-    type: 'app',
-    github: 'petto-app/petto',
-    demo: 'https://apps.apple.com/id/app/petto-life/id6450627184',
-    image: 'petto.png',
-  },
-  {
     title: 'Number Ninja - The Game',
     content:
       'Risaikuru is a web service that can classify your trash to determine if it is organic or reusable',
@@ -38,20 +28,19 @@ const Product: NextPage = () => {
 
   return (
     <Layout>
-      <Seo templateTitle='Products' description='List of my products' />
+      <Seo templateTitle='Projects' description='List of my projects' />
       <AnimatePage>
         <main>
           <section className={clsxm('flex flex-col justify-center')}>
             <article className='layout space-y-10 py-8'>
               <h1 className='text-3xl md:text-5xl 2xl:text-6xl'>
-                <Accent>Products</Accent>
+                <Accent>Projects</Accent>
               </h1>
               <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
                 {products.map((project) => (
                   <ProjectCard
                     project={project}
                     key={project.slug}
-                    imageLinkPrefix='product'
                     onImgClick={() => {
                       if (project.i === undefined) return;
                       setImgIndex(project.i);
