@@ -48,8 +48,11 @@ const stacks = [
       <>
         <CustomLink href='https://developer.apple.com/swift/'>Swift</CustomLink>
         , programming language for all Apple platforms. After learning iOS
-        programming at Apple Developer Academy @UC, I created and released
-        several apps. You can check them out on the{' '}
+        programming at{' '}
+        <CustomLink href='https://appledeveloperacademy.uc.ac.id/'>
+          Apple Developer Academy @UC
+        </CustomLink>
+        , I created and released several apps. You can check them out on the{' '}
         <CustomLink href='product' openNewTab={false}>
           product page
         </CustomLink>
