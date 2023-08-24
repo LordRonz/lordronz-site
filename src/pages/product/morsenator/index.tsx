@@ -4,8 +4,40 @@ import Image from 'next/image';
 import Accent from '@/components/Accent';
 import AnimatePage from '@/components/AnimatePage';
 import Layout from '@/components/layout/Layout';
+import CustomLink from '@/components/links/CustomLink';
 import Seo from '@/components/Seo';
 import clsxm from '@/lib/clsxm';
+
+const aboutContents = [
+  {
+    title: 'Our mission',
+    content:
+      'At Morsenator, our mission is simple: to make Morse Code accessible, understandable, and fun for everyone. We believe in the power of this timeless communication method and its relevance in our tech-driven world.',
+  },
+  {
+    title: 'Your Privacy Matters',
+    content:
+      "We value your privacy. Morsenator may request access to your device's internal storage and camera for specific features. You have full control over granting or denying these permissions.",
+  },
+  {
+    title: 'Updates and Support',
+    content:
+      "We're dedicated to providing the best experience possible. Morsenator will be regularly updated to address any bugs and introduce new features. Your feedback is invaluable to us. If you encounter issues or have suggestions, please email us at me@aaronct.dev",
+  },
+  {
+    title: 'Terms of Use',
+    content: (
+      <>
+        By using Morsenator, you agree to our{' '}
+        <CustomLink href='https://www.termsfeed.com/live/ac41a850-5de6-4aa5-93b8-b61523f77846'>
+          Terms of Use
+        </CustomLink>
+        . Please take a moment to review them to ensure a smooth and secure user
+        experience.
+      </>
+    ),
+  },
+];
 
 const AboutPage: NextPage = () => {
   return (
@@ -32,17 +64,32 @@ const AboutPage: NextPage = () => {
                   'md:text-lg 2xl:text-xl'
                 )}
               >
-                I am a passionate Programmer, and love tinkering with Python to
-                automate my personal tasks. I have a good experience with
-                backend development, working with virtual machines, Node.js,
-                using NGINX as a reverse proxy, and deploying them with Docker.
-                I also have developed frontend skills by making some projects
-                Typescript, and React. My database of choice is MongoDB, and
-                recently I also used FaunaDB as my Next.js database. I also
-                could use some SQL databases such as MySQL. I really liked using
-                GitHub Action to do CI/CD stuff. Through my college course, I am
-                expertised as a Linux SysAdmin, using it as my daily OS.
+                Welcome to Morsenator, your gateway to the world of Morse Code!
+                Morsenator is your iOS companion for exploring Morse Code
+                effortlessly. Whether you{"'"}re an enthusiast or just curious,
+                this app makes translating words to Morse Code and vice versa a
+                breeze. Featuring a virtual button for tactile input, an audio
+                visualizer for immersive learning, and a commitment to
+                accessibility, Morsenator is designed to demystify Morse Code
+                for everyone. Respectful of your privacy and ad-free, it{"'"}s
+                the perfect tool for Morse Code enthusiasts and learners alike.
               </p>
+              {aboutContents.map(({ title, content }) => (
+                <>
+                  <h2 className='text-2xl md:text-3xl 2xl:text-4xl'>
+                    <Accent>{title}</Accent>
+                  </h2>
+                  <p
+                    className={clsxm(
+                      'mt-4 max-w-4xl md:mt-6',
+                      'md:text-lg 2xl:text-xl',
+                      'mb-8'
+                    )}
+                  >
+                    {content}
+                  </p>
+                </>
+              ))}
             </article>
           </section>
         </main>
