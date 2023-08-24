@@ -29,7 +29,10 @@ const aboutContents = [
     content: (
       <>
         By using Morsenator, you agree to our{' '}
-        <CustomLink href='https://www.termsfeed.com/live/ac41a850-5de6-4aa5-93b8-b61523f77846'>
+        <CustomLink
+          href='https://www.termsfeed.com/live/ac41a850-5de6-4aa5-93b8-b61523f77846'
+          openNewTab={false}
+        >
           Terms of Use
         </CustomLink>
         . Please take a moment to review them to ensure a smooth and secure user
