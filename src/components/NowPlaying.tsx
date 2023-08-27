@@ -76,7 +76,9 @@ export const AnimatedBars = ({
 };
 
 const NowPlaying = () => {
-  const { data } = useSWR<NowPlayingSong>('/api/now-playing');
+  const { data } = useSWR<NowPlayingSong>('/api/now-playing', {
+    refreshInterval: 20000,
+  });
 
   return (
     <div className='mb-8 flex w-full flex-row-reverse items-center space-x-0 sm:flex-row sm:space-x-2'>
