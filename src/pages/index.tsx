@@ -33,10 +33,11 @@ const Home: NextPage = () => {
                       'md:text-lg 2xl:text-xl'
                     )}
                   >
-                    I am a passionate Programmer, and love tinkering with Python
-                    to automate my personal tasks. I have a good experience with
-                    backend technologies and SysAdmin. I also have developed
-                    frontend skills by making some React projects.
+                    I am a passionate programmer and love tinkering with Python
+                    to automate my personal tasks. I possess extensive
+                    experience with backend technologies and system
+                    administration. Additionally, I have honed my skills through
+                    the development of various React and Swift projects.
                   </p>
                   <div>
                     <UnstyledLink
