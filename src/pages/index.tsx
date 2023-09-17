@@ -38,19 +38,21 @@ const Home: NextPage = () => {
                     backend technologies and SysAdmin. I also have developed
                     frontend skills by making some React projects.
                   </p>
-                  <UnstyledLink
-                    href='/about'
-                    aria-label='About Page'
-                    className='inline-flex'
-                  >
-                    <CoolButton
-                      wrapperClassName='text-md font-bold'
-                      width={210}
-                      height={45}
+                  <div>
+                    <UnstyledLink
+                      href='/about'
+                      aria-label='About Page'
+                      className='inline-flex'
                     >
-                      Learn More About Me
-                    </CoolButton>
-                  </UnstyledLink>
+                      <CoolButton
+                        wrapperClassName='text-md font-bold'
+                        width={210}
+                        height={45}
+                      >
+                        Learn More About Me
+                      </CoolButton>
+                    </UnstyledLink>
+                  </div>
                   <p className='mt-8'>
                     P.S. this website is open-source and available on{' '}
                     <CustomLink
