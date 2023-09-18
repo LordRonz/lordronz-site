@@ -134,9 +134,9 @@ const NowPlaying = () => {
           --border-angle: 0turn;
           background-image: conic-gradient(
               from var(--border-angle),
-              #213,
-              #112 50%,
-              #213
+              #ddd,
+              #ddd 50%,
+              #ddd
             ),
             conic-gradient(
               from var(--border-angle),
@@ -150,6 +150,21 @@ const NowPlaying = () => {
           background-position: center center;
           background-repeat: no-repeat;
           animation: bg-spin 3s linear infinite;
+        }
+
+        :is(.dark .box) {
+          background-image: conic-gradient(
+              from var(--border-angle),
+              #111 0%,
+              #111 0%,
+              #111 0%
+            ),
+            conic-gradient(
+              from var(--border-angle),
+              transparent 20%,
+              #08f,
+              #f03
+            );
         }
 
         @keyframes bg-spin {
