@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { useInView } from 'react-intersection-observer';
 
 import Accent from '@/components/Accent';
 import AnimatePage from '@/components/AnimatePage';
@@ -12,6 +13,11 @@ import { LINK_SHORTENER_URL } from '@/constants/env';
 import clsxm from '@/lib/clsxm';
 
 const AboutPage: NextPage = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '-10% 0px',
+  });
+
   return (
     <Layout>
       <Seo templateTitle='About' />
@@ -74,7 +80,14 @@ const AboutPage: NextPage = () => {
               </div>
             </article>
           </section>
-          <section className={clsxm('my-20 flex flex-col justify-center')}>
+          <section
+            ref={ref}
+            className={clsxm(
+              'my-20 flex flex-col justify-center duration-1000',
+              'opacity-0',
+              inView && 'opacity-100'
+            )}
+          >
             <article className='layout'>
               <h2 className='mb-8 text-2xl md:text-4xl 2xl:text-5xl'>
                 Tech Stack

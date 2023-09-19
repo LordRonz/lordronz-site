@@ -21,9 +21,15 @@ import CustomLink from '@/components/links/CustomLink';
 import Tooltip from '@/components/Tooltip';
 import clsxm from '@/lib/clsxm';
 
-const TechStack = () => {
+export type TechStackProps = {
+  className?: string;
+};
+
+const TechStack = ({ className }: TechStackProps) => {
   return (
-    <div className='flex flex-wrap gap-x-2 gap-y-3 md:gap-x-4'>
+    <div
+      className={clsxm('flex flex-wrap gap-x-2 gap-y-3 md:gap-x-4', className)}
+    >
       {stacks.map((tech) => (
         <Tooltip key={tech.id} content={<p>{tech.tooltip}</p>}>
           <tech.icon
