@@ -1,13 +1,13 @@
 import type { NextPage } from 'next';
 import { useInView } from 'react-intersection-observer';
 
-import Accent from '@/components/Accent';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
 import Marker from '@/components/Marker';
 import Seo from '@/components/Seo';
 import TechStack from '@/components/TechStack';
+import { MainTitle } from '@/components/typography/MainTitle';
 import { LINK_SHORTENER_URL } from '@/constants/env';
 import clsxm from '@/lib/clsxm';
 
@@ -24,9 +24,10 @@ const AboutPage: NextPage = () => {
         <section className={clsxm('my-16 flex flex-col justify-center')}>
           <article className='layout flex flex-col gap-y-6'>
             <div className='flex items-center gap-x-3'>
-              <h1 className='text-3xl md:text-5xl 2xl:text-6xl'>
-                <Accent>Hey, I{"'"}m Aaron Christopher</Accent>
-              </h1>
+              <MainTitle
+                className='text-3xl md:text-5xl 2xl:text-6xl'
+                title="Hey, I'm Aaron Christopher"
+              />
               <CloudinaryImg
                 className='float-right w-24 md:w-24'
                 publicId={'lordronz-site/main/memoji-thonking-airpods'}

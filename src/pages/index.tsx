@@ -1,12 +1,12 @@
 import type { NextPage } from 'next';
 
-import Accent from '@/components/Accent';
 import CoolButton from '@/components/buttons/CoolButton';
 import { Graphic } from '@/components/layout/Graphic';
 import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
+import { MainTitle } from '@/components/typography/MainTitle';
 import Wave from '@/components/Wave';
 import clsxm from '@/lib/clsxm';
 
@@ -19,10 +19,9 @@ const Home: NextPage = () => {
           <article className='layout'>
             <div className='flex h-full flex-col items-center gap-x-4 gap-y-4 md:flex-row'>
               <div className='flex flex-col'>
-                <h1 className='text-4xl font-bold md:text-6xl 2xl:text-7xl'>
-                  <Accent>Henlo there </Accent>
+                <MainTitle title='Henlo there '>
                   <Wave title='Hello'>👋</Wave>
-                </h1>
+                </MainTitle>
                 <p
                   className={clsxm(
                     'my-4 max-w-4xl md:mt-6',

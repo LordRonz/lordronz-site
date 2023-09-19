@@ -2,10 +2,10 @@ import type { NextPage } from 'next';
 import { useState } from 'react';
 import Lightbox from 'react-image-lightbox';
 
-import Accent from '@/components/Accent';
 import Layout from '@/components/layout/Layout';
 import ProjectCard, { Project } from '@/components/ProjectCard';
 import Seo from '@/components/Seo';
+import { MainTitle } from '@/components/typography/MainTitle';
 import { LINK_SHORTENER_URL } from '@/constants/env';
 import clsxm from '@/lib/clsxm';
 
@@ -107,9 +107,10 @@ const Projects: NextPage = () => {
       <main>
         <section className={clsxm('flex flex-col justify-center')}>
           <article className='layout space-y-10 py-8'>
-            <h1 className='text-3xl md:text-5xl 2xl:text-6xl'>
-              <Accent>Projects</Accent>
-            </h1>
+            <MainTitle
+              className='text-3xl md:text-5xl 2xl:text-6xl'
+              title='Projects'
+            />
             <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
               {projects.map((project) => (
                 <ProjectCard

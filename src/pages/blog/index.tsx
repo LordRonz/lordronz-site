@@ -11,6 +11,7 @@ import StyledInput from '@/components/forms/StyledInput';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 import SortListbox, { SortOption } from '@/components/SortListbox';
+import { MainTitle } from '@/components/typography/MainTitle';
 import useInjectContentMeta from '@/hooks/useInjectContentMeta';
 import clsxm from '@/lib/clsxm';
 import { getFromSessionStorage } from '@/lib/helper';
@@ -128,9 +129,10 @@ const IndexPage = ({
       <main>
         <section className={clsxm(isLoaded && 'fade-in-start')}>
           <div className='layout py-12'>
-            <h1 className='text-3xl md:text-5xl'>
-              <Accent>Blog {!isEnglish && 'Bahasa Indonesia'}</Accent>
-            </h1>
+            <MainTitle
+              className='text-3xl md:text-5xl'
+              title={`Blog${!isEnglish ? ' Bahasa Indonesia' : ''}`}
+            />
             <p className='mt-2 text-gray-600 dark:text-gray-300'>
               Random thoughts about my expertise and hobby. It should be
               informational for yall sussy bakas.
