@@ -191,6 +191,11 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       tooltip: 'Support me through Saweria!',
     },
     {
+      href: 'https://go.aaronct.dev/github-sponsor',
+      text: 'GitHub Sponsor',
+      tooltip: 'Support me through GitHub Sponsor!',
+    },
+    {
       href: 'https://github.com/lordronz/lordronz-site',
       text: 'Source Code',
       tooltip: "View this website's source code",
