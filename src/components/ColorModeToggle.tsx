@@ -25,7 +25,7 @@ const ColorModeToggle = ({
   }, []);
 
   return (
-    <div className={clsxm('h-8 w-8', className)}>
+    <div className={clsxm('h-8 w-8', className)} title='Toggle color mode'>
       <button
         aria-label='Color mode toggle'
         className={clsxm(

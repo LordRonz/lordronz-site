@@ -3,7 +3,6 @@ import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { MdOutlineRefresh } from 'react-icons/md';
 
-import AnimatePage from '@/components/AnimatePage';
 import Quote from '@/components/content/Quote';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
@@ -32,28 +31,26 @@ const QuotesPage: NextPage = () => {
   return (
     <Layout>
       <Seo templateTitle='Quotes' />
-      <AnimatePage>
-        <main className='flex flex-col items-center justify-center'>
-          {quote ? (
-            <Quote quote={quote} author={author} />
-          ) : (
-            <Spinner className='h-12 w-12' />
+      <main className='flex flex-col items-center justify-center'>
+        {quote ? (
+          <Quote quote={quote} author={author} />
+        ) : (
+          <Spinner className='h-12 w-12' />
+        )}
+        <button
+          className={clsxm(
+            'btn-accent btn-circle btn mt-4',
+            quote == null && 'btn-disabled'
           )}
-          <button
-            className={clsxm(
-              'btn-accent btn-circle btn mt-4',
-              quote == null && 'btn-disabled'
-            )}
-            onClick={(e) => {
-              e.preventDefault();
-              setQuote(undefined);
-              fetchRandomQuote();
-            }}
-          >
-            <MdOutlineRefresh size={28} />
-          </button>
-        </main>
-      </AnimatePage>
+          onClick={(e) => {
+            e.preventDefault();
+            setQuote(undefined);
+            fetchRandomQuote();
+          }}
+        >
+          <MdOutlineRefresh size={28} />
+        </button>
+      </main>
     </Layout>
   );
 };

@@ -25,6 +25,7 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
         className
       )}
       onClick={onClick}
+      title={post.title}
     >
       <UnstyledLink
         className='block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300'

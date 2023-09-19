@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { HiCalendar, HiEye } from 'react-icons/hi';
 
 import Accent from '@/components/Accent';
-import AnimatePage from '@/components/AnimatePage';
 import Button from '@/components/buttons/Button';
 import BlogCard from '@/components/content/blog/BlogCard';
 import ContentPlaceholder from '@/components/content/ContentPlaceHolder';
@@ -24,11 +23,13 @@ const sortOptions: Array<SortOption> = [
     id: 'date',
     name: 'Sort by date',
     icon: HiCalendar,
+    title: 'Sort blog by date',
   },
   {
     id: 'views',
     name: 'Sort by views',
     icon: HiEye,
+    title: 'Sort blog by view count',
   },
 ];
 
@@ -124,81 +125,79 @@ const IndexPage = ({
         templateTitle='Blog'
         description='Thoughts, mental models, and tutorials about front-end development. Rebuild your mental model so front-end development can be predictable.'
       />
-      <AnimatePage>
-        <main>
-          <section className={clsxm(isLoaded && 'fade-in-start')}>
-            <div className='layout py-12'>
-              <h1 className='text-3xl md:text-5xl'>
-                <Accent>Blog {!isEnglish && 'Bahasa Indonesia'}</Accent>
-              </h1>
-              <p className='mt-2 text-gray-600 dark:text-gray-300'>
-                Random thoughts about my expertise and hobby. It should be
-                informational for yall sussy bakas.
-              </p>
-              <StyledInput
-                data-fade='2'
-                className='mt-4'
-                placeholder='Search...'
-                onChange={handleSearch}
-                value={search}
-                type='text'
-              />
-              <div
-                className='mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300'
-                data-fade='3'
-              >
-                <span className='font-medium'>Filter topic:</span>
-                <SkipNavTag>
-                  {tags.map((tag) => (
-                    <Tag
-                      key={tag}
-                      onClick={() => toggleTag(tag)}
-                      disabled={!filteredTags.includes(tag)}
-                    >
-                      {checkTagged(tag) ? <Accent>{tag}</Accent> : tag}
-                    </Tag>
-                  ))}
-                </SkipNavTag>
-              </div>
-              <div
-                className='relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between'
-                data-fade='4'
-              >
-                <Button
-                  onClick={() => {
-                    setIsEnglish((b) => !b);
-                    clearSearch();
-                  }}
-                  className='text-sm !font-medium'
-                >
-                  Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
-                </Button>
-                <SortListbox
-                  selected={sortOrder}
-                  setSelected={setSortOrder}
-                  options={sortOptions}
-                />
-              </div>
-              <ul
-                className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'
-                data-fade='5'
-              >
-                {currentPosts.length > 0 ? (
-                  currentPosts.map((post) => (
-                    <BlogCard
-                      key={post.slug}
-                      post={post}
-                      checkTagged={checkTagged}
-                    />
-                  ))
-                ) : (
-                  <ContentPlaceholder />
-                )}
-              </ul>
+      <main>
+        <section className={clsxm(isLoaded && 'fade-in-start')}>
+          <div className='layout py-12'>
+            <h1 className='text-3xl md:text-5xl'>
+              <Accent>Blog {!isEnglish && 'Bahasa Indonesia'}</Accent>
+            </h1>
+            <p className='mt-2 text-gray-600 dark:text-gray-300'>
+              Random thoughts about my expertise and hobby. It should be
+              informational for yall sussy bakas.
+            </p>
+            <StyledInput
+              data-fade='2'
+              className='mt-4'
+              placeholder='Search...'
+              onChange={handleSearch}
+              value={search}
+              type='text'
+            />
+            <div
+              className='mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300'
+              data-fade='3'
+            >
+              <span className='font-medium'>Filter topic:</span>
+              <SkipNavTag>
+                {tags.map((tag) => (
+                  <Tag
+                    key={tag}
+                    onClick={() => toggleTag(tag)}
+                    disabled={!filteredTags.includes(tag)}
+                  >
+                    {checkTagged(tag) ? <Accent>{tag}</Accent> : tag}
+                  </Tag>
+                ))}
+              </SkipNavTag>
             </div>
-          </section>
-        </main>
-      </AnimatePage>
+            <div
+              className='relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between'
+              data-fade='4'
+            >
+              <Button
+                onClick={() => {
+                  setIsEnglish((b) => !b);
+                  clearSearch();
+                }}
+                className='text-sm !font-medium'
+              >
+                Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
+              </Button>
+              <SortListbox
+                selected={sortOrder}
+                setSelected={setSortOrder}
+                options={sortOptions}
+              />
+            </div>
+            <ul
+              className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'
+              data-fade='5'
+            >
+              {currentPosts.length > 0 ? (
+                currentPosts.map((post) => (
+                  <BlogCard
+                    key={post.slug}
+                    post={post}
+                    checkTagged={checkTagged}
+                  />
+                ))
+              ) : (
+                <ContentPlaceholder />
+              )}
+            </ul>
+          </div>
+        </section>
+      </main>
     </Layout>
   );
 };

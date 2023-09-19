@@ -2,7 +2,6 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 
 import Accent from '@/components/Accent';
-import AnimatePage from '@/components/AnimatePage';
 import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
 import Seo from '@/components/Seo';
@@ -46,57 +45,55 @@ const AboutPage: NextPage = () => {
   return (
     <Layout>
       <Seo templateTitle='About' />
-      <AnimatePage>
-        <main>
-          <section className={clsxm('my-16 flex flex-col justify-center')}>
-            <article className='layout'>
-              <div className='flex items-center gap-x-3'>
-                <h1 className='text-3xl md:text-5xl 2xl:text-6xl'>
-                  <Accent>About Morsenator</Accent>
-                </h1>
-                <Image
-                  alt='Morsenator Logo'
-                  src={`/images/product/morsenator.png`}
-                  width={60}
-                  height={60}
-                />
-              </div>
-              <p
-                className={clsxm(
-                  'my-4 max-w-4xl md:mt-6',
-                  'md:text-lg 2xl:text-xl'
-                )}
-              >
-                Welcome to Morsenator, your gateway to the world of Morse Code!
-                Morsenator is your iOS companion for exploring Morse Code
-                effortlessly. Whether you{"'"}re an enthusiast or just curious,
-                this app makes translating words to Morse Code and vice versa a
-                breeze. Featuring a virtual button for tactile input, an audio
-                visualizer for immersive learning, and a commitment to
-                accessibility, Morsenator is designed to demystify Morse Code
-                for everyone. Respectful of your privacy and ad-free, it{"'"}s
-                the perfect tool for Morse Code enthusiasts and learners alike.
-              </p>
-              {aboutContents.map(({ title, content }) => (
-                <>
-                  <h2 className='text-2xl md:text-3xl 2xl:text-4xl'>
-                    <Accent>{title}</Accent>
-                  </h2>
-                  <p
-                    className={clsxm(
-                      'mt-4 max-w-4xl md:mt-6',
-                      'md:text-lg 2xl:text-xl',
-                      'mb-8'
-                    )}
-                  >
-                    {content}
-                  </p>
-                </>
-              ))}
-            </article>
-          </section>
-        </main>
-      </AnimatePage>
+      <main>
+        <section className={clsxm('my-16 flex flex-col justify-center')}>
+          <article className='layout'>
+            <div className='flex items-center gap-x-3'>
+              <h1 className='text-3xl md:text-5xl 2xl:text-6xl'>
+                <Accent>About Morsenator</Accent>
+              </h1>
+              <Image
+                alt='Morsenator Logo'
+                src={`/images/product/morsenator.png`}
+                width={60}
+                height={60}
+              />
+            </div>
+            <p
+              className={clsxm(
+                'my-4 max-w-4xl md:mt-6',
+                'md:text-lg 2xl:text-xl'
+              )}
+            >
+              Welcome to Morsenator, your gateway to the world of Morse Code!
+              Morsenator is your iOS companion for exploring Morse Code
+              effortlessly. Whether you{"'"}re an enthusiast or just curious,
+              this app makes translating words to Morse Code and vice versa a
+              breeze. Featuring a virtual button for tactile input, an audio
+              visualizer for immersive learning, and a commitment to
+              accessibility, Morsenator is designed to demystify Morse Code for
+              everyone. Respectful of your privacy and ad-free, it{"'"}s the
+              perfect tool for Morse Code enthusiasts and learners alike.
+            </p>
+            {aboutContents.map(({ title, content }) => (
+              <>
+                <h2 className='text-2xl md:text-3xl 2xl:text-4xl'>
+                  <Accent>{title}</Accent>
+                </h2>
+                <p
+                  className={clsxm(
+                    'mt-4 max-w-4xl md:mt-6',
+                    'md:text-lg 2xl:text-xl',
+                    'mb-8'
+                  )}
+                >
+                  {content}
+                </p>
+              </>
+            ))}
+          </article>
+        </section>
+      </main>
     </Layout>
   );
 };

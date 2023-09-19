@@ -43,6 +43,7 @@ const ProjectCard = ({
           'border-primary-400 hover:border-t-2',
           inView && 'opacity-100'
         )}
+        title={project.title}
       >
         {project.image && (
           <div

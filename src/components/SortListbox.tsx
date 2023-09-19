@@ -9,6 +9,7 @@ export type SortOption = {
   id: string;
   name: string;
   icon: IconType;
+  title: string;
 };
 
 type SortListboxProps = {
@@ -19,7 +20,7 @@ type SortListboxProps = {
 
 const SortListbox = ({ selected, setSelected, options }: SortListboxProps) => {
   return (
-    <div className='w-full max-w-[200px]'>
+    <div className='w-full max-w-[200px]' title={selected.title}>
       <Listbox value={selected} onChange={setSelected}>
         <div className='relative'>
           <Listbox.Button
