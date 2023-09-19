@@ -51,6 +51,7 @@ const ScrollButton = ({
         !visible && 'hidden',
         wrapperClassName
       )}
+      title='Go to top'
     >
       <button
         type='button'
