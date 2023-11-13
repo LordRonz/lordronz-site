@@ -45,7 +45,7 @@
     "@headlessui/react": "^1.7.15",
     "@react-three/drei": "^9.83.9",
     "@react-three/fiber": "^8.14.2",
-    "axios": "^1.4.0",
+    "axios": "^1.6.1",
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^1.2.1",
     "daisyui": "^3.0.22",
