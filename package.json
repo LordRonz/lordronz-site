@@ -68,7 +68,7 @@
     "react-tippy": "^1.4.0",
     "react-typed": "^1.2.0",
     "react-use": "^17.4.0",
-    "sharp": "^0.32.1",
+    "sharp": "^0.32.6",
     "swr": "^2.1.5",
     "tailwind-merge": "^1.13.1",
     "three": "^0.156.1",
