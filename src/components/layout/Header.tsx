@@ -57,7 +57,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
     <header
       className={clsxm(
         'sticky top-0 z-50 transition-shadow',
-        !onTop && 'shadow-lg'
+        !onTop && 'shadow-lg',
       )}
       {...rest}
     >
@@ -70,7 +70,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
           'group dark:hover:text-primary-300',
           'focus:outline-none focus:ring focus:ring-primary-300',
           'absolute left-4 top-4 z-[1000]',
-          '-translate-y-16 focus:translate-y-0'
+          '-translate-y-16 focus:translate-y-0',
         )}
       >
         <Accent>Skip to content</Accent>
@@ -103,7 +103,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
                     'font-medium text-black dark:text-light',
                     'group dark:hover:text-primary-300',
                     'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
-                    href === baseRoute && 'font-bold'
+                    href === baseRoute && 'font-bold',
                   )}
                 >
                   <span
@@ -111,7 +111,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
                       'transition-all',
                       'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0',
                       href === baseRoute &&
-                        'bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent'
+                        'bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
                     )}
                   >
                     {label}
@@ -159,7 +159,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
         ref={ref}
         className={clsxm(
           'fixed left-0 top-0 z-[99] h-screen w-80 overflow-y-auto bg-light p-4 duration-300 dark:bg-dark',
-          !sideNav && '-translate-x-full'
+          !sideNav && '-translate-x-full',
         )}
         tabIndex={-1}
         aria-labelledby='drawer-navigation-label'
@@ -194,7 +194,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
                 className={clsxm(
                   'flex items-center justify-center rounded-lg py-1 text-lg',
                   href === baseRoute &&
-                    'bg-primary-100/50 dark:bg-primary-800/50'
+                    'bg-primary-100/50 dark:bg-primary-800/50',
                 )}
               >
                 <UnstyledLink
@@ -204,7 +204,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
                     'font-medium text-black dark:text-light',
                     'group dark:hover:text-primary-300',
                     'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
-                    href === baseRoute && 'font-bold'
+                    href === baseRoute && 'font-bold',
                   )}
                 >
                   <span
@@ -212,7 +212,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
                       'transition-all',
                       'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0',
                       href === baseRoute &&
-                        'bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent'
+                        'bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
                     )}
                   >
                     {label}

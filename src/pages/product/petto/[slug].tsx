@@ -64,7 +64,7 @@ const SingleProductContentPage = ({
         templateTitle={frontmatter.title}
         description={frontmatter.description}
         date={new Date(
-          frontmatter.lastUpdated ?? frontmatter.publishedAt
+          frontmatter.lastUpdated ?? frontmatter.publishedAt,
         ).toISOString()}
       />
       <main>
@@ -90,7 +90,7 @@ const SingleProductContentPage = ({
                     className={clsxm(
                       'inline-flex items-center gap-1 rounded-sm font-medium',
                       'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-primary-300',
-                      'focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+                      'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
                     )}
                   >
                     <MdHistory className='text-lg' />
@@ -164,7 +164,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = await getFileBySlug(
     'product',
-    ('petto/' + params?.slug) as string
+    ('petto/' + params?.slug) as string,
   );
 
   const recommendations = await getRecommendations(params?.slug as string);

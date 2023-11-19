@@ -11,7 +11,7 @@ const withOpacity =
 const getColorShades = (shades: number[], name = 'primary') =>
   shades.reduce(
     (a, v) => ({ ...a, [v]: withOpacity(`--tw-clr-${name}-${v}`) }),
-    {}
+    {},
   );
 
 export default {

@@ -25,7 +25,7 @@ const Home: NextPage = () => {
                 <p
                   className={clsxm(
                     'my-4 max-w-4xl md:mt-6',
-                    'md:text-lg 2xl:text-xl'
+                    'md:text-lg 2xl:text-xl',
                   )}
                 >
                   I am a passionate programmer and love tinkering with Python to

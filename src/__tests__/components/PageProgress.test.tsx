@@ -23,7 +23,7 @@ describe('Render page progress', () => {
       <div className='h-[200vh]'>
         <PageProgress />
         Test
-      </div>
+      </div>,
     );
 
     fireEvent.scroll(window, { target: { scrollY: 500 } });
@@ -50,7 +50,7 @@ describe('Render page progress', () => {
       <div style={{ height: '2069px', padding: '2069px' }}>
         <PageProgress color='#fff' height={69} dir='rtl' />
         Test
-      </div>
+      </div>,
     );
 
     fireEvent.scroll(window, { target: { scrollY: 500 } });

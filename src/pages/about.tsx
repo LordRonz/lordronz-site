@@ -41,7 +41,7 @@ const AboutPage: NextPage = () => {
               className={clsxm(
                 'my-4 max-w-4xl md:mt-2',
                 'md:text-lg 2xl:text-xl',
-                'tracking-wider'
+                'tracking-wider',
               )}
             >
               I am a passionate <Marker>Programmer</Marker> who loves tinkering
@@ -83,7 +83,7 @@ const AboutPage: NextPage = () => {
           className={clsxm(
             'my-20 flex flex-col justify-center duration-1000',
             'opacity-0',
-            inView && 'opacity-100'
+            inView && 'opacity-100',
           )}
         >
           <article className='layout'>

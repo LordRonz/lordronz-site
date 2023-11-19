@@ -25,7 +25,7 @@ const runAsync = async () => {
       await defaultFunc({ env: process.env });
     } catch (e) {
       console.error(
-        `SCRIPT RUNNER: failed to execute pre-build script '${file}'`
+        `SCRIPT RUNNER: failed to execute pre-build script '${file}'`,
       );
       console.error(e);
     }

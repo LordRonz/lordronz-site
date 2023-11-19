@@ -38,7 +38,7 @@ const NavigationItem = ({
           isActive
             ? 'text-off-black dark:text-off-white font-bold'
             : 'text-grey-700 md:text-grey-500 hover:text-off-black dark:hover:text-off-white font-medium',
-          'animated-underline relative block whitespace-nowrap text-2xl transition md:text-lg'
+          'animated-underline relative block whitespace-nowrap text-2xl transition md:text-lg',
         )}
       >
         {title}

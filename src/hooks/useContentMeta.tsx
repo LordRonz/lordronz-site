@@ -12,7 +12,7 @@ const incrementViews = async (slug: string) => {
 
 const useContentMeta = (
   slug: string,
-  { runIncrement = false }: { runIncrement?: boolean } = {}
+  { runIncrement = false }: { runIncrement?: boolean } = {},
 ) => {
   const ran = useRef(0);
 
@@ -24,7 +24,7 @@ const useContentMeta = (
     if (runIncrement && ran.current === 0) {
       ran.current = 1;
       incrementViews(slug).then((res) =>
-        mutate({ result: { currentViews: res.currentViews } })
+        mutate({ result: { currentViews: res.currentViews } }),
       );
     }
   }, [mutate, runIncrement, slug]);

@@ -12,7 +12,7 @@ describe('open graph test', () => {
     });
 
     expect(result).toBe(
-      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title`
+      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title`,
     );
   });
   it('should return trimmed logo url', () => {
@@ -25,7 +25,7 @@ describe('open graph test', () => {
     });
 
     expect(result).toBe(
-      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title`
+      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title`,
     );
   });
   it('should return gradient api route url', () => {
@@ -39,7 +39,7 @@ describe('open graph test', () => {
     });
 
     expect(result).toBe(
-      `${OG_URL}/api/gradient?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title`
+      `${OG_URL}/api/gradient?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title`,
     );
   });
   it('should return general api route url', () => {
@@ -53,7 +53,7 @@ describe('open graph test', () => {
     });
 
     expect(result).toBe(
-      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title`
+      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title`,
     );
   });
   it('should return correct logo', () => {
@@ -66,7 +66,7 @@ describe('open graph test', () => {
     });
 
     expect(result).toBe(
-      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title`
+      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100&templateTitle=Test%20Title`,
     );
   });
   it('should return empty template title', () => {
@@ -78,7 +78,7 @@ describe('open graph test', () => {
     });
 
     expect(result).toBe(
-      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100`
+      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=100`,
     );
   });
   it('should return correct logo width', () => {
@@ -91,7 +91,7 @@ describe('open graph test', () => {
     });
 
     expect(result).toBe(
-      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=169`
+      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=169`,
     );
   });
 
@@ -105,7 +105,7 @@ describe('open graph test', () => {
     });
 
     expect(result).toBe(
-      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=169`
+      `${OG_URL}/api/general?siteName=${WEBSITE_HOSTNAME}&description=Test&logo=https%3A%2F%2F${WEBSITE_HOSTNAME}%2Fimages%2Flogo.jpg&logoWidth=169`,
     );
   });
 });

@@ -57,7 +57,7 @@ const execute = async (params: IScriptParams) => {
   const manifestPath = path.join(
     __dirname,
     '../../../public',
-    params.env.MANIFEST_FILENAME ?? 'manifest.json'
+    params.env.MANIFEST_FILENAME ?? 'manifest.json',
   );
 
   if (existsSync(manifestPath)) {

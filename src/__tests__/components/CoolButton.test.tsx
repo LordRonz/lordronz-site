@@ -42,7 +42,7 @@ describe('CoolButton', () => {
     render(
       <CoolButton aria-label='balls' wrapperClassName='bg-dark'>
         Test
-      </CoolButton>
+      </CoolButton>,
     );
 
     const button = screen.getByText('Test');
@@ -75,7 +75,7 @@ describe('CoolButton', () => {
         aria-checked='true'
       >
         Test
-      </CoolButton>
+      </CoolButton>,
     );
 
     const button = screen.getByText('Test');
@@ -93,7 +93,7 @@ describe('CoolButton', () => {
         aria-checked='true'
       >
         Test
-      </CoolButton>
+      </CoolButton>,
     );
 
     const button = screen.getByText('Test');
@@ -111,7 +111,7 @@ describe('CoolButton', () => {
         aria-checked='true'
       >
         Test
-      </CoolButton>
+      </CoolButton>,
     );
 
     const button = screen.getByText('Test');
@@ -123,7 +123,7 @@ describe('CoolButton', () => {
     render(
       <CoolButton width={0} height={0}>
         Test
-      </CoolButton>
+      </CoolButton>,
     );
 
     const button = screen.getByText('Test');

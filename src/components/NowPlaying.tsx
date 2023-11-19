@@ -23,7 +23,7 @@ export const AnimatedBars = ({
         duration: 1.0,
         repeat: Infinity,
         easing: ['ease-in-out'],
-      }
+      },
     );
     animate(
       '#bar2',
@@ -39,7 +39,7 @@ export const AnimatedBars = ({
         duration: 1.5,
         repeat: Infinity,
         easing: ['ease-in-out'],
-      }
+      },
     );
     animate(
       '#bar3',
@@ -55,7 +55,7 @@ export const AnimatedBars = ({
         duration: 1.5,
         repeat: Infinity,
         easing: ['ease-in-out'],
-      }
+      },
     );
   }, []);
 
@@ -94,7 +94,7 @@ const NowPlaying = () => {
         <div
           className={clsxm(
             !!data?.songUrl && 'box',
-            'mb-8 flex w-full max-w-sm items-center justify-center gap-x-2 rounded-sm px-2 py-1 md:max-w-screen-md'
+            'mb-8 flex w-full max-w-sm items-center justify-center gap-x-2 rounded-sm px-2 py-1 md:max-w-screen-md',
           )}
         >
           <svg className='ml-auto h-4 w-4 flex-shrink-0' viewBox='0 0 168 168'>
@@ -144,7 +144,8 @@ const NowPlaying = () => {
               #08f,
               #f03
             );
-          background-size: calc(100% - (var(--border-size) * 2))
+          background-size:
+            calc(100% - (var(--border-size) * 2))
               calc(100% - (var(--border-size) * 2)),
             cover;
           background-position: center center;

@@ -13,33 +13,33 @@ import { ContentMeta } from '@/types/meta';
 
 const useInjectContentMeta = <T extends ContentType>(
   type: T,
-  frontmatter: Array<PickFrontmatter<T>>
+  frontmatter: Array<PickFrontmatter<T>>,
 ) => {
   const { data, error } = useSWR<{ result: ContentMeta[] }>(
-    contentMetaFlag ? '/api/content' : null
+    contentMetaFlag ? '/api/content' : null,
   );
   const contentMeta = data?.result;
 
   const isLoading = !error && !contentMeta;
   const meta = useMemo(
     () => pickContentMeta(contentMeta, type),
-    [contentMeta, type]
+    [contentMeta, type],
   );
 
   type PopulatedContent = Array<PickFrontmatter<T> & InjectedMeta>;
 
   const [populatedContent, setPopulatedContent] = useState<PopulatedContent>(
-    () => [...frontmatter] as PopulatedContent
+    () => [...frontmatter] as PopulatedContent,
   );
 
   useEffect(() => {
     if (meta) {
       const mapped = frontmatter.map((fm) => {
         const views = meta.find(
-          (meta) => meta.slug === cleanBlogPrefix(fm.slug)
+          (meta) => meta.slug === cleanBlogPrefix(fm.slug),
         )?.currentViews;
         const likes = meta.find(
-          (meta) => meta.slug === cleanBlogPrefix(fm.slug)
+          (meta) => meta.slug === cleanBlogPrefix(fm.slug),
         )?.likes;
         return { ...fm, views, likes };
       });

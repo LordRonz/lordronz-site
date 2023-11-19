@@ -40,7 +40,7 @@ export const Birds = () => {
     groupRef.current.children.forEach(
       (
         bird: { position: { x: number; y: number; z: number } },
-        index: number
+        index: number,
       ) => {
         const angle = (elapsedTime + index * 0.2) % (2 * Math.PI);
         const radius = 2.3 + Math.random() * 0.0001;
@@ -49,7 +49,7 @@ export const Birds = () => {
         bird.position.y =
           radius * Math.sin(angle) * Math.sin(elapsedTime * 0.5 + index);
         bird.position.z = radius * Math.cos(elapsedTime * 0.5 + index);
-      }
+      },
     );
   });
 

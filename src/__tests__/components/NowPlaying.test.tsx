@@ -53,7 +53,7 @@ describe('NowPlaying', () => {
         }}
       >
         <NowPlaying />
-      </SWRConfig>
+      </SWRConfig>,
     );
 
     const button = await screen.findByText('banger');

@@ -11,7 +11,7 @@ export const Marker = ({ children, className }: MarkerProps) => {
       <mark
         className={clsxm(
           'marked-text rounded-md bg-inherit bg-gradient-to-r from-primary-100 from-50% to-transparent to-50% px-1 text-dark transition-all dark:from-primary-600 dark:to-black dark:text-light',
-          className
+          className,
         )}
       >
         {children}

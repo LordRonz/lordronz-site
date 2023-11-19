@@ -41,7 +41,7 @@ const ProjectCard = ({
           'relative transform overflow-hidden rounded-lg bg-gray-300 transition duration-200 hover:-translate-y-1 dark:bg-gray-800',
           'opacity-0 transition-all duration-500 ease-out motion-reduce:opacity-100',
           'border-primary-400 hover:border-t-2',
-          inView && 'opacity-100'
+          inView && 'opacity-100',
         )}
         title={project.title}
       >
@@ -106,7 +106,9 @@ const ProjectCard = ({
           right: 0;
           bottom: 0;
           left: 0;
-          transition: opacity 0.38s ease-in-out, transform 0.35s ease-in-out;
+          transition:
+            opacity 0.38s ease-in-out,
+            transform 0.35s ease-in-out;
           content: '';
           opacity: 0;
           pointer-events: none;

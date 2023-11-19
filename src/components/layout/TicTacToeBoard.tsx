@@ -11,7 +11,7 @@ const TicTacToeBoard = ({
   handlePlay: (
     e: React.MouseEvent<HTMLDivElement>,
     x: number,
-    y: number
+    y: number,
   ) => void;
 }) => {
   return (
@@ -22,14 +22,14 @@ const TicTacToeBoard = ({
             className={clsxm(
               'flex h-[100px] w-[100px] cursor-pointer select-none items-center justify-center border border-gray-500 bg-slate-300 text-7xl transition-colors hover:bg-primary-50 dark:bg-gray-600 md:h-[150px] md:w-[150px] md:text-8xl',
               col === 'X' && 'text-red-500',
-              col === 'O' && 'text-green-500'
+              col === 'O' && 'text-green-500',
             )}
             key={`${col}${i}${j}`}
             onClick={(e) => handlePlay(e, i, j)}
           >
             {col === 'X' ? <FiX /> : col === 'O' ? <FiCircle /> : null}
           </div>
-        ))
+        )),
       )}
     </section>
   );

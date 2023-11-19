@@ -38,7 +38,7 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
   //#region  //*=========== Blog Language ===========
   const cleanSlug = useMemo(
     () => cleanBlogPrefix(frontmatter.slug),
-    [frontmatter.slug]
+    [frontmatter.slug],
   );
   const isEnglish = cleanSlug === frontmatter.slug;
   //#endregion  //*======== Blog Language ===========
@@ -77,7 +77,7 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
         templateTitle={frontmatter.title}
         description={frontmatter.description}
         date={new Date(
-          frontmatter.lastUpdated ?? frontmatter.publishedAt
+          frontmatter.lastUpdated ?? frontmatter.publishedAt,
         ).toISOString()}
       />
       <main>
@@ -111,7 +111,7 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
                     className={clsxm(
                       'inline-flex items-center gap-1 rounded-sm font-medium',
                       'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-primary-300',
-                      'focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+                      'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
                     )}
                   >
                     <MdHistory className='text-lg' />

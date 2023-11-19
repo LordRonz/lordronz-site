@@ -75,7 +75,7 @@ const Button = ({
         'disabled:cursor-not-allowed',
         isLoading &&
           'relative !cursor-wait !text-transparent !transition-none hover:!text-transparent',
-        className
+        className,
       )}
       {...rest}
     >
@@ -87,7 +87,7 @@ const Button = ({
               'text-white': variant === 'dark' || variant === 'primary',
               'text-black': variant === 'light',
               'text-primary-500': variant === 'outline' || variant === 'ghost',
-            }
+            },
           )}
         >
           <ImSpinner2 className='animate-spin' />

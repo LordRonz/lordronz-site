@@ -18,7 +18,7 @@ const QuotesPage: NextPage = () => {
 
   const fetchRandomQuote = async () => {
     const { data: result } = await axios.get<RandomQuoteResponse>(
-      `${QUOTES_API_URL}/random`
+      `${QUOTES_API_URL}/random`,
     );
     setQuote(result[0].quote);
     setAuthor(result[0].author);
@@ -40,7 +40,7 @@ const QuotesPage: NextPage = () => {
         <button
           className={clsxm(
             'btn-accent btn-circle btn mt-4',
-            quote == null && 'btn-disabled'
+            quote == null && 'btn-disabled',
           )}
           onClick={(e) => {
             e.preventDefault();

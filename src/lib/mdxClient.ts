@@ -11,7 +11,7 @@ import {
 
 export const sortDateFn = <T extends FrontmatterWithDate>(
   contentA: T,
-  contentB: T
+  contentB: T,
 ) => {
   return (
     new Date(contentB.lastUpdated ?? contentB.publishedAt).valueOf() -
@@ -20,21 +20,21 @@ export const sortDateFn = <T extends FrontmatterWithDate>(
 };
 
 export const sortByDate = <T extends FrontmatterWithDate>(
-  contents: Array<T>
+  contents: Array<T>,
 ) => {
   return contents.sort(sortDateFn);
 };
 
 export const sortTitleFn = <T extends Frontmatter>(
   contentA: T,
-  contentB: T
+  contentB: T,
 ) => {
   return contentA.title.localeCompare(contentB.title);
 };
 
 export const sortByTitle = <T extends Array<Frontmatter>>(contents: T): T => {
   return contents.sort((a, b) =>
-    a.title > b.title ? 1 : b.title > a.title ? -1 : 0
+    a.title > b.title ? 1 : b.title > a.title ? -1 : 0,
   );
 };
 
@@ -44,7 +44,7 @@ export const sortByTitle = <T extends Array<Frontmatter>>(contents: T): T => {
 export const getTags = <T extends Array<FrontmatterWithTags>>(contents: T) => {
   const tags = contents.reduce(
     (accTags: string[], content) => [...accTags, ...content.tags.split(',')],
-    []
+    [],
   );
 
   return map(sortBy(toPairs(countBy(tags)), 1), 0).reverse();

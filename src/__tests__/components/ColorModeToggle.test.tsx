@@ -36,7 +36,7 @@ describe('Wave', () => {
       new MouseEvent('click', {
         bubbles: true,
         cancelable: true,
-      })
+      }),
     );
 
     expect(colorToggle).toBeInTheDocument();
@@ -52,7 +52,7 @@ describe('Wave', () => {
       new MouseEvent('click', {
         bubbles: true,
         cancelable: true,
-      })
+      }),
     );
 
     expect(colorToggle).toBeInTheDocument();
@@ -68,7 +68,7 @@ describe('Wave', () => {
       new MouseEvent('click', {
         bubbles: true,
         cancelable: true,
-      })
+      }),
     );
 
     expect(colorToggle).toBeInTheDocument();

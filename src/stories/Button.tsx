@@ -50,7 +50,7 @@ export const Button = ({
           size === 'medium' && 'p-[11px_20px] text-[14px]',
           size === 'large' && 'p-[12px_24px] text-[16px]',
         ],
-        className
+        className,
       )}
       style={{ backgroundColor }}
       {...props}

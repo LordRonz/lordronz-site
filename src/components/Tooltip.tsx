@@ -37,7 +37,7 @@ const Tooltip = ({
           className={clsxm(
             'inline-block rounded-md bg-white p-2 text-gray-600 shadow-md dark:bg-dark dark:text-gray-200',
             'border dark:border-primary-500',
-            className
+            className,
           )}
         >
           {content}

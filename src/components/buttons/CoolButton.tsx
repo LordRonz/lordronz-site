@@ -29,7 +29,7 @@ const CoolButton = ({
       className={clsxm(
         'group cursor-pointer overflow-visible focus:outline-none',
         'scale-100 transform-gpu transition duration-300 hover:scale-[1.03] active:scale-[0.97]',
-        className
+        className,
       )}
       {...rest}
     >
@@ -37,14 +37,14 @@ const CoolButton = ({
         points={`0,${h} 0,0 ${w},0 ${w},${h}`}
         className={clsxm(
           'pointer-events-none fill-transparent stroke-primary-300 stroke-0.5 drop-shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all duration-700 ease-in-out group-hover:fill-fuchsia-700/25',
-          polygonClassName
+          polygonClassName,
         )}
       />
       <polygon
         points={`0,${h} 0,0 ${w},0 ${w},${h}`}
         className={clsxm(
           'dashEffect pointer-events-none fill-transparent stroke-primary-300 stroke-2 transition-all duration-700 ease-in-out',
-          movingPolygonClassName
+          movingPolygonClassName,
         )}
       />
       <foreignObject
@@ -57,7 +57,7 @@ const CoolButton = ({
         <div
           className={clsxm(
             'flex h-full items-center justify-center',
-            wrapperClassName
+            wrapperClassName,
           )}
         >
           {children}

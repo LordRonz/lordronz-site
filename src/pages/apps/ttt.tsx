@@ -16,7 +16,7 @@ const TicTacToePage: NextPage = () => {
       e.preventDefault();
       setTttData((data) => ({ ...insertPlay(data, [x, y]) }));
     },
-    []
+    [],
   );
 
   const resetBoard = useCallback(() => {

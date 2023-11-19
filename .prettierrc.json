@@ -3,5 +3,6 @@
   "tabWidth": 2,
   "semi": true,
   "jsxSingleQuote": true,
-  "proseWrap": "always"
+  "proseWrap": "always",
+  "trailingComma": "all"
 }

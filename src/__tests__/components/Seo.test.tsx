@@ -36,7 +36,7 @@ describe('Render SEO', () => {
       <div>
         <Seo templateTitle='banger' />
         Test
-      </div>
+      </div>,
     );
 
     const tooltip = screen.getByText('Test');

@@ -16,7 +16,7 @@ export const MainTitle = ({ title, children, className }: MainTitleProps) => {
         <h1
           className={clsxm(
             'glow inline text-4xl font-bold md:text-6xl 2xl:text-7xl',
-            className
+            className,
           )}
         >
           <Accent>{title}</Accent>
@@ -30,7 +30,10 @@ export const MainTitle = ({ title, children, className }: MainTitleProps) => {
         }
 
         .glow:hover {
-          text-shadow: 0 0 1px #eb2754, 0 0 2px #eb2754, 0 0 6px #1cb7ff,
+          text-shadow:
+            0 0 1px #eb2754,
+            0 0 2px #eb2754,
+            0 0 6px #1cb7ff,
             0 0 8px #eb2754;
         }
       `}</style>

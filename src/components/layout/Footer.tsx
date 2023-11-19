@@ -55,7 +55,7 @@ const socials = [
 
 const Footer = () => {
   const [copyStatus, setCopyStatus] = useState<string>(
-    'Click the mail logo to copy'
+    'Click the mail logo to copy',
   );
 
   return (
@@ -89,7 +89,7 @@ const Footer = () => {
                     setCopyStatus('Copied to clipboard 😳');
                     setTimeout(
                       () => setCopyStatus('Click the mail logo to copy'),
-                      1469
+                      1469,
                     );
                   }}
                 >
@@ -141,7 +141,9 @@ const Footer = () => {
               #08f,
               #f03
             );
-          background-size: 100% calc(100% - (var(--border-size) * 2)), cover;
+          background-size:
+            100% calc(100% - (var(--border-size) * 2)),
+            cover;
           background-position: bottom center;
           background-repeat: no-repeat;
           animation: bg-spin 2s linear infinite;
@@ -207,7 +209,7 @@ const FooterLinks = ({ className }: { className?: string }) => {
     <div
       className={clsxm(
         'flex flex-wrap justify-center gap-x-8 gap-y-4',
-        className
+        className,
       )}
     >
       {footerLinks.map(({ href, text, tooltip }) => (

@@ -30,7 +30,7 @@ describe('Header clipboard', () => {
     render(
       <div style={{ height: '2048px' }}>
         <Header />
-      </div>
+      </div>,
     );
 
     fireEvent.scroll(window, { target: { scrollY: 500 } });
@@ -44,7 +44,7 @@ describe('Header clipboard', () => {
     render(
       <div style={{ height: '2048px' }}>
         <Header />
-      </div>
+      </div>,
     );
 
     window.pageYOffset = 200;
@@ -67,7 +67,7 @@ describe('Header clipboard', () => {
     render(
       <div style={{ height: '2048px', width: '500px' }}>
         <Header />
-      </div>
+      </div>,
     );
 
     const sidebarToggle = screen.getByRole('checkbox');
@@ -81,7 +81,7 @@ describe('Header clipboard', () => {
     render(
       <div style={{ height: '2048px', width: '500px' }}>
         <Header />
-      </div>
+      </div>,
     );
 
     const sidebarToggle = screen.getByRole('checkbox');
@@ -101,7 +101,7 @@ describe('Header clipboard', () => {
     render(
       <div style={{ height: '2048px', width: '500px' }}>
         <Header />
-      </div>
+      </div>,
     );
 
     const sidebarToggle = screen.getByRole('checkbox');

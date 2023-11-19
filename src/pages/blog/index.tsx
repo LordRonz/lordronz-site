@@ -40,7 +40,7 @@ const IndexPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   /** Lazy init from session storage to preserve preference on revisit */
   const [sortOrder, setSortOrder] = useState<SortOption>(
-    () => sortOptions[Number(getFromSessionStorage('blog-sort')) || 0]
+    () => sortOptions[Number(getFromSessionStorage('blog-sort')) || 0],
   );
   const [isEnglish, setIsEnglish] = useState<boolean>(true);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -67,7 +67,7 @@ const IndexPage = ({
         search
           .toLowerCase()
           .split(' ')
-          .every((tag) => post.tags.includes(tag))
+          .every((tag) => post.tags.includes(tag)),
     );
 
     if (sortOrder.id === 'date') {
@@ -96,11 +96,12 @@ const IndexPage = ({
   const toggleTag = (tag: string) => {
     // If tag is already there, then remove
     if (search.includes(tag)) {
-      setSearch((s) =>
-        s
-          .split(' ')
-          .filter((t) => t !== tag)
-          ?.join(' ')
+      setSearch(
+        (s) =>
+          s
+            .split(' ')
+            .filter((t) => t !== tag)
+            ?.join(' '),
       );
     } else {
       // append tag

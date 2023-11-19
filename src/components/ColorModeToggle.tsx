@@ -30,7 +30,7 @@ const ColorModeToggle = ({
         aria-label='Color mode toggle'
         className={clsxm(
           'flex h-full w-full items-center justify-center rounded-full ring-primary-300 transition-all hover:bg-gray-400 focus:ring dark:hover:bg-gray-500',
-          buttonClassName
+          buttonClassName,
         )}
         type='button'
         onClick={() => onChange(value === 'dark' ? 'light' : 'dark')}
@@ -41,14 +41,14 @@ const ColorModeToggle = ({
               className={clsxm(
                 value !== 'light' && 'hidden',
                 'text-2xl',
-                iconClassName
+                iconClassName,
               )}
             />
             <FiMoon
               className={clsxm(
                 value !== 'dark' && 'hidden',
                 'text-2xl',
-                iconClassName
+                iconClassName,
               )}
             />
           </>

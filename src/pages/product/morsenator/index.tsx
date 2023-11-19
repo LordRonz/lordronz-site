@@ -62,7 +62,7 @@ const AboutPage: NextPage = () => {
             <p
               className={clsxm(
                 'my-4 max-w-4xl md:mt-6',
-                'md:text-lg 2xl:text-xl'
+                'md:text-lg 2xl:text-xl',
               )}
             >
               Welcome to Morsenator, your gateway to the world of Morse Code!
@@ -84,7 +84,7 @@ const AboutPage: NextPage = () => {
                   className={clsxm(
                     'mt-4 max-w-4xl md:mt-6',
                     'md:text-lg 2xl:text-xl',
-                    'mb-8'
+                    'mb-8',
                   )}
                 >
                   {content}

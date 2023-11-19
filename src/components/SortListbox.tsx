@@ -30,7 +30,7 @@ const SortListbox = ({ selected, setSelected, options }: SortListboxProps) => {
               'border border-gray-300 dark:border-gray-600',
               'scale-100 transform-gpu hover:scale-[1.03] active:scale-[0.97]',
               'transition duration-100',
-              'animate-shadow'
+              'animate-shadow',
             )}
           >
             <span className='block truncate'>
@@ -61,7 +61,7 @@ const SortListbox = ({ selected, setSelected, options }: SortListboxProps) => {
                       'relative select-none py-2 pl-10 pr-4',
                       active
                         ? 'bg-primary-300/10 dark:bg-primary-300/25'
-                        : 'text-gray-700 dark:text-gray-300'
+                        : 'text-gray-700 dark:text-gray-300',
                     )
                   }
                   value={opt}
@@ -71,7 +71,7 @@ const SortListbox = ({ selected, setSelected, options }: SortListboxProps) => {
                       <span
                         className={clsxm(
                           selected ? 'font-medium' : 'font-normal',
-                          'block truncate'
+                          'block truncate',
                         )}
                       >
                         {opt.name}
@@ -79,7 +79,7 @@ const SortListbox = ({ selected, setSelected, options }: SortListboxProps) => {
                       {selected ? (
                         <span
                           className={clsxm(
-                            'absolute inset-y-0 left-0 flex items-center pl-3 text-primary-500 dark:text-primary-300'
+                            'absolute inset-y-0 left-0 flex items-center pl-3 text-primary-500 dark:text-primary-300',
                           )}
                         >
                           <HiCheck className='h-5 w-5' aria-hidden='true' />

@@ -9,7 +9,7 @@ const Spinner = ({ className }: SpinnerProps) => {
         aria-hidden='true'
         className={clsxm(
           'mr-2 inline h-6 w-6 animate-spin fill-blue-600 text-gray-200 dark:text-gray-600',
-          className
+          className,
         )}
         viewBox='0 0 100 101'
         fill='none'

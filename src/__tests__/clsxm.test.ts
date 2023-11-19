@@ -30,7 +30,7 @@ describe('clsxm test', () => {
       'bg-red-200',
       test && 'flex',
       test2 && 'grid',
-      test && test2 ? 'balls' : ''
+      test && test2 ? 'balls' : '',
     );
 
     expect(result).toBe('bg-red-200 flex');
@@ -44,7 +44,7 @@ describe('clsxm test', () => {
       'bg-red-200',
       test && 'flex',
       test2 && 'grid',
-      test && test2 ? 'balls' : ''
+      test && test2 ? 'balls' : '',
     );
 
     expect(result).toBe('bg-red-200 flex');

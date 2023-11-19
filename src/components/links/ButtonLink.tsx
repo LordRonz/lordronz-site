@@ -61,7 +61,7 @@ const ButtonLink = ({
         ],
       ],
       'disabled:cursor-not-allowed',
-      className
+      className,
     )}
   >
     {children}

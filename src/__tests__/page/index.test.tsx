@@ -17,6 +17,12 @@ jest.mock('next/router', () => ({
   },
 }));
 
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}));
+
 describe('Home', () => {
   it('renders a heading', () => {
     render(<Home />);
@@ -26,6 +32,16 @@ describe('Home', () => {
     });
 
     expect(heading).toBeInTheDocument();
+  });
+
+  it('renders a paragraph with the correct text', () => {
+    render(<Home />);
+
+    const paragraph = screen.getByText(
+      /I am a passionate programmer and love tinkering with Python to automate my personal tasks. I possess extensive experience with backend technologies and system administration. Additionally, I have honed my skills through the development of various React and Swift projects./i,
+    );
+
+    expect(paragraph).toBeInTheDocument();
   });
 
   it('can scroll', () => {
@@ -38,5 +54,15 @@ describe('Home', () => {
     fireEvent.scroll(window, { target: { scrollY: 100 } });
 
     expect(heading).toBeInTheDocument();
+  });
+
+  it('renders a GitHub link', () => {
+    render(<Home />);
+
+    const link = screen.getByRole('link', {
+      name: /Link to GitHub repository/i,
+    });
+
+    expect(link).toBeInTheDocument();
   });
 });

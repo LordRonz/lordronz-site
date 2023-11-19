@@ -21,11 +21,11 @@ export const getFileBySlug = async (type: ContentType, slug: string) => {
   const source = slug
     ? readFileSync(
         join(process.cwd(), 'src', 'contents', type, `${slug}.mdx`),
-        'utf8'
+        'utf8',
       )
     : readFileSync(
         join(process.cwd(), 'src', 'contents', `${type}.mdx`),
-        'utf8'
+        'utf8',
       );
 
   const { code, frontmatter } = await bundleMDX({
@@ -66,7 +66,7 @@ export const getAllFilesFrontmatter = <T extends ContentType>(type: T) => {
   return files.reduce((allPosts: Array<PickFrontmatter<T>>, postSlug) => {
     const source = readFileSync(
       join(process.cwd(), 'src', 'contents', type, postSlug),
-      'utf8'
+      'utf8',
     );
     const { data } = matter(source);
 
@@ -95,7 +95,7 @@ export const getRecommendations = async (currSlug: string) => {
 
   // Find with similar tags
   const recommendations = otherFms.filter((op) =>
-    op.tags.split(',').some((p) => currentFm?.tags.split(',').includes(p))
+    op.tags.split(',').some((p) => currentFm?.tags.split(',').includes(p)),
   );
 
   // Populate with random recommendations if not enough
@@ -105,7 +105,7 @@ export const getRecommendations = async (currSlug: string) => {
       : [
           ...recommendations,
           ...otherFms.filter(
-            (fm) => !recommendations.some((r) => r.slug === fm.slug)
+            (fm) => !recommendations.some((r) => r.slug === fm.slug),
           ),
         ];
 
@@ -118,10 +118,10 @@ export const getRecommendations = async (currSlug: string) => {
  */
 export const getFeatured = <T extends Frontmatter>(
   contents: Array<T>,
-  features: string[]
+  features: string[],
 ) => {
   // override as T because there is no typechecking on the features array
   return features.map(
-    (feat) => contents.find((content) => content.slug === feat) as T
+    (feat) => contents.find((content) => content.slug === feat) as T,
   );
 };

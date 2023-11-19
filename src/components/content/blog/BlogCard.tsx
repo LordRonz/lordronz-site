@@ -22,7 +22,7 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
         'transition duration-100',
         'motion-reduce:hover:scale-100',
         'animate-shadow',
-        className
+        className,
       )}
       onClick={onClick}
       title={post.title}
@@ -45,7 +45,7 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
           <div
             className={clsxm(
               'absolute bottom-0 w-full px-4 py-2',
-              'mt-2 flex flex-wrap justify-end gap-x-2 gap-y-1 text-sm text-black dark:text-gray-100'
+              'mt-2 flex flex-wrap justify-end gap-x-2 gap-y-1 text-sm text-black dark:text-gray-100',
             )}
           >
             {post.tags.split(',').map((tag) => (
@@ -77,9 +77,9 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
                 parse(
                   post.lastUpdated ?? post.publishedAt,
                   'yyyy-MM-dd',
-                  new Date()
+                  new Date(),
                 ),
-                'MMMM d, yyyy'
+                'MMMM d, yyyy',
               )}
             </span>
           </p>

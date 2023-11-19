@@ -30,7 +30,7 @@ describe('Tooltip', () => {
     render(
       <Tooltip withUnderline data-testid='tooltip'>
         Test
-      </Tooltip>
+      </Tooltip>,
     );
 
     const tooltip = screen.getByText('Test');
