@@ -43,7 +43,7 @@
   "dependencies": {
     "@giscus/react": "^2.3.0",
     "@headlessui/react": "^1.7.17",
-    "@react-three/drei": "^9.88.16",
+    "@react-three/drei": "^9.88.17",
     "@react-three/fiber": "^8.15.11",
     "axios": "^1.6.2",
     "cloudinary-build-url": "^0.2.4",
