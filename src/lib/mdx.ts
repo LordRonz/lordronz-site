@@ -35,7 +35,7 @@ export const getFileBySlug = async (type: ContentType, slug: string) => {
       options.rehypePlugins = [
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,
-        rehypePrism,
+        [rehypePrism, { showLineNumbers: true }],
         [
           rehypeAutolinkHeadings,
           {

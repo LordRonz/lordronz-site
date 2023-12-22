@@ -42,7 +42,7 @@ Here I use `baseURL` options, you can use
 
 After creating the instance, use interceptors like this.
 
-```ts
+```ts {2-9}
 customAxios.interceptors.request.use((config) => {
   const authHeader = getAuthHeader();
   if (authHeader === null || authHeader === undefined) return config;
@@ -110,7 +110,7 @@ customAxios.interceptors.response.use(
 
 If you need to remove an interceptor later you can do it like this.
 
-```ts
+```ts {4}
 const myInterceptor = axios.interceptors.request.use(function () {
   /*...*/
 });
