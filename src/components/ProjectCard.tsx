@@ -46,9 +46,11 @@ const ProjectCard = ({
         title={project.title}
       >
         {project.image && (
-          <div
+          <button
             className='relative h-56 cursor-zoom-in overflow-hidden rounded-b-lg'
             onClick={onImgClick}
+            aria-label='Project Image'
+            type='button'
           >
             <Image
               alt={project.title ?? 'Project Image'}
@@ -56,7 +58,7 @@ const ProjectCard = ({
               fill
               style={{ objectFit: 'cover' }}
             />
-          </div>
+          </button>
         )}
         <div className='space-y-2 px-4 pb-16 pt-4'>
           <a

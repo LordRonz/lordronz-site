@@ -25,6 +25,7 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
         className,
       )}
       onClick={onClick}
+      onKeyDown={() => {}}
       title={post.title}
     >
       <UnstyledLink

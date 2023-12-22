@@ -89,6 +89,7 @@ const CloudinaryImg = ({
         }}
         className='img-blur'
         onClick={preview ? () => setIsOpen(true) : undefined}
+        onKeyDown={() => {}}
       >
         <style jsx>{`
           .img-blur::before {

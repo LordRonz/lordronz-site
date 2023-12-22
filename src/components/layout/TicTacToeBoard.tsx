@@ -26,6 +26,7 @@ const TicTacToeBoard = ({
             )}
             key={`${col}${i}${j}`}
             onClick={(e) => handlePlay(e, i, j)}
+            onKeyDown={() => {}}
           >
             {col === 'X' ? <FiX /> : col === 'O' ? <FiCircle /> : null}
           </div>
