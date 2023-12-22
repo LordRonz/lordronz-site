@@ -109,9 +109,9 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
                   <span
                     className={clsxm(
                       'transition-all',
-                      'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0',
+                      'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/10 p-0.5 rounded-sm',
                       href === baseRoute &&
-                        'bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
+                        'bg-primary-300/50 group-hover:bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
                     )}
                   >
                     {label}
