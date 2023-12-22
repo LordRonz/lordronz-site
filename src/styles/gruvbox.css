@@ -23,6 +23,7 @@ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascr
 
 /* Scrollbars */
 
+/* :root.dark { */
 :root {
   --background: #282828;
   --comment: #458588;
@@ -35,7 +36,33 @@ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascr
   --purple: #b16286;
   --red: #cc241d;
   --yellow: #d79921;
+  --lightred: #e2777a;
+  --number: #bd93f9;
+  --operator: #8be8fd;
+  --char: #ff879d;
+  --symbol: #ffb86c;
 }
+
+/*
+:root {
+  --background: #dcd8d6;
+  --comment: #7c6f64;
+  --foreground: #3c3836;
+  --selection: #a89984;
+  --cyan: #b57614;
+  --green: #7c6f64;
+  --orange: #9d0006;
+  --pink: #8f3f71;
+  --purple: #c17296;
+  --red: #797403;
+  --yellow: #797403;
+  --lightred: #9d0006;
+  --number: #bd93f9;
+  --operator: #4bb8cd;
+  --char: #ff475d;
+  --symbol: #ff984c;
+}
+*/
 
 pre::-webkit-scrollbar {
   width: 14px;
@@ -406,27 +433,27 @@ pre[class*='language-'] {
 }
 
 .token.number {
-  color: rgb(189 147 249 / 100%);
+  color: var(--number);
 }
 
 .token.operator {
-  color: rgb(139 233 253 / 100%);
+  color: var(--operator);
 }
 
 .token.char {
-  color: rgb(255 135 157 / 100%);
+  color: var(--char);
 }
 
 .token.symbol {
-  color: rgb(255 184 108 / 100%);
+  color: var(--symbol);
 }
 
 .token.deleted {
-  color: #e2777a;
+  color: var(--lightred);
 }
 
 .token.namespace {
-  color: #e2777a;
+  color: var(--lightred);
 }
 
 .token.dom {

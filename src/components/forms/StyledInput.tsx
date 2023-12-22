@@ -12,7 +12,7 @@ const StyledInput = ({
   return (
     <input
       className={clsxm(
-        'w-full rounded-md dark:bg-dark',
+        'w-full rounded-md dark:bg-dark bg-gray-200',
         underline ? 'border-0 border-b-2' : 'border',
         'border-gray-300 dark:border-gray-500',
         'transition-all duration-200 focus:border-primary-300 focus:outline-none focus:ring-0 dark:focus:border-primary-300',

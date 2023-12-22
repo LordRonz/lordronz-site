@@ -38,6 +38,9 @@ export default {
   variants: {
     extend: {},
   },
+  daisyui: {
+    darkTheme: 'light',
+  },
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),

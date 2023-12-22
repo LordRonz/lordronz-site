@@ -25,7 +25,7 @@ const SortListbox = ({ selected, setSelected, options }: SortListboxProps) => {
         <div className='relative'>
           <Listbox.Button
             className={clsxm(
-              'w-full rounded-md bg-white py-2 pl-3 pr-10 text-left font-medium dark:bg-dark sm:text-sm',
+              'w-full rounded-md bg-gray-200 py-2 pl-3 pr-10 text-left font-medium dark:bg-dark sm:text-sm',
               'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
               'border border-gray-300 dark:border-gray-600',
               'scale-100 transform-gpu hover:scale-[1.03] active:scale-[0.97]',
@@ -52,7 +52,7 @@ const SortListbox = ({ selected, setSelected, options }: SortListboxProps) => {
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
           >
-            <Listbox.Options className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md border border-gray-300 bg-white py-1 text-base shadow-lg focus:outline-none dark:border-gray-600 dark:bg-dark dark:shadow-none sm:text-sm'>
+            <Listbox.Options className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md border border-gray-300 bg-gray-200 py-1 text-base shadow-lg focus:outline-none dark:border-gray-600 dark:bg-dark dark:shadow-none sm:text-sm'>
               {options.map((opt) => (
                 <Listbox.Option
                   key={opt.id}
