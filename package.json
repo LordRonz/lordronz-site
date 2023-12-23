@@ -139,7 +139,7 @@
     "sort-package-json": "^2.6.0",
     "standard-version": "^9.5.0",
     "storybook-addon-next-router": "^4.0.2",
-    "storybook-dark-mode": "^3.0.1",
+    "storybook-dark-mode": "^3.0.3",
     "stylelint": "^15.11.0",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^34.0.0",
