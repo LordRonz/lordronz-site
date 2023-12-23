@@ -49,7 +49,7 @@
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^2.0.0",
     "daisyui": "^4.4.2",
-    "firebase-admin": "^11.11.0",
+    "firebase-admin": "^11.11.1",
     "framer-motion": "^10.16.5",
     "lodash": "^4.17.21",
     "motion": "^10.16.4",
