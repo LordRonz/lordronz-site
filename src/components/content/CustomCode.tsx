@@ -50,7 +50,7 @@ const CustomCode = (props: React.ComponentPropsWithRef<'code'>) => {
           }}
         >
           <button className='absolute right-2 top-2 hidden rounded border border-gray-600 p-2 text-lg transition-colors hover:bg-gray-400 hover:dark:bg-gray-700 md:block'>
-            {isCopied ? <FiCheck className='text-green-400' /> : <FiCopy />}
+            {isCopied ? <FiCheck className='text-primary-400' /> : <FiCopy />}
           </button>
         </CopyToClipboard>
       )}

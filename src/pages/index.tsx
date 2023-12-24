@@ -1,8 +1,10 @@
 import type { NextPage } from 'next';
+import { GrDocumentText } from 'react-icons/gr';
 
 import CoolButton from '@/components/buttons/CoolButton';
 import { Graphic } from '@/components/layout/Graphic';
 import Layout from '@/components/layout/Layout';
+import ButtonLink from '@/components/links/ButtonLink';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
@@ -34,7 +36,7 @@ const Home: NextPage = () => {
                   Additionally, I have honed my skills through the development
                   of various React and Swift projects.
                 </p>
-                <div>
+                <div className='flex  gap-x-2'>
                   <UnstyledLink
                     href='/about'
                     aria-label='About Page'
@@ -49,6 +51,10 @@ const Home: NextPage = () => {
                       Learn More About Me
                     </CoolButton>
                   </UnstyledLink>
+                  <ButtonLink className='inline-flex' href={`/cv`}>
+                    <GrDocumentText className='mr-1' />
+                    Get My CV
+                  </ButtonLink>
                 </div>
                 <p className='mt-8'>
                   P.S. this website is open-source and available on{' '}

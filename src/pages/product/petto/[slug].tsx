@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
 import SingleProductContentPage from '@/components/content/SingleProductContentPage';
 import { getFileBySlug, getFiles, getRecommendations } from '@/lib/mdx';
@@ -8,7 +8,7 @@ type SingleProductContentPageProps = {
   recommendations: BlogFrontmatter[];
 } & BlogType;
 
-const PettoContentPage = ({
+const PettoContentPage: NextPage<SingleProductContentPageProps> = ({
   code,
   frontmatter,
 }: SingleProductContentPageProps) => {

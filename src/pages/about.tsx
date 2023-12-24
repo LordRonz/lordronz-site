@@ -1,4 +1,7 @@
 import type { NextPage } from 'next';
+import { FaCode } from 'react-icons/fa6';
+import { FiLink } from 'react-icons/fi';
+import { GrDocumentText } from 'react-icons/gr';
 import { useInView } from 'react-intersection-observer';
 
 import CloudinaryImg from '@/components/images/CloudinaryImg';
@@ -70,9 +73,11 @@ const AboutPage: NextPage = () => {
             </p>
             <div className='flex gap-x-3'>
               <ButtonLink href={`${LINK_SHORTENER_URL}/academic_resume`}>
+                <GrDocumentText className='mr-1' />
                 See My CV
               </ButtonLink>
               <ButtonLink href={LINK_SHORTENER_URL} variant='outline'>
+                <FiLink className='mr-1' />
                 My Bio Links
               </ButtonLink>
             </div>
@@ -87,7 +92,8 @@ const AboutPage: NextPage = () => {
           )}
         >
           <article className='layout'>
-            <h2 className='mb-8 text-2xl md:text-4xl 2xl:text-5xl'>
+            <h2 className='mb-8 text-2xl md:text-4xl 2xl:text-5xl inline-flex items-center gap-x-2'>
+              <FaCode />
               Tech Stack
             </h2>
             <TechStack />

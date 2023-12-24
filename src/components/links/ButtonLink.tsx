@@ -30,6 +30,7 @@ const ButtonLink = ({
       'scale-100 transform-gpu hover:scale-[1.03] active:scale-[0.97]',
       'transition duration-300',
       'animate-shadow',
+      'text-sm md:text-base',
       [
         variant === 'primary' && [
           'bg-primary-300 text-black',

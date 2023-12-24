@@ -29,6 +29,7 @@ const CoolButton = ({
       className={clsxm(
         'group cursor-pointer overflow-visible focus:outline-none',
         'scale-100 transform-gpu transition duration-300 hover:scale-[1.03] active:scale-[0.97]',
+        'text-sm md:text-base',
         className,
       )}
       {...rest}
