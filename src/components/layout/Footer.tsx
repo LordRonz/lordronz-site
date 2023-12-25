@@ -8,6 +8,7 @@ import {
   SiLeetcode,
   SiLinkedin,
   SiStackoverflow,
+  SiYoutube,
 } from 'react-icons/si';
 import { Tooltip as TooltipTippy } from 'react-tippy';
 
@@ -50,6 +51,11 @@ const socials = [
     label: 'Stack Overflow',
     link: `${url_shortener}/stackoverflow`,
     icon: SiStackoverflow,
+  },
+  {
+    label: 'YouTube',
+    link: `${url_shortener}/youtube`,
+    icon: SiYoutube,
   },
 ] as const;
 
