@@ -134,14 +134,30 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
                   </Accent>
                 </div>
               </div>
-              {!frontmatter?.englishOnly && (
-                <CustomLink
-                  href={`/blog/${isEnglish ? 'id-' : ''}${cleanSlug}`}
-                  className='mt-4'
-                >
-                  Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
-                </CustomLink>
-              )}
+              <div className='flex flex-col-reverse md:flex-row gap-y-3 justify-between mt-4 items-start'>
+                {!frontmatter?.englishOnly && (
+                  <CustomLink
+                    href={`/blog/${isEnglish ? 'id-' : ''}${cleanSlug}`}
+                    className='flex-grow-0 flex-shrink'
+                  >
+                    Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
+                  </CustomLink>
+                )}
+                <div className='flex gap-x-2 text-xs md:text-sm items-center'>
+                  <p>Support me:</p>
+                  <div className='flex gap-x-3'>
+                    <CustomLink href='https://go.aaronct.dev/trakteer'>
+                      Trakteer
+                    </CustomLink>
+                    <CustomLink href='https://go.aaronct.dev/saweria'>
+                      Saweria
+                    </CustomLink>
+                    <CustomLink href='https://go.aaronct.dev/github-sponsor'>
+                      GitHub Sponsor
+                    </CustomLink>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <hr className='dark:border-gray-600' />
