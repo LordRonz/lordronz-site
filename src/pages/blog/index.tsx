@@ -125,7 +125,7 @@ const IndexPage = ({
     <Layout>
       <Seo
         templateTitle='Blog'
-        description='Thoughts, mental models, and tutorials about front-end development. Rebuild your mental model so front-end development can be predictable.'
+        description='Random thoughts about my expertise and hobby. It should be informational for yall sussy bakas.'
       />
       <main>
         <section className={clsxm(isLoaded && 'fade-in-start')}>
