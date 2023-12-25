@@ -80,7 +80,7 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
                   'yyyy-MM-dd',
                   new Date(),
                 ),
-                'MMMM d, yyyy',
+                'MMM d, yyyy',
               )}
             </span>
           </p>

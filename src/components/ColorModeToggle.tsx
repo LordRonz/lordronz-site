@@ -37,20 +37,29 @@ const ColorModeToggle = ({
       >
         {mounted && (
           <>
-            <FiSun
+            <label
               className={clsxm(
-                value !== 'light' && 'hidden',
-                'text-2xl',
-                iconClassName,
+                'swap swap-rotate',
+                value === 'dark' && 'swap-active',
               )}
-            />
-            <FiMoon
-              className={clsxm(
-                value !== 'dark' && 'hidden',
-                'text-2xl',
-                iconClassName,
-              )}
-            />
+            >
+              <FiSun
+                className={clsxm(
+                  'swap-off',
+                  // value !== 'light' && 'hidden',
+                  'text-2xl',
+                  iconClassName,
+                )}
+              />
+              <FiMoon
+                className={clsxm(
+                  'swap-on',
+                  // value !== 'dark' && 'hidden',
+                  'text-2xl',
+                  iconClassName,
+                )}
+              />
+            </label>
           </>
         )}
       </button>

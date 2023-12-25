@@ -47,10 +47,17 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
 
   const [sideNav, setSideNav] = useState(false);
 
+  const [isSideNavClosed, setIsSideNavClosed] = useState(true);
+
+  const closeSideNav = () => {
+    setSideNav(false);
+    setTimeout(() => setIsSideNavClosed(true), 310);
+  };
+
   const ref = useRef(null);
 
   useClickAway(ref, () => {
-    sideNav && setSideNav(false);
+    sideNav && closeSideNav();
   });
 
   return (
@@ -138,7 +145,12 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
             <input
               type='checkbox'
               className='hidden'
-              onChange={() => setSideNav((s) => !s)}
+              onChange={() => {
+                if (isSideNavClosed) {
+                  setSideNav(true);
+                  setIsSideNavClosed(false);
+                }
+              }}
               checked={sideNav}
             />
             <svg
@@ -182,7 +194,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
           aria-controls='drawer-navigation'
           aria-label='Close sidebar button'
           className='absolute right-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white'
-          onClick={() => setSideNav(false)}
+          onClick={() => closeSideNav()}
         >
           <svg
             aria-hidden='true'
@@ -223,7 +235,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
                   <span
                     className={clsxm(
                       'transition-all',
-                      'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0',
+                      'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0 p-0.5 rounded-sm',
                       href === baseRoute &&
                         'bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
                     )}

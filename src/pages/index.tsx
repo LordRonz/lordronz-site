@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { GrDocumentText } from 'react-icons/gr';
 
 import CoolButton from '@/components/buttons/CoolButton';
@@ -10,9 +11,12 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import { MainTitle } from '@/components/typography/MainTitle';
 import Wave from '@/components/Wave';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
 import clsxm from '@/lib/clsxm';
 
 const Home: NextPage = () => {
+  const { width } = useWindowDimensions();
+
   return (
     <Layout>
       <Seo />
@@ -45,9 +49,10 @@ const Home: NextPage = () => {
                   >
                     <CoolButton
                       wrapperClassName='text-md font-bold'
-                      width={210}
+                      width={width >= 768 ? 220 : 200}
                       height={45}
                     >
+                      <FaMagnifyingGlass className='mr-1' />
                       Learn More About Me
                     </CoolButton>
                   </UnstyledLink>
