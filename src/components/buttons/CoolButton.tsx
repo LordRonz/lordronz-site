@@ -1,3 +1,5 @@
+import { useMountedState } from 'react-use';
+
 import clsxm from '@/lib/clsxm';
 
 export type CoolButtonProp = {
@@ -21,6 +23,10 @@ const CoolButton = ({
   ...rest
 }: CoolButtonProp) => {
   const a = 2 * ((+w < 1 ? 150 : +w) + (+h < 1 ? 50 : +h));
+
+  const isMounted = useMountedState();
+
+  if (!isMounted()) return null;
 
   return (
     <svg
