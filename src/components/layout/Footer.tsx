@@ -97,7 +97,7 @@ const Footer = () => {
                     aria-label='Mail button'
                     className='rounded-sm align-middle focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
                   >
-                    <FiMail className='my-auto h-7 w-7 align-middle text-gray-600 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
+                    <FiMail className='my-auto h-7 w-7 -mt-1 md:-mt-1.5 align-middle text-gray-600 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
                   </button>
                 </CopyToClipboard>
               </TooltipTippy>
