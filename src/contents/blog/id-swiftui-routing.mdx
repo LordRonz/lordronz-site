@@ -1,26 +1,26 @@
 ---
-title: 'SwiftUI Programmatic Routing with NavigationStack'
+title: 'SwiftUI Programmatic Routing dengan NavigationStack'
 publishedAt: '2023-12-25'
 description:
-  'We can utilize observation and implement programmatic routing with
+  'Kita dapat memanfaatkan observation dan menerapkan routing programatik dengan
   NavigationStack.'
 banner: 'manja-vitolic-gKXKBY-C-Dk-unsplash_at15b1.jpg'
 tags: 'swiftui,swift,ios'
 ---
 
-## Introduction
+## Perkenalan
 
-After a long hiatus from releasing new blog content, I'm back with iOS content.
-I've gained valuable insights into iOS and Swift Programming at the Apple
-Developer Academy. Now, with the iOS 17 updates, we have a new `Observable`
-macro and Observable Framework. Additionally, the latest navigation system
-introduced in iOS 16, `NavigationStack`, is quite robust, and we'll leverage
-that to our advantage.
+Setelah absen panjang tidak merilis konten blog baru, saya kembali dengan konten
+iOS. Saya telah mendapatkan wawasan berharga tentang iOS dan Pemrograman Swift
+di Apple Developer Academy. Sekarang, dengan pembaruan iOS 17, kita memiliki
+makro baru `Observable` dan Framework Observable. Selain itu, sistem navigasi
+terbaru yang diperkenalkan di iOS 16, `NavigationStack`, sangatlah keren, dan
+kita akan memanfaatkannya sebaik mungkin.
 
-## `NavigationStack` usage
+## Penggunaan `NavigationStack`
 
-The usual implementation of `NavigationStack` is that you can put
-`NavigationLink` to allow user to navigate by pressing it.
+Implementasi biasa dari `NavigationStack` adalah dengan menempatkan
+`NavigationLink` untuk memungkinkan pengguna menavigasi dengan menekannya.
 
 ```swift
 struct ContentView: View {
@@ -49,18 +49,20 @@ struct ProductDetailView: View {
 }
 ```
 
-In the example above, we set up a basic master-detail setup. We plant the
-`NavigationStack` at the top of our view setup. Then, we list out messages, each
-serving as a link to its details screen. Notice, we're sticking with the
-old-school `NavigationLink` type, and it does the job just fine here.
+Pada contoh di atas, kita menyiapkan konfigurasi dasar master-detail. Kita
+menempatkan `NavigationStack` di bagian atas tata letak tampilan kita.
+Selanjutnya, kita menuliskan daftar message, setiap berfungsi sebagai tautan ke
+layar detailnya. Perhatikan, kita tetap menggunakan tipe `NavigationLink`
+tradisional, dan hal ini berfungsi dengan baik di sini.
 
 ## Navigator Pattern
 
-I enjoy organizing my feature's navigation flow in one central location. That's
-why I typically use the Navigator pattern to manage navigation in a type-safe
-manner. Implementing the Navigator pattern with SwiftUI's new data-driven
-Navigation API is straightforward. Initially, we need to establish an enum type
-that outlines all the routes for our app, feature, or module.
+Saya menikmati mengorganisir alur navigasi fitur saya di satu lokasi pusat.
+Itulah mengapa saya biasanya menggunakan pola Navigator untuk mengelola navigasi
+dengan cara yang aman berdasarkan tipe. Mengimplementasikan pola Navigator
+dengan API Navigasi baru SwiftUI mudah dilakukan. Pada awalnya, kita perlu
+membuat tipe enum yang menguraikan semua rute untuk aplikasi, fitur, atau modul
+kita.
 
 ```swift
 enum Route: Hashable {
@@ -71,7 +73,8 @@ enum Route: Hashable {
 }
 ```
 
-Next up, we define the view based on the route we define earlier
+Selanjutnya, kita mendefinisikan tampilan berdasarkan rute yang kita tentukan
+sebelumnya.
 
 ```swift
 struct Routes: View {
@@ -92,10 +95,10 @@ struct Routes: View {
 }
 ```
 
-After that, we should create a single controller for the navigation. We can do
-this by using a ViewModel. Remember when I said earlier that we can utilize the
-new Observable Framework? We will define the `ViewModel` by using the
-`Observable` macro.
+Setelah itu, kita seharusnya membuat satu pengontrol tunggal untuk navigasi. Ini
+dapat dilakukan dengan menggunakan ViewModel. Ingat ketika saya menyebutkan
+sebelumnya bahwa kita dapat memanfaatkan Observable Framework baru? Kita akan
+mendefinisikan `ViewModel` dengan menggunakan makro `Observable`.
 
 ```swift
 @Observable
@@ -165,17 +168,18 @@ class RouteViewModel {
 }
 ```
 
-Looks like pretty lengthy code, doesn't it? The `navPath` variable is the source
-of truth, storing the list of routes. It is an array of route and we can modify
-it like any other array. We've defined some methods there to assist us in
-navigating and modifying the `navPath` itself. This `ViewModel` will be used
-globally across the app, so we should create an `Environment`.
+Sepertinya kode yang cukup panjang, bukan? Variabel `navPath` adalah sumber
+kebenaran, menyimpan daftar route. Ini adalah array route dan kita dapat
+memodifikasinya seperti array lainnya. Kita telah menentukan beberapa metode di
+sana untuk membantu kita dalam menavigasi dan memodifikasi `navPath` itu
+sendiri. `ViewModel` ini akan digunakan secara global di seluruh aplikasi, jadi
+kita harus membuat `Environment`.
 
-### Defining the Environment
+### Mendefinisikan EnvironmentValues
 
-To define the `navigate` Environment, we can extend the `EnvironmentValues` from
-SwiftUI. But first, we need to define the `EnvironmentKey` with the defaultValue
-of the `ViewModel` itself.
+Untuk mendefinisikan Environment `navigate`, kita dapat melakukan extend
+`EnvironmentValues` dari SwiftUI. Tetapi pertama, kita perlu mendefinisikan
+`EnvironmentKey` dengan defaultValue dari `ViewModel` itu sendiri.
 
 ```swift
 struct NavigationEnvironmentKey: EnvironmentKey {
@@ -183,8 +187,8 @@ struct NavigationEnvironmentKey: EnvironmentKey {
 }
 ```
 
-After that, we can extend the `EnvironmentValues`. I'm naming it `navigate` but
-you can use any other names as you like.
+Setelah itu, kita dapat mengextend `EnvironmentValues`. Saya memberinya nama
+`navigate`, tetapi Anda dapat menggunakan nama lain sesuai keinginan Anda.
 
 ```swift
 extension EnvironmentValues {
@@ -195,14 +199,14 @@ extension EnvironmentValues {
 }
 ```
 
-Now we can use the environment globally. Next up we need to use the `ViewModel`
-in our `NavigationStack`. In this implementation we are going to do it in the
-`App` struct.
+Sekarang kita dapat menggunakan environment secara global. Selanjutnya, kita
+perlu menggunakan `ViewModel` dalam `NavigationStack`. Dalam implementasi ini,
+kita akan melakukannya di dalam struktur `App`.
 
-### Implementing the `NavigationStack`
+### Mengimplementasikan `NavigationStack`
 
-We must use `Bindable` macro instead of `State` because `NavigationStack` needs
-to bind the `NavigationPath`.
+Kita harus menggunakan `Bindable` macro alih-alih `State` karena
+`NavigationStack` perlu untuk melakukan bind pada `NavigationPath`.
 
 ```swift
 struct SwiftRoutingApp: App {
@@ -220,17 +224,18 @@ struct SwiftRoutingApp: App {
 }
 ```
 
-We now have exactly one `NavigationStack` wrapping the `ContentView`, and we
-attach the `navigationDestination` view modifier and use our previously defined
-Routes struct to map the view inside of the `NavigationStack`. Don't forget to
-use the `environment` view modifier to be able to access the view model inside
-the children view.
+Sekarang kita memiliki satu `NavigationStack` yang membungkus `ContentView`, dan
+kita melampirkan view modifier `navigationDestination` serta menggunakan
+struktur Routes yang sebelumnya telah kita tentukan untuk memetakan tampilan di
+dalam `NavigationStack`. Jangan lupa menggunakan view modifier `environment`
+agar dapat mengakses view model di dalam child view.
 
-## Usage
+## Penggunaan
 
-You should note that in the previously defined Routes mapping, there are several
-views. Now, we will use it to demonstrate our new navigation system. The view
-itself isn't very complex but is sufficient for demonstration.
+Anda seharusnya menyadari bahwa dalam pemetaan Routes yang sebelumnya telah
+ditentukan, ada beberapa views di sana, sekarang kita akan menggunakannya untuk
+menunjukkan sistem navigasi baru kita. Tampilan itu sendiri tidak terlalu
+kompleks tetapi sudah cukup untuk keperluan demonstrasi.
 
 ```swift
 struct FirstView: View {
@@ -307,17 +312,18 @@ struct ContentView: View {
 }
 ```
 
-When you run the app, the first view will be presented. Press the button to
-navigate to the second view. Now, try interacting with all the buttons and see
-how robust it is. You don't need to use `NavigationLink` all over the place;
-just call the `navigate` method. You can also call this inside any functions or
-triggers.
+Ketika Anda menjalankan aplikasi, tampilan pertama akan muncul. Tekan tombol
+untuk navigasi ke tampilan kedua. Sekarang, cobalah berinteraksi dengan semua
+tombol dan lihat seberapa keren sistem ini. Anda tidak perlu menggunakan
+`NavigationLink` di mana-mana; cukup panggil metode `navigate`. Anda juga dapat
+memanggil ini di dalam fungsi atau pemicu apa pun.
 
-Of course, the source code is available
-[here on GitHub](https://github.com/lordronz-archive/swiftui-routing).
+Tentu saja, source codenya tersedia
+[di GitHub](https://github.com/lordronz-archive/swiftui-routing).
 
-## Conclusion
+## Kesimpulan
 
-I'm thrilled to use the new data-driven Navigation API in SwiftUI. I hope you
-enjoy the post. Feel free to contact me and ask your questions related to this
-post. Thanks for reading, and see you in the next blog!
+Saya sangat antusias menggunakan API Navigasi berbasis data baru di SwiftUI.
+Semoga Anda menikmati tulisan ini. Jangan ragu untuk menghubungi saya dan ajukan
+pertanyaan terkait tulisan ini. Terima kasih telah membaca, dan sampai jumpa di
+blog berikutnya!
