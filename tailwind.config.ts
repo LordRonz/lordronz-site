@@ -39,7 +39,7 @@ export default {
     extend: {},
   },
   daisyui: {
-    darkTheme: 'light',
+    themes: [],
   },
   plugins: [
     require('@tailwindcss/forms'),
