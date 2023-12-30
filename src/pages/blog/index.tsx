@@ -3,20 +3,26 @@ import { useEffect, useState } from 'react';
 import { HiCalendar, HiEye } from 'react-icons/hi';
 
 import Accent from '@/components/Accent';
-import Button from '@/components/buttons/Button';
 import BlogCard from '@/components/content/blog/BlogCard';
 import ContentPlaceholder from '@/components/content/ContentPlaceHolder';
 import Tag, { SkipNavTag } from '@/components/content/Tag';
+import Sort from '@/components/forms/Sort';
 import StyledInput from '@/components/forms/StyledInput';
+import CustomTab from '@/components/forms/Tab';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
-import SortListbox, { SortOption } from '@/components/SortListbox';
+import { SortOption } from '@/components/SortListbox';
 import { MainTitle } from '@/components/typography/MainTitle';
 import useInjectContentMeta from '@/hooks/useInjectContentMeta';
 import clsxm from '@/lib/clsxm';
 import { getFromSessionStorage } from '@/lib/helper';
 import { getAllFilesFrontmatter } from '@/lib/mdx';
-import { getTags, sortByDate, sortDateFn } from '@/lib/mdxClient';
+import {
+  getTags,
+  sortByDate,
+  sortDateFn,
+  sortDateFnAsc,
+} from '@/lib/mdxClient';
 import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
 
 const sortOptions: Array<SortOption> = [
@@ -34,6 +40,8 @@ const sortOptions: Array<SortOption> = [
   },
 ];
 
+const langCategories = ['English', 'Bahasa Indonesia'];
+
 const IndexPage = ({
   posts,
   tags,
@@ -42,6 +50,8 @@ const IndexPage = ({
   const [sortOrder, setSortOrder] = useState<SortOption>(
     () => sortOptions[Number(getFromSessionStorage('blog-sort')) || 0],
   );
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
+
   const [isEnglish, setIsEnglish] = useState<boolean>(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -71,15 +81,19 @@ const IndexPage = ({
     );
 
     if (sortOrder.id === 'date') {
-      results.sort(sortDateFn);
+      results.sort(sortDir === 'desc' ? sortDateFn : sortDateFnAsc);
       sessionStorage.setItem('blog-sort', '0');
     } else if (sortOrder.id === 'views') {
-      results.sort((a, b) => (b?.views ?? 0) - (a?.views ?? 0));
+      results.sort(
+        (a, b) =>
+          ((sortDir === 'desc' ? b : a)?.views ?? 0) -
+          ((sortDir === 'desc' ? a : b)?.views ?? 0),
+      );
       sessionStorage.setItem('blog-sort', '1');
     }
 
     setFilteredPosts(results);
-  }, [search, sortOrder.id, populatedPosts]);
+  }, [search, sortOrder.id, populatedPosts, sortDir]);
   //#endregion  //*======== Search ===========
 
   useEffect(() => {
@@ -167,19 +181,21 @@ const IndexPage = ({
               className='relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between'
               data-fade='4'
             >
-              <Button
-                onClick={() => {
-                  setIsEnglish((b) => !b);
+              <CustomTab
+                categories={langCategories}
+                onChange={(index) => {
+                  setIsEnglish(index === 0);
                   clearSearch();
                 }}
-                className='text-sm !font-medium'
-              >
-                Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
-              </Button>
-              <SortListbox
-                selected={sortOrder}
-                setSelected={setSortOrder}
-                options={sortOptions}
+              />
+              <Sort
+                sortOptions={[
+                  { label: 'Date', value: 0 },
+                  { label: 'Views', value: 1 },
+                ]}
+                sortOrder={sortDir}
+                onChangeSortBy={(index) => setSortOrder(sortOptions[index])}
+                setSortOrder={setSortDir}
               />
             </div>
             <ul

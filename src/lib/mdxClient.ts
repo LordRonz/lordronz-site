@@ -19,6 +19,16 @@ export const sortDateFn = <T extends FrontmatterWithDate>(
   );
 };
 
+export const sortDateFnAsc = <T extends FrontmatterWithDate>(
+  contentA: T,
+  contentB: T,
+) => {
+  return (
+    new Date(contentA.lastUpdated ?? contentA.publishedAt).valueOf() -
+    new Date(contentB.lastUpdated ?? contentB.publishedAt).valueOf()
+  );
+};
+
 export const sortByDate = <T extends FrontmatterWithDate>(
   contents: Array<T>,
 ) => {
