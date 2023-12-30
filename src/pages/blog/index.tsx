@@ -50,7 +50,9 @@ const IndexPage = ({
   const [sortOrder, setSortOrder] = useState<SortOption>(
     () => sortOptions[Number(getFromSessionStorage('blog-sort')) || 0],
   );
-  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>(
+    (getFromSessionStorage('blog-sort-dir') as 'asc' | 'desc') || 'desc',
+  );
 
   const [isEnglish, setIsEnglish] = useState<boolean>(true);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -195,7 +197,11 @@ const IndexPage = ({
                 ]}
                 sortOrder={sortDir}
                 onChangeSortBy={(index) => setSortOrder(sortOptions[index])}
-                setSortOrder={setSortDir}
+                setSortOrder={(dir) => {
+                  setSortDir(dir);
+                  sessionStorage.setItem('blog-sort-dir', dir);
+                }}
+                defaultIndex={sortOrder.id === 'date' ? 0 : 1}
               />
             </div>
             <ul

@@ -1,4 +1,5 @@
-import { FaSortAmountDown, FaSortAmountUp } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { FaSortAmountDown, FaSortAmountDownAlt } from 'react-icons/fa';
 
 import clsxm from '@/lib/clsxm';
 
@@ -13,10 +14,17 @@ export type SortProps = {
     label: string;
     value: number;
   }[];
+  defaultIndex?: number;
 };
 
 const Sort = (props: SortProps) => {
-  const { sortOrder, setSortOrder, onChangeSortBy, sortOptions } = props;
+  const { sortOrder, setSortOrder, onChangeSortBy, sortOptions, defaultIndex } =
+    props;
+
+  const [isLoaded, setIsLoaded] = useState(false);
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   return (
     <div className='flex gap-x-2 justify-end'>
@@ -32,17 +40,19 @@ const Sort = (props: SortProps) => {
         onClick={() =>
           setSortOrder && setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')
         }
+        key={+isLoaded}
       >
         {sortOrder === 'desc' ? (
           <FaSortAmountDown className='text-dark dark:text-light' />
         ) : (
-          <FaSortAmountUp className='text-dark dark:text-light' />
+          <FaSortAmountDownAlt className='text-dark dark:text-light' />
         )}
       </Button>
       <CustomTab
         categories={sortOptions.map((s) => s.label)}
         className='flex-shrink-0'
         onChange={(index) => onChangeSortBy && onChangeSortBy(index)}
+        defaultIndex={defaultIndex}
       />
     </div>
   );
