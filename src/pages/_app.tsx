@@ -1,3 +1,4 @@
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import '@/styles/globals.css';
 import '@/styles/mdx.css';
 import '@/styles/gruvbox.css';

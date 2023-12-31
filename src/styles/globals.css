@@ -114,3 +114,8 @@
 .tippy-tooltip {
   padding: 0 0.8rem;
 }
+
+/* YT Lite */
+.yt-lite::before {
+  content: none !important;
+}
