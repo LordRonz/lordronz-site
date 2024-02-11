@@ -22,24 +22,40 @@ describe('CoolButton', () => {
     jest.clearAllMocks();
     jest.useFakeTimers();
   });
-  it('renders a coolbutton', () => {
-    render(<CoolButton>Test</CoolButton>);
+  it('renders a coolbutton', async () => {
+    const { rerender } = render(
+      <CoolButton data-testid='cool-button'>Test</CoolButton>,
+    );
 
-    const button = screen.getByText('Test');
+    const container = await screen.findByTestId('cool-button');
+    expect(container).toBeInTheDocument();
 
+    rerender(<CoolButton data-testid='cool-button'>Test</CoolButton>);
+
+    const button = await screen.findByText('Test');
     expect(button).toBeInTheDocument();
   });
 
-  it('renders a coolbutton with classname', () => {
-    render(<CoolButton className='kontol'>Test</CoolButton>);
+  it('renders a coolbutton with classname', async () => {
+    const { rerender } = render(
+      <CoolButton data-testid='cool-button'>Test</CoolButton>,
+    );
 
-    const button = screen.getByText('Test');
+    rerender(<CoolButton data-testid='cool-button'>Test</CoolButton>);
+
+    const button = await screen.findByText('Test');
 
     expect(button).toBeInTheDocument();
   });
 
   it('renders a coolbutton with rest', () => {
-    render(
+    const { rerender } = render(
+      <CoolButton aria-label='balls' wrapperClassName='bg-dark'>
+        Test
+      </CoolButton>,
+    );
+
+    rerender(
       <CoolButton aria-label='balls' wrapperClassName='bg-dark'>
         Test
       </CoolButton>,
@@ -51,7 +67,11 @@ describe('CoolButton', () => {
   });
 
   it('renders a coolbutton with wrapperclassname', () => {
-    render(<CoolButton wrapperClassName='bg-dark'>Test</CoolButton>);
+    const { rerender } = render(
+      <CoolButton wrapperClassName='bg-dark'>Test</CoolButton>,
+    );
+
+    rerender(<CoolButton wrapperClassName='bg-dark'>Test</CoolButton>);
 
     const button = screen.getByText('Test');
 
@@ -59,7 +79,11 @@ describe('CoolButton', () => {
   });
 
   it('renders a coolbutton with moving polygon classname', () => {
-    render(<CoolButton movingPolygonClassName='bg-dark'>Test</CoolButton>);
+    const { rerender } = render(
+      <CoolButton movingPolygonClassName='bg-dark'>Test</CoolButton>,
+    );
+
+    rerender(<CoolButton movingPolygonClassName='bg-dark'>Test</CoolButton>);
 
     const button = screen.getByText('Test');
 
@@ -67,7 +91,18 @@ describe('CoolButton', () => {
   });
 
   it('renders a coolbutton with all props', () => {
-    render(
+    const { rerender } = render(
+      <CoolButton
+        wrapperClassName='bg-dark'
+        movingPolygonClassName='bg-dark'
+        className='balls'
+        aria-checked='true'
+      >
+        Test
+      </CoolButton>,
+    );
+
+    rerender(
       <CoolButton
         wrapperClassName='bg-dark'
         movingPolygonClassName='bg-dark'
@@ -84,7 +119,19 @@ describe('CoolButton', () => {
   });
 
   it('renders a coolbutton with all props overwrite', () => {
-    render(
+    const { rerender } = render(
+      <CoolButton
+        wrapperClassName='justify-end'
+        polygonClassName='duration-100'
+        movingPolygonClassName='bg-dark'
+        className='duration-100'
+        aria-checked='true'
+      >
+        Test
+      </CoolButton>,
+    );
+
+    rerender(
       <CoolButton
         wrapperClassName='justify-end'
         polygonClassName='duration-100'
@@ -102,7 +149,19 @@ describe('CoolButton', () => {
   });
 
   it('renders a coolbutton with different props', () => {
-    render(
+    const { rerender } = render(
+      <CoolButton
+        wrapperClassName='justify-end'
+        polygonClassName='duration-100'
+        movingPolygonClassName='bg-dark'
+        className='duration-100'
+        aria-checked='true'
+      >
+        Test
+      </CoolButton>,
+    );
+
+    rerender(
       <CoolButton
         wrapperClassName='justify-end'
         polygonClassName='duration-100'
@@ -120,7 +179,13 @@ describe('CoolButton', () => {
   });
 
   it('renders a default coolbutton if given invalid size', () => {
-    render(
+    const { rerender } = render(
+      <CoolButton width={0} height={0}>
+        Test
+      </CoolButton>,
+    );
+
+    rerender(
       <CoolButton width={0} height={0}>
         Test
       </CoolButton>,
