@@ -112,12 +112,11 @@ const IndexPage = ({
   const toggleTag = (tag: string) => {
     // If tag is already there, then remove
     if (search.includes(tag)) {
-      setSearch(
-        (s) =>
-          s
-            .split(' ')
-            .filter((t) => t !== tag)
-            ?.join(' '),
+      setSearch((s) =>
+        s
+          .split(' ')
+          .filter((t) => t !== tag)
+          ?.join(' '),
       );
     } else {
       // append tag
