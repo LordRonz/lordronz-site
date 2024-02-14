@@ -7362,10 +7362,10 @@ cypress@^13.6.4:
     untildify "^4.0.0"
     yauzl "^2.10.0"
 
-daisyui@^4.6.2:
-  version "4.6.2"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-4.6.2.tgz#f21f9200617a9202cf71ceafc264658ee1dcea6e"
-  integrity sha512-LBIbI76wVVRCQt1Uis2Y2/PRdGfMkNMFsHOjfpav8n7SamwRwPOCiNUClIrnX2jerWW3mLZlzRMCnQfxmGEjow==
+daisyui@^4.7.2:
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-4.7.2.tgz#d2359d9eb1cac2082302ca55b6b35eca437a011f"
+  integrity sha512-9UCss12Zmyk/22u+JbkVrHHxOzFOyY17HuqP5LeswI4hclbj6qbjJTovdj2zRy8cCH6/n6Wh0lTLjriGnyGh0g==
   dependencies:
     css-selector-tokenizer "^0.8"
     culori "^3"
