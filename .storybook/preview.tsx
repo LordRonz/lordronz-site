@@ -1,29 +1,24 @@
 // .storybook/preview.tsx
 
 import '../src/styles/globals.css';
-import * as NextImage from 'next/image';
-import { RouterContext } from 'next/dist/shared/lib/router-context';
+import { Preview, Parameters } from '@storybook/react';
 import React from 'react';
 
-const OriginalNextImage = NextImage.default;
-
-Object.defineProperty(NextImage, 'default', {
-  configurable: true,
-  value: (props) => <OriginalNextImage {...props} unoptimized />,
-});
-
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+const parameters: Parameters = {
   controls: {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
     },
   },
-  nextRouter: {
-    Provider: RouterContext.Provider,
-  },
   previewTabs: {
     'storybook/docs/panel': { index: -1 },
   },
 };
+
+const preview: Preview = {
+  // ...
+  parameters,
+};
+
+export default preview;

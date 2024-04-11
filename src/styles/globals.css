@@ -66,6 +66,7 @@
   .layout {
     /* 1100px */
     max-width: 68.75rem;
+
     @apply mx-auto w-11/12;
   }
 
@@ -91,6 +92,7 @@
       0 100%;
     background-repeat: no-repeat;
   }
+
   @media (prefers-reduced-motion: no-preference) {
     .animated-underline {
       transition: 0.3s ease;
