@@ -46,7 +46,7 @@
     "@headlessui/react": "^1.7.18",
     "@react-three/drei": "^9.105.3",
     "@react-three/fiber": "^8.16.1",
-    "@storybook/test": "^8.0.6",
+    "@storybook/test": "^8.0.8",
     "axios": "^1.6.8",
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^2.1.0",
