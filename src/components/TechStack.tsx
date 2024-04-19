@@ -1,6 +1,7 @@
 import {
   SiArchlinux,
   SiCplusplus,
+  SiCsharp,
   SiDjango,
   SiExpress,
   SiGo,
@@ -241,6 +242,23 @@ const stacks = [
         <CustomLink href='https://www.postgresql.org/'>PostgreSQL</CustomLink>,
         the world{"'"}s most advanced open source database. This is my SQL
         database of choice because of its reputation, speed, and reliability.
+      </>
+    ),
+  },
+  {
+    id: 'csharp',
+    icon: SiCsharp,
+    tooltip: (
+      <>
+        I used{' '}
+        <CustomLink href='https://learn.microsoft.com/en-us/dotnet/csharp/'>
+          C#
+        </CustomLink>
+        in my recent projects, building web application using{' '}
+        <CustomLink href='https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor'>
+          Blazor Framework
+        </CustomLink>
+        .
       </>
     ),
   },
