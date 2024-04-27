@@ -1,0 +1,226 @@
+---
+title: 'Using custom Next.js route for i18n'
+publishedAt: '2024-04-20'
+description:
+  'i18n (internationalization) helps make websites accessible to users from
+  different cultures and geographic locations, both technically and practically.
+  This blog will present you some ways to do it with Next.js'
+banner: 'yuri-krupenin-qB-MKKLRwBc-unsplash_plazbi.jpg'
+tags: 'nextjs,react,typescript,i18n'
+---
+
+## Introduction
+
+In the vast world of the internet, the goal for web developers is to reach users
+worldwide. One way to do this is by making your Next.js app multilingual. Enter
+the world of Internationalization (i18n), where your app can speak the language
+of users from around the world. In this blog, we'll explore how to add i18n to
+your [Next.js](https://nextjs.org/) project, making sure your app can be used by
+people all over the globe. This blog will cover the usage of i18n in Next.js
+with Page router.
+
+## What is i18n in Next.js
+
+Consider your web application as a medium capable of engaging users across
+diverse global regions. Guaranteeing a hospitable and intuitive encounter for
+all necessitates communication in their native tongue. Internationalization
+(i18n) involves tailoring your application to accommodate various languages and
+locales. Next.js has
+[several options](https://nextjs.org/docs/pages/building-your-application/routing/internationalization)
+for you to provide robust tools and functionalities to facilitate this. For
+simplicity, this blog will focus on
+[next-intl](https://next-intl-docs.vercel.app/) as I have actually used it in a
+production app. It is well maintained and supports both Page Router and App
+Router.
+
+## Using next-intl
+
+Before actually using the next-intl, we should install it by running
+
+```bash
+npm install next-intl
+```
+
+or if you're using yarn
+
+```bash
+yarn add next-intl
+```
+
+### Internationalization routing
+
+Refer to
+[the official docs](https://nextjs.org/docs/pages/building-your-application/routing/internationalization)
+for detailed explanation
+
+You can start by simply adding i18n configs to your `next.config.js`.
+
+```js
+module.exports = {
+  i18n: {
+    // These are all the locales you want to support in
+    // your application
+    locales: ['en-US', 'id-ID'],
+    // This is the default locale you want to be used when visiting
+    // a non-locale prefixed path e.g. `/hello`
+    defaultLocale: 'en-US',
+    // This is a list of locale domains and the default locale they
+    // should handle (these are only required when setting up domain routing)
+    // Note: subdomains must be included in the domain value to be matched e.g. "fr.example.com".
+    domains: [
+      {
+        domain: 'example.com',
+        defaultLocale: 'en-US',
+      },
+      {
+        domain: 'example.id',
+        defaultLocale: 'id-ID',
+        // an optional http field can also be used to test
+        // locale domains locally with http instead of https
+        http: true,
+      },
+    ],
+  },
+};
+```
+
+The locale identifier used above is English as spoken in the US, and Indonesian
+as spoken in Indonesia. You can check your locale
+[here](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a)
+
+If you specify default locale, it doesn't have a prefix.
+
+```ts {2-9}
+customAxios.interceptors.request.use((config) => {
+  const authHeader = getAuthHeader();
+  if (authHeader === null || authHeader === undefined) return config;
+
+  config.headers = {
+    ...config.headers,
+    Authorization: authHeader,
+  };
+  return config;
+});
+```
+
+### Automatic locale detection
+
+By default, next.js will try to redirect a user to the locale prefixed path if
+using the sub-path routing. You can disable this behavior by using this config.
+
+```js
+module.exports = {
+  i18n: {
+    localeDetection: false,
+  },
+};
+```
+
+### Custom routing rules
+
+You can utilize
+[next.js middleware](https://nextjs.org/docs/pages/building-your-application/routing/middleware)
+to customize your own routing rules.
+
+Suppose you want to automatically redirect users according to their default
+browser language, but you also don't want to redirect them if they are already
+on the prefixed locale path. To give you more context, suppose we have a user
+named LeBron. LeBron's browser language is English, so if he visits
+`basketball.com`, he should be redirected to `basketball.com/en`. However, if he
+is fluent in Indonesian and visits `basketball.com/id`, he should not be
+redirected. This can be achieved by using the following `next.config.js`.
+
+```js
+module.exports = {
+  i18n: {
+    locales: ['default', 'en', 'id'],
+    defaultLocale: 'default',
+  },
+  // Other configurations.
+};
+```
+
+We use the `default` locale here as a flag that the user visits the website
+without a prefix. Now we can put this in `middleware.ts`
+
+```ts
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+// Regex to check whether something has an extension, e.g. .jpg
+const PUBLIC_FILE = /\.(.*)$/;
+
+export function middleware(request: NextRequest) {
+  const { nextUrl, headers } = request;
+
+  // Early return if it is a public file such as an image or an api call
+  if (
+    nextUrl.pathname.startsWith('/_next') ||
+    nextUrl.pathname.includes('/api/') ||
+    PUBLIC_FILE.test(nextUrl.pathname)
+  ) {
+    return;
+  }
+  // Proceed without redirection if on a localized path
+  const pathname = request.url.split('/')[3].toLowerCase();
+  if (pathname.startsWith('en') || pathname.startsWith('id')) {
+    return;
+  }
+
+  // Cloned url to work with
+  const url = nextUrl.clone();
+
+  // Client language, defaults to en
+  const language =
+    headers
+      .get('accept-language')
+      ?.split(',')?.[0]
+      .split('-')?.[0]
+      .toLowerCase() ||
+    nextUrl.locale.split('-')[0] ||
+    'en';
+  try {
+    // redirect to /en if the language is en or default
+    if (language === 'en' || language === 'default') {
+      url.pathname = `/en${nextUrl.pathname}`;
+      return NextResponse.redirect(url);
+    }
+
+    // redirect to /id if the language is id
+    if (language === 'id') {
+      url.pathname = `/id${nextUrl.pathname}`;
+      return NextResponse.redirect(url);
+    }
+
+    return;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const config = {
+  matcher: [
+    {
+      source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
+      missing: [
+        { type: 'header', key: 'next-router-prefetch' },
+        { type: 'header', key: 'purpose', value: 'prefetch' },
+      ],
+    },
+  ],
+};
+```
+
+Note that we must ignore some routes such as the api route, \_next static, and
+images. If we don't do this then undefined behavior will happen because for
+every single file it will execute this middleware.
+
+You can combine this with language switcher for the user if the preferred
+language is different than the browser language.
+
+## Summary
+
+So now you have learned how to use interceptors effectively. I suggest you to
+try experimenting with it, because experience is the best teacher, ah me so wise
+.\_. The [documentation](https://axios-http.com/docs/intro) is also very nice,
+you can check it out!
