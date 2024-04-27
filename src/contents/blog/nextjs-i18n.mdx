@@ -211,16 +211,16 @@ export const config = {
 };
 ```
 
-Note that we must ignore some routes such as the api route, \_next static, and
-images. If we don't do this then undefined behavior will happen because for
-every single file it will execute this middleware.
+You can try experimenting with this configurations, by changing your default
+browser language. Note that we must ignore some routes such as the api route,
+\_next static, and images. If we don't do this then undefined behavior will
+happen because for every single file it will execute this middleware.
 
 You can combine this with language switcher for the user if the preferred
 language is different than the browser language.
 
 ## Summary
 
-So now you have learned how to use interceptors effectively. I suggest you to
-try experimenting with it, because experience is the best teacher, ah me so wise
-.\_. The [documentation](https://axios-http.com/docs/intro) is also very nice,
-you can check it out!
+Next.js supports multiple ways of implementing i18n. One of those is the
+next-intl, which is explored in this blog. It comes with a lot of features out
+of the box, and we can further customize it by using next.js's middleware.
