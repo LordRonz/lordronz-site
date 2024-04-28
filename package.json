@@ -46,7 +46,7 @@
     "@emotion/is-prop-valid": "^1.2.2",
     "@giscus/react": "^3.0.0",
     "@headlessui/react": "^1.7.18",
-    "@react-three/drei": "^9.105.3",
+    "@react-three/drei": "^9.105.4",
     "@react-three/fiber": "^8.16.2",
     "@storybook/test": "^8.0.6",
     "axios": "^1.6.8",
