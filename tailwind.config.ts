@@ -19,6 +19,13 @@ export default {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: '2rem',
+        screens: {
+          '2xl': '1400px',
+        },
+      },
       fontFamily: {
         primary: ['var(--inter-font)', ...fontFamily.sans],
       },
@@ -33,6 +40,20 @@ export default {
       strokeWidth: {
         0.5: '0.5',
       },
+      keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+      },
     },
   },
   variants: {
@@ -45,5 +66,6 @@ export default {
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('daisyui'),
+    require('tailwindcss-animate'),
   ],
 } satisfies Config;
