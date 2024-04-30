@@ -123,7 +123,7 @@
     "cypress": "^13.8.1",
     "esbuild": "^0.20.2",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.1.4",
+    "eslint-config-next": "^14.2.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jest": "^28.2.0",
     "eslint-plugin-prettier": "^5.1.3",
