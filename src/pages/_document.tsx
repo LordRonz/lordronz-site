@@ -17,7 +17,6 @@ class MyDocument extends Document {
       <Html lang='en' className='scroll-smooth'>
         <Head>
           <script
-            async
             defer
             src='https://analytics.us.umami.is/script.js'
             data-website-id='51739fff-d062-4217-9533-180ec6523428'
