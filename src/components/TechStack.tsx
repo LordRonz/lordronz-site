@@ -253,7 +253,7 @@ const stacks = [
         I used{' '}
         <CustomLink href='https://learn.microsoft.com/en-us/dotnet/csharp/'>
           C#
-        </CustomLink>
+        </CustomLink>{' '}
         in my recent projects, building web application using{' '}
         <CustomLink href='https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor'>
           Blazor Framework

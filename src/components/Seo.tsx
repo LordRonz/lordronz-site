@@ -7,7 +7,7 @@ import { openGraph } from '@/lib/og';
 const defaultMeta = {
   title: 'Aaron Christopher',
   siteName: process.env.NEXT_PUBLIC_HOSTNAME || WEBSITE_URL,
-  description: 'My online portfolio and blog website.',
+  description: "Aaron christopher's online portfolio and blog website.",
   url: process.env.NEXT_PUBLIC_HOSTNAME
     ? `https://${process.env.NEXT_PUBLIC_HOSTNAME}`
     : WEBSITE_URL,

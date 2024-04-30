@@ -103,7 +103,7 @@ const Projects: NextPage = () => {
 
   return (
     <Layout>
-      <Seo templateTitle='Projects' description='List of my projects' />
+      <Seo templateTitle='Projects' description="List of aaron's projects" />
       <main>
         <section className={clsxm('flex flex-col justify-center')}>
           <article className='layout space-y-10 py-8'>

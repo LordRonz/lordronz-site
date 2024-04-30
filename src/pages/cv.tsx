@@ -13,7 +13,7 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
-      <Seo />
+      <Seo templateTitle="Aaron's CV" description="Aaron Christopher's CV" />
       <main>
         <section className={clsxm('flex flex-row items-center justify-center')}>
           <article className='layout flex justify-center items-center'>
@@ -32,9 +32,7 @@ const Home: NextPage = () => {
               allow='autoplay'
               allowFullScreen
               onLoad={() => setLoading(false)}
-              style={{
-                display: loading ? 'none' : 'block',
-              }}
+              className={clsxm(loading ? 'hidden' : 'block')}
             />
           </article>
         </section>

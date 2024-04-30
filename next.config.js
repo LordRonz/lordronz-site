@@ -48,7 +48,18 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['cdn.discordapp.com', 'res.cloudinary.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.discordapp.com',
+        port: '',
+      },
+    ],
   },
 };
 

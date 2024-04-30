@@ -22,7 +22,7 @@ const AboutPage: NextPage = () => {
 
   return (
     <Layout>
-      <Seo templateTitle='About' />
+      <Seo templateTitle='About' description='About Aaron Christopher' />
       <main>
         <section className={clsxm('my-16 flex flex-col justify-center')}>
           <article className='layout flex flex-col gap-y-6'>

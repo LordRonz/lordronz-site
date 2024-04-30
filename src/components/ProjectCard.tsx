@@ -56,7 +56,7 @@ const ProjectCard = ({
               alt={project.title ?? 'Project Image'}
               src={`/images/${imageLinkPrefix}/${project.image}`}
               fill
-              style={{ objectFit: 'cover' }}
+              className='object-cover'
             />
           </button>
         )}
