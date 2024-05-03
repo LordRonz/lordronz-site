@@ -1,21 +1,8 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { WEBSITE_URL } from '@/constants/env';
+import { defaultMeta } from '@/lib/generateSeoMetadata';
 import { openGraph } from '@/lib/og';
-
-const defaultMeta = {
-  title: 'Aaron Christopher',
-  siteName: process.env.NEXT_PUBLIC_HOSTNAME || WEBSITE_URL,
-  description: "Aaron christopher's online portfolio and blog website.",
-  url: process.env.NEXT_PUBLIC_HOSTNAME
-    ? `https://${process.env.NEXT_PUBLIC_HOSTNAME}`
-    : WEBSITE_URL,
-  image: '/vercel.svg',
-  type: 'website',
-  robots: 'follow, index',
-  googlebot: 'follow, index',
-};
 
 export type SeoProps = {
   readonly date?: string;

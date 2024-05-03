@@ -1,6 +1,6 @@
 import AnimatePage from '@/components/AnimatePage';
 import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
+import Header from '@/components/layout/HeaderV1';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -23,9 +23,20 @@
       "@/*": ["./src/*"],
       "~/*": ["./public/*"]
     },
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "commitlint.config.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "commitlint.config.ts",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules", "cypress", "cypress.config.ts"],
   "moduleResolution": ["node_modules", ".next", "node"]
 }

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { useEffect, useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
@@ -26,9 +26,9 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
   const { theme, setTheme } = useTheme();
 
   //#region  //*=========== Route Functionality ===========
-  const pathname = usePathname();
-  /** Ex: /sigma/titid -> ['', 'sigma', 'titid'] */
-  const arrOfRoute = pathname?.split('/') || [];
+  const router = useRouter();
+  /** Ex: /projects/petrolida-2021 -> ['', 'projects', 'petrolida-2021'] */
+  const arrOfRoute = router.route.split('/');
   const baseRoute = '/' + arrOfRoute[1];
   //#endregion  //*======== Route Functionality ===========
 
@@ -82,6 +82,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
       >
         <Accent>Skip to content</Accent>
       </a>
+      {/* <div className='h-2 bg-gradient-to-tr from-primary-200 via-primary-300 to-primary-400' /> */}
       <PageProgress color='#ff9a9a' />
       <div className='bg-light transition-all dark:bg-dark dark:text-light'>
         <nav className={clsxm('layout flex items-center justify-between py-4')}>

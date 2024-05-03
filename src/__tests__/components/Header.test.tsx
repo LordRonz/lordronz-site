@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import Header, { links } from '@/components/layout/Header';
+import Header, { links } from '@/components/layout/HeaderV1';
 
 jest.mock('next/router', () => ({
   useRouter() {
