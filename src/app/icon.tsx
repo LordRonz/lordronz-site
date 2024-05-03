@@ -1,9 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from 'next/og';
+
+import { WEBSITE_URL } from '@/constants/env';
 
 // Image metadata
 export const size = {
-  width: 32,
-  height: 32,
+  width: 96,
+  height: 96,
 };
 export const contentType = 'image/png';
 
@@ -12,20 +15,11 @@ const Icon = () => {
   return new ImageResponse(
     (
       // ImageResponse JSX element
-      <div
-        style={{
-          fontSize: 24,
-          background: 'black',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-        }}
-      >
-        A
-      </div>
+      <img
+        alt='icon'
+        src={WEBSITE_URL + '/favicon/favicon-96x96.png'}
+        {...size}
+      />
     ),
     // ImageResponse options
     {

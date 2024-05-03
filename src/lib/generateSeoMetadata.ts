@@ -51,7 +51,7 @@ const defaultMetaV2: Metadata = {
   },
   category: 'technology',
   alternates: {
-    canonical: 'https://nextjs.org',
+    canonical: webUrl,
     types: {
       'application/rss+xml': removeDuplicateSlashUrl(webUrl + '/rss.xml'),
     },
