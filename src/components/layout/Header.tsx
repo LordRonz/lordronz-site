@@ -36,7 +36,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
   const [onTop, setOnTop] = useState<boolean>(true);
   useEffect(() => {
     const handleScroll = () => {
-      setOnTop(window.pageYOffset === 0);
+      setOnTop(window.scrollY === 0);
     };
     window.addEventListener('scroll', handleScroll);
     return () => {

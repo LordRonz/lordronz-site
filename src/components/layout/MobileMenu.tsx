@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 
 import ColorModeToggle from '@/components/ColorModeToggle';
-import { links } from '@/components/layout/HeaderV1';
+import { links } from '@/components/layout/Header';
 import NavigationItem from '@/components/NavigationItem';
 
 export type MobileMenuProps = {

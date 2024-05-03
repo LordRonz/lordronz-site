@@ -1,14 +1,14 @@
 'use client';
+
 import axios from 'axios';
 import { AnimatePresence } from 'framer-motion';
-import { Inter } from 'next/font/google';
 import NextNProgress from 'nextjs-progressbar';
 import { SWRConfig } from 'swr';
 
 import AnimatePage from '@/components/AnimatePage';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
-import ScrollButton from '@/components/ScrollButton';
+import ScrollButtonClient from '@/components/ScrollButtonClient';
 
 declare module 'next-themes' {
   interface ThemeProviderProps {
@@ -16,7 +16,6 @@ declare module 'next-themes' {
   }
 }
 
-const inter = Inter({ subsets: ['latin'], variable: '--inter-font' });
 const ClientLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <SWRConfig
@@ -29,11 +28,6 @@ const ClientLayout = ({ children }: { children: React.ReactNode }) => {
         startPosition={0.2}
         options={{ showSpinner: false }}
       />
-      <style jsx global>{`
-        html {
-          font-family: ${inter.style.fontFamily};
-        }
-      `}</style>
       <AnimatePresence
         mode='wait'
         initial={false}
@@ -45,7 +39,7 @@ const ClientLayout = ({ children }: { children: React.ReactNode }) => {
           <Footer />
         </div>
       </AnimatePresence>
-      <ScrollButton />
+      <ScrollButtonClient />
     </SWRConfig>
   );
 };

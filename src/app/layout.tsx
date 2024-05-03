@@ -6,6 +6,7 @@ import 'react-tippy/dist/tippy.css';
 import 'react-image-lightbox/style.css';
 
 import type { Viewport } from 'next';
+import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
@@ -20,9 +21,15 @@ export const generateMetadata = () => {
   return generateSeoMetadata();
 };
 
+const inter = Inter({ subsets: ['latin'], variable: '--inter-font' });
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang='en' className='scroll-smooth' suppressHydrationWarning>
+    <html
+      lang='en'
+      className={`scroll-smooth ${inter.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           defer

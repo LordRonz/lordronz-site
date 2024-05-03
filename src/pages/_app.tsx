@@ -36,17 +36,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           startPosition={0.2}
           options={{ showSpinner: false }}
         />
-        <style jsx global>{`
-          html {
-            font-family: ${inter.style.fontFamily};
-          }
-        `}</style>
         <AnimatePresence
           mode='wait'
           initial={false}
           onExitComplete={() => window.scrollTo(0, 0)}
         >
-          <Component {...pageProps} />
+          <main className={`${inter.variable} font-primary`}>
+            <Component {...pageProps} />
+          </main>
         </AnimatePresence>
         <ScrollButton />
       </SWRConfig>

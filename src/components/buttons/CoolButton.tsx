@@ -14,8 +14,8 @@ export type CoolButtonProp = {
 } & React.ComponentPropsWithoutRef<'svg'>;
 
 const CoolButton = ({
-  width: w = 150,
-  height: h = 50,
+  width: w = 200,
+  height: h = 45,
   className,
   polygonClassName,
   movingPolygonClassName,
@@ -82,7 +82,15 @@ const CoolButton = ({
           `}</style>
         </svg>
       ) : (
-        <></>
+        <div
+          className={clsxm(
+            'flex h-full items-center justify-center border-primary-400 border overflow-clip',
+            wrapperClassName,
+          )}
+          style={{ width: w, height: h }}
+        >
+          {children}
+        </div>
       )}
     </div>
   );
