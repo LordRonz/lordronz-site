@@ -23,12 +23,13 @@ const CoolButton = ({
   movingPolygonClassName,
   wrapperClassName,
   children,
+  'data-testid': dataTestId,
   ...rest
 }: CoolButtonProp) => {
   const isMounted = useMemo(() => typeof window !== 'undefined', []);
 
   return (
-    <div className='cool-button-container' data-testid={rest['data-testid']}>
+    <div className='cool-button-container' data-testid={dataTestId}>
       {isMounted ? (
         <svg
           width={w}
