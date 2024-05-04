@@ -24,7 +24,7 @@ const PageProgress = ({
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', watchScrolling);
+    window.addEventListener('scroll', watchScrolling, { passive: true });
     return () => {
       window.removeEventListener('scroll', watchScrolling);
     };

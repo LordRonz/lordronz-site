@@ -41,7 +41,9 @@ const useScrollSpy = () => {
   }, throttleMs);
 
   useEffect(() => {
-    window.addEventListener('scroll', actionSectionScrollSpy);
+    window.addEventListener('scroll', actionSectionScrollSpy, {
+      passive: true,
+    });
 
     actionSectionScrollSpy();
 
