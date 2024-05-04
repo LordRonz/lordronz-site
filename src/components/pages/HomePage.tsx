@@ -1,9 +1,9 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { GrDocumentText } from 'react-icons/gr';
 
-import CoolButton from '@/components/buttons/CoolButton';
 import { Graphic } from '@/components/layout/Graphic';
 import ButtonLink from '@/components/links/ButtonLink';
 import CustomLink from '@/components/links/CustomLink';
@@ -12,6 +12,8 @@ import { MainTitle } from '@/components/typography/MainTitle';
 import Wave from '@/components/Wave';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import clsxm from '@/lib/clsxm';
+
+const CoolButton = dynamic(() => import('@/components/buttons/CoolButton'));
 
 const HomePage = () => {
   const { width } = useWindowDimensions();
@@ -48,6 +50,7 @@ const HomePage = () => {
                     wrapperClassName='text-md font-bold'
                     width={width >= 768 ? 220 : 200}
                     height={45}
+                    key={width}
                   >
                     <FaMagnifyingGlass className='mr-1' />
                     Learn More About Me

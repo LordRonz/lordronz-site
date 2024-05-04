@@ -1,10 +1,11 @@
-import { useMountedState } from 'react-use';
+import { useMemo } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
 export type CoolButtonProp = {
   readonly width?: number | string;
   readonly height?: number | string;
+  readonly dashLength?: number;
   readonly className?: string;
   readonly polygonClassName?: string;
   readonly movingPolygonClassName?: string;
@@ -16,6 +17,7 @@ export type CoolButtonProp = {
 const CoolButton = ({
   width: w = 200,
   height: h = 45,
+  dashLength: a = 2 * ((+w < 1 ? 150 : +w) + (+h < 1 ? 50 : +h)),
   className,
   polygonClassName,
   movingPolygonClassName,
@@ -23,13 +25,11 @@ const CoolButton = ({
   children,
   ...rest
 }: CoolButtonProp) => {
-  const a = 2 * ((+w < 1 ? 150 : +w) + (+h < 1 ? 50 : +h));
-
-  const isMounted = useMountedState();
+  const isMounted = useMemo(() => typeof window !== 'undefined', []);
 
   return (
     <div className='cool-button-container' data-testid={rest['data-testid']}>
-      {isMounted() ? (
+      {isMounted ? (
         <svg
           width={w}
           height={h}

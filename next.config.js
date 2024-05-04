@@ -15,9 +15,11 @@ const withPWA = require('next-pwa')({
 const nextConfig = {
   poweredByHeader: false,
   compiler: {
-    removeConsole: {
-      exclude: ['error', 'info'],
-    },
+    ...(process.env.NODE_ENV === 'production' && {
+      removeConsole: {
+        exclude: ['error', 'info'],
+      },
+    }),
   },
   reactStrictMode: true,
   webpack: (config, { dev, isServer }) => {

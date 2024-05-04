@@ -18,12 +18,19 @@ export const useWindowDimensions = () => {
     setWindowDimensions(getWindowDimensions());
 
     function handleResize() {
-      setWindowDimensions(getWindowDimensions());
+      const newDimension = getWindowDimensions();
+      if (
+        windowDimensions.width === newDimension.width &&
+        windowDimensions.height === newDimension.height
+      ) {
+        return;
+      }
+      setWindowDimensions(newDimension);
     }
 
     window.addEventListener('resize', handleResize, { passive: true });
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [windowDimensions]);
 
   return windowDimensions;
 };
