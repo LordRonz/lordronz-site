@@ -1,7 +1,4 @@
-import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import '@/styles/globals.css';
-import '@/styles/mdx.css';
-import '@/styles/gruvbox.css';
 import 'react-tippy/dist/tippy.css';
 import 'react-image-lightbox/style.css';
 

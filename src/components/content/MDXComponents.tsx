@@ -1,3 +1,7 @@
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
+import '@/styles/mdx.css';
+import '@/styles/gruvbox.css';
+
 import Image from 'next/image';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
