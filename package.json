@@ -41,7 +41,7 @@
     "build-storybook": "cross-env TS_NODE_PROJECT=.storybook/tsconfig.json storybook build"
   },
   "resolutions": {
-    "jackspeak": "^2.3.6",
+    "jackspeak": "2.1.1",
     "webpack": "^5"
   },
   "dependencies": {
