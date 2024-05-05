@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
-import Lightbox from 'react-image-lightbox';
 
+import CustomLightbox from '@/components/images/CustomLightbox';
 import Layout from '@/components/layout/Layout';
 import ProjectCard, { Project } from '@/components/ProjectCard';
 import Seo from '@/components/Seo';
@@ -126,12 +126,15 @@ const Projects: NextPage = () => {
             </div>
           </article>
         </section>
-        {isLightboxOpen && (
-          <Lightbox
-            mainSrc={`/images/projects/${projects[imgIndex].image}`}
-            onCloseRequest={() => setIsLightboxOpen(false)}
-          />
-        )}
+        <CustomLightbox
+          open={isLightboxOpen}
+          close={() => setIsLightboxOpen(false)}
+          slides={[
+            {
+              src: `/images/projects/${projects[imgIndex].image}`,
+            },
+          ]}
+        />
       </main>
     </Layout>
   );
