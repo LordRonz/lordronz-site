@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Lightbox from 'react-image-lightbox';
 
 import Accent from '@/components/Accent';
+import CustomLightbox from '@/components/images/CustomLightbox';
 import Layout from '@/components/layout/Layout';
 import ProjectCard, { Project } from '@/components/ProjectCard';
 import Seo from '@/components/Seo';
@@ -36,12 +36,15 @@ const SingleProductIndexPage = ({ products }: { products: Project[] }) => {
             </div>
           </article>
         </section>
-        {isLightboxOpen && (
-          <Lightbox
-            mainSrc={`/images/product/${products[imgIndex].image}`}
-            onCloseRequest={() => setIsLightboxOpen(false)}
-          />
-        )}
+        <CustomLightbox
+          open={isLightboxOpen}
+          close={() => setIsLightboxOpen(false)}
+          slides={[
+            {
+              src: `/images/product/${products[imgIndex].image}`,
+            },
+          ]}
+        />
       </main>
     </Layout>
   );

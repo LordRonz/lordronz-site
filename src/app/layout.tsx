@@ -1,6 +1,5 @@
 import '@/styles/globals.css';
 import 'react-tippy/dist/tippy.css';
-import 'react-image-lightbox/style.css';
 
 import type { Viewport } from 'next';
 import { Inter } from 'next/font/google';

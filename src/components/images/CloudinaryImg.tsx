@@ -1,9 +1,10 @@
 import { buildUrl } from 'cloudinary-build-url';
 import Image from 'next/image';
 import { useState } from 'react';
-import Lightbox from 'react-image-lightbox';
 
 import clsxm from '@/lib/clsxm';
+
+import CustomLightbox from './CustomLightbox';
 
 type CloudinaryImgType = {
   publicId: string;
@@ -113,9 +114,15 @@ const CloudinaryImg = ({
           />
         </div>
       </div>
-      {isOpen && (
-        <Lightbox mainSrc={url} onCloseRequest={() => setIsOpen(false)} />
-      )}
+      <CustomLightbox
+        open={isOpen}
+        close={() => setIsOpen(false)}
+        slides={[
+          {
+            src: url,
+          },
+        ]}
+      />
     </figure>
   );
 };
