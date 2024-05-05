@@ -45,6 +45,16 @@ const nextConfig = async (phase) => {
 
       return config;
     },
+    experimental: {
+      turbo: {
+        rules: {
+          '*.svg': {
+            loaders: ['@svgr/webpack'], // https://github.com/vercel/turbo/issues/4832
+            as: '*.js',
+          },
+        },
+      },
+    },
     images: {
       remotePatterns: [
         {

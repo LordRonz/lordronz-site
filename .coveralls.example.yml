@@ -1,0 +1,16 @@
+# .coveralls.yml
+
+# Repository token
+repo_token: abcde12345
+
+# Repository name
+repo_name: myorg/myrepo
+
+# The name of your build system
+service_name: my-ci
+
+# Coveralls endpoint
+endpoint: https://coveralls.io
+
+# Carryforward flags (or all to carry-forward all previous jobs)
+carryforward: all
