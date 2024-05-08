@@ -11,12 +11,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4.0.2
-        with:
-          node-version: 20.x
-          cache: 'pnpm'
-
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
@@ -35,6 +29,12 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 20.x
+          cache: 'pnpm'
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run

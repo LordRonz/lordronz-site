@@ -76,7 +76,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install packages
-        run: pnpm
+        run: pnpm install
       - name: Run type check
         run: pnpm tsc
 
@@ -113,7 +113,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install packages
-        run: pnpm
+        run: pnpm install
       - name: Run prettier
         run: pnpm format
 
@@ -150,7 +150,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install packages
-        run: pnpm
+        run: pnpm install
       - name: Run stylelint
         run: pnpm stylelint
 
@@ -187,7 +187,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install packages
-        run: pnpm
+        run: pnpm install
       - name: Run Jest
         run: pnpm test
 
