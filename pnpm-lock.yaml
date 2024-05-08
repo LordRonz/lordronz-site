@@ -138,6 +138,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.2.2
         version: 19.2.2
+      '@jest/globals':
+        specifier: ^29.7.0
+        version: 29.7.0
       '@jest/types':
         specifier: ^29.6.3
         version: 29.6.3
