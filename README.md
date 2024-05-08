@@ -44,7 +44,7 @@ result.
 
    ```sh
    cd portfolio/
-   yarn dev
+   pnpm dev
    ```
 
 3. **Open the source code and start editing!**

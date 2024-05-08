@@ -15,11 +15,32 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: '20'
-          cache: 'yarn'
+          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 'latest'
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Install packages
-        run: yarn
+        run: pnpm install
+
       - name: Run ESLint
-        run: yarn lint
+        run: pnpm lint
 
   tsc:
     name: Run Type Check
@@ -31,11 +52,31 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: '20'
-          cache: 'yarn'
+          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 'latest'
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Install packages
-        run: yarn
+        run: pnpm
       - name: Run type check
-        run: yarn tsc
+        run: pnpm tsc
 
   prettier:
     name: Run Prettier Check
@@ -47,11 +88,31 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: '20'
-          cache: 'yarn'
+          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 'latest'
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Install packages
-        run: yarn
+        run: pnpm
       - name: Run prettier
-        run: yarn format
+        run: pnpm format
 
   stylelint:
     name: Run Stylelint Check
@@ -63,11 +124,31 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: '20'
-          cache: 'yarn'
+          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 'latest'
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Install packages
-        run: yarn
+        run: pnpm
       - name: Run stylelint
-        run: yarn stylelint
+        run: pnpm stylelint
 
   jest:
     name: Run Jest testing
@@ -79,11 +160,31 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: '20'
-          cache: 'yarn'
+          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 'latest'
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Install packages
-        run: yarn
+        run: pnpm
       - name: Run Jest
-        run: yarn test
+        run: pnpm test
 
   build:
     name: Build
@@ -97,10 +198,29 @@ jobs:
         uses: actions/setup-node@v4.0.2
         with:
           node-version: 20.x
-          cache: 'yarn'
+          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 'latest'
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install Packages
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build project
-        run: yarn build
+        run: pnpm build
