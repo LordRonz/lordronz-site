@@ -35,6 +35,7 @@
     "**/*.ts",
     "**/*.tsx",
     "commitlint.config.ts",
+    "tailwind.config.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules", "cypress", "cypress.config.ts"],
