@@ -39,3 +39,6 @@ storybook-static
 
 # public
 public
+
+# pnpm
+pnpm-lock.yaml
