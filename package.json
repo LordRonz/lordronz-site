@@ -102,7 +102,7 @@
     "@next/eslint-plugin-next": "^14.2.3",
     "@storybook/addon-actions": "^8.0.9",
     "@storybook/addon-essentials": "^8.0.9",
-    "@storybook/addon-interactions": "^8.0.9",
+    "@storybook/addon-interactions": "^8.0.10",
     "@storybook/addon-links": "^8.0.9",
     "@storybook/addon-mdx-gfm": "^8.0.9",
     "@storybook/addon-postcss": "^2.0.0",
