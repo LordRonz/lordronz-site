@@ -24,7 +24,7 @@ import clsxm from '@/lib/clsxm';
 export type TechListType = keyof typeof techList;
 
 export type TechIconsProps = {
-  techs: Array<TechListType>;
+  techs: TechListType[];
 } & React.ComponentPropsWithoutRef<'ul'>;
 
 const TechIcons = ({ className, techs }: TechIconsProps) => {

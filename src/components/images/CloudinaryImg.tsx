@@ -22,7 +22,7 @@ type CloudinaryImgType = {
   mdx?: boolean;
 } & React.ComponentPropsWithoutRef<'figure'>;
 
-const cloudinaryCloudName = 'lordronz';
+export const cloudinaryCloudName = 'lordronz';
 
 const CloudinaryImg = ({
   publicId,

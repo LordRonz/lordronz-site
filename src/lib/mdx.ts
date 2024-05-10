@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'fs';
+import { readdir, readFile } from 'fs/promises';
 import matter from 'gray-matter';
 import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
@@ -15,15 +15,15 @@ import {
 } from '@/types/frontmatters';
 
 export const getFiles = async (type: ContentType, subfolders = '') =>
-  readdirSync(join(process.cwd(), 'src', 'contents', type, subfolders));
+  await readdir(join(process.cwd(), 'src', 'contents', type, subfolders));
 
 export const getFileBySlug = async (type: ContentType, slug: string) => {
   const source = slug
-    ? readFileSync(
+    ? await readFile(
         join(process.cwd(), 'src', 'contents', type, `${slug}.mdx`),
         'utf8',
       )
-    : readFileSync(
+    : await readFile(
         join(process.cwd(), 'src', 'contents', `${type}.mdx`),
         'utf8',
       );
@@ -60,26 +60,31 @@ export const getFileBySlug = async (type: ContentType, slug: string) => {
   };
 };
 
-export const getAllFilesFrontmatter = <T extends ContentType>(type: T) => {
-  const files = readdirSync(join(process.cwd(), 'src', 'contents', type));
+export const getAllFilesFrontmatter = async <T extends ContentType>(
+  type: T,
+) => {
+  const files = await readdir(join(process.cwd(), 'src', 'contents', type));
 
-  return files.reduce((allPosts: Array<PickFrontmatter<T>>, postSlug) => {
-    const source = readFileSync(
-      join(process.cwd(), 'src', 'contents', type, postSlug),
-      'utf8',
-    );
-    const { data } = matter(source);
+  return files.reduce(
+    async (allPosts: Promise<PickFrontmatter<T>[]>, postSlug) => {
+      const source = await readFile(
+        join(process.cwd(), 'src', 'contents', type, postSlug),
+        'utf8',
+      );
+      const { data } = matter(source);
 
-    const res = [
-      {
-        ...(data as PickFrontmatter<T>),
-        slug: postSlug.replace('.mdx', ''),
-        readingTime: readingTime(source),
-      },
-      ...allPosts,
-    ];
-    return res;
-  }, []);
+      const res = [
+        {
+          ...(data as PickFrontmatter<T>),
+          slug: postSlug.replace('.mdx', ''),
+          readingTime: readingTime(source),
+        },
+        ...(await allPosts),
+      ];
+      return res;
+    },
+    Promise.resolve([]),
+  );
 };
 
 export const getRecommendations = async (currSlug: string) => {
@@ -117,7 +122,7 @@ export const getRecommendations = async (currSlug: string) => {
  * Get and order frontmatters by specified array
  */
 export const getFeatured = <T extends Frontmatter>(
-  contents: Array<T>,
+  contents: T[],
   features: string[],
 ) => {
   // override as T because there is no typechecking on the features array

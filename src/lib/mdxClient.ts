@@ -29,9 +29,7 @@ export const sortDateFnAsc = <T extends FrontmatterWithDate>(
   );
 };
 
-export const sortByDate = <T extends FrontmatterWithDate>(
-  contents: Array<T>,
-) => {
+export const sortByDate = <T extends FrontmatterWithDate>(contents: T[]) => {
   return contents.sort(sortDateFn);
 };
 
@@ -42,7 +40,7 @@ export const sortTitleFn = <T extends Frontmatter>(
   return contentA.title.localeCompare(contentB.title);
 };
 
-export const sortByTitle = <T extends Array<Frontmatter>>(contents: T): T => {
+export const sortByTitle = <T extends Frontmatter[]>(contents: T): T => {
   return contents.sort((a, b) =>
     a.title > b.title ? 1 : b.title > a.title ? -1 : 0,
   );
@@ -51,7 +49,7 @@ export const sortByTitle = <T extends Array<Frontmatter>>(contents: T): T => {
 /**
  * Get tags of each post and remove duplicates
  */
-export const getTags = <T extends Array<FrontmatterWithTags>>(contents: T) => {
+export const getTags = <T extends FrontmatterWithTags[]>(contents: T) => {
   const tags = contents.reduce(
     (accTags: string[], content) => [...accTags, ...content.tags.split(',')],
     [],

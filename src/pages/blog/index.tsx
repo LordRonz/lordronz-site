@@ -25,7 +25,7 @@ import {
 } from '@/lib/mdxClient';
 import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
 
-const sortOptions: Array<SortOption> = [
+const sortOptions: SortOption[] = [
   {
     id: 'date',
     name: 'Sort by date',
@@ -62,7 +62,7 @@ const IndexPage = ({
   //#region  //*=========== Search ===========
   const [search, setSearch] = useState<string>('');
   const [filteredPosts, setFilteredPosts] = useState<
-    Array<BlogFrontmatter & InjectedMeta>
+    (BlogFrontmatter & InjectedMeta)[]
   >(() => [...posts]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {

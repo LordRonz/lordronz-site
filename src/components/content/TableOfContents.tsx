@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react';
 
 import TOCLink from '@/components/links/TOCLink';
 
-export type HeadingScrollSpy = Array<{
+export type HeadingScrollSpy = {
   id: string;
   level: number;
   text: string;
-}>;
+}[];
 
 type TableOfContentsProps = {
   toc?: HeadingScrollSpy;

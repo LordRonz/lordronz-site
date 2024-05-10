@@ -13,7 +13,7 @@ import { ContentMeta } from '@/types/meta';
 
 const useInjectContentMeta = <T extends ContentType>(
   type: T,
-  frontmatter: Array<PickFrontmatter<T>>,
+  frontmatter: PickFrontmatter<T>[],
 ) => {
   const { data, error } = useSWR<{ result: ContentMeta[] }>(
     contentMetaFlag ? '/api/content' : null,
@@ -26,7 +26,7 @@ const useInjectContentMeta = <T extends ContentType>(
     [contentMeta, type],
   );
 
-  type PopulatedContent = Array<PickFrontmatter<T> & InjectedMeta>;
+  type PopulatedContent = (PickFrontmatter<T> & InjectedMeta)[];
 
   const [populatedContent, setPopulatedContent] = useState<PopulatedContent>(
     () => [...frontmatter] as PopulatedContent,

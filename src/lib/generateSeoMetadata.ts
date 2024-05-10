@@ -66,6 +66,17 @@ const defaultMetaV2: Metadata = {
   },
 };
 
-export const generateSeoMetadata = () => {
-  return defaultMetaV2;
+export type GenerateSeoMetadataProps = {
+  templateTitle?: string;
+};
+
+export const generateSeoMetadata = (props: GenerateSeoMetadataProps = {}) => {
+  const { templateTitle } = props;
+
+  return {
+    ...defaultMetaV2,
+    ...(templateTitle && {
+      title: `${templateTitle} | ${defaultMeta.siteName}`,
+    }),
+  };
 };
