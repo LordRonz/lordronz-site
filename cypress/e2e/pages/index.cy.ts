@@ -1,5 +1,5 @@
 /* eslint-disable jest/expect-expect */
-import { beforeEach, cy, describe, it, Cypress } from 'local-cypress';
+import { beforeEach, cy, Cypress, describe, it } from 'local-cypress';
 
 Cypress.on('uncaught:exception', (err) => {
   if (
