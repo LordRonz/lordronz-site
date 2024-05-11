@@ -7,6 +7,7 @@ import { useClickAway } from 'react-use';
 
 import Accent from '@/components/Accent';
 import ColorModeToggle from '@/components/ColorModeToggle';
+import SkipToContent from '@/components/layout/Header/SkipToContent';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import PageProgress from '@/components/PageProgress';
 import clsxm from '@/lib/clsxm';
@@ -68,20 +69,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
       )}
       {...rest}
     >
-      <a
-        href='#skip-nav'
-        className={clsxm(
-          'rounded-sm p-2 transition',
-          'font-medium text-dark dark:text-white',
-          'bg-light dark:bg-dark',
-          'group dark:hover:text-primary-300',
-          'focus:outline-none focus:ring focus:ring-primary-300',
-          'absolute left-4 top-4 z-[1000]',
-          '-translate-y-16 focus:translate-y-0',
-        )}
-      >
-        <Accent>Skip to content</Accent>
-      </a>
+      <SkipToContent />
       <PageProgress color='#ff9a9a' />
       <div className='bg-light transition-all dark:bg-dark dark:text-light'>
         <nav className={clsxm('layout flex items-center justify-between py-4')}>
