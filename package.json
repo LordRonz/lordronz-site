@@ -176,7 +176,7 @@
     "tailwindcss": "^3.4.3",
     "to-vfile": "^8.0.0",
     "ts-node": "^10.9.2",
-    "tsx": "^4.9.3",
+    "tsx": "^4.9.4",
     "typescript": "^5.4.5",
     "util": "^0.12.5",
     "vfile-matter": "^5.0.0"
