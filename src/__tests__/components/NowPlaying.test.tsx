@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 import axios from 'axios';
+import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 import { SWRConfig } from 'swr';
 
 import NowPlaying, { AnimatedBars } from '@/components/NowPlaying';
@@ -24,6 +25,7 @@ describe('NowPlaying', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.useFakeTimers();
+    mockAllIsIntersecting(true);
   });
 
   afterEach(() => {
@@ -55,6 +57,7 @@ describe('NowPlaying', () => {
         <NowPlaying />
       </SWRConfig>,
     );
+    mockAllIsIntersecting(true);
 
     const button = await screen.findByText('banger');
 

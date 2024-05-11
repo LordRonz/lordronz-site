@@ -3,6 +3,7 @@
 import '@testing-library/jest-dom';
 
 import { act, fireEvent, render, screen } from '@testing-library/react';
+import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 
 import Footer from '@/components/layout/Footer';
 
@@ -20,6 +21,7 @@ jest.mock('next/router', () => ({
 describe('Footer clipboard', () => {
   beforeEach(() => {
     jest.useFakeTimers();
+    mockAllIsIntersecting(true);
   });
 
   afterEach(() => {
