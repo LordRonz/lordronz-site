@@ -61,14 +61,18 @@ const ProjectCard = ({
           </button>
         )}
         <div className='space-y-2 px-4 pb-16 pt-4'>
-          <a
-            href={project.demo}
-            target='_blank'
-            className='text-xl font-semibold'
-            rel='noopener noreferrer'
-          >
-            {project.title}
-          </a>
+          {project.demo ? (
+            <a
+              href={project.demo}
+              target='_blank'
+              className='text-xl font-semibold'
+              rel='noopener noreferrer'
+            >
+              {project.title}
+            </a>
+          ) : (
+            <h1 className='text-xl font-semibold'>{project.title}</h1>
+          )}
           <p className='mb-1'>{project.content}</p>
           <div className='absolute bottom-0 left-0 flex w-full items-center px-4 pb-4'>
             {project.demo && (

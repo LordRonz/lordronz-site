@@ -41,6 +41,7 @@ const Sort = (props: SortProps) => {
           setSortOrder && setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')
         }
         key={+isLoaded}
+        aria-label='Toggle sort direction'
       >
         {sortOrder === 'desc' ? (
           <FaSortAmountDown className='text-dark dark:text-light' />

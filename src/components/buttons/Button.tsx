@@ -31,6 +31,7 @@ const Button = ({
     <button
       type='button'
       disabled={disabled}
+      aria-label={rest['aria-label'] ?? 'A custom button'}
       className={clsxm(
         'inline-flex items-center rounded px-4 py-2 font-semibold',
         'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',

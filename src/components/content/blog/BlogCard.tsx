@@ -61,7 +61,9 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
           </div>
         </div>
         <div className='p-4'>
-          <h4 className='text-gray-800 dark:text-gray-100'>{post.title}</h4>
+          <h1 className='text-gray-800 dark:text-gray-100 text-base font-bold md:text-lg'>
+            {post.title}
+          </h1>
           <div className='mt-2 flex items-center justify-start gap-2 text-sm font-medium text-gray-600 dark:text-gray-300'>
             <div className='flex items-center gap-1'>
               <HiOutlineClock className='inline-block text-base' />
