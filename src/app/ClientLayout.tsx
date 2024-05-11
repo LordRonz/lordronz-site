@@ -7,7 +7,7 @@ import { SWRConfig } from 'swr';
 
 import AnimatePage from '@/components/AnimatePage';
 import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
+import Header from '@/components/layout/Header/Header';
 import ScrollButtonClient from '@/components/ScrollButtonClient';
 
 declare module 'next-themes' {
@@ -35,7 +35,9 @@ const ClientLayout = ({ children }: { children: React.ReactNode }) => {
       >
         <div className='flex min-h-screen flex-col justify-between'>
           <Header />
-          <AnimatePage>{children}</AnimatePage>
+          <AnimatePage>
+            <main id='content'>{children}</main>
+          </AnimatePage>
           <Footer />
         </div>
       </AnimatePresence>

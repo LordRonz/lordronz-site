@@ -101,7 +101,7 @@ const ProjectsPage = () => {
   const [imgIndex, setImgIndex] = useState(0);
 
   return (
-    <main>
+    <>
       <section className={clsxm('flex flex-col justify-center')}>
         <article className='layout space-y-10 py-8'>
           <MainTitle
@@ -132,7 +132,7 @@ const ProjectsPage = () => {
           },
         ]}
       />
-    </main>
+    </>
   );
 };
 

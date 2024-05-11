@@ -28,7 +28,7 @@ const AboutPage = () => {
   });
 
   return (
-    <main>
+    <>
       <section className={clsxm('my-16 flex flex-col justify-center')}>
         <article className='layout flex flex-col gap-y-6'>
           <div className='flex items-center gap-x-3'>
@@ -102,7 +102,7 @@ const AboutPage = () => {
           <TechStack />
         </article>
       </section>
-    </main>
+    </>
   );
 };
 
