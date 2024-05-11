@@ -1,5 +1,6 @@
 import { animate } from 'motion';
 import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import useSWR from 'swr';
 
 import Tooltip from '@/components/Tooltip';
@@ -81,7 +82,9 @@ export const AnimatedBars = ({
 };
 
 const NowPlaying = () => {
-  const { data } = useSWR<NowPlayingSong>('/api/now-playing', {
+  const { ref, inView } = useInView();
+
+  const { data } = useSWR<NowPlayingSong>(inView ? '/api/now-playing' : null, {
     refreshInterval: 20000,
   });
 
@@ -96,6 +99,7 @@ const NowPlaying = () => {
             !!data?.songUrl && 'box',
             'mb-8 flex w-full max-w-sm items-center justify-center gap-x-2 rounded-sm px-2 py-1 md:max-w-screen-md',
           )}
+          ref={ref}
         >
           <svg className='ml-auto h-4 w-4 flex-shrink-0' viewBox='0 0 168 168'>
             <path
