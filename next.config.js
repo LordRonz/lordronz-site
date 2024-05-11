@@ -8,7 +8,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig = async (phase) => {
   /** @type {import('next').NextConfig} */
-  const nextConfig = {
+  let nextConfig = {
     poweredByHeader: false,
     compiler: {
       ...(process.env.NODE_ENV === 'production' && {
@@ -78,7 +78,7 @@ const nextConfig = async (phase) => {
       swSrc: 'src/service-worker/sw.ts',
       swDest: 'public/sw.js',
     });
-    return withSerwist(nextConfig);
+    nextConfig = withSerwist(nextConfig);
   }
 
   return withBundleAnalyzer(nextConfig);
