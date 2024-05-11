@@ -1,4 +1,4 @@
-import clsxmDefault, { clsxm } from '@/lib/clsxm';
+import clsxm from '@/lib/clsxm';
 
 describe('clsxm test', () => {
   it('should return correct tailwind classes', () => {
@@ -27,20 +27,6 @@ describe('clsxm test', () => {
     const test = true;
     const test2 = false;
     const result = clsxm(
-      'bg-red-200',
-      test && 'flex',
-      test2 && 'grid',
-      test && test2 ? 'balls' : '',
-    );
-
-    expect(result).toBe('bg-red-200 flex');
-  });
-
-  it('should return correct classname and remove falsy class (default import)', () => {
-    expect.hasAssertions();
-    const test = true;
-    const test2 = false;
-    const result = clsxmDefault(
       'bg-red-200',
       test && 'flex',
       test2 && 'grid',

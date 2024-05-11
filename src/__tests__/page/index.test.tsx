@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 
-import Home from '@/pages/index-old';
+import Home from '@/app/page';
 
 jest.mock('next/router', () => ({
   useRouter() {

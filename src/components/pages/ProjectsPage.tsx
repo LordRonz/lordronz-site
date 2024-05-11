@@ -1,10 +1,9 @@
-import type { NextPage } from 'next';
+'use client';
+
 import { useState } from 'react';
 
 import CustomLightbox from '@/components/images/CustomLightbox';
-import Layout from '@/components/layout/Layout';
-import ProjectCard, { Project } from '@/components/ProjectCard';
-import Seo from '@/components/Seo';
+import ProjectCard, { type Project } from '@/components/ProjectCard';
 import { MainTitle } from '@/components/typography/MainTitle';
 import { LINK_SHORTENER_URL } from '@/constants/env';
 import clsxm from '@/lib/clsxm';
@@ -97,47 +96,44 @@ const projects: Project[] = [
   },
 ].map((project, i) => ({ ...project, i }));
 
-const Projects: NextPage = () => {
+const ProjectsPage = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
 
   return (
-    <Layout>
-      <Seo templateTitle='Projects' description="List of aaron's projects" />
-      <main>
-        <section className={clsxm('flex flex-col justify-center')}>
-          <article className='layout space-y-10 py-8'>
-            <MainTitle
-              className='text-3xl md:text-5xl 2xl:text-6xl'
-              title='Projects'
-            />
-            <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
-              {projects.map((project) => (
-                <ProjectCard
-                  project={project}
-                  key={project.slug}
-                  onImgClick={() => {
-                    if (project.i === undefined) return;
-                    setImgIndex(project.i);
-                    setIsLightboxOpen(true);
-                  }}
-                />
-              ))}
-            </div>
-          </article>
-        </section>
-        <CustomLightbox
-          open={isLightboxOpen}
-          close={() => setIsLightboxOpen(false)}
-          slides={[
-            {
-              src: `/images/projects/${projects[imgIndex].image}`,
-            },
-          ]}
-        />
-      </main>
-    </Layout>
+    <main>
+      <section className={clsxm('flex flex-col justify-center')}>
+        <article className='layout space-y-10 py-8'>
+          <MainTitle
+            className='text-3xl md:text-5xl 2xl:text-6xl'
+            title='Projects'
+          />
+          <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+            {projects.map((project) => (
+              <ProjectCard
+                project={project}
+                key={project.slug}
+                onImgClick={() => {
+                  if (project.i === undefined) return;
+                  setImgIndex(project.i);
+                  setIsLightboxOpen(true);
+                }}
+              />
+            ))}
+          </div>
+        </article>
+      </section>
+      <CustomLightbox
+        open={isLightboxOpen}
+        close={() => setIsLightboxOpen(false)}
+        slides={[
+          {
+            src: `/images/projects/${projects[imgIndex].image}`,
+          },
+        ]}
+      />
+    </main>
   );
 };
 
-export default Projects;
+export default ProjectsPage;
