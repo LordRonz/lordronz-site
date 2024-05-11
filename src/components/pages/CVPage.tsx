@@ -29,6 +29,7 @@ const CVPage = () => {
           allowFullScreen
           onLoad={() => setLoading(false)}
           className={clsxm(loading ? 'hidden' : 'block')}
+          title="Aaron's CV"
         />
       </article>
     </section>
