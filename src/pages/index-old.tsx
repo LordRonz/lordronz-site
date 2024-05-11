@@ -3,7 +3,6 @@ import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { GrDocumentText } from 'react-icons/gr';
 
 import CoolButton from '@/components/buttons/CoolButton';
-import { Graphic } from '@/components/layout/Graphic';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
 import CustomLink from '@/components/links/CustomLink';
@@ -73,7 +72,6 @@ const Home: NextPage = () => {
                   .
                 </p>
               </div>
-              <Graphic />
             </div>
           </article>
         </section>

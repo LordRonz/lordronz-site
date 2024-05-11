@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { GrDocumentText } from 'react-icons/gr';
 
-import { Graphic } from '@/components/layout/Graphic';
+import Graphic from '@/components/layout/Graphic';
 import ButtonLink from '@/components/links/ButtonLink';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';

@@ -10,7 +10,7 @@ import type {
   Points,
 } from 'three';
 
-export const PixelatedSphere = () => {
+const PixelatedSphere = () => {
   const sphereRef =
     useRef<
       Points<BufferGeometry<NormalBufferAttributes>, Material | Material[]>
@@ -31,7 +31,7 @@ export const PixelatedSphere = () => {
   );
 };
 
-export const Birds = () => {
+const Birds = () => {
   const groupRef = useRef<Group<Object3DEventMap>>(null);
 
   useFrame(({ clock }) => {
@@ -66,7 +66,7 @@ export const Birds = () => {
   return <group ref={groupRef}>{birds}</group>;
 };
 
-export const Graphic = () => {
+const Graphic = () => {
   return (
     <div>
       <Canvas
@@ -80,3 +80,5 @@ export const Graphic = () => {
     </div>
   );
 };
+
+export default Graphic;

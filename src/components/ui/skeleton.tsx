@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import clsxm from '@/lib/clsxm';
 
 function Skeleton({
   className,
@@ -6,7 +6,7 @@ function Skeleton({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn(
+      className={clsxm(
         'animate-pulse rounded-md bg-slate-100 dark:bg-slate-800',
         className,
       )}
