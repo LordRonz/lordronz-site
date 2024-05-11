@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
@@ -86,7 +86,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
       <div className='bg-light transition-all dark:bg-dark dark:text-light'>
         <nav className={clsxm('layout flex items-center justify-between py-4')}>
           <Link href='/' passHref>
-            <motion.span
+            <m.span
               className='group relative z-50 whitespace-nowrap text-xl font-bold transition duration-300 hover:transition'
               animate={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: -10 }}
@@ -110,7 +110,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
               <Accent className='absolute left-0 bg-clip-text text-transparent opacity-0 transition duration-300 hover:bg-gradient-to-r group-hover:opacity-100'>
                 Aaron Christopher
               </Accent>
-            </motion.span>
+            </m.span>
           </Link>
           <ul className='hidden items-center justify-between space-x-3 text-xs md:flex md:space-x-4 md:text-base'>
             {links.map(({ href, label }) => (

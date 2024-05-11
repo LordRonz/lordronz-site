@@ -1,4 +1,4 @@
-import { motion, Variants } from 'framer-motion';
+import { m, Variants } from 'framer-motion';
 import { useRouter } from 'next/router';
 
 import clsxm from '@/lib/clsxm';
@@ -26,11 +26,12 @@ const NavigationItem = ({
   const isActive = asPath.startsWith(href);
 
   return (
-    <motion.li
+    <m.li
       variants={variants}
       initial={initial}
       animate={animate}
       custom={customDelay}
+      key={href}
     >
       <UnstyledLink
         href={href}
@@ -43,7 +44,7 @@ const NavigationItem = ({
       >
         {title}
       </UnstyledLink>
-    </motion.li>
+    </m.li>
   );
 };
 

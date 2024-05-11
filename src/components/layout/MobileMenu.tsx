@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 
 import ColorModeToggle from '@/components/ColorModeToggle';
 import { links } from '@/components/layout/Header';
@@ -22,8 +22,8 @@ const MobileMenu = ({ isOpen, theme, setTheme }: MobileMenuProps) => {
 
   return (
     <AnimatePresence>
-      {isOpen ? (
-        <motion.div
+      {isOpen && (
+        <m.div
           className='from-grey-200 dark:from-grey-900 fixed top-0 z-40 h-screen w-screen gap-12 bg-gradient-to-b to-transparent p-4 backdrop-blur-xl transition-all delay-100 duration-700 ease-in-out md:hidden'
           initial={{ opacity: 0, y: '-50%', x: 0 }}
           animate={{ opacity: 1, y: 0, x: 0 }}
@@ -39,10 +39,10 @@ const MobileMenu = ({ isOpen, theme, setTheme }: MobileMenuProps) => {
                 variants={navigationVariants}
                 initial='hidden'
                 animate='visible'
-                customDelay={0.5 + (i + 1) * 0.1}
+                customDelay={4.5 + (i + 1) * 0.1}
               />
             ))}
-            <motion.li
+            <m.li
               className='mt-12 flex justify-center'
               variants={navigationVariants}
               initial='hidden'
@@ -50,10 +50,10 @@ const MobileMenu = ({ isOpen, theme, setTheme }: MobileMenuProps) => {
               custom={0.5 + (links.length + 1) * 0.1}
             >
               <ColorModeToggle value={theme} onChange={setTheme} />
-            </motion.li>
+            </m.li>
           </ul>
-        </motion.div>
-      ) : null}
+        </m.div>
+      )}
     </AnimatePresence>
   );
 };
