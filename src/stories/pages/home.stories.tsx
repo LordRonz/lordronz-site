@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import Home from '@/pages/index-old';
+import Home from '@/app/page';
 
 export default {
   title: 'Pages/Home',
