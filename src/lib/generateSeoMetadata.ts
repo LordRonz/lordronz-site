@@ -32,6 +32,7 @@ export const defaultMeta = {
 
 const defaultMetaV2: Metadata = {
   ...defaultMeta,
+  metadataBase: new URL(webUrl),
   robots: {
     follow: true,
     index: true,
@@ -51,7 +52,7 @@ const defaultMetaV2: Metadata = {
   },
   category: 'technology',
   alternates: {
-    canonical: webUrl,
+    canonical: './',
     types: {
       'application/rss+xml': removeDuplicateSlashUrl(webUrl + '/rss.xml'),
     },
@@ -70,7 +71,9 @@ export type GenerateSeoMetadataProps = {
   templateTitle?: string;
 };
 
-export const generateSeoMetadata = (props: GenerateSeoMetadataProps = {}) => {
+export const generateSeoMetadata = (
+  props: GenerateSeoMetadataProps & Metadata = {},
+) => {
   const { templateTitle } = props;
 
   return {
