@@ -1,9 +1,9 @@
 import clsxm from '@/lib/clsxm';
 
-function Skeleton({
+export const Skeleton = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className={clsxm(
@@ -13,6 +13,4 @@ function Skeleton({
       {...props}
     />
   );
-}
-
-export { Skeleton };
+};

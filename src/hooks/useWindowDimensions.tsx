@@ -17,11 +17,11 @@ export const useWindowDimensions = () => {
   useEffect(() => {
     setWindowDimensions(getWindowDimensions());
 
-    function handleResize() {
+    const handleResize = () => {
       const newDimension = getWindowDimensions();
 
       setWindowDimensions(newDimension);
-    }
+    };
 
     window.addEventListener('resize', handleResize, { passive: true });
     return () => window.removeEventListener('resize', handleResize);
