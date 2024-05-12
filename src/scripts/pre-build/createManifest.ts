@@ -2,12 +2,11 @@ import { existsSync } from 'fs';
 import fs from 'fs/promises';
 import path from 'path';
 
-import { MY_NAME } from '@/constants/metadata';
 import { IScriptParams } from '@/scripts/runner';
 
 const manifest = {
-  name: MY_NAME,
-  short_name: MY_NAME.split(' ')[0],
+  name: 'Aaron Christopher',
+  short_name: 'Aaron',
   start_url: '/',
   display: 'standalone',
   background_color: '#111',

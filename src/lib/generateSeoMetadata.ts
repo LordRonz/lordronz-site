@@ -45,7 +45,7 @@ const defaultMetaV2: Metadata = {
     ...defaultMeta,
     authors: [MY_NAME.split(' ')[0]],
   },
-  manifest: removeDuplicateSlashUrl(webUrl + '/manifest.json'),
+  manifest: removeDuplicateSlashUrl(webUrl + '/manifest.webmanifest'),
   twitter: {
     card: 'summary_large_image',
     title: defaultMeta.title,
