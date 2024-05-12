@@ -1,7 +1,8 @@
 import { viewRef } from '@/lib/db';
 
 export const getBlogMeta = async () => {
-  const ref = viewRef;
+  if (process.env.CI === 'true') return [];
+  const ref = viewRef();
   const snapshot = await ref.get();
   const result: { slug: string; data?: FirebaseFirestore.DocumentData }[] = [];
   snapshot.forEach((e) => {

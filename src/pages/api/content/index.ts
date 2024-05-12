@@ -5,7 +5,7 @@ import { viewRef } from '@/lib/db';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (req.method === 'GET') {
-      const ref = viewRef;
+      const ref = viewRef();
       const snapshot = await ref.get();
       const result: { slug: string; data?: FirebaseFirestore.DocumentData }[] =
         [];

@@ -2,7 +2,7 @@
 import { FieldValue } from '@google-cloud/firestore';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import db, { viewRef } from '@/lib/db';
+import firestoreDb, { viewRef } from '@/lib/db';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const slug = req.query.slug as string;
@@ -13,11 +13,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   try {
     if (req.method === 'GET') {
-      const ref = viewRef.doc(slug);
+      const ref = viewRef().doc(slug);
       const result = (await ref.get()).data();
       return res.json({ result });
     } else if (req.method === 'POST') {
-      const ref = viewRef.doc(slug);
+      const db = firestoreDb();
+      const ref = viewRef().doc(slug);
 
       const result = await db.runTransaction(async (t) => {
         const doc = await t.get(ref);

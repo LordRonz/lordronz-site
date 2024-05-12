@@ -3,7 +3,7 @@ import admin, { type FirebaseError, type ServiceAccount } from 'firebase-admin';
 import { DB_COLLECTION_NAME } from '@/constants/db';
 
 const serviceAccount = JSON.parse(
-  process.env.FIREBASE_SERVICE_ACCOUNT_KEY as string,
+  (process.env.FIREBASE_SERVICE_ACCOUNT_KEY as string) || '""',
 );
 
 if (!admin.apps.length) {
@@ -19,8 +19,8 @@ if (!admin.apps.length) {
   }
 }
 
-export const db = admin.firestore();
+export const db = () => admin.firestore();
 
-export const viewRef = db.collection(DB_COLLECTION_NAME);
+export const viewRef = () => db().collection(DB_COLLECTION_NAME);
 
 export default db;
