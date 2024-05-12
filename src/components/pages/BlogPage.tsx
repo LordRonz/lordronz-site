@@ -1,4 +1,5 @@
-import { InferGetStaticPropsType } from 'next';
+'use client';
+
 import { useEffect, useState } from 'react';
 import { HiCalendar, HiEye } from 'react-icons/hi';
 
@@ -9,21 +10,14 @@ import Tag, { SkipNavTag } from '@/components/content/Tag';
 import Sort from '@/components/forms/Sort';
 import StyledInput from '@/components/forms/StyledInput';
 import CustomTab from '@/components/forms/Tab';
-import Layout from '@/components/layout/Layout';
-import Seo from '@/components/Seo';
 import { SortOption } from '@/components/SortListbox';
 import { MainTitle } from '@/components/typography/MainTitle';
 import useInjectContentMeta from '@/hooks/useInjectContentMeta';
 import clsxm from '@/lib/clsxm';
 import { getFromSessionStorage } from '@/lib/helper';
-import { getAllFilesFrontmatter } from '@/lib/mdx';
-import {
-  getTags,
-  sortByDate,
-  sortDateFn,
-  sortDateFnAsc,
-} from '@/lib/mdxClient';
+import { getTags, sortDateFn, sortDateFnAsc } from '@/lib/mdxClient';
 import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
+import { ContentMeta } from '@/types/meta';
 
 const sortOptions: SortOption[] = [
   {
@@ -42,10 +36,15 @@ const sortOptions: SortOption[] = [
 
 const langCategories = ['English', 'Bahasa Indonesia'];
 
-const IndexPage = ({
+const BlogPage = ({
   posts,
   tags,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  meta,
+}: {
+  posts: BlogFrontmatter[];
+  tags: string[];
+  meta?: ContentMeta[];
+}) => {
   /** Lazy init from session storage to preserve preference on revisit */
   const [sortOrder, setSortOrder] = useState<SortOption>(
     () => sortOptions[Number(getFromSessionStorage('blog-sort')) || 0],
@@ -57,7 +56,7 @@ const IndexPage = ({
   const [isEnglish, setIsEnglish] = useState<boolean>(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const populatedPosts = useInjectContentMeta('blog', posts);
+  const populatedPosts = useInjectContentMeta('blog', posts, meta);
 
   //#region  //*=========== Search ===========
   const [search, setSearch] = useState<string>('');
@@ -137,103 +136,81 @@ const IndexPage = ({
   //#endregion  //*======== Tag ===========
 
   return (
-    <Layout>
-      <Seo
-        templateTitle='Blog'
-        description='Random thoughts about my expertise and hobby. It should be informational for yall sussy bakas.'
-      />
-      <main>
-        <section className={clsxm(isLoaded && 'fade-in-start')}>
-          <div className='layout py-12'>
-            <MainTitle
-              className='text-3xl md:text-5xl'
-              title={`Blog${!isEnglish ? ' Bahasa Indonesia' : ''}`}
-            />
-            <p className='mt-2 text-gray-600 dark:text-gray-300'>
-              Random thoughts about my expertise and hobby. It should be
-              informational for yall sussy bakas.
-            </p>
-            <StyledInput
-              data-fade='2'
-              className='mt-4'
-              placeholder='Search...'
-              onChange={handleSearch}
-              value={search}
-              type='text'
-            />
-            <div
-              className='mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300'
-              data-fade='3'
-            >
-              <span className='font-medium'>Filter topic:</span>
-              <SkipNavTag>
-                {tags.map((tag) => (
-                  <Tag
-                    key={tag}
-                    onClick={() => toggleTag(tag)}
-                    disabled={!filteredTags.includes(tag)}
-                  >
-                    {checkTagged(tag) ? <Accent>{tag}</Accent> : tag}
-                  </Tag>
-                ))}
-              </SkipNavTag>
-            </div>
-            <div
-              className='relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between'
-              data-fade='4'
-            >
-              <CustomTab
-                categories={langCategories}
-                onChange={(index) => {
-                  setIsEnglish(index === 0);
-                  clearSearch();
-                }}
-              />
-              <Sort
-                sortOptions={[
-                  { label: 'Date', value: 0 },
-                  { label: 'Views', value: 1 },
-                ]}
-                sortOrder={sortDir}
-                onChangeSortBy={(index) => setSortOrder(sortOptions[index])}
-                setSortOrder={(dir) => {
-                  setSortDir(dir);
-                  sessionStorage.setItem('blog-sort-dir', dir);
-                }}
-                defaultIndex={sortOrder.id === 'date' ? 0 : 1}
-              />
-            </div>
-            <ul
-              className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'
-              data-fade='5'
-            >
-              {currentPosts.length > 0 ? (
-                currentPosts.map((post) => (
-                  <BlogCard
-                    key={post.slug}
-                    post={post}
-                    checkTagged={checkTagged}
-                  />
-                ))
-              ) : (
-                <ContentPlaceholder />
-              )}
-            </ul>
-          </div>
-        </section>
-      </main>
-    </Layout>
+    <section className={clsxm(isLoaded && 'fade-in-start')}>
+      <div className='layout py-12'>
+        <MainTitle
+          className='text-3xl md:text-5xl'
+          title={`Blog${!isEnglish ? ' Bahasa Indonesia' : ''}`}
+        />
+        <p className='mt-2 text-gray-600 dark:text-gray-300'>
+          Random thoughts about my expertise and hobby. It should be
+          informational for yall sussy bakas.
+        </p>
+        <StyledInput
+          data-fade='2'
+          className='mt-4'
+          placeholder='Search...'
+          onChange={handleSearch}
+          value={search}
+          type='text'
+        />
+        <div
+          className='mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300'
+          data-fade='3'
+        >
+          <span className='font-medium'>Filter topic:</span>
+          <SkipNavTag>
+            {tags.map((tag) => (
+              <Tag
+                key={tag}
+                onClick={() => toggleTag(tag)}
+                disabled={!filteredTags.includes(tag)}
+              >
+                {checkTagged(tag) ? <Accent>{tag}</Accent> : tag}
+              </Tag>
+            ))}
+          </SkipNavTag>
+        </div>
+        <div
+          className='relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between'
+          data-fade='4'
+        >
+          <CustomTab
+            categories={langCategories}
+            onChange={(index) => {
+              setIsEnglish(index === 0);
+              clearSearch();
+            }}
+          />
+          <Sort
+            sortOptions={[
+              { label: 'Date', value: 0 },
+              { label: 'Views', value: 1 },
+            ]}
+            sortOrder={sortDir}
+            onChangeSortBy={(index) => setSortOrder(sortOptions[index])}
+            setSortOrder={(dir) => {
+              setSortDir(dir);
+              sessionStorage.setItem('blog-sort-dir', dir);
+            }}
+            defaultIndex={sortOrder.id === 'date' ? 0 : 1}
+          />
+        </div>
+        <ul
+          className='mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'
+          data-fade='5'
+        >
+          {currentPosts.length > 0 ? (
+            currentPosts.map((post) => (
+              <BlogCard key={post.slug} post={post} checkTagged={checkTagged} />
+            ))
+          ) : (
+            <ContentPlaceholder />
+          )}
+        </ul>
+      </div>
+    </section>
   );
 };
 
-export const getStaticProps = async () => {
-  const files = await getAllFilesFrontmatter('blog');
-  const posts = sortByDate(files);
-
-  // Accumulate tags and remove duplicate
-  const tags = getTags(posts);
-
-  return { props: { posts, tags } };
-};
-
-export default IndexPage;
+export default BlogPage;

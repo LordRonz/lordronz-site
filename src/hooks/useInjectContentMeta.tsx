@@ -14,11 +14,13 @@ import { ContentMeta } from '@/types/meta';
 const useInjectContentMeta = <T extends ContentType>(
   type: T,
   frontmatter: PickFrontmatter<T>[],
+  initialData?: ContentMeta[],
 ) => {
   const { data, error } = useSWR<{ result: ContentMeta[] }>(
-    contentMetaFlag ? '/api/content' : null,
+    contentMetaFlag && !initialData ? '/api/content' : null,
   );
-  const contentMeta = data?.result;
+
+  const contentMeta = initialData ?? data?.result;
 
   const isLoading = !error && !contentMeta;
   const meta = useMemo(
