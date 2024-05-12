@@ -3,8 +3,8 @@ import 'react-tippy/dist/tippy.css';
 
 import axios from 'axios';
 import { AnimatePresence } from 'framer-motion';
+import { GeistSans } from 'geist/font/sans';
 import type { AppProps } from 'next/app';
-import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import NextNProgress from 'nextjs-progressbar';
 import { SWRConfig } from 'swr';
@@ -16,8 +16,6 @@ declare module 'next-themes' {
     children: React.ReactNode;
   }
 }
-
-const inter = Inter({ subsets: ['latin'], variable: '--inter-font' });
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -37,7 +35,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           initial={false}
           onExitComplete={() => window.scrollTo(0, 0)}
         >
-          <main className={`${inter.variable} font-primary`}>
+          <main className={`${GeistSans.variable} font-primary`}>
             <Component {...pageProps} />
           </main>
         </AnimatePresence>

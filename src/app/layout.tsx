@@ -1,8 +1,8 @@
 import '@/styles/globals.css';
 import 'react-tippy/dist/tippy.css';
 
+import { GeistSans } from 'geist/font/sans';
 import type { Viewport } from 'next';
-import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
@@ -17,13 +17,11 @@ export const generateMetadata = () => {
   return generateSeoMetadata();
 };
 
-const inter = Inter({ subsets: ['latin'], variable: '--inter-font' });
-
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang='en'
-      className={`scroll-smooth ${inter.variable}`}
+      className={`scroll-smooth ${GeistSans.variable}`}
       suppressHydrationWarning
     >
       <head>

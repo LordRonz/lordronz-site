@@ -27,7 +27,7 @@ export default {
         },
       },
       fontFamily: {
-        primary: ['var(--inter-font)', ...fontFamily.sans],
+        primary: ['var(--font-geist-sans)', ...fontFamily.sans],
       },
       colors: {
         // Customize it on globals.css :root
