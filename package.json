@@ -14,6 +14,7 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "gcp-build": "next build",
+    "build-ci": "cross-env CI=true pnpm build",
     "build-prod": "cross-env NODE_ENV=production next build",
     "build-stats": "cross-env ANALYZE=true pnpm build",
     "export": "next export",

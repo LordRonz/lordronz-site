@@ -36,5 +36,5 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           headless: true
-          build: pnpm build
+          build: pnpm build-ci
           start: pnpm start
