@@ -57,7 +57,7 @@
     "@google-cloud/firestore": "^7.7.0",
     "@headlessui/react": "^1.7.19",
     "@react-three/drei": "^9.105.6",
-    "@react-three/fiber": "^8.16.5",
+    "@react-three/fiber": "^8.16.6",
     "@serwist/next": "^9.0.2",
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
