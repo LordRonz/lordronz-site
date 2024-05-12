@@ -65,7 +65,7 @@ export const getAllFilesFrontmatter = async <T extends ContentType>(
 ) => {
   const files = await readdir(join(process.cwd(), 'src', 'contents', type));
 
-  return files.reduce(
+  return await files.reduce(
     async (allPosts: Promise<PickFrontmatter<T>[]>, postSlug) => {
       const source = await readFile(
         join(process.cwd(), 'src', 'contents', type, postSlug),

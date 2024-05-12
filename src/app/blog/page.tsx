@@ -14,7 +14,7 @@ export const generateMetadata = (): Metadata => {
   };
 };
 
-export const revalidate = 3600;
+export const revalidate = 15;
 
 const Page: NextPage = async () => {
   const [blogs, meta] = await Promise.all([
