@@ -5,6 +5,7 @@ import { GeistSans } from 'geist/font/sans';
 import type { Viewport } from 'next';
 import { ThemeProvider } from 'next-themes';
 
+import clsxm from '@/lib/clsxm';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 
 import ClientLayout from './ClientLayout';
@@ -21,7 +22,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang='en'
-      className={`scroll-smooth ${GeistSans.variable}`}
+      className={clsxm(GeistSans.variable, 'scroll-smooth font-primary')}
       suppressHydrationWarning
     >
       <head>

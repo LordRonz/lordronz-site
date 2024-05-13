@@ -10,6 +10,7 @@ import NextNProgress from 'nextjs-progressbar';
 import { SWRConfig } from 'swr';
 
 import ScrollButton from '@/components/ScrollButton';
+import clsxm from '@/lib/clsxm';
 
 declare module 'next-themes' {
   interface ThemeProviderProps {
@@ -35,7 +36,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           initial={false}
           onExitComplete={() => window.scrollTo(0, 0)}
         >
-          <main className={`${GeistSans.variable} font-primary`}>
+          <main className={clsxm(GeistSans.variable, 'font-primary')}>
             <Component {...pageProps} />
           </main>
         </AnimatePresence>
