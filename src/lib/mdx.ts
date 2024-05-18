@@ -4,11 +4,12 @@ import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
 import readingTime from 'reading-time';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypePrism from 'rehype-prism-plus';
+import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
-import {
+import type {
+  BlogFrontmatter,
   ContentType,
   Frontmatter,
   PickFrontmatter,
@@ -35,7 +36,14 @@ export const getFileBySlug = async (type: ContentType, slug: string) => {
       options.rehypePlugins = [
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,
-        [rehypePrism, { showLineNumbers: true }],
+        // [rehypePrism, { showLineNumbers: true }],
+        () =>
+          rehypePrettyCode({
+            theme: {
+              dark: 'one-dark-pro',
+              light: 'material-theme',
+            },
+          }),
         [
           rehypeAutolinkHeadings,
           {
@@ -54,9 +62,9 @@ export const getFileBySlug = async (type: ContentType, slug: string) => {
     frontmatter: {
       wordCount: source.split(/\s+/gu).length,
       readingTime: readingTime(source),
-      slug: slug || null,
+      slug: slug || '',
       ...frontmatter,
-    },
+    } as BlogFrontmatter,
   };
 };
 
