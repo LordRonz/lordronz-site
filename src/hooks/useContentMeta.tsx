@@ -1,14 +1,7 @@
-import axios from 'axios';
 import { useEffect, useRef } from 'react';
 import useSWR from 'swr';
 
-const incrementViews = async (slug: string) => {
-  const { data: res } = await axios.post<{
-    currentViews: number;
-    message: string;
-  }>('/api/content/' + slug);
-  return res;
-};
+import { incrementBlogView } from '@/lib/actions/incrementBlogVIew';
 
 const useContentMeta = (
   slug: string,
@@ -23,8 +16,8 @@ const useContentMeta = (
   useEffect(() => {
     if (runIncrement && ran.current === 0) {
       ran.current = 1;
-      incrementViews(slug).then((res) =>
-        mutate({ result: { currentViews: res.currentViews } }),
+      incrementBlogView(slug).then((currentViews) =>
+        mutate({ result: { currentViews } }),
       );
     }
   }, [mutate, runIncrement, slug]);
