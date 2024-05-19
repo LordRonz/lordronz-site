@@ -168,6 +168,11 @@ const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
       text: 'Source Code',
       tooltip: "View this website's source code",
     },
+    {
+      href: '/components',
+      text: 'Components',
+      tooltip: 'Component collections by Aaron',
+    },
   ];
 
 const FooterLinks = ({ className }: { className?: string }) => {
