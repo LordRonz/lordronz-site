@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 
 import SingleProductIndexPage from '@/components/content/SingleProductIndexPage';
-import { Project } from '@/components/ProjectCard';
+import type { Project } from '@/components/ProjectCard';
 
 const products: Project[] = [
   {

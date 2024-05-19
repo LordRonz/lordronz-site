@@ -1,4 +1,5 @@
-import Giscus, { Theme } from '@giscus/react';
+import type { Theme } from '@giscus/react';
+import Giscus from '@giscus/react';
 import { useTheme } from 'next-themes';
 
 const REPO_ID = 'R_kgDOGnxT4Q';

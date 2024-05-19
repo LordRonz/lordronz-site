@@ -2,7 +2,7 @@ import { existsSync } from 'fs';
 import fs from 'fs/promises';
 import path from 'path';
 
-import { IScriptParams } from '@/scripts/runner';
+import type { IScriptParams } from '@/scripts/runner';
 
 const manifest = {
   name: 'Aaron Christopher',

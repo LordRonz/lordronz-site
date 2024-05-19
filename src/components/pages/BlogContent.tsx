@@ -9,9 +9,8 @@ import { MdHistory } from 'react-icons/md';
 import Accent from '@/components/Accent';
 import Comment from '@/components/content/Comment';
 import MDXComponents from '@/components/content/MDXComponents';
-import TableOfContents, {
-  HeadingScrollSpy,
-} from '@/components/content/TableOfContents';
+import type { HeadingScrollSpy } from '@/components/content/TableOfContents';
+import TableOfContents from '@/components/content/TableOfContents';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
@@ -19,7 +18,7 @@ import useContentMeta from '@/hooks/useContentMeta';
 import useScrollSpy from '@/hooks/useScrollSpy';
 import { cleanBlogPrefix } from '@/lib/blog';
 import clsxm from '@/lib/clsxm';
-import { BlogFrontmatter, BlogType } from '@/types/frontmatters';
+import type { BlogFrontmatter, BlogType } from '@/types/frontmatters';
 
 type SingleBlogPageProps = {
   recommendations: BlogFrontmatter[];

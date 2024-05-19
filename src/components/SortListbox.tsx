@@ -1,7 +1,7 @@
 import { Listbox, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { HiCheck, HiSelector } from 'react-icons/hi';
-import { IconType } from 'react-icons/lib';
+import type { IconType } from 'react-icons/lib';
 
 import clsxm from '@/lib/clsxm';
 

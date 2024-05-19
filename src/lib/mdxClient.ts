@@ -3,7 +3,7 @@ import map from 'lodash-es/map';
 import sortBy from 'lodash-es/sortBy';
 import toPairs from 'lodash-es/toPairs';
 
-import {
+import type {
   Frontmatter,
   FrontmatterWithDate,
   FrontmatterWithTags,

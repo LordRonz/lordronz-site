@@ -1,8 +1,8 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
 import SingleProductContentPage from '@/components/content/SingleProductContentPage';
 import { getFileBySlug, getFiles, getRecommendations } from '@/lib/mdx';
-import { BlogFrontmatter, BlogType } from '@/types/frontmatters';
+import type { BlogFrontmatter, BlogType } from '@/types/frontmatters';
 
 type SingleProductContentPageProps = {
   recommendations: BlogFrontmatter[];

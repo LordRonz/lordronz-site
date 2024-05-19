@@ -4,7 +4,7 @@ import BlogPage from '@/components/pages/BlogPage';
 import { getBlogs } from '@/lib/blogServer';
 import { getBlogMeta } from '@/lib/firebase/blog';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
-import { ContentMeta } from '@/types/meta';
+import type { ContentMeta } from '@/types/meta';
 
 export const generateMetadata = (): Metadata => {
   return {

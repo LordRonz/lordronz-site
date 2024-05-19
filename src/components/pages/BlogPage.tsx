@@ -10,14 +10,14 @@ import Tag, { SkipNavTag } from '@/components/content/Tag';
 import Sort from '@/components/forms/Sort';
 import StyledInput from '@/components/forms/StyledInput';
 import CustomTab from '@/components/forms/Tab';
-import { SortOption } from '@/components/SortListbox';
+import type { SortOption } from '@/components/SortListbox';
 import { MainTitle } from '@/components/typography/MainTitle';
 import useInjectContentMeta from '@/hooks/useInjectContentMeta';
 import clsxm from '@/lib/clsxm';
 import { getFromSessionStorage } from '@/lib/helper';
 import { getTags, sortDateFn, sortDateFnAsc } from '@/lib/mdxClient';
-import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
-import { ContentMeta } from '@/types/meta';
+import type { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
+import type { ContentMeta } from '@/types/meta';
 
 const sortOptions: SortOption[] = [
   {

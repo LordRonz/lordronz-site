@@ -1,5 +1,5 @@
 import { getNowPlaying } from '@/lib/spotify';
-import { SpotifySong } from '@/types/spotify';
+import type { SpotifySong } from '@/types/spotify';
 
 export const revalidate = 10; // in seconds
 // false | 0 | number

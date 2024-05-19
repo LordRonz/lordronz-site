@@ -1,4 +1,5 @@
-import { m, Variants } from 'framer-motion';
+import type { Variants } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useRouter } from 'next/router';
 
 import clsxm from '@/lib/clsxm';

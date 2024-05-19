@@ -1,5 +1,6 @@
 import { OG_URL, WEBSITE_HOSTNAME, WEBSITE_URL } from '@/constants/env';
-import openGraphDefault, { OGType, openGraph } from '@/lib/og';
+import type { OGType } from '@/lib/og';
+import openGraphDefault, { openGraph } from '@/lib/og';
 
 describe('open graph test', () => {
   it('should return correct open graph url', () => {

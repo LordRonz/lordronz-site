@@ -1,4 +1,5 @@
-import { Tooltip as TippyTooltip, TooltipProps } from 'react-tippy';
+import type { TooltipProps } from 'react-tippy';
+import { Tooltip as TippyTooltip } from 'react-tippy';
 
 import clsxm from '@/lib/clsxm';
 

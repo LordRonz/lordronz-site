@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
-import * as SeoModule from '@/components/Seo';
+import type * as SeoModule from '@/components/Seo';
 
 jest.mock('next/router', () => ({
   useRouter() {

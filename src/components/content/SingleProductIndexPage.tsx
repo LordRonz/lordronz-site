@@ -3,7 +3,8 @@ import { useState } from 'react';
 import Accent from '@/components/Accent';
 import CustomLightbox from '@/components/images/CustomLightbox';
 import Layout from '@/components/layout/Layout';
-import ProjectCard, { Project } from '@/components/ProjectCard';
+import type { Project } from '@/components/ProjectCard';
+import ProjectCard from '@/components/ProjectCard';
 import Seo from '@/components/Seo';
 import clsxm from '@/lib/clsxm';
 

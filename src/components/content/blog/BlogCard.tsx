@@ -6,7 +6,7 @@ import Tag from '@/components/content/Tag';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import clsxm from '@/lib/clsxm';
-import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
+import type { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
 
 type BlogCardProps = {
   post: BlogFrontmatter & InjectedMeta;

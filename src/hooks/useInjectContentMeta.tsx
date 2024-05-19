@@ -4,12 +4,12 @@ import useSWR from 'swr';
 import { contentMetaFlag } from '@/constants/env';
 import { cleanBlogPrefix } from '@/lib/blog';
 import { pickContentMeta } from '@/lib/contentMeta';
-import {
+import type {
   ContentType,
   InjectedMeta,
   PickFrontmatter,
 } from '@/types/frontmatters';
-import { ContentMeta } from '@/types/meta';
+import type { ContentMeta } from '@/types/meta';
 
 const useInjectContentMeta = <T extends ContentType>(
   type: T,

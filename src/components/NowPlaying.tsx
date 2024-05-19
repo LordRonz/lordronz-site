@@ -5,7 +5,7 @@ import useSWR from 'swr';
 
 import Tooltip from '@/components/Tooltip';
 import clsxm from '@/lib/clsxm';
-import { NowPlayingSong } from '@/types/nowPlaying';
+import type { NowPlayingSong } from '@/types/nowPlaying';
 
 export const AnimatedBars = ({
   ...rest
