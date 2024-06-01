@@ -13,10 +13,10 @@ export const generateMetadata = async ({
 
   const { frontmatter } = await getFileBySlug('blog', slug as string);
 
-  return {
-    ...generateSeoMetadata({ templateTitle: frontmatter.title }),
+  return generateSeoMetadata({
+    templateTitle: frontmatter.title,
     description: frontmatter.description,
-  };
+  });
 };
 
 export const dynamicParams = false;

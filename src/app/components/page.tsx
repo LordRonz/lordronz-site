@@ -4,10 +4,10 @@ import ComponentsPage from '@/components/pages/ComponentsPage';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 
 export const generateMetadata = (): Metadata => {
-  return {
-    ...generateSeoMetadata({ templateTitle: 'Components by Aaron' }),
+  return generateSeoMetadata({
+    templateTitle: 'Components by Aaron',
     description: 'Component Collections By Aaron Christopher',
-  };
+  });
 };
 
 const Page: NextPage = () => {

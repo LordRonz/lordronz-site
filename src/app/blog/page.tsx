@@ -7,11 +7,11 @@ import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
 import type { ContentMeta } from '@/types/meta';
 
 export const generateMetadata = (): Metadata => {
-  return {
-    ...generateSeoMetadata({ templateTitle: "Aaron's Blog" }),
+  return generateSeoMetadata({
+    templateTitle: "Aaron's Blog",
     description:
       'Random thoughts about my expertise and hobby. It should be informational for yall sussy bakas.',
-  };
+  });
 };
 
 export const revalidate = 15;
