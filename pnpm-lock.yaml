@@ -290,8 +290,8 @@ importers:
         specifier: ^9.0.11
         version: 9.0.11
       inquirer:
-        specifier: ^9.2.20
-        version: 9.2.21
+        specifier: ^9.3.0
+        version: 9.3.0
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.12.12)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.5))(@types/node@20.12.12)(typescript@5.4.5))
@@ -1685,6 +1685,7 @@ packages:
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
+    deprecated: Use @eslint/config-array instead
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -1692,6 +1693,7 @@ packages:
 
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
+    deprecated: Use @eslint/object-schema instead
 
   '@hutson/parse-repository-url@3.0.2':
     resolution: {integrity: sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==}
@@ -1810,8 +1812,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@inquirer/figures@1.0.1':
-    resolution: {integrity: sha512-mtup3wVKia3ZwULPHcbs4Mor8Voi+iIXEWD7wCNbIO6lYR62oPCTQyrddi5OMYVXHzeCSoneZwJuS8sBvlEwDw==}
+  '@inquirer/figures@1.0.3':
+    resolution: {integrity: sha512-ErXXzENMH5pJt5/ssXV0DfWUZqly8nGzf0UcBV9xTnP+KyffE2mqyxIMBrZ8ijQck2nU0TQm40EQB53YreyWHw==}
     engines: {node: '>=18'}
 
   '@istanbuljs/load-nyc-config@1.1.0':
@@ -1920,10 +1922,6 @@ packages:
 
   '@lit/reactive-element@2.0.4':
     resolution: {integrity: sha512-GFn91inaUa2oHLak8awSIigYz0cU0Payr1rcFsrkf5OJ5eSPxElyZfKh0f2p9FsTiZWXQdWGJeXZICEfXXYSXQ==}
-
-  '@ljharb/through@2.3.13':
-    resolution: {integrity: sha512-/gKJun8NNiWGZJkGzI/Ragc53cOdcLNdzjLaIa+GEjguQs0ulsurx8WN0jijdK9yPqDvziX995sMRLyLt1uZMQ==}
-    engines: {node: '>= 0.4'}
 
   '@mdx-js/esbuild@3.0.1':
     resolution: {integrity: sha512-+KZbCKcRjFtRD6qzD+c70Vq/VPVt5LHFsOshNcsdcONkaLTCSjmM7/uj71i3BcP+170f+P4DwVEMtqR/k0t5aw==}
@@ -3577,6 +3575,7 @@ packages:
   are-we-there-yet@2.0.0:
     resolution: {integrity: sha512-Ci/qENmwHnsYo9xKIcUJN5LeDKdJ6R1Z1j9V/J5wyq8nh/mYPEpIKJbBZXtZjG04HiK7zV/p6Vs9952MrMeUIw==}
     engines: {node: '>=10'}
+    deprecated: This package is no longer supported.
 
   arg@4.1.3:
     resolution: {integrity: sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==}
@@ -5574,6 +5573,7 @@ packages:
   gauge@3.0.2:
     resolution: {integrity: sha512-+5J6MS/5XksCuXq++uFRsnUd7Ovu1XenbeuIuNRJxYWjgQbPuFhT14lAvsWfqfAmnwluf1OwMjz39HjfLPci0Q==}
     engines: {node: '>=10'}
+    deprecated: This package is no longer supported.
 
   gaxios@6.6.0:
     resolution: {integrity: sha512-bpOZVQV5gthH/jVCSuYuokRo2bTKOcuBiVWpjmTn6C5Agl5zclGfTljuGsQZxwwDBkli+YhZhP4TdlqTnhOezQ==}
@@ -5719,6 +5719,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
@@ -6059,6 +6060,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -6083,8 +6085,8 @@ packages:
   inline-style-prefixer@7.0.0:
     resolution: {integrity: sha512-I7GEdScunP1dQ6IM2mQWh6v0mOYdYmH3Bp31UecKdrcUgcURTcctSe1IECdUznSHKSmsHtjrT3CwCPI1pyxfUQ==}
 
-  inquirer@9.2.21:
-    resolution: {integrity: sha512-c/dwDruM1FtzeISV+xMHm+JZTmhpmgWPEZI2bU3+Fwu5MhbAX0zMHHxj5warNfttE5NUID3aijrFUpDc2yBvcA==}
+  inquirer@9.3.0:
+    resolution: {integrity: sha512-zdopqPUKWmnOcaBJYMMtjqWCB2HHXrteAou9tCYgkTJu01QheLfYOrkzigDfidPBtCizmkdpSU0fp2DKaMdFPA==}
     engines: {node: '>=18'}
 
   internal-slot@1.0.7:
@@ -6818,6 +6820,9 @@ packages:
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
 
+  lodash.get@4.4.2:
+    resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+
   lodash.includes@4.3.0:
     resolution: {integrity: sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w==}
 
@@ -6853,6 +6858,9 @@ packages:
 
   lodash.once@4.1.1:
     resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
+
+  lodash.set@4.3.2:
+    resolution: {integrity: sha512-4hNPN5jlm/N/HLMCO43v8BXKq9Z7QdAGc/VGrRD61w8gN9g/6jF9A4L1pbUgBLCffi0w9VsXfTOij5x8iTyFvg==}
 
   lodash.snakecase@4.1.1:
     resolution: {integrity: sha512-QZ1d4xoBHYUeuouhEq3lk3Uq7ldgyFXGBhg04+oRLnIz8o9T65Eh+8YdroUwn846zchkA9yDsDl5CVVaV2nqYw==}
@@ -7477,6 +7485,7 @@ packages:
 
   npmlog@5.0.1:
     resolution: {integrity: sha512-AqZtDUWOMKs1G/8lwylVjrdYgqA4d9nu8hc+0gzRxlDb1I10+FHBGMXs6aiQHFdCUUlqH99MUMuLfzWDNDtfxw==}
+    deprecated: This package is no longer supported.
 
   nprogress@0.2.0:
     resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
@@ -8428,6 +8437,10 @@ packages:
   q@1.5.1:
     resolution: {integrity: sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==}
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
+    deprecated: |-
+      You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+
+      (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
   qs@6.10.4:
     resolution: {integrity: sha512-OQiU+C+Ds5qiH91qh/mg0w+8nwQuLjM4F4M/PbmhDOoYehPh+Fb0bDjtR1sOvy7YKxvj28Y/M0PhP5uVX0kB+g==}
@@ -8832,10 +8845,12 @@ packages:
 
   rimraf@2.6.3:
     resolution: {integrity: sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rimraf@5.0.7:
@@ -11820,7 +11835,7 @@ snapshots:
   '@img/sharp-win32-x64@0.33.4':
     optional: true
 
-  '@inquirer/figures@1.0.1': {}
+  '@inquirer/figures@1.0.3': {}
 
   '@istanbuljs/load-nyc-config@1.1.0':
     dependencies:
@@ -12028,10 +12043,6 @@ snapshots:
   '@lit/reactive-element@2.0.4':
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.2.0
-
-  '@ljharb/through@2.3.13':
-    dependencies:
-      call-bind: 1.0.7
 
   '@mdx-js/esbuild@3.0.1(esbuild@0.20.2)':
     dependencies:
@@ -17478,18 +17489,17 @@ snapshots:
       css-in-js-utils: 3.1.0
       fast-loops: 1.1.3
 
-  inquirer@9.2.21:
+  inquirer@9.3.0:
     dependencies:
-      '@inquirer/figures': 1.0.1
-      '@ljharb/through': 2.3.13
+      '@inquirer/figures': 1.0.3
       ansi-escapes: 4.3.2
-      chalk: 5.3.0
-      cli-cursor: 3.1.0
       cli-width: 4.1.0
       external-editor: 3.1.0
-      lodash: 4.17.21
+      lodash.get: 4.4.2
+      lodash.set: 4.3.2
       mute-stream: 1.0.0
       ora: 5.4.1
+      picocolors: 1.0.1
       run-async: 3.0.0
       rxjs: 7.8.1
       string-width: 4.2.3
@@ -18463,6 +18473,8 @@ snapshots:
 
   lodash.debounce@4.0.8: {}
 
+  lodash.get@4.4.2: {}
+
   lodash.includes@4.3.0: {}
 
   lodash.isboolean@3.0.3: {}
@@ -18486,6 +18498,8 @@ snapshots:
   lodash.mergewith@4.6.2: {}
 
   lodash.once@4.1.1: {}
+
+  lodash.set@4.3.2: {}
 
   lodash.snakecase@4.1.1: {}
 
