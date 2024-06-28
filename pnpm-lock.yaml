@@ -149,8 +149,8 @@ importers:
         specifier: ^14.2.3
         version: 14.2.3
       '@storybook/addon-actions':
-        specifier: ^8.0.10
-        version: 8.1.1
+        specifier: ^8.1.11
+        version: 8.1.11
       '@storybook/addon-essentials':
         specifier: ^8.0.10
         version: 8.1.1(@types/react-dom@18.3.0)(@types/react@18.3.2)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -161,8 +161,8 @@ importers:
         specifier: ^8.0.10
         version: 8.1.1(react@18.3.1)
       '@storybook/addon-mdx-gfm':
-        specifier: ^8.0.10
-        version: 8.1.1
+        specifier: ^8.1.11
+        version: 8.1.11
       '@storybook/addon-postcss':
         specifier: ^2.0.0
         version: 2.0.0(webpack@5.91.0(@swc/core@1.5.7(@swc/helpers@0.5.5))(esbuild@0.20.2))
@@ -1685,6 +1685,7 @@ packages:
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
+    deprecated: Use @eslint/config-array instead
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -1692,6 +1693,7 @@ packages:
 
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
+    deprecated: Use @eslint/object-schema instead
 
   '@hutson/parse-repository-url@3.0.2':
     resolution: {integrity: sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==}
@@ -2480,6 +2482,9 @@ packages:
   '@storybook/addon-actions@8.1.1':
     resolution: {integrity: sha512-EEBjOMuQOdCSVrwPQEkJFc42I0TWj/bK+8lboV0jXi61ZI3okDPCJ/04vu5iTvX0HjRoYqqwBjyYj0Crf7ihag==}
 
+  '@storybook/addon-actions@8.1.11':
+    resolution: {integrity: sha512-jqYXgBgOVInStOCk//AA+dGkrfN8R7rDXA4lyu82zM59kvICtG9iqgmkSRDn0Z3zUkM+lIHZGoz0aLVQ8pxsgw==}
+
   '@storybook/addon-backgrounds@8.1.1':
     resolution: {integrity: sha512-UFbKI3Ebsllg3DZIlVtYvp1nuLnBp85sKI98KnnYqiHCKWHDWlK7Li0Y1J2ab0w/Fx0grspC8WUgGId6NHrIrA==}
 
@@ -2506,8 +2511,8 @@ packages:
       react:
         optional: true
 
-  '@storybook/addon-mdx-gfm@8.1.1':
-    resolution: {integrity: sha512-cvwXthboYZAez4jbdvymhJZOx5lQhL45pdDtHAvyrN3ky+Dpj/XbpFQX/IKoPso5rsqKq++p2wb2aAADRWDK7A==}
+  '@storybook/addon-mdx-gfm@8.1.11':
+    resolution: {integrity: sha512-0/4Xaisvmoi26iK1ezTOB9dN2b0JbgWKzO2PO6att2Jh7lplLCf1QeoE8Y4SgCh0brage+mA8mKI8NrT7d18pg==}
 
   '@storybook/addon-measure@8.1.1':
     resolution: {integrity: sha512-aI4cFECK/NmwJTj3Xu6MGrMm4Rf0e+FGB5+BoY+tUi3LTX0spAu/8VgwuoDGB6ntvbZyzPfr6mG2qND9KU+sMQ==}
@@ -2581,6 +2586,9 @@ packages:
   '@storybook/core-events@8.1.1':
     resolution: {integrity: sha512-WpeiBV6RWTZ6t8SI1YdQh8NlbvQtZs9WRr4CPfpzHAly+oxFy6PtPz0h5TMKsU5/kt/L9yL7tE9ZzPYzvFWH/A==}
 
+  '@storybook/core-events@8.1.11':
+    resolution: {integrity: sha512-vXaNe2KEW9BGlLrg0lzmf5cJ0xt+suPjWmEODH5JqBbrdZ67X6ApA2nb6WcxDQhykesWCuFN5gp1l+JuDOBi7A==}
+
   '@storybook/core-server@8.1.1':
     resolution: {integrity: sha512-/r70ORN9PdrLTLOeZfZkYhR/UBe6dj5DhcQ21zJhKU/0b10nuLJh4SGVD93Hah2wAYEN7YoJzX1bZMo6zRkTRQ==}
 
@@ -2644,6 +2652,9 @@ packages:
 
   '@storybook/node-logger@8.1.1':
     resolution: {integrity: sha512-l+B8eu3yBZfrHvCR/FVqGyObgA0KSLp+06NkWDMn0p7qu0tCTROquopKdn2gXKitZp8wGwhgJV56OvW5C12XQA==}
+
+  '@storybook/node-logger@8.1.11':
+    resolution: {integrity: sha512-wdzFo7B2naGhS52L3n1qBkt5BfvQjs8uax6B741yKRpiGgeAN8nz8+qelkD25MbSukxvbPgDot7WJvsMU/iCzg==}
 
   '@storybook/preset-react-webpack@8.1.1':
     resolution: {integrity: sha512-mSVGvVgEQgVYmbq3amX1a7q1zYhwPEyVWO5nI1nnb5UwPuGRN984xO9nHWqkkb0bJsZSLiRrwYt12WU8LdItvw==}
@@ -3577,6 +3588,7 @@ packages:
   are-we-there-yet@2.0.0:
     resolution: {integrity: sha512-Ci/qENmwHnsYo9xKIcUJN5LeDKdJ6R1Z1j9V/J5wyq8nh/mYPEpIKJbBZXtZjG04HiK7zV/p6Vs9952MrMeUIw==}
     engines: {node: '>=10'}
+    deprecated: This package is no longer supported.
 
   arg@4.1.3:
     resolution: {integrity: sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==}
@@ -5574,6 +5586,7 @@ packages:
   gauge@3.0.2:
     resolution: {integrity: sha512-+5J6MS/5XksCuXq++uFRsnUd7Ovu1XenbeuIuNRJxYWjgQbPuFhT14lAvsWfqfAmnwluf1OwMjz39HjfLPci0Q==}
     engines: {node: '>=10'}
+    deprecated: This package is no longer supported.
 
   gaxios@6.6.0:
     resolution: {integrity: sha512-bpOZVQV5gthH/jVCSuYuokRo2bTKOcuBiVWpjmTn6C5Agl5zclGfTljuGsQZxwwDBkli+YhZhP4TdlqTnhOezQ==}
@@ -5719,6 +5732,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
@@ -6059,6 +6073,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -7477,6 +7492,7 @@ packages:
 
   npmlog@5.0.1:
     resolution: {integrity: sha512-AqZtDUWOMKs1G/8lwylVjrdYgqA4d9nu8hc+0gzRxlDb1I10+FHBGMXs6aiQHFdCUUlqH99MUMuLfzWDNDtfxw==}
+    deprecated: This package is no longer supported.
 
   nprogress@0.2.0:
     resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
@@ -8428,6 +8444,10 @@ packages:
   q@1.5.1:
     resolution: {integrity: sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==}
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
+    deprecated: |-
+      You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+
+      (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
   qs@6.10.4:
     resolution: {integrity: sha512-OQiU+C+Ds5qiH91qh/mg0w+8nwQuLjM4F4M/PbmhDOoYehPh+Fb0bDjtR1sOvy7YKxvj28Y/M0PhP5uVX0kB+g==}
@@ -8832,10 +8852,12 @@ packages:
 
   rimraf@2.6.3:
     resolution: {integrity: sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rimraf@5.0.7:
@@ -12581,6 +12603,15 @@ snapshots:
       polished: 4.3.1
       uuid: 9.0.1
 
+  '@storybook/addon-actions@8.1.11':
+    dependencies:
+      '@storybook/core-events': 8.1.11
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.3.1
+      uuid: 9.0.1
+
   '@storybook/addon-backgrounds@8.1.1':
     dependencies:
       '@storybook/global': 5.0.0
@@ -12682,9 +12713,9 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
 
-  '@storybook/addon-mdx-gfm@8.1.1':
+  '@storybook/addon-mdx-gfm@8.1.11':
     dependencies:
-      '@storybook/node-logger': 8.1.1
+      '@storybook/node-logger': 8.1.11
       remark-gfm: 4.0.0
       ts-dedent: 2.2.0
     transitivePeerDependencies:
@@ -12968,6 +12999,11 @@ snapshots:
       '@storybook/csf': 0.1.7
       ts-dedent: 2.2.0
 
+  '@storybook/core-events@8.1.11':
+    dependencies:
+      '@storybook/csf': 0.1.7
+      ts-dedent: 2.2.0
+
   '@storybook/core-server@8.1.1(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@aw-web-design/x-default-browser': 1.4.126
@@ -13211,6 +13247,8 @@ snapshots:
       pretty-hrtime: 1.0.3
 
   '@storybook/node-logger@8.1.1': {}
+
+  '@storybook/node-logger@8.1.11': {}
 
   '@storybook/preset-react-webpack@8.1.1(@swc/core@1.5.7(@swc/helpers@0.5.5))(esbuild@0.20.2)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5)':
     dependencies:
