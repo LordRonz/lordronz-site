@@ -79,7 +79,7 @@ const additionalMetadata = (m: Metadata): Metadata => {
       ...m.openGraph,
       images: [
         ...(m.openGraph?.images
-          ? Array.isArray(m.openGraph?.images)
+          ? Array.isArray(m.openGraph.images)
             ? m.openGraph.images
             : [m.openGraph.images]
           : []),

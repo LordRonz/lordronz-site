@@ -10,6 +10,7 @@ import type {
   Points,
 } from 'three';
 
+// PixelatedSphere component
 const PixelatedSphere = () => {
   const sphereRef =
     useRef<
@@ -24,13 +25,14 @@ const PixelatedSphere = () => {
   });
 
   return (
-    <points ref={sphereRef}>
+    <points ref={sphereRef} data-testid='pixelated-sphere'>
       <icosahedronGeometry args={[1, 4]} />
       <pointsMaterial color='#eb2754' size={0.05} />
     </points>
   );
 };
 
+// Birds component
 const Birds = () => {
   const groupRef = useRef<Group<Object3DEventMap>>(null);
 
@@ -63,7 +65,11 @@ const Birds = () => {
     );
   });
 
-  return <group ref={groupRef}>{birds}</group>;
+  return (
+    <group ref={groupRef} data-testid='birds'>
+      {birds}
+    </group>
+  );
 };
 
 const Graphic = () => {
