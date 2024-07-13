@@ -28,30 +28,30 @@ describe('Home', () => {
   beforeEach(() => {
     mockAllIsIntersecting(true);
   });
-  it('renders a heading', () => {
+  it('renders a heading', async () => {
     render(<Home />);
 
-    const heading = screen.getByRole('heading', {
+    const heading = await screen.findByRole('heading', {
       name: /henlo there/i,
     });
 
     expect(heading).toBeInTheDocument();
   });
 
-  it('renders a paragraph with the correct text', () => {
+  it('renders a paragraph with the correct text', async () => {
     render(<Home />);
 
-    const paragraph = screen.getByText(
+    const paragraph = await screen.findByText(
       /I am a passionate programmer and love tinkering with Python to automate my personal tasks. I possess extensive experience with backend technologies and system administration. Additionally, I have honed my skills through the development of various React and Swift projects./i,
     );
 
     expect(paragraph).toBeInTheDocument();
   });
 
-  it('can scroll', () => {
+  it('can scroll', async () => {
     render(<Home />);
 
-    const heading = screen.getByRole('heading', {
+    const heading = await screen.findByRole('heading', {
       name: /henlo there/i,
     });
 
@@ -60,10 +60,10 @@ describe('Home', () => {
     expect(heading).toBeInTheDocument();
   });
 
-  it('renders a GitHub link', () => {
+  it('renders a GitHub link', async () => {
     render(<Home />);
 
-    const link = screen.getByRole('link', {
+    const link = await screen.findByRole('link', {
       name: /Link to GitHub repository/i,
     });
 

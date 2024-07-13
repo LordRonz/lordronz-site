@@ -3,6 +3,7 @@
 import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
+import { act } from 'react';
 
 import Wave from '@/components/Wave';
 
@@ -23,7 +24,7 @@ describe('Wave', () => {
     render(<Wave data-testid='wave' />);
 
     // Fast-forward timers by 1200ms
-    jest.advanceTimersByTime(1500);
+    act(() => jest.advanceTimersByTime(2000));
 
     const wave = screen.getByTestId('wave');
 
