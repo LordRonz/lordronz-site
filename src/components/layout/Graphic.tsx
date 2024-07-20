@@ -25,7 +25,7 @@ const PixelatedSphere = () => {
   });
 
   return (
-    <points ref={sphereRef} data-testid='pixelated-sphere'>
+    <points ref={sphereRef}>
       <icosahedronGeometry args={[1, 4]} />
       <pointsMaterial color='#eb2754' size={0.05} />
     </points>
@@ -65,11 +65,7 @@ const Birds = () => {
     );
   });
 
-  return (
-    <group ref={groupRef} data-testid='birds'>
-      {birds}
-    </group>
-  );
+  return <group ref={groupRef}>{birds}</group>;
 };
 
 const Graphic = () => {
