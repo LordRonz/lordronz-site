@@ -12,8 +12,8 @@ const nextConfig = async (phase) => {
     async rewrites() {
       return [
         {
-          source: '/quotes-api',
-          destination: 'https://quotes-api-go-nxokq3kema-ue.a.run.app',
+          source: '/quotes-api/:slug*',
+          destination: 'https://quotes-api-go-nxokq3kema-ue.a.run.app/:slug*',
         },
       ];
     },
