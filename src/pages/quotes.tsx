@@ -10,7 +10,7 @@ import Spinner from '@/components/Spinner';
 import clsxm from '@/lib/clsxm';
 import type { RandomQuoteResponse } from '@/types/quote';
 
-const QUOTES_API_URL = 'https://quotes-api-go-production.up.railway.app';
+const QUOTES_API_URL = '/quotes-api';
 
 const QuotesPage: NextPage = () => {
   const [quote, setQuote] = useState<string>();

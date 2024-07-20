@@ -9,6 +9,14 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = async (phase) => {
   /** @type {import('next').NextConfig} */
   let nextConfig = {
+    async rewrites() {
+      return [
+        {
+          source: '/quotes-api',
+          destination: 'https://quotes-api-go-nxokq3kema-ue.a.run.app',
+        },
+      ];
+    },
     poweredByHeader: false,
     compiler: {
       ...(process.env.NODE_ENV === 'production' && {
