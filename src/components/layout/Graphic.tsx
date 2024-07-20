@@ -1,6 +1,6 @@
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, useDetectGPU } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import type {
   BufferGeometry,
   Group,
@@ -9,6 +9,8 @@ import type {
   Object3DEventMap,
   Points,
 } from 'three';
+
+const birdCountMap = [4, 8, 12, 36];
 
 // PixelatedSphere component
 const PixelatedSphere = () => {
@@ -35,6 +37,12 @@ const PixelatedSphere = () => {
 // Birds component
 const Birds = () => {
   const groupRef = useRef<Group<Object3DEventMap>>(null);
+  const GPUTier = useDetectGPU();
+
+  const birdCount = useMemo(
+    () => birdCountMap[GPUTier.isMobile ? 0 : GPUTier.tier],
+    [GPUTier],
+  );
 
   useFrame(({ clock }) => {
     if (!groupRef.current) return;
@@ -55,7 +63,7 @@ const Birds = () => {
     );
   });
 
-  const birds = [...Array(36)].map((_, i) => {
+  const birds = [...Array(birdCount)].map((_, i) => {
     const size = i % 2 === 0 ? 0.03 : 0.05;
     return (
       <mesh key={i} position={[1, 0, 0]}>
