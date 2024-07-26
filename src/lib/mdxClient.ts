@@ -41,9 +41,7 @@ export const sortTitleFn = <T extends Frontmatter>(
 };
 
 export const sortByTitle = <T extends Frontmatter[]>(contents: T): T => {
-  return contents.sort((a, b) =>
-    a.title > b.title ? 1 : b.title > a.title ? -1 : 0,
-  );
+  return contents.sort((a, b) => a.title.localeCompare(b.title));
 };
 
 /**

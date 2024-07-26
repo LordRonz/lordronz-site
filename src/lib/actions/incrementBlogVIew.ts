@@ -10,7 +10,7 @@ export const incrementBlogView = async (slug: string) => {
   const result = await db().runTransaction(async (t) => {
     const doc = await t.get(ref);
 
-    if (doc && doc.exists) {
+    if (doc?.exists) {
       t.update(ref, { currentViews: FieldValue.increment(1) });
       return (doc.data()?.currentViews + 1) as number;
     } else {

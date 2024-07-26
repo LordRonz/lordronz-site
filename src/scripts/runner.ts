@@ -17,7 +17,7 @@ const runAsync = async () => {
   for (const file of files) {
     const {
       default: defaultFunc,
-    }: { default: (params: IScriptParams) => void } = await import(
+    }: { default: (params: IScriptParams) => Promise<void> } = await import(
       `./pre-build/${file}`
     );
     try {

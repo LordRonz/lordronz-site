@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 
+import clsxm from '@/lib/clsxm';
+
 type CarbonbadgeProps = {
   darkMode?: boolean;
 };
@@ -19,6 +21,6 @@ export const Carbonbadge = ({ darkMode = true }: CarbonbadgeProps) => {
   }, []);
 
   return (
-    <div id='wcb' className={`wcb carbonbadge${darkMode ? ` wcb-d` : ''}`} />
+    <div id='wcb' className={clsxm('wcb carbonbadge', darkMode && 'wcb-d')} />
   );
 };

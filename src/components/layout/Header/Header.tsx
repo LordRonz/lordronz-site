@@ -30,7 +30,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
   const pathname = usePathname();
   /** Ex: /sigma/titid -> ['', 'sigma', 'titid'] */
   const arrOfRoute = pathname?.split('/') || [];
-  const baseRoute = '/' + arrOfRoute[1];
+  const baseRoute = `/${arrOfRoute[1]}`;
   //#endregion  //*======== Route Functionality ===========
 
   //#region  //*=========== Scroll Shadow ===========

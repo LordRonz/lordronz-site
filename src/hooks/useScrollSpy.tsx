@@ -14,9 +14,7 @@ const useScrollSpy = () => {
     let prevBBox = null;
     let currentSectionId = activeSection;
 
-    for (let i = 0; i < sections.length; ++i) {
-      const section = sections[i];
-
+    for (const section of sections) {
       if (!currentSectionId) {
         currentSectionId = section.getAttribute('href')?.split('#')[1] ?? null;
       }

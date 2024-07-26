@@ -36,31 +36,29 @@ const ColorModeToggle = ({
         onClick={() => onChange(value === 'dark' ? 'light' : 'dark')}
       >
         {mounted && (
-          <>
-            <label
+          <label
+            className={clsxm(
+              'swap swap-rotate',
+              value === 'dark' && 'swap-active',
+            )}
+          >
+            <FiSun
               className={clsxm(
-                'swap swap-rotate',
-                value === 'dark' && 'swap-active',
+                'swap-off',
+                // value !== 'light' && 'hidden',
+                'text-2xl',
+                iconClassName,
               )}
-            >
-              <FiSun
-                className={clsxm(
-                  'swap-off',
-                  // value !== 'light' && 'hidden',
-                  'text-2xl',
-                  iconClassName,
-                )}
-              />
-              <FiMoon
-                className={clsxm(
-                  'swap-on',
-                  // value !== 'dark' && 'hidden',
-                  'text-2xl',
-                  iconClassName,
-                )}
-              />
-            </label>
-          </>
+            />
+            <FiMoon
+              className={clsxm(
+                'swap-on',
+                // value !== 'dark' && 'hidden',
+                'text-2xl',
+                iconClassName,
+              )}
+            />
+          </label>
         )}
       </button>
     </div>

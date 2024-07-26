@@ -3,6 +3,12 @@ import { FiCircle, FiX } from 'react-icons/fi';
 import clsxm from '@/lib/clsxm';
 import { type TTT } from '@/lib/ttt';
 
+const getIcon = (col: string) => {
+  if (col === 'X') return <FiX />;
+  if (col === 'O') return <FiCircle />;
+  return null;
+};
+
 const TicTacToeBoard = ({
   data,
   handlePlay,
@@ -28,7 +34,7 @@ const TicTacToeBoard = ({
             onClick={(e) => handlePlay(e, i, j)}
             onKeyDown={() => {}}
           >
-            {col === 'X' ? <FiX /> : col === 'O' ? <FiCircle /> : null}
+            {getIcon(col)}
           </div>
         )),
       )}

@@ -66,7 +66,7 @@ const Birds = () => {
   const birds = [...Array(birdCount)].map((_, i) => {
     const size = i % 2 === 0 ? 0.03 : 0.05;
     return (
-      <mesh key={i} position={[1, 0, 0]}>
+      <mesh key={`mesh-${i}-${size}`} position={[1, 0, 0]}>
         <planeGeometry args={[size, size]} />
         <meshBasicMaterial color='#eb2754' />
       </mesh>

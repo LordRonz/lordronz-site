@@ -17,7 +17,7 @@ const CVPage = () => {
           <div className='w-3/4 space-y-4 flex flex-col items-center'>
             <Skeleton className='h-4 w-3/5 mb-4' />
             {[...Array(15)].map((_, i) => (
-              <Skeleton className='h-4 w-full' key={i} />
+              <Skeleton className='h-4 w-full' key={`skeleton-${i}`} />
             ))}
           </div>
         )}

@@ -4,7 +4,7 @@ type SpinnerProps = React.ComponentPropsWithoutRef<'svg'>;
 
 const Spinner = ({ className }: SpinnerProps) => {
   return (
-    <div role='status'>
+    <output>
       <svg
         aria-hidden='true'
         className={clsxm(
@@ -25,7 +25,7 @@ const Spinner = ({ className }: SpinnerProps) => {
         />
       </svg>
       <span className='sr-only'>Loading...</span>
-    </div>
+    </output>
   );
 };
 

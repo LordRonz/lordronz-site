@@ -34,6 +34,37 @@ describe('ButtonLink', () => {
     // Add more assertions for other classes based on outline variant
   });
 
+  it('renders an ghost button link', () => {
+    render(<ButtonLink {...mockProps} variant='ghost' />);
+
+    const button = screen.getByRole('link', { name: 'Button Text' });
+
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveClass('text-dark');
+    expect(button).toHaveClass('shadow-none');
+    // Add more assertions for other classes based on outline variant
+  });
+
+  it('renders an light button link', () => {
+    render(<ButtonLink {...mockProps} variant='light' />);
+
+    const button = screen.getByRole('link', { name: 'Button Text' });
+
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveClass('text-black');
+    // Add more assertions for other classes based on outline variant
+  });
+
+  it('renders an dark button link', () => {
+    render(<ButtonLink {...mockProps} variant='dark' />);
+
+    const button = screen.getByRole('link', { name: 'Button Text' });
+
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveClass('text-white');
+    // Add more assertions for other classes based on outline variant
+  });
+
   // Add tests for other variants (ghost, light, dark) similarly...
 
   it('handles click events', () => {

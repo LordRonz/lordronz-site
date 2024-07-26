@@ -47,7 +47,7 @@ describe('Header clipboard', () => {
       </div>,
     );
 
-    window.pageYOffset = 200;
+    window.scrollY = 200;
 
     fireEvent.scroll(window, { target: { scrollY: 500 } });
 

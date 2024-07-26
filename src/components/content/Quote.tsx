@@ -30,7 +30,7 @@ const Quote = ({ className, quote, author }: QuoteProps) => {
       <figcaption className='mt-6 flex items-center justify-center space-x-3'>
         <div className='flex items-center divide-gray-500 dark:divide-gray-700'>
           <cite className='pr-3 font-medium text-gray-900 dark:text-white'>
-            {author ? author : 'Anonymous'}
+            {author || 'Anonymous'}
           </cite>
         </div>
       </figcaption>

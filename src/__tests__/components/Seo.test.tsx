@@ -28,13 +28,27 @@ describe('Render SEO', () => {
     });
   });
 
-  afterEach(() => {
+  afterAll(() => {
     jest.resetModules();
   });
+
   it('renders a seo', () => {
     render(
       <div>
         <Seo templateTitle='banger' />
+        Test
+      </div>,
+    );
+
+    const tooltip = screen.getByText('Test');
+
+    expect(tooltip).toBeInTheDocument();
+  });
+
+  it('renders a seo with no templateTitle', () => {
+    render(
+      <div>
+        <Seo />
         Test
       </div>,
     );

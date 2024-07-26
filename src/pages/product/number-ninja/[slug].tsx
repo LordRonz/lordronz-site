@@ -29,10 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = await getFileBySlug(
-    'product',
-    ('number-ninja/' + params?.slug) as string,
-  );
+  const post = await getFileBySlug('product', 'number-ninja/' + params?.slug);
 
   const recommendations = await getRecommendations(params?.slug as string);
 

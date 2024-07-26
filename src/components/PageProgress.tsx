@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export type PageProgressProps = {
   color?: string;
@@ -33,9 +32,9 @@ const PageProgress = ({
   const progressStyle: React.CSSProperties = {
     marginTop: 0,
     padding: 0,
-    background: color ? color : 'skyblue',
+    background: color || 'skyblue',
     position: 'fixed',
-    height: height ? height : 4,
+    height: height || 4,
     width: width,
     top: 0,
     right: dir === 'ltr' ? 'auto' : 0,

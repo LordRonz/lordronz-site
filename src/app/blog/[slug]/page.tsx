@@ -11,7 +11,7 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const slug = params.slug;
 
-  const { frontmatter } = await getFileBySlug('blog', slug as string);
+  const { frontmatter } = await getFileBySlug('blog', slug);
 
   return generateSeoMetadata({
     templateTitle: frontmatter.title,
@@ -30,9 +30,9 @@ export const generateStaticParams = async () => {
 };
 
 const getPosts = async (slug: string) => {
-  const post = await getFileBySlug('blog', slug as string);
+  const post = await getFileBySlug('blog', slug);
 
-  const recommendations = await getRecommendations(slug as string);
+  const recommendations = await getRecommendations(slug);
 
   return { ...post, recommendations };
 };

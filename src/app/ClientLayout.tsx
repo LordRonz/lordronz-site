@@ -9,6 +9,7 @@ import AnimatePage from '@/components/AnimatePage';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header/Header';
 import ScrollButtonClient from '@/components/ScrollButtonClient';
+import { Toaster } from '@/components/ui/toast/toaster';
 
 declare module 'next-themes' {
   interface ThemeProviderProps {
@@ -36,6 +37,7 @@ const ClientLayout = ({ children }: { children: React.ReactNode }) => {
         <div className='flex min-h-screen flex-col justify-between'>
           <Header />
           <AnimatePage>
+            <Toaster />
             <main id='content'>{children}</main>
           </AnimatePage>
           <Footer />

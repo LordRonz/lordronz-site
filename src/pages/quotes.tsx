@@ -1,12 +1,13 @@
 import axios from 'axios';
 import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { MdOutlineRefresh } from 'react-icons/md';
 
 import Quote from '@/components/content/Quote';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 import Spinner from '@/components/Spinner';
+import { useToast } from '@/components/ui/toast/use-toast';
 import clsxm from '@/lib/clsxm';
 import type { RandomQuoteResponse } from '@/types/quote';
 
@@ -15,18 +16,30 @@ const QUOTES_API_URL = '/quotes-api';
 const QuotesPage: NextPage = () => {
   const [quote, setQuote] = useState<string>();
   const [author, setAuthor] = useState<string>();
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
-  const fetchRandomQuote = async () => {
-    const { data: result } = await axios.get<RandomQuoteResponse>(
-      `${QUOTES_API_URL}/random`,
-    );
-    setQuote(result[0].quote);
-    setAuthor(result[0].author);
-  };
+  const fetchRandomQuote = useCallback(async () => {
+    setIsLoading(true);
+    try {
+      const { data: result } = await axios.get<RandomQuoteResponse>(
+        `${QUOTES_API_URL}/randomos`,
+      );
+      setQuote(result[0].quote);
+      setAuthor(result[0].author);
+    } catch {
+      toast({
+        title: 'Failed to fetch quotes',
+        description: 'Try to skibidi around',
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  }, [toast]);
 
   useEffect(() => {
     fetchRandomQuote();
-  }, []);
+  }, [fetchRandomQuote]);
 
   return (
     <Layout>
@@ -44,6 +57,7 @@ const QuotesPage: NextPage = () => {
           )}
           onClick={(e) => {
             e.preventDefault();
+            if (isLoading) return;
             setQuote(undefined);
             fetchRandomQuote();
           }}

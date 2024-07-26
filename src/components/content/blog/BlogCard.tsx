@@ -13,7 +13,7 @@ type BlogCardProps = {
   checkTagged?: (tag: string) => boolean;
 } & React.ComponentPropsWithoutRef<'li'>;
 
-const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
+const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
   return (
     <li
       className={clsxm(
@@ -24,8 +24,6 @@ const BlogCard = ({ post, className, checkTagged, onClick }: BlogCardProps) => {
         'animate-shadow',
         className,
       )}
-      onClick={onClick}
-      onKeyDown={() => {}}
       title={post.title}
     >
       <UnstyledLink
