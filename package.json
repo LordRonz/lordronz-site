@@ -55,7 +55,7 @@
   "dependencies": {
     "@emotion/is-prop-valid": "^1.2.2",
     "@giscus/react": "^3.0.0",
-    "@google-cloud/firestore": "^7.7.0",
+    "@google-cloud/firestore": "^7.9.0",
     "@headlessui/react": "^1.7.19",
     "@radix-ui/react-toast": "^1.2.1",
     "@react-three/drei": "^9.105.6",
