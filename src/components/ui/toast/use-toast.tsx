@@ -27,10 +27,10 @@ const actionTypes = {
 
 let count = 0;
 
-function genId() {
+const genId = () => {
   count = (count + 1) % Number.MAX_SAFE_INTEGER;
   return count.toString();
-}
+};
 
 type ActionType = typeof actionTypes;
 
@@ -133,16 +133,16 @@ const listeners: Array<(state: State) => void> = [];
 
 let memoryState: State = { toasts: [] };
 
-function dispatch(action: Action) {
+const dispatch = (action: Action) => {
   memoryState = reducer(memoryState, action);
   listeners.forEach((listener) => {
     listener(memoryState);
   });
-}
+};
 
 type Toast = Omit<ToasterToast, 'id'>;
 
-function toast({ ...props }: Toast) {
+const toast = ({ ...props }: Toast) => {
   const id = genId();
 
   const update = (props: ToasterToast) =>
@@ -169,9 +169,9 @@ function toast({ ...props }: Toast) {
     dismiss,
     update,
   };
-}
+};
 
-function useToast() {
+const useToast = () => {
   const [state, setState] = React.useState<State>(memoryState);
 
   React.useEffect(() => {
@@ -189,6 +189,6 @@ function useToast() {
     toast,
     dismiss: (toastId?: string) => dispatch({ type: 'DISMISS_TOAST', toastId }),
   };
-}
+};
 
 export { toast, useToast };
