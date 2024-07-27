@@ -15,9 +15,11 @@ import type { RandomQuoteResponse } from '@/types/quote';
 const QUOTES_API_URL = '/quotes-api';
 
 const QuotesPage = () => {
-  const [quote, setQuote] = useState<string>();
-  const [author, setAuthor] = useState<string>();
-  const [isLoading, setIsLoading] = useState(false);
+  const [quoteData, setQuoteData] = useState<{
+    quote?: string;
+    author?: string;
+  }>({});
+  const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
 
   const fetchRandomQuote = useCallback(async () => {
@@ -26,8 +28,7 @@ const QuotesPage = () => {
       const { data: result } = await axios.get<RandomQuoteResponse>(
         `${QUOTES_API_URL}/random`,
       );
-      setQuote(result[0].quote);
-      setAuthor(result[0].author);
+      setQuoteData({ quote: result[0].quote, author: result[0].author });
     } catch {
       toast({
         title: 'Failed to fetch quotes',
@@ -44,10 +45,24 @@ const QuotesPage = () => {
     fetchRandomQuote();
   }, [fetchRandomQuote]);
 
+  const handleRefreshClick = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      if (!isLoading) {
+        setQuoteData({});
+        fetchRandomQuote();
+      }
+    },
+    [isLoading, fetchRandomQuote],
+  );
+
   return (
     <section className='flex flex-col items-center justify-center'>
-      {quote && !isLoading && <Quote quote={quote} author={author} />}
-      {!quote && !isLoading && (
+      {isLoading ? (
+        <Spinner className='h-12 w-12' />
+      ) : quoteData.quote ? (
+        <Quote quote={quoteData.quote} author={quoteData.author} />
+      ) : (
         <Alert className='max-w-80'>
           <Terminal className='h-4 w-4 text-primary-300' />
           <AlertTitle>Whoops!</AlertTitle>
@@ -56,18 +71,12 @@ const QuotesPage = () => {
           </AlertDescription>
         </Alert>
       )}
-      {isLoading && <Spinner className='h-12 w-12' />}
       <button
         className={clsxm(
           'btn-accent btn-circle btn mt-4',
           isLoading && 'hidden',
         )}
-        onClick={(e) => {
-          e.preventDefault();
-          if (isLoading) return;
-          setQuote(undefined);
-          fetchRandomQuote();
-        }}
+        onClick={handleRefreshClick}
       >
         <MdOutlineRefresh size={28} />
       </button>
