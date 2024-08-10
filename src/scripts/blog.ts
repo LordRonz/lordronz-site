@@ -1,9 +1,9 @@
 import { Command } from '@commander-js/extra-typings';
+import { input } from '@inquirer/prompts';
 import chalk from 'chalk';
 import Table from 'cli-table3';
 import { format } from 'date-fns';
 import fs from 'fs';
-import inquirer from 'inquirer';
 import path from 'path';
 import { read } from 'to-vfile';
 import { matter } from 'vfile-matter';
@@ -69,17 +69,13 @@ const createBlog = async () => {
   let slug = '';
   let filepath = '';
   while (!slug) {
-    const answers = await inquirer.prompt<{ slug: string }>([
-      {
-        type: 'input',
-        name: 'slug',
-        message: 'Blog slug (used for file name)',
-      },
-    ]);
-    slug = answers.slug.trim().replaceAll(' ', '').replaceAll('.mdx', '');
-    if (!slug) {
-      log.error('Please input the slug, it should not contain whitespaces');
-    }
+    slug = await input({
+      message: 'Blog slug (used for file name)',
+      transformer: (v) =>
+        v.toLowerCase().trim().replaceAll(' ', '').replaceAll('.mdx', ''),
+      required: true,
+    });
+
     filepath =
       typeof options.ls === 'string'
         ? options.ls
@@ -92,31 +88,18 @@ const createBlog = async () => {
   }
 
   createFile(filepath);
-  const answers = await inquirer.prompt<{
-    title: string;
-    tags: string;
-    banner: string;
-  }>([
-    {
-      type: 'input',
-      name: 'title',
+
+  const { title, tags, banner } = {
+    title: await input({
       message: 'What is the title of this blog?',
       default: '',
-    },
-    {
-      type: 'input',
-      name: 'tags',
+    }),
+    tags: await input({
       message: 'Tags of the blog? (comma-separated)',
       default: '',
-    },
-    {
-      type: 'input',
-      name: 'banner',
-      message: 'Banner file name?',
-      default: '',
-    },
-  ]);
-  const { title, tags, banner } = answers;
+    }),
+    banner: await input({ message: 'Banner file name?', default: '' }),
+  };
 
   const content = `---
 title: '${title}'
