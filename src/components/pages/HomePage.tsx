@@ -1,23 +1,18 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { GrDocumentText } from 'react-icons/gr';
 
+import ShimmerButton from '@/components/buttons/ShimmerButton';
+import ShinyButton from '@/components/buttons/ShinyButton';
 import Graphic from '@/components/layout/Graphic';
-import ButtonLink from '@/components/links/ButtonLink';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import { MainTitle } from '@/components/typography/MainTitle';
 import Wave from '@/components/Wave';
-import useWindowDimensions from '@/hooks/useWindowDimensions';
 import clsxm from '@/lib/clsxm';
 
-const CoolButton = dynamic(() => import('@/components/buttons/CoolButton'));
-
 const HomePage = () => {
-  const { width } = useWindowDimensions();
-
   return (
     <section className={clsxm('flex flex-row items-center justify-center')}>
       <article className='layout'>
@@ -38,27 +33,30 @@ const HomePage = () => {
               have honed my skills through the development of various React and
               Swift projects.
             </p>
-            <div className='flex  gap-x-2'>
+            <div className='flex items-center gap-x-2'>
               <UnstyledLink
                 href='/about'
                 aria-label='About Page'
                 className='inline-flex'
                 title='Go to about page'
               >
-                <CoolButton
-                  wrapperClassName='text-md font-bold'
-                  width={width >= 768 ? 220 : 200}
-                  height={45}
-                  key={width}
-                >
-                  <FaMagnifyingGlass className='mr-1' />
+                <ShimmerButton leftIcon={<FaMagnifyingGlass className='' />}>
                   Learn More About Me
-                </CoolButton>
+                </ShimmerButton>
               </UnstyledLink>
-              <ButtonLink className='inline-flex' href={`/cv`}>
-                <GrDocumentText className='mr-1' />
-                Get My CV
-              </ButtonLink>
+              <UnstyledLink
+                href='/cv'
+                aria-label='Get My CV'
+                className='inline-flex'
+                title='Go to CV page'
+              >
+                <ShinyButton
+                  variant='outline'
+                  leftIcon={<GrDocumentText className='' />}
+                >
+                  Get My CV
+                </ShinyButton>
+              </UnstyledLink>
             </div>
             <p className='mt-8'>
               P.S. this website is open-source and available on{' '}

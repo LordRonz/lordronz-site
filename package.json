@@ -57,6 +57,7 @@
     "@giscus/react": "^3.0.0",
     "@google-cloud/firestore": "^7.9.0",
     "@headlessui/react": "^2.1.2",
+    "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
     "@react-three/drei": "^9.109.5",
     "@react-three/fiber": "^8.17.5",

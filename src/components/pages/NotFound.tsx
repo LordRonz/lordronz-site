@@ -1,8 +1,10 @@
 import Accent from '@/components/Accent';
 import ArrowLink from '@/components/links/ArrowLink';
+import Meteors from '@/components/ui/meteors';
 
 const NotFound = () => (
   <section className=''>
+    <Meteors />
     <div className='layout flex flex-col items-center justify-center gap-y-40 text-center'>
       <div className='flex flex-col gap-y-4'>
         <h1 className='text-8xl'>
