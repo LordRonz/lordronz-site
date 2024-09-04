@@ -22,8 +22,8 @@ importers:
         specifier: ^7.9.0
         version: 7.9.0
       '@headlessui/react':
-        specifier: ^2.1.2
-        version: 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^2.1.5
+        version: 2.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot':
         specifier: ^1.1.0
         version: 1.1.0(@types/react@18.3.3)(react@18.3.1)
@@ -2556,8 +2556,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  '@headlessui/react@2.1.2':
-    resolution: {integrity: sha512-Kb3hgk9gRNRcTZktBrKdHhF3xFhYkca1Rk6e1/im2ENf83dgN54orMW0uSKTXFnUpZOUFZ+wcY05LlipwgZIFQ==}
+  '@headlessui/react@2.1.5':
+    resolution: {integrity: sha512-m3vzqwMTyDbgaNiSXQdrw8R4tRdnxVHHm4G/ZGS0TP6T8blEj3Ib1/zIJBzlvTXpBjTpd1DsUnRTonHyONMjSQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^18
@@ -13886,7 +13886,7 @@ snapshots:
       protobufjs: 7.3.2
       yargs: 17.7.2
 
-  '@headlessui/react@2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@headlessui/react@2.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@floating-ui/react': 0.26.22(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/focus': 3.18.1(react@18.3.1)
@@ -17904,7 +17904,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   dot-prop@5.3.0:
     dependencies:
@@ -20605,7 +20605,7 @@ snapshots:
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   lru-cache@10.4.3: {}
 
@@ -21381,7 +21381,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   node-abort-controller@3.1.1: {}
 
