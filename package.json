@@ -175,7 +175,7 @@
     "serwist": "^9.0.9",
     "sort-package-json": "^2.10.1",
     "standard-version": "^9.5.0",
-    "storybook": "^8.3.5",
+    "storybook": "^8.3.6",
     "storybook-dark-mode": "^4.0.2",
     "stylelint": "^16.10.0",
     "stylelint-config-prettier": "^9.0.5",
