@@ -2,18 +2,19 @@ import { existsSync } from 'fs';
 import fs from 'fs/promises';
 import path from 'path';
 
+import { MY_NAME, SITE_DESCRIPTION } from '@/constants/metadata';
 import type { IScriptParams } from '@/scripts/runner';
 
 const manifest = {
-  name: 'Aaron Christopher',
-  short_name: 'Aaron',
+  name: MY_NAME,
+  short_name: MY_NAME.split(' ')[0],
   start_url: '/',
   display: 'standalone',
   background_color: '#111',
   theme_color: '#eb2754',
   lang: 'en',
   categories: ['Technology', 'Programming', 'Website'],
-  description: "Aaron christopher's online portfolio and blog website.",
+  description: SITE_DESCRIPTION,
   orientation: 'portrait-primary',
   icons: [
     {
