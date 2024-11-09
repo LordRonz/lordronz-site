@@ -75,6 +75,10 @@ export default {
             opacity: '0',
           },
         },
+        'bg-position': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '100%': { backgroundPosition: '100% 50%' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -82,6 +86,7 @@ export default {
         'bg-shine': 'bg-shine 2.2s linear infinite',
         spotlight: 'spotlight 2s ease .75s 1 forwards',
         meteor: 'meteor 5s linear infinite',
+        'bg-position': 'bg-position 2.3s linear infinite alternate',
       },
     },
   },

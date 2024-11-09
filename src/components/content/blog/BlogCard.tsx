@@ -5,6 +5,7 @@ import Accent from '@/components/Accent';
 import Tag from '@/components/content/Tag';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
 import UnstyledLink from '@/components/links/UnstyledLink';
+import Counter from '@/components/text/counter';
 import clsxm from '@/lib/clsxm';
 import type { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
 
@@ -69,7 +70,14 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
             </div>
             <div className='flex items-center gap-1'>
               <HiOutlineEye className='inline-block text-base' />
-              <Accent>{post?.views?.toLocaleString() ?? '---'} views</Accent>
+              <Accent>
+                {post?.views?.toLocaleString() ? (
+                  <Counter targetValue={post.views} />
+                ) : (
+                  '---'
+                )}{' '}
+                views
+              </Accent>
             </div>
           </div>
           <p className='mb-2 mt-4 text-sm text-gray-600 dark:text-gray-300'>

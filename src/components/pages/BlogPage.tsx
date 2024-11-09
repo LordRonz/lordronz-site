@@ -7,10 +7,9 @@ import Accent from '@/components/Accent';
 import BlogCard from '@/components/content/blog/BlogCard';
 import ContentPlaceholder from '@/components/content/ContentPlaceHolder';
 import Tag, { SkipNavTag } from '@/components/content/Tag';
-import Sort from '@/components/forms/Sort';
+import Sort, { type SortOption } from '@/components/forms/Sort';
 import StyledInput from '@/components/forms/StyledInput';
 import CustomTab from '@/components/forms/Tab';
-import type { SortOption } from '@/components/SortListbox';
 import { MainTitle } from '@/components/typography/MainTitle';
 import useInjectContentMeta from '@/hooks/useInjectContentMeta';
 import clsxm from '@/lib/clsxm';
@@ -177,8 +176,8 @@ const BlogPage = ({
         >
           <CustomTab
             categories={langCategories}
-            onChange={(index) => {
-              setIsEnglish(index === 0);
+            onChange={(tab) => {
+              setIsEnglish(tab === 'English');
               clearSearch();
             }}
           />
@@ -188,7 +187,13 @@ const BlogPage = ({
               { label: 'Views', value: 1 },
             ]}
             sortOrder={sortDir}
-            onChangeSortBy={(index) => setSortOrder(sortOptions[index])}
+            onChangeSortBy={(sortOption) =>
+              setSortOrder(
+                sortOptions.find(
+                  (sortOpt) => sortOpt.id === sortOption.toLowerCase(),
+                ) ?? sortOptions[0],
+              )
+            }
             setSortOrder={(dir) => {
               setSortDir(dir);
               sessionStorage.setItem('blog-sort-dir', dir);
