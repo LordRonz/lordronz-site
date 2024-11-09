@@ -10,7 +10,7 @@
     "preinstall": "npx only-allow pnpm -y",
     "dev": "next dev --turbo",
     "dev:webpack": "next dev",
-    "prebuild": "ts-node ./src/scripts/runner.ts",
+    "prebuild": "tsx ./src/scripts/runner.ts",
     "build": "next build",
     "postbuild": "next-sitemap",
     "gcp-build": "next build",
