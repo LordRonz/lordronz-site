@@ -1,7 +1,12 @@
 import type { Thing, WebSite, WithContext } from 'schema-dts';
 
 import { WEBSITE_URL } from '@/constants/env';
-import { MY_NAME } from '@/constants/metadata';
+import {
+  ALT_NAME,
+  FIRST_NAME,
+  MY_NAME,
+  SOCIAL_LINKS,
+} from '@/constants/metadata';
 
 export type JsonLdProps = {
   children: React.ReactNode;
@@ -12,9 +17,20 @@ export const defaultJsonLd: WithContext<WebSite> = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: MY_NAME,
-  sameAs: [
-    'https://www.linkedin.com/in/aaronchristopher69',
-    'https://github.com/lordronz',
+  sameAs: SOCIAL_LINKS,
+  keywords: [
+    MY_NAME,
+    FIRST_NAME,
+    ...MY_NAME.split(' '),
+    `${FIRST_NAME}'s Portfolio Website`,
+    `${FIRST_NAME}'s Website`,
+    `${FIRST_NAME}'s Webpage`,
+    `${FIRST_NAME}'s Blog`,
+    ALT_NAME,
+    'Personal Portfolio',
+    'Software Engineer Portfolio',
+    'Tech Portfolio',
+    'Tech Blog',
   ],
   url: WEBSITE_URL,
   description:
@@ -22,6 +38,16 @@ export const defaultJsonLd: WithContext<WebSite> = {
   publisher: {
     '@type': 'Person',
     name: MY_NAME,
+    alternateName: ALT_NAME,
+    sameAs: SOCIAL_LINKS,
+    url: `${WEBSITE_URL}/about`,
+  },
+  author: {
+    '@type': 'Person',
+    name: MY_NAME,
+    alternateName: ALT_NAME,
+    sameAs: SOCIAL_LINKS,
+    url: `${WEBSITE_URL}/about`,
   },
 };
 

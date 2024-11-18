@@ -17,7 +17,7 @@ export const webUrl = process.env.NEXT_PUBLIC_HOSTNAME
 
 export const defaultMeta = {
   title: MY_NAME,
-  siteName: process.env.NEXT_PUBLIC_HOSTNAME || WEBSITE_URL,
+  siteName: MY_NAME,
   description: SITE_DESCRIPTION,
   url: webUrl,
   image: '/vercel.svg',
