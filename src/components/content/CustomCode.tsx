@@ -1,27 +1,31 @@
-import { useRef, useState } from 'react';
+import { memo, useRef, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FiCheck, FiCopy } from 'react-icons/fi';
 
 import clsxm from '@/lib/clsxm';
 
-export const Pre = (
-  props: React.ComponentPropsWithRef<'pre'> & { 'data-language': string },
-) => {
-  const language = props['data-language'];
+export const Pre = memo(
+  (props: React.ComponentPropsWithRef<'pre'> & { 'data-language': string }) => {
+    const language = props['data-language'];
 
-  return (
-    <pre {...props}>
-      {props.children}
-      <style jsx>{`
-        pre {
-          position: relative;
-          padding-top: ${language ? '2.5rem' : '0'};
-          border-radius: 8px;
-        }
-      `}</style>
-    </pre>
-  );
-};
+    return (
+      <pre {...props}>
+        {props.children}
+        <style jsx>{`
+          pre {
+            position: relative;
+            padding-top: ${language ? '2.5rem' : '0'};
+            border-radius: 8px;
+          }
+        `}</style>
+      </pre>
+    );
+  },
+  (prevProps, nextProps) =>
+    prevProps['data-language'] === nextProps['data-language'],
+);
+
+Pre.displayName = 'Pre';
 
 const CustomCode = (
   props: React.ComponentPropsWithRef<'code'> & { 'data-language': string },
@@ -73,4 +77,4 @@ const CustomCode = (
   );
 };
 
-export default CustomCode;
+export default memo(CustomCode);

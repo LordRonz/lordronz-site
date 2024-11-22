@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import UnstyledLink from '@/components/links/UnstyledLink';
 import clsxm from '@/lib/clsxm';
 
@@ -34,4 +36,10 @@ const TOCLink = ({
   );
 };
 
-export default TOCLink;
+export default memo(TOCLink, (prevProps, nextProps) => {
+  // Only re-render if `id` or `activeSection` changes
+  return (
+    (prevProps.id === prevProps.activeSection) ===
+    (nextProps.id === nextProps.activeSection)
+  );
+});

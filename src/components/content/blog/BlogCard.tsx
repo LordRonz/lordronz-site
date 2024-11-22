@@ -1,4 +1,5 @@
 import { format, parse } from 'date-fns';
+import { memo } from 'react';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 
 import Accent from '@/components/Accent';
@@ -101,4 +102,10 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
   );
 };
 
-export default BlogCard;
+export default memo(
+  BlogCard,
+  (prevProps, nextProps) =>
+    prevProps.post.slug === nextProps.post.slug &&
+    prevProps.className === nextProps.className &&
+    prevProps.checkTagged?.toString() === nextProps.checkTagged?.toString,
+);

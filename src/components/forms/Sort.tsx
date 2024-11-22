@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import type { IconType } from 'react-icons';
 import { FaSortAmountDown, FaSortAmountDownAlt } from 'react-icons/fa';
 
@@ -33,6 +33,21 @@ const Sort = (props: SortProps) => {
     setIsLoaded(true);
   }, []);
 
+  const onCustomTabChange = useCallback(
+    (value: string) => onChangeSortBy?.(value),
+    [onChangeSortBy],
+  );
+
+  const onToggleSort = useCallback(
+    () => setSortOrder?.(sortOrder === 'desc' ? 'asc' : 'desc'),
+    [setSortOrder, sortOrder],
+  );
+
+  const sortOptionsMemo = useMemo(
+    () => sortOptions.map((s) => s.label),
+    [sortOptions],
+  );
+
   return (
     <div className='flex gap-x-2 justify-end'>
       <Button
@@ -44,9 +59,7 @@ const Sort = (props: SortProps) => {
           'transition duration-100',
           'animate-shadow',
         )}
-        onClick={() =>
-          setSortOrder && setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')
-        }
+        onClick={onToggleSort}
         key={+isLoaded}
         aria-label='Toggle sort direction'
       >
@@ -57,13 +70,13 @@ const Sort = (props: SortProps) => {
         )}
       </Button>
       <CustomTab
-        categories={sortOptions.map((s) => s.label)}
+        categories={sortOptionsMemo}
         className='flex-shrink-0'
-        onChange={(value) => onChangeSortBy?.(value)}
+        onChange={onCustomTabChange}
         defaultIndex={defaultIndex}
       />
     </div>
   );
 };
 
-export default Sort;
+export default memo(Sort);

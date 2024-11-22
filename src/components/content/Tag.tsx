@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import clsxm from '@/lib/clsxm';
 
 const Tag = ({
@@ -47,4 +49,4 @@ export const SkipNavTag = ({
   );
 };
 
-export default Tag;
+export default memo(Tag);
