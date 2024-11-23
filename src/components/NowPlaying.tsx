@@ -90,10 +90,7 @@ const NowPlaying = () => {
 
   return (
     <>
-      <Tooltip
-        interactive={false}
-        content={'Time to flex my latest banger in the playlist 🎧'}
-      >
+      <Tooltip content={'Time to flex my latest banger in the playlist 🎧'}>
         <div
           className={clsxm(
             !!data?.songUrl && 'box',

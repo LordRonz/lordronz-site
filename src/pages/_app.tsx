@@ -1,5 +1,4 @@
 import '@/styles/globals.css';
-import 'react-tippy/dist/tippy.css';
 
 import axios from 'axios';
 import { AnimatePresence } from 'framer-motion';
