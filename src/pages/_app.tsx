@@ -9,6 +9,7 @@ import NextNProgress from 'nextjs-progressbar';
 import { SWRConfig } from 'swr';
 
 import ScrollButton from '@/components/ScrollButton';
+import { TooltipProvider } from '@/components/ui/tooltop';
 import clsxm from '@/lib/clsxm';
 
 declare module 'next-themes' {
@@ -35,9 +36,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           initial={false}
           onExitComplete={() => window.scrollTo(0, 0)}
         >
-          <main className={clsxm(GeistSans.variable, 'font-primary')}>
-            <Component {...pageProps} />
-          </main>
+          <TooltipProvider delayDuration={200}>
+            <main className={clsxm(GeistSans.variable, 'font-primary')}>
+              <Component {...pageProps} />
+            </main>
+          </TooltipProvider>
         </AnimatePresence>
         <ScrollButton />
       </SWRConfig>
