@@ -1,5 +1,4 @@
 import '@/styles/globals.css';
-import 'react-tippy/dist/tippy.css';
 
 import { GeistSans } from 'geist/font/sans';
 import type { Viewport } from 'next';
