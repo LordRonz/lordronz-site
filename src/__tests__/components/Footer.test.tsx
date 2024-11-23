@@ -6,6 +6,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 
 import Footer from '@/components/layout/Footer';
+import { TooltipProvider } from '@/components/ui/tooltop';
 
 jest.mock('next/router', () => ({
   useRouter() {
@@ -32,7 +33,11 @@ describe('Footer clipboard', () => {
     const jsdomPrompt = window.prompt;
     window.prompt = jest.fn();
 
-    render(<Footer />);
+    render(
+      <TooltipProvider>
+        <Footer />
+      </TooltipProvider>,
+    );
 
     const button = screen.getByRole('button', {
       name: /Mail button/i,

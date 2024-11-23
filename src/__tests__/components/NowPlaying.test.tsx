@@ -8,6 +8,7 @@ import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 import { SWRConfig } from 'swr';
 
 import NowPlaying, { AnimatedBars } from '@/components/NowPlaying';
+import { TooltipProvider } from '@/components/ui/tooltop';
 import { WEBSITE_URL } from '@/constants/env';
 
 jest.mock('next/router', () => ({
@@ -33,7 +34,11 @@ describe('NowPlaying', () => {
   });
 
   it('renders a now playing', () => {
-    render(<NowPlaying />);
+    render(
+      <TooltipProvider>
+        <NowPlaying />
+      </TooltipProvider>,
+    );
 
     const button = screen.getByText('Not Playing');
 
@@ -49,13 +54,15 @@ describe('NowPlaying', () => {
     });
 
     render(
-      <SWRConfig
-        value={{
-          fetcher: (url) => axios.get(url).then((res) => res.data),
-        }}
-      >
-        <NowPlaying />
-      </SWRConfig>,
+      <TooltipProvider>
+        <SWRConfig
+          value={{
+            fetcher: (url) => axios.get(url).then((res) => res.data),
+          }}
+        >
+          <NowPlaying />
+        </SWRConfig>
+      </TooltipProvider>,
     );
     mockAllIsIntersecting(true);
 
