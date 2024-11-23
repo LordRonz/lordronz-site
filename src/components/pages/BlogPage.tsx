@@ -152,7 +152,7 @@ const BlogPage = ({
   const toggleTag = useCallback(
     (tag: string) => {
       // If tag is already there, then remove
-      if (search.includes(tag)) {
+      if (search.split(' ').includes(tag)) {
         setSearch((s) =>
           s
             .split(' ')
@@ -161,7 +161,7 @@ const BlogPage = ({
         );
       } else {
         // append tag
-        setSearch((s) => (s !== '' ? `${s.trim()} ${tag}` : tag));
+        setSearch((s) => [...s.split(' '), tag].join(' '));
       }
     },
     [search],

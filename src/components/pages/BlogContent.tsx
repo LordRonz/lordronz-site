@@ -37,12 +37,26 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
     () => cleanBlogPrefix(frontmatter.slug),
     [frontmatter.slug],
   );
-  const isEnglish = cleanSlug === frontmatter.slug;
+
+  const isEnglish = useMemo(
+    () => cleanSlug === frontmatter.slug,
+    [cleanSlug, frontmatter.slug],
+  );
+
+  const languageLink = useMemo(
+    () => `/blog/${isEnglish ? 'id-' : ''}${cleanSlug}`,
+    [cleanSlug, isEnglish],
+  );
+
+  const langLinkContent = useMemo(
+    () => `Read in ${isEnglish ? 'Bahasa Indonesia' : 'English'}`,
+    [isEnglish],
+  );
   //#endregion  //*======== Blog Language ===========
 
   //#region  //*=========== Content Meta ===========
   const contentSlug = `b_${cleanSlug}`;
-  const meta = useContentMeta(contentSlug, { runIncrement: true });
+  const meta = useContentMeta(contentSlug, { runIncrement: false });
   //#endregion  //*======== Content Meta ===========
 
   //#region  //*=========== Scrollspy ===========
@@ -121,10 +135,10 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
           <div className='flex flex-col-reverse md:flex-row gap-y-3 justify-between mt-4 items-start'>
             {!frontmatter?.englishOnly && (
               <CustomLink
-                href={`/blog/${isEnglish ? 'id-' : ''}${cleanSlug}`}
+                href={languageLink}
                 className='flex-grow-0 flex-shrink'
               >
-                Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
+                {langLinkContent}
               </CustomLink>
             )}
             <div className='flex gap-x-2 text-xs md:text-sm items-center'>

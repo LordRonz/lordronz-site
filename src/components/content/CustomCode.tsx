@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FiCheck, FiCopy } from 'react-icons/fi';
 
@@ -32,8 +32,18 @@ const CustomCode = (
 ) => {
   const textRef = useRef<HTMLDivElement>(null);
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [textToCopy, setTextToCopy] = useState<string>('');
 
   const language = props['data-language'];
+
+  useEffect(() => {
+    setTextToCopy(textRef.current?.textContent ?? '');
+  }, [props.children]);
+
+  const onCopy = useCallback(() => {
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 1500);
+  }, []);
 
   return (
     <code {...props} data-code-type={language && 'code-block'}>
@@ -52,13 +62,7 @@ const CustomCode = (
               {language}
             </span>
           </div>
-          <CopyToClipboard
-            text={textRef?.current?.textContent ?? ''}
-            onCopy={() => {
-              setIsCopied(true);
-              setTimeout(() => setIsCopied(false), 1500);
-            }}
-          >
+          <CopyToClipboard text={textToCopy} onCopy={onCopy}>
             <button className='absolute md:right-2 md:top-2 right-1 top-1 block rounded border border-gray-600 p-2 text-lg transition-colors hover:bg-gray-400 hover:dark:bg-gray-700 md:block'>
               <label
                 className={clsxm(

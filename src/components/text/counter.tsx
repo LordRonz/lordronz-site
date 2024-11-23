@@ -1,5 +1,5 @@
 import { useInView, useMotionValue, useSpring } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
@@ -42,7 +42,7 @@ export const Formatter = {
     ),
 };
 
-export default function Counter({
+export default memo(function Counter({
   format = Formatter.number,
   targetValue,
   direction = 'up',
@@ -52,6 +52,7 @@ export default function Counter({
   const ref = useRef<HTMLSpanElement>(null);
   const isGoingUp = direction === 'up';
   const motionValue = useMotionValue(isGoingUp ? 0 : targetValue);
+  const [hasRun, setHasRun] = useState(false);
 
   const springValue = useSpring(motionValue, {
     damping: 60,
@@ -60,16 +61,17 @@ export default function Counter({
   const isInView = useInView(ref, { margin: '0px', once: true });
 
   useEffect(() => {
-    if (!isInView) {
+    if (!isInView || hasRun) {
       return;
     }
 
+    setHasRun(true);
     const timer = setTimeout(() => {
       motionValue.set(isGoingUp ? targetValue : 0);
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [isInView, delay, isGoingUp, targetValue, motionValue]);
+  }, [isInView, delay, isGoingUp, targetValue, motionValue, hasRun]);
 
   useEffect(() => {
     springValue.on('change', (value) => {
@@ -80,4 +82,4 @@ export default function Counter({
   }, [springValue, format]);
 
   return <span ref={ref} className={clsxm(className)} />;
-}
+});
