@@ -65,9 +65,9 @@ export default memo(function Counter({
       return;
     }
 
-    setHasRun(true);
     const timer = setTimeout(() => {
       motionValue.set(isGoingUp ? targetValue : 0);
+      setHasRun(true);
     }, delay);
 
     return () => clearTimeout(timer);
