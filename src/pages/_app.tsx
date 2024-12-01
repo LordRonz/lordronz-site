@@ -9,7 +9,7 @@ import NextNProgress from 'nextjs-progressbar';
 import { SWRConfig } from 'swr';
 
 import ScrollButton from '@/components/ScrollButton';
-import { TooltipProvider } from '@/components/ui/tooltop';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import clsxm from '@/lib/clsxm';
 
 declare module 'next-themes' {

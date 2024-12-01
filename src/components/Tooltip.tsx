@@ -4,7 +4,7 @@ import {
   Tooltip as BaseTooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltop';
+} from '@/components/ui/tooltip';
 import clsxm from '@/lib/clsxm';
 
 type TooltipTextProps = {

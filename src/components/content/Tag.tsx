@@ -1,12 +1,17 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-const Tag = ({
-  children,
-  className,
-  ...rest
-}: React.ComponentPropsWithoutRef<'button'>) => {
+type TagProps = Omit<React.ComponentPropsWithoutRef<'button'>, 'onClick'> & {
+  onClick?: (tag: string) => void;
+  tag: string;
+};
+
+const Tag = ({ children, className, onClick, tag, ...rest }: TagProps) => {
+  const btnOnClick = useCallback(() => {
+    onClick?.(tag);
+  }, [onClick, tag]);
+
   return (
     <button
       className={clsxm(
@@ -17,6 +22,7 @@ const Tag = ({
 
         className,
       )}
+      onClick={btnOnClick}
       {...rest}
     >
       {children}
@@ -49,4 +55,11 @@ export const SkipNavTag = ({
   );
 };
 
-export default memo(Tag);
+export default memo(
+  Tag,
+  (prevProps, nextProps) =>
+    prevProps.tag === nextProps.tag &&
+    prevProps.children?.toString() === nextProps.children?.toString() &&
+    prevProps.disabled === nextProps.disabled &&
+    prevProps.key === nextProps.key,
+);

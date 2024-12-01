@@ -9,6 +9,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm -y",
     "dev": "next dev --turbo",
+    "scan": "npx react-scan@latest localhost:3000",
     "dev:webpack": "next dev",
     "prebuild": "tsx ./src/scripts/runner.ts",
     "build": "next build",

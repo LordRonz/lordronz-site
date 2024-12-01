@@ -10,7 +10,7 @@ import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header/Header';
 import ScrollButtonClient from '@/components/ScrollButtonClient';
 import { Toaster } from '@/components/ui/toast/toaster';
-import { TooltipProvider } from '@/components/ui/tooltop';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 declare module 'next-themes' {
   interface ThemeProviderProps {

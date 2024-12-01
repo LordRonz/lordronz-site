@@ -193,14 +193,6 @@ const BlogPage = ({
       })),
     [tags, filteredTags, checkTagged],
   );
-
-  // Memoize the `onClick` handler
-  const getOnClickHandler = useCallback(
-    (tag: string) => () => {
-      toggleTag(tag);
-    },
-    [toggleTag],
-  );
   //#endregion  //*======== Tag ===========
 
   return (
@@ -231,7 +223,8 @@ const BlogPage = ({
             {tagStates.map(({ tag, isDisabled, isTagged }) => (
               <Tag
                 key={tag}
-                onClick={getOnClickHandler(tag)}
+                onClick={toggleTag}
+                tag={tag}
                 disabled={isDisabled}
               >
                 {isTagged ? <Accent>{tag}</Accent> : tag}

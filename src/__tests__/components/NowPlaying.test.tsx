@@ -8,7 +8,7 @@ import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 import { SWRConfig } from 'swr';
 
 import NowPlaying, { AnimatedBars } from '@/components/NowPlaying';
-import { TooltipProvider } from '@/components/ui/tooltop';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { WEBSITE_URL } from '@/constants/env';
 
 jest.mock('next/router', () => ({

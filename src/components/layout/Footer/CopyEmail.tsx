@@ -9,7 +9,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltop';
+} from '@/components/ui/tooltip';
 
 const mail = 'me@aaronct.dev';
 

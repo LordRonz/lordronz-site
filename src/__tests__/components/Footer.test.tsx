@@ -6,7 +6,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 
 import Footer from '@/components/layout/Footer';
-import { TooltipProvider } from '@/components/ui/tooltop';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 jest.mock('next/router', () => ({
   useRouter() {

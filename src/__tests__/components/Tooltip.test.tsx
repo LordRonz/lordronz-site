@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 import Tooltip from '@/components/Tooltip';
-import { TooltipProvider } from '@/components/ui/tooltop';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 jest.mock('next/router', () => ({
   useRouter() {

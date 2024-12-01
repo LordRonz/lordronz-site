@@ -54,6 +54,7 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
                 tabIndex={-1}
                 className='bg-opacity-80 dark:!bg-opacity-60'
                 key={tag}
+                tag={tag}
               >
                 {checkTagged?.(tag) ? <Accent>{tag}</Accent> : tag}
               </Tag>
