@@ -58,7 +58,9 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
   const ref = useRef(null);
 
   useClickAway(ref, () => {
-    sideNav && closeSideNav();
+    if (sideNav) {
+      closeSideNav();
+    }
   });
 
   return (

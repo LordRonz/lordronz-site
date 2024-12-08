@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { animate } from 'motion';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -19,11 +20,11 @@ export const AnimatedBars = ({
           'scaleY(1.5) translateY(-0.082rem)',
           'scaleY(1.0) translateY(0rem)',
         ],
-      },
+      } as any, // TODO: Remove any when things are not alpha
       {
         duration: 1.0,
         repeat: Infinity,
-        easing: ['ease-in-out'],
+        ease: ['easeInOut'],
       },
     );
     animate(
@@ -34,12 +35,12 @@ export const AnimatedBars = ({
           'scaleY(3) translateY(-0.083rem)',
           'scaleY(1.0) translateY(0rem)',
         ],
-      },
+      } as any,
       {
         delay: 0.2,
         duration: 1.5,
         repeat: Infinity,
-        easing: ['ease-in-out'],
+        ease: ['easeInOut'],
       },
     );
     animate(
@@ -50,12 +51,12 @@ export const AnimatedBars = ({
           'scaleY(0.5) translateY(0.37rem)',
           'scaleY(1.0)  translateY(0rem)',
         ],
-      },
+      } as any,
       {
         delay: 0.3,
         duration: 1.5,
         repeat: Infinity,
-        easing: ['ease-in-out'],
+        ease: ['easeInOut'],
       },
     );
   }, []);

@@ -60,6 +60,5 @@ export default memo(
   (prevProps, nextProps) =>
     prevProps.tag === nextProps.tag &&
     prevProps.children?.toString() === nextProps.children?.toString() &&
-    prevProps.disabled === nextProps.disabled &&
-    prevProps.key === nextProps.key,
+    prevProps.disabled === nextProps.disabled,
 );

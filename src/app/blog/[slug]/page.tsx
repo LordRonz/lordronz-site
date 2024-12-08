@@ -7,9 +7,9 @@ import { getFileBySlug, getFiles, getRecommendations } from '@/lib/mdx';
 export const generateMetadata = async ({
   params,
 }: {
-  params: { slug: string };
+  params: tParams;
 }): Promise<Metadata> => {
-  const slug = params.slug;
+  const { slug } = await params;
 
   const { frontmatter } = await getFileBySlug('blog', slug);
 
@@ -36,9 +36,11 @@ const getPosts = async (slug: string) => {
 
   return { ...post, recommendations };
 };
-
-const Page = async ({ params }: { params: { slug: string } }) => {
-  const { code, frontmatter, recommendations } = await getPosts(params.slug);
+type tParams = Promise<{ slug: string }>;
+const Page = async ({ params }: { params: tParams }) => {
+  const { code, frontmatter, recommendations } = await getPosts(
+    (await params).slug,
+  );
 
   return (
     <SingleBlogPage
