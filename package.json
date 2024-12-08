@@ -143,7 +143,7 @@
     "cypress": "^13.16.1",
     "daisyui": "^4.12.14",
     "esbuild": "^0.24.0",
-    "eslint": "^8.57.1",
+    "eslint": "^9.16.0",
     "eslint-config-next": "^15.0.4",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jest": "^28.9.0",
