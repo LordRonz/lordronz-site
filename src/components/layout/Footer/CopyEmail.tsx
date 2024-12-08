@@ -48,7 +48,10 @@ const CopyEmail = () => {
           event.preventDefault();
         }}
       >
-        <div className='inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-primary-500 dark:bg-dark dark:text-gray-200'>
+        <div
+          className='inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-primary-500 dark:bg-dark dark:text-gray-200'
+          data-testid='copy-status'
+        >
           {copyStatus}{' '}
           <code>
             <Accent className='inline-block font-medium'>{mail}</Accent>
