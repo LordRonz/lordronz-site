@@ -27,7 +27,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <head>
         <script
           defer
-          src='https://analytics.us.umami.is/script.js'
+          src='https://cloud.umami.is/script.js'
           data-website-id='51739fff-d062-4217-9533-180ec6523428'
         />
       </head>

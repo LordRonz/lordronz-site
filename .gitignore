@@ -68,3 +68,6 @@ public/manifest.json
 
 # Cache
 .swc/
+
+# Local Netlify folder
+.netlify
