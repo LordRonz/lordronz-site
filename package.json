@@ -127,7 +127,7 @@
     "@types/node": "^22.10.1",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
     "@types/three": "^0.170.0",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
