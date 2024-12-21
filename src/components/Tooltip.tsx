@@ -1,13 +1,11 @@
-import type { TooltipProps } from 'react-tippy';
-import { Tooltip as TippyTooltip } from 'react-tippy';
+import { memo } from 'react';
 
+import {
+  Tooltip as BaseTooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import clsxm from '@/lib/clsxm';
-
-declare module 'react-tippy' {
-  interface TooltipProps {
-    children?: React.ReactNode;
-  }
-}
 
 type TooltipTextProps = {
   content?: React.ReactNode;
@@ -15,11 +13,10 @@ type TooltipTextProps = {
   className?: string;
   spanClassName?: string;
   withUnderline?: boolean;
-} & TooltipProps &
-  Omit<
-    React.ComponentPropsWithoutRef<'div'>,
-    'children' | 'className' | 'content'
-  >;
+} & Omit<
+  React.ComponentPropsWithoutRef<'div'>,
+  'children' | 'className' | 'content'
+>;
 
 const Tooltip = ({
   content,
@@ -27,13 +24,27 @@ const Tooltip = ({
   className,
   spanClassName,
   withUnderline = false,
-  ...rest
 }: TooltipTextProps) => {
   return (
-    <TippyTooltip
-      trigger='mouseenter'
-      interactive
-      html={
+    <BaseTooltip>
+      <TooltipTrigger className='p-0 border-0'>
+        {withUnderline ? (
+          <span
+            className={clsxm('underline', 'decoration-dotted', spanClassName)}
+          >
+            {children}
+          </span>
+        ) : (
+          <>{children}</>
+        )}
+      </TooltipTrigger>
+      <TooltipContent
+        className='px-0 py-0 border-0 mb-2 max-w-60'
+        onPointerDownOutside={(event) => {
+          event.preventDefault();
+        }}
+        avoidCollisions={false}
+      >
         <div
           className={clsxm(
             'inline-block rounded-md bg-white p-2 text-gray-600 shadow-md dark:bg-dark dark:text-gray-200',
@@ -43,20 +54,9 @@ const Tooltip = ({
         >
           {content}
         </div>
-      }
-      {...rest}
-    >
-      {withUnderline ? (
-        <span
-          className={clsxm('underline', 'decoration-dotted', spanClassName)}
-        >
-          {children}
-        </span>
-      ) : (
-        <>{children}</>
-      )}
-    </TippyTooltip>
+      </TooltipContent>
+    </BaseTooltip>
   );
 };
 
-export default Tooltip;
+export default memo(Tooltip);

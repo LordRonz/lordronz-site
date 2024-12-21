@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { memo } from 'react';
 import { MdOpenInNew } from 'react-icons/md';
 import { SiGithub } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
@@ -142,4 +143,4 @@ const ProjectCard = ({
   );
 };
 
-export default ProjectCard;
+export default memo(ProjectCard);

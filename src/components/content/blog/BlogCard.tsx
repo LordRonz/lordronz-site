@@ -1,10 +1,12 @@
 import { format, parse } from 'date-fns';
+import { memo } from 'react';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 
 import Accent from '@/components/Accent';
 import Tag from '@/components/content/Tag';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
 import UnstyledLink from '@/components/links/UnstyledLink';
+import Counter from '@/components/text/counter';
 import clsxm from '@/lib/clsxm';
 import type { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters';
 
@@ -52,6 +54,7 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
                 tabIndex={-1}
                 className='bg-opacity-80 dark:!bg-opacity-60'
                 key={tag}
+                tag={tag}
               >
                 {checkTagged?.(tag) ? <Accent>{tag}</Accent> : tag}
               </Tag>
@@ -69,7 +72,14 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
             </div>
             <div className='flex items-center gap-1'>
               <HiOutlineEye className='inline-block text-base' />
-              <Accent>{post?.views?.toLocaleString() ?? '---'} views</Accent>
+              <Accent>
+                {post?.views?.toLocaleString() ? (
+                  <Counter targetValue={post.views} />
+                ) : (
+                  '---'
+                )}{' '}
+                views
+              </Accent>
             </div>
           </div>
           <p className='mb-2 mt-4 text-sm text-gray-600 dark:text-gray-300'>
@@ -93,4 +103,10 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
   );
 };
 
-export default BlogCard;
+export default memo(
+  BlogCard,
+  (prevProps, nextProps) =>
+    prevProps.post.slug === nextProps.post.slug &&
+    prevProps.className === nextProps.className &&
+    prevProps.checkTagged?.toString() === nextProps.checkTagged?.toString,
+);

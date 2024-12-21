@@ -3,7 +3,7 @@
 import ClientWrapper from './ClientWrapper';
 import ScrollButton from './ScrollButton';
 
-const ScrollButtonClient = (): JSX.Element => {
+const ScrollButtonClient = () => {
   return (
     <ClientWrapper>
       <ScrollButton />

@@ -17,7 +17,7 @@ const ColorModeToggle = ({
   iconClassName,
   value,
   onChange,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

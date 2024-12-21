@@ -3,11 +3,11 @@ import { ImSpinner2 } from 'react-icons/im';
 import clsxm from '@/lib/clsxm';
 
 const enum ButtonVariant {
-  primary,
-  outline,
-  ghost,
-  light,
-  dark,
+  primary = 'primary',
+  outline = 'outline',
+  ghost = 'ghost',
+  light = 'light',
+  dark = 'dark',
 }
 
 export type ButtonProps = {
@@ -21,7 +21,7 @@ const Button = ({
   className,
   disabled: buttonDisabled,
   isLoading,
-  variant = 'primary',
+  variant = ButtonVariant.primary,
   isDarkBg = true,
   ...rest
 }: ButtonProps) => {

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import { WEBSITE_URL } from '@/constants/env';
-import { MY_NAME } from '@/constants/metadata';
+import { MY_NAME, SITE_DESCRIPTION } from '@/constants/metadata';
 import { openGraph } from '@/lib/og';
 
 import { removeDuplicateSlashUrl } from './utils';
@@ -17,8 +17,8 @@ export const webUrl = process.env.NEXT_PUBLIC_HOSTNAME
 
 export const defaultMeta = {
   title: MY_NAME,
-  siteName: process.env.NEXT_PUBLIC_HOSTNAME || WEBSITE_URL,
-  description: "Aaron christopher's online portfolio and blog website.",
+  siteName: MY_NAME,
+  description: SITE_DESCRIPTION,
   url: webUrl,
   image: '/vercel.svg',
   type: 'website',

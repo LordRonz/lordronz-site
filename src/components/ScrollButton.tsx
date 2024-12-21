@@ -11,7 +11,7 @@ const ScrollButton = ({
   wrapperClassName,
   className,
   ...rest
-}: ScrollButtonProps): JSX.Element => {
+}: ScrollButtonProps) => {
   const [visible, setVisible] = useState<boolean>(false);
 
   useEffect(() => {

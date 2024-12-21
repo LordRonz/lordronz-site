@@ -4,11 +4,11 @@ import UnstyledLink, {
 import clsxm from '@/lib/clsxm';
 
 const enum ButtonVariant {
-  primary,
-  outline,
-  ghost,
-  light,
-  dark,
+  primary = 'primary',
+  outline = 'outline',
+  ghost = 'ghost',
+  light = 'light',
+  dark = 'dark',
 }
 
 export type ButtonLinkProps = {
@@ -18,7 +18,7 @@ export type ButtonLinkProps = {
 const ButtonLink = ({
   children,
   className = '',
-  variant = 'primary',
+  variant = ButtonVariant.primary,
   ...rest
 }: ButtonLinkProps) => (
   <UnstyledLink

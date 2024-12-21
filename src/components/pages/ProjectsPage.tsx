@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import CustomLightbox from '@/components/images/CustomLightbox';
 import ProjectCard, { type Project } from '@/components/ProjectCard';
@@ -100,6 +100,17 @@ const ProjectsPage = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
 
+  const slides = useMemo(
+    () => [
+      {
+        src: `/images/projects/${projects[imgIndex].image}`,
+      },
+    ],
+    [imgIndex],
+  );
+
+  const closeLightbox = useCallback(() => setIsLightboxOpen(false), []);
+
   return (
     <>
       <section className={clsxm('flex flex-col justify-center')}>
@@ -125,12 +136,8 @@ const ProjectsPage = () => {
       </section>
       <CustomLightbox
         open={isLightboxOpen}
-        close={() => setIsLightboxOpen(false)}
-        slides={[
-          {
-            src: `/images/projects/${projects[imgIndex].image}`,
-          },
-        ]}
+        close={closeLightbox}
+        slides={slides}
       />
     </>
   );

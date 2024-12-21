@@ -13,7 +13,7 @@ const runAsync = async () => {
   const files = fs
     .readdirSync(path.join(__dirname, 'pre-build'))
     .filter((file) => file.endsWith('.ts'))
-    .sort();
+    .sort((a, b) => a.localeCompare(b));
   for (const file of files) {
     const {
       default: defaultFunc,

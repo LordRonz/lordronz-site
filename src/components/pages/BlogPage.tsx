@@ -1,16 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { HiCalendar, HiEye } from 'react-icons/hi';
 
 import Accent from '@/components/Accent';
 import BlogCard from '@/components/content/blog/BlogCard';
 import ContentPlaceholder from '@/components/content/ContentPlaceHolder';
 import Tag, { SkipNavTag } from '@/components/content/Tag';
-import Sort from '@/components/forms/Sort';
+import Sort, { type SortOption } from '@/components/forms/Sort';
 import StyledInput from '@/components/forms/StyledInput';
 import CustomTab from '@/components/forms/Tab';
-import type { SortOption } from '@/components/SortListbox';
 import { MainTitle } from '@/components/typography/MainTitle';
 import useInjectContentMeta from '@/hooks/useInjectContentMeta';
 import clsxm from '@/lib/clsxm';
@@ -34,6 +33,11 @@ const sortOptions: SortOption[] = [
   },
 ];
 
+const sortOptionsTab = [
+  { label: 'Date', value: 0 },
+  { label: 'Views', value: 1 },
+];
+
 const langCategories = ['English', 'Bahasa Indonesia'];
 
 const BlogPage = ({
@@ -47,7 +51,7 @@ const BlogPage = ({
 }) => {
   /** Lazy init from session storage to preserve preference on revisit */
   const [sortOrder, setSortOrder] = useState<SortOption>(
-    () => sortOptions[Number(getFromSessionStorage('blog-sort')) || 0],
+    () => sortOptions[+(getFromSessionStorage('blog-sort') ?? 0)],
   );
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>(
     (getFromSessionStorage('blog-sort-dir') as 'asc' | 'desc') || 'desc',
@@ -64,10 +68,38 @@ const BlogPage = ({
     (BlogFrontmatter & InjectedMeta)[]
   >(() => [...posts]);
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-  };
-  const clearSearch = () => setSearch('');
+  }, []);
+  const clearSearch = useCallback(() => setSearch(''), []);
+
+  const onTabChange = useCallback(
+    (tab: string) => {
+      setIsEnglish(tab === 'English');
+      clearSearch();
+    },
+    [clearSearch],
+  );
+
+  const onChangeSortBy = useCallback(
+    (sortOption: string) =>
+      setSortOrder(
+        sortOptions.find(
+          (sortOpt) => sortOpt.id === sortOption.toLowerCase(),
+        ) ?? sortOptions[0],
+      ),
+    [setSortOrder],
+  );
+
+  const setSortDirection = useCallback((dir: 'asc' | 'desc') => {
+    setSortDir(dir);
+    sessionStorage.setItem('blog-sort-dir', dir);
+  }, []);
+
+  const defaultSortIndex = useMemo(
+    () => (sortOrder.id === 'date' ? 0 : 1),
+    [sortOrder.id],
+  );
 
   useEffect(() => {
     const results = populatedPosts.filter(
@@ -102,37 +134,65 @@ const BlogPage = ({
   }, []);
 
   //#region  //*=========== Post Language Splitter ===========
-  const englishPosts = filteredPosts.filter((p) => !p.slug.startsWith('id-'));
-  const bahasaPosts = filteredPosts.filter((p) => p.slug.startsWith('id-'));
-  const currentPosts = isEnglish ? englishPosts : bahasaPosts;
+  const englishPosts = useMemo(
+    () => filteredPosts.filter((p) => !p.slug.startsWith('id-')),
+    [filteredPosts],
+  );
+  const bahasaPosts = useMemo(
+    () => filteredPosts.filter((p) => p.slug.startsWith('id-')),
+    [filteredPosts],
+  );
+  const currentPosts = useMemo(
+    () => (isEnglish ? englishPosts : bahasaPosts),
+    [bahasaPosts, englishPosts, isEnglish],
+  );
   //#endregion  //*======== Post Language Splitter ===========
 
   //#region  //*=========== Tag ===========
-  const toggleTag = (tag: string) => {
-    // If tag is already there, then remove
-    if (search.includes(tag)) {
-      setSearch((s) =>
-        s
-          .split(' ')
-          .filter((t) => t !== tag)
-          ?.join(' '),
-      );
-    } else {
-      // append tag
-      setSearch((s) => (s !== '' ? `${s.trim()} ${tag}` : tag));
-    }
-  };
+  const toggleTag = useCallback(
+    (tag: string) => {
+      // If tag is already there, then remove
+      if (search.split(' ').includes(tag)) {
+        setSearch((s) =>
+          s
+            .split(' ')
+            .filter((t) => t !== tag)
+            ?.join(' '),
+        );
+      } else {
+        // append tag
+        setSearch((s) => [...s.split(' '), tag].join(' '));
+      }
+    },
+    [search],
+  );
 
   /** Currently available tags based on filtered posts */
-  const filteredTags = getTags(currentPosts);
+  const filteredTags = useMemo(
+    () => getTags(currentPosts).sort((a, b) => a.localeCompare(b)),
+    [currentPosts],
+  );
 
   /** Show accent if not disabled and selected  */
-  const checkTagged = (tag: string) => {
-    return (
-      filteredTags.includes(tag) &&
-      search.toLowerCase().split(' ').includes(tag)
-    );
-  };
+  const checkTagged = useCallback(
+    (tag: string) => {
+      return (
+        filteredTags.includes(tag) &&
+        search.toLowerCase().split(' ').includes(tag)
+      );
+    },
+    [filteredTags, search],
+  );
+
+  const tagStates = useMemo(
+    () =>
+      tags.map((tag) => ({
+        tag,
+        isDisabled: !filteredTags.includes(tag),
+        isTagged: checkTagged(tag),
+      })),
+    [tags, filteredTags, checkTagged],
+  );
   //#endregion  //*======== Tag ===========
 
   return (
@@ -160,13 +220,14 @@ const BlogPage = ({
         >
           <span className='font-medium'>Filter topic:</span>
           <SkipNavTag>
-            {tags.map((tag) => (
+            {tagStates.map(({ tag, isDisabled, isTagged }) => (
               <Tag
                 key={tag}
-                onClick={() => toggleTag(tag)}
-                disabled={!filteredTags.includes(tag)}
+                onClick={toggleTag}
+                tag={tag}
+                disabled={isDisabled}
               >
-                {checkTagged(tag) ? <Accent>{tag}</Accent> : tag}
+                {isTagged ? <Accent>{tag}</Accent> : tag}
               </Tag>
             ))}
           </SkipNavTag>
@@ -175,25 +236,13 @@ const BlogPage = ({
           className='relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between'
           data-fade='4'
         >
-          <CustomTab
-            categories={langCategories}
-            onChange={(index) => {
-              setIsEnglish(index === 0);
-              clearSearch();
-            }}
-          />
+          <CustomTab categories={langCategories} onChange={onTabChange} />
           <Sort
-            sortOptions={[
-              { label: 'Date', value: 0 },
-              { label: 'Views', value: 1 },
-            ]}
+            sortOptions={sortOptionsTab}
             sortOrder={sortDir}
-            onChangeSortBy={(index) => setSortOrder(sortOptions[index])}
-            setSortOrder={(dir) => {
-              setSortDir(dir);
-              sessionStorage.setItem('blog-sort-dir', dir);
-            }}
-            defaultIndex={sortOrder.id === 'date' ? 0 : 1}
+            onChangeSortBy={onChangeSortBy}
+            setSortOrder={setSortDirection}
+            defaultIndex={defaultSortIndex}
           />
         </div>
         <ul

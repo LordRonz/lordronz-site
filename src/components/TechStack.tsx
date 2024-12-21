@@ -1,7 +1,6 @@
 import {
   SiArchlinux,
   SiCplusplus,
-  SiCsharp,
   SiDjango,
   SiExpress,
   SiGo,
@@ -17,6 +16,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si';
+import { TbBrandCSharp } from 'react-icons/tb';
 
 import CustomLink from '@/components/links/CustomLink';
 import Tooltip from '@/components/Tooltip';
@@ -247,7 +247,7 @@ const stacks = [
   },
   {
     id: 'csharp',
-    icon: SiCsharp,
+    icon: TbBrandCSharp,
     tooltip: (
       <>
         I used{' '}

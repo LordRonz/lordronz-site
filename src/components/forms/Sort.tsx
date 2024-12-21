@@ -1,15 +1,22 @@
-import { useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import type { IconType } from 'react-icons';
 import { FaSortAmountDown, FaSortAmountDownAlt } from 'react-icons/fa';
 
+import Button from '@/components/buttons/Button';
+import CustomTab from '@/components/forms/Tab';
 import clsxm from '@/lib/clsxm';
 
-import Button from '../buttons/Button';
-import CustomTab from './Tab';
+export type SortOption = {
+  id: string;
+  name: string;
+  icon: IconType;
+  title: string;
+};
 
 export type SortProps = {
   sortOrder?: 'asc' | 'desc';
   setSortOrder?: (sortOrder: 'asc' | 'desc') => void;
-  onChangeSortBy?: (value: number) => void;
+  onChangeSortBy?: (value: string) => void;
   sortOptions: {
     label: string;
     value: number;
@@ -26,6 +33,21 @@ const Sort = (props: SortProps) => {
     setIsLoaded(true);
   }, []);
 
+  const onCustomTabChange = useCallback(
+    (value: string) => onChangeSortBy?.(value),
+    [onChangeSortBy],
+  );
+
+  const onToggleSort = useCallback(
+    () => setSortOrder?.(sortOrder === 'desc' ? 'asc' : 'desc'),
+    [setSortOrder, sortOrder],
+  );
+
+  const sortOptionsMemo = useMemo(
+    () => sortOptions.map((s) => s.label),
+    [sortOptions],
+  );
+
   return (
     <div className='flex gap-x-2 justify-end'>
       <Button
@@ -37,9 +59,7 @@ const Sort = (props: SortProps) => {
           'transition duration-100',
           'animate-shadow',
         )}
-        onClick={() =>
-          setSortOrder && setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')
-        }
+        onClick={onToggleSort}
         key={+isLoaded}
         aria-label='Toggle sort direction'
       >
@@ -50,13 +70,13 @@ const Sort = (props: SortProps) => {
         )}
       </Button>
       <CustomTab
-        categories={sortOptions.map((s) => s.label)}
+        categories={sortOptionsMemo}
         className='flex-shrink-0'
-        onChange={(index) => onChangeSortBy && onChangeSortBy(index)}
+        onChange={onCustomTabChange}
         defaultIndex={defaultIndex}
       />
     </div>
   );
 };
 
-export default Sort;
+export default memo(Sort);

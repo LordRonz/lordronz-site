@@ -1,14 +1,18 @@
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+import bundleAnalyzer from '@next/bundle-analyzer';
+import withSerwistInit from '@serwist/next';
+import type { NextConfig } from 'next';
+const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const nextConfig = async (phase) => {
-  /** @type {import('next').NextConfig} */
-  let nextConfig = {
+const nextConfig = async (
+  phase: string,
+  { defaultConfig }: { defaultConfig: NextConfig },
+) => {
+  let nextConfig: NextConfig = {
     async rewrites() {
       return [
         {
@@ -81,7 +85,7 @@ const nextConfig = async (phase) => {
   };
 
   if (process.env.NODE_ENV === 'production') {
-    const withSerwist = (await import('@serwist/next')).default({
+    const withSerwist = withSerwistInit({
       // Note: This is only an example. If you use Pages Router,
       // use something else that works, such as "service-worker/index.ts".
       swSrc: 'src/service-worker/sw.ts',
@@ -93,4 +97,4 @@ const nextConfig = async (phase) => {
   return withBundleAnalyzer(nextConfig);
 };
 
-module.exports = nextConfig;
+export default nextConfig;

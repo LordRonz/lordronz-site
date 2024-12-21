@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-import { MY_NAME } from '@/constants/metadata';
+import { MY_NAME, SITE_DESCRIPTION } from '@/constants/metadata';
 
 const manifest = (): MetadataRoute.Manifest => {
   return {
@@ -12,7 +12,7 @@ const manifest = (): MetadataRoute.Manifest => {
     theme_color: '#eb2754',
     lang: 'en',
     categories: ['Technology', 'Programming', 'Website'],
-    description: "Aaron christopher's online portfolio and blog website.",
+    description: SITE_DESCRIPTION,
     orientation: 'portrait-primary',
     icons: [
       {

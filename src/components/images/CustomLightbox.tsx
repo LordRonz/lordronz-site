@@ -3,6 +3,7 @@ import 'yet-another-react-lightbox/plugins/captions.css';
 import 'yet-another-react-lightbox/plugins/counter.css';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
 
+import { memo } from 'react';
 import Lightbox, {
   type LightboxExternalProps,
 } from 'yet-another-react-lightbox';
@@ -35,4 +36,4 @@ const CustomLightbox = (props: LightboxExternalProps) => {
   );
 };
 
-export default CustomLightbox;
+export default memo(CustomLightbox);

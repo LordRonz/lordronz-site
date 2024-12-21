@@ -5,6 +5,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 import Tooltip from '@/components/Tooltip';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 jest.mock('next/router', () => ({
   useRouter() {
@@ -19,7 +20,11 @@ jest.mock('next/router', () => ({
 
 describe('Tooltip', () => {
   it('renders a tooltip', () => {
-    render(<Tooltip data-testid='tooltip'>Test</Tooltip>);
+    render(
+      <TooltipProvider>
+        <Tooltip data-testid='tooltip'>Test</Tooltip>
+      </TooltipProvider>,
+    );
 
     const tooltip = screen.getByText('Test');
 
@@ -28,9 +33,11 @@ describe('Tooltip', () => {
 
   it('renders a tooltip with underline', () => {
     render(
-      <Tooltip withUnderline data-testid='tooltip'>
-        Test
-      </Tooltip>,
+      <TooltipProvider>
+        <Tooltip withUnderline data-testid='tooltip'>
+          Test
+        </Tooltip>
+      </TooltipProvider>,
     );
 
     const tooltip = screen.getByText('Test');

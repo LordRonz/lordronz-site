@@ -4,6 +4,8 @@ import type { SpotifySong } from '@/types/spotify';
 export const revalidate = 10; // in seconds
 // false | 0 | number
 
+export const runtime = 'edge';
+
 export const GET = async () => {
   const response = await getNowPlaying();
 

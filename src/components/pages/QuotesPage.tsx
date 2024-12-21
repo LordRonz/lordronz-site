@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import { Terminal } from 'lucide-react';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useTransition } from 'react';
 import { MdOutlineRefresh } from 'react-icons/md';
 
 import Quote from '@/components/content/Quote';
@@ -19,26 +19,25 @@ const QuotesPage = () => {
     quote?: string;
     author?: string;
   }>({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, startTransition] = useTransition();
   const { toast } = useToast();
 
   const fetchRandomQuote = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const { data: result } = await axios.get<RandomQuoteResponse>(
-        `${QUOTES_API_URL}/random`,
-      );
-      setQuoteData({ quote: result[0].quote, author: result[0].author });
-    } catch {
-      toast({
-        title: 'Failed to fetch quotes',
-        description: 'Try to skibidi around',
-        className: 'dark:bg-dark bg-light',
-        duration: 5000,
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    startTransition(async () => {
+      try {
+        const { data: result } = await axios.get<RandomQuoteResponse>(
+          `${QUOTES_API_URL}/random`,
+        );
+        setQuoteData({ quote: result[0].quote, author: result[0].author });
+      } catch {
+        toast({
+          title: 'Failed to fetch quotes',
+          description: 'Try to skibidi around',
+          className: 'dark:bg-dark bg-light',
+          duration: 5000,
+        });
+      }
+    });
   }, [toast]);
 
   useEffect(() => {

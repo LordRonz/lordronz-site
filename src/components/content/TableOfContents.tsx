@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
 import TOCLink from '@/components/links/TOCLink';
 
@@ -54,6 +54,21 @@ export const TableOfContents = ({
   }, [activeSection]);
   //#endregion  //*======== Scroll into view ===========
 
+  const memoizedTOCLinks = useMemo(
+    () =>
+      toc?.map(({ id, level, text }) => (
+        <TOCLink
+          id={id}
+          key={id}
+          activeSection={activeSection}
+          level={level}
+          minLevel={minLevel}
+          text={text}
+        />
+      )),
+    [toc, activeSection, minLevel],
+  );
+
   return (
     <div
       id='toc-container'
@@ -63,18 +78,7 @@ export const TableOfContents = ({
         Table of Contents
       </h3>
       <div className='mt-4 flex flex-col space-y-2 text-sm'>
-        {toc
-          ? toc.map(({ id, level, text }) => (
-              <TOCLink
-                id={id}
-                key={id}
-                activeSection={activeSection}
-                level={level}
-                minLevel={minLevel}
-                text={text}
-              />
-            ))
-          : null}
+        {memoizedTOCLinks}
       </div>
     </div>
   );

@@ -64,17 +64,13 @@ const Footer = () => {
           <div className='flex justify-center'>
             <NowPlaying />
           </div>
-          <div className='flex space-x-4'>
+          <div className='flex gap-x-4'>
             <div className='flex items-center justify-center'>
               <CopyEmail />
             </div>
             {socials.map((social) => {
               return (
-                <Tooltip
-                  interactive={false}
-                  key={social.link}
-                  content={social.label}
-                >
+                <Tooltip key={social.link} content={social.label}>
                   <UnstyledLink
                     aria-label={social.label}
                     className='inline-flex items-center justify-center rounded-sm focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
@@ -184,7 +180,7 @@ const FooterLinks = ({ className }: { className?: string }) => {
       )}
     >
       {footerLinks.map(({ href, text, tooltip }) => (
-        <Tooltip interactive={false} key={href} content={tooltip}>
+        <Tooltip key={href} content={tooltip}>
           <UnstyledLink
             className='animated-underline rounded-sm text-sm font-medium focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-gray-200'
             href={href}

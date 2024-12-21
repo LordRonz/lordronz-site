@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import type { UnstyledLinkProps } from '@/components/links/UnstyledLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import clsxm from '@/lib/clsxm';
@@ -16,4 +18,4 @@ const CustomLink = ({ children, className, ...rest }: UnstyledLinkProps) => (
   </UnstyledLink>
 );
 
-export default CustomLink;
+export default memo(CustomLink);
