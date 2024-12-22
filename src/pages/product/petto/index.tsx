@@ -11,8 +11,8 @@ const products: Project[] = [
     slug: 'petto',
     type: 'app',
     github: 'petto-app/petto',
-    demo: 'https://risaikuru.vercel.app/',
-    image: 'petto.png',
+    demo: '',
+    image: 'petto.webp',
   },
 ].map((project, i) => ({ ...project, i }));
 

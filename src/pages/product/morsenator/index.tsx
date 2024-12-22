@@ -54,7 +54,7 @@ const AboutPage: NextPage = () => {
               </h1>
               <Image
                 alt='Morsenator Logo'
-                src={`/images/product/morsenator.png`}
+                src={`/images/product/morsenator.webp`}
                 width={60}
                 height={60}
               />

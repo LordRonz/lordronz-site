@@ -12,7 +12,7 @@ const products: Project[] = [
     type: 'app',
     github: 'petto-app/petto',
     demo: 'https://apps.apple.com/id/app/petto-life/id6450627184',
-    image: 'petto.png',
+    image: 'petto.webp',
   },
   {
     title: 'Number Ninja - The Game',
