@@ -1,5 +1,7 @@
 import { viewRef } from '@/lib/db';
 
+export const revalidate = 10; // in seconds
+
 export const GET = async (
   _: Request,
   { params }: { params: Promise<{ slug: string }> },
