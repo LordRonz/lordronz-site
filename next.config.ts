@@ -74,11 +74,13 @@ const nextConfig = async (
           protocol: 'https',
           hostname: 'res.cloudinary.com',
           port: '',
+          search: '',
         },
         {
           protocol: 'https',
           hostname: 'cdn.discordapp.com',
           port: '',
+          search: '',
         },
       ],
     },

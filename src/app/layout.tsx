@@ -2,6 +2,7 @@ import '@/styles/globals.css';
 
 import { GeistSans } from 'geist/font/sans';
 import type { Viewport } from 'next';
+import Script from 'next/script';
 import { ThemeProvider } from 'next-themes';
 
 import clsxm from '@/lib/clsxm';
@@ -25,7 +26,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       suppressHydrationWarning
     >
       <head>
-        <script
+        <Script
           defer
           src='https://cloud.umami.is/script.js'
           data-website-id='51739fff-d062-4217-9533-180ec6523428'
