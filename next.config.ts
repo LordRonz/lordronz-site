@@ -19,6 +19,10 @@ const nextConfig = async (
           source: '/quotes-api/:slug*',
           destination: 'https://quotes-api-go-nxokq3kema-ue.a.run.app/:slug*',
         },
+        {
+          source: '/umami/script.js',
+          destination: 'https://cloud.umami.is/script.js',
+        },
       ];
     },
     poweredByHeader: false,
