@@ -9,8 +9,8 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const nextConfig = async (
-  phase: string,
-  { defaultConfig }: { defaultConfig: NextConfig },
+  _phase: string,
+  { defaultConfig: _ }: { defaultConfig: NextConfig },
 ) => {
   let nextConfig: NextConfig = {
     async rewrites() {

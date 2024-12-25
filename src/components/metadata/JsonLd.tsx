@@ -1,4 +1,4 @@
-import type { Thing, WebSite, WithContext } from 'schema-dts';
+import type { ProfilePage, Thing, WithContext } from 'schema-dts';
 
 import { WEBSITE_URL } from '@/constants/env';
 import {
@@ -13,9 +13,9 @@ export type JsonLdProps = {
   jsonLd?: WithContext<Thing>;
 };
 
-export const defaultJsonLd: WithContext<WebSite> = {
+export const defaultJsonLd: WithContext<ProfilePage> = {
   '@context': 'https://schema.org',
-  '@type': 'WebSite',
+  '@type': 'ProfilePage',
   name: MY_NAME,
   sameAs: SOCIAL_LINKS,
   keywords: [

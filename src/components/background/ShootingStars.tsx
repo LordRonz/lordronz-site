@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
@@ -57,7 +57,10 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
+    let isMounted = true; // Flag to prevent updates if the component unmounts
+    let timeoutId: NodeJS.Timeout;
     const createStar = () => {
+      if (!isMounted) return;
       const { x, y, angle } = getRandomStartPoint();
       const newStar: ShootingStar = {
         id: Date.now(),
@@ -71,12 +74,14 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
       setStar(newStar);
 
       const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
-      setTimeout(createStar, randomDelay);
+      timeoutId = setTimeout(createStar, randomDelay);
     };
 
     createStar();
-
-    return () => {};
+    return () => {
+      isMounted = false; // Prevent further execution
+      clearTimeout(timeoutId); // Clear any pending timeout
+    };
   }, [minSpeed, maxSpeed, minDelay, maxDelay]);
 
   useEffect(() => {
