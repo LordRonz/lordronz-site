@@ -11,29 +11,35 @@ const useScrollSpy = () => {
   const actionSectionScrollSpy = throttle(() => {
     const sections = document.getElementsByClassName('hash-anchor');
 
-    let prevBBox = null;
-    let currentSectionId = activeSection;
+    const sectionArray = Array.from(sections);
 
-    for (const section of sections) {
-      if (!currentSectionId) {
-        currentSectionId = section.getAttribute('href')?.split('#')[1] ?? null;
-      }
+    const { currentSectionId } = sectionArray.reduce(
+      (acc, section) => {
+        if (acc.breakLoop) return acc; // Stop processing further when the current section is found
 
-      const bbox = section.getBoundingClientRect();
-      const prevHeight = prevBBox ? bbox.top - prevBBox.bottom : 0;
-      const offset = Math.max(200, prevHeight / 4);
+        const bbox = section.getBoundingClientRect();
+        const prevHeight = acc.prevBBox ? bbox.top - acc.prevBBox.bottom : 0;
+        const offset = Math.max(200, prevHeight / 4);
 
-      // GetBoundingClientRect returns values relative to viewport
-      if (bbox.top - offset < 0) {
-        currentSectionId = section.getAttribute('href')?.split('#')[1] ?? null;
+        if (bbox.top - offset < 0) {
+          // Update the current section ID
+          const sectionId = section.getAttribute('href')?.split('#')[1] ?? null;
+          return {
+            prevBBox: bbox,
+            currentSectionId: sectionId,
+            breakLoop: false,
+          };
+        }
 
-        prevBBox = bbox;
-        continue;
-      }
-
-      // No need to continue loop, if last element has been detected
-      break;
-    }
+        // If last element has been detected, stop further processing
+        return { ...acc, breakLoop: true };
+      },
+      {
+        prevBBox: null as DOMRect | null,
+        currentSectionId: activeSection,
+        breakLoop: false,
+      },
+    );
 
     setActiveSection(currentSectionId);
   }, throttleMs);

@@ -304,6 +304,9 @@ importers:
       eslint-plugin-unused-imports:
         specifier: ^3.2.0
         version: 3.2.0(@typescript-eslint/eslint-plugin@8.18.1(@typescript-eslint/parser@8.18.1(eslint@8.57.1)(typescript@5.7.2))(eslint@8.57.1)(typescript@5.7.2))(eslint@8.57.1)
+      glob:
+        specifier: ^11.0.0
+        version: 11.0.0
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3

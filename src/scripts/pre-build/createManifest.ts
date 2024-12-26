@@ -3,7 +3,9 @@ import fs from 'fs/promises';
 import path from 'path';
 
 import { MY_NAME, SITE_DESCRIPTION } from '@/constants/metadata';
-import type { IScriptParams } from '@/scripts/runner';
+import type * as runner from '@/scripts/runner';
+
+import log from '../utils/log';
 
 const manifest = {
   name: MY_NAME,
@@ -50,8 +52,8 @@ const manifest = {
   ],
 };
 
-const execute = async (params: IScriptParams) => {
-  console.log('Generating manifest.json...');
+const execute = async (params: runner.IScriptParams) => {
+  log.info('Generating manifest.json...');
   const manifestPath = path.join(
     __dirname,
     '../../../public',
@@ -64,7 +66,7 @@ const execute = async (params: IScriptParams) => {
 
   await fs.writeFile(manifestPath, JSON.stringify(manifest));
 
-  console.log('manifest.json generated!');
+  log.success('manifest.json generated!');
 };
 
 export default execute;

@@ -47,7 +47,7 @@ const listDirContents = async (filepath: string) => {
     });
     const detailedFiles = await Promise.all(detailedFilesPromises);
     table.push(...detailedFiles);
-    console.log(table.toString());
+    log.info(table.toString());
   } catch (error) {
     log.error('Error occurred while reading the directory!', error);
   }
@@ -65,27 +65,35 @@ const createFile = (filepath: string) => {
   log.info('An empty file has been created');
 };
 
-const createBlog = async () => {
-  let slug = '';
-  let filepath = '';
-  while (!slug) {
-    slug = await input({
+async function getValidSlug(options: {
+  ls?: string | boolean;
+}): Promise<{ slug: string; filepath: string }> {
+  const askSlug = async (): Promise<{ slug: string; filepath: string }> => {
+    const slug = await input({
       message: 'Blog slug (used for file name)',
-      transformer: (v) =>
+      transformer: (v: string) =>
         v.toLowerCase().trim().replaceAll(' ', '').replaceAll('.mdx', ''),
       required: true,
     });
 
-    filepath =
+    const filepath =
       typeof options.ls === 'string'
         ? options.ls
         : path.join(__dirname, '../contents/blog', slug + '.mdx');
 
     if (await isFileExist(filepath)) {
-      log.error(`${slug} already exist, please use another slug`);
-      slug = '';
+      log.error(`${slug} already exists, please use another slug`);
+      return askSlug(); // Retry if the slug already exists
     }
-  }
+
+    return { slug, filepath };
+  };
+
+  return askSlug();
+}
+
+const createBlog = async () => {
+  const { filepath } = await getValidSlug(options);
 
   createFile(filepath);
 
@@ -108,6 +116,8 @@ description: ''
 banner: '${banner}'
 tags: '${tags}'
 ---
+
+#
 `;
   await fs.promises.writeFile(filepath, content);
 
