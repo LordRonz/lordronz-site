@@ -10,9 +10,11 @@ import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import { MainTitle } from '@/components/typography/MainTitle';
 import Wave from '@/components/Wave';
+import useUmami from '@/hooks/useUmami';
 import clsxm from '@/lib/clsxm';
 
 const HomePage = () => {
+  const umami = useUmami();
   return (
     <section className={clsxm('flex flex-row items-center justify-center')}>
       <article className='layout'>
@@ -40,7 +42,10 @@ const HomePage = () => {
                 className='inline-flex'
                 title='Go to about page'
               >
-                <ShimmerButton leftIcon={<FaMagnifyingGlass className='' />}>
+                <ShimmerButton
+                  leftIcon={<FaMagnifyingGlass className='' />}
+                  onClick={() => umami.event('About me button')}
+                >
                   Learn More About Me
                 </ShimmerButton>
               </UnstyledLink>
@@ -53,6 +58,7 @@ const HomePage = () => {
                 <ShinyButton
                   variant='outline'
                   leftIcon={<GrDocumentText className='' />}
+                  onClick={() => umami.event('Get CV button')}
                 >
                   Get My CV
                 </ShinyButton>
@@ -64,6 +70,7 @@ const HomePage = () => {
                 href='https://github.com/lordronz/lordronz-site'
                 title='Link to GitHub repository'
                 aria-label='Link to GitHub repository'
+                onClick={() => umami.event('GitHub link')}
               >
                 GitHub
               </CustomLink>

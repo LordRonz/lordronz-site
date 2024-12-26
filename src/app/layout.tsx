@@ -30,6 +30,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           defer
           src='/umami/script.js'
           data-website-id='51739fff-d062-4217-9533-180ec6523428'
+          strategy='afterInteractive'
         />
       </head>
       <body className='bg-light tracking-wide text-dark transition-all duration-300 selection:bg-[rgb(var(--tw-clr-primary-300)_/_30%)] dark:bg-dark dark:text-light'>
