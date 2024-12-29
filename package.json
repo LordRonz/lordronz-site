@@ -161,7 +161,7 @@
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.7.0",
     "jsdom": "^25.0.1",
-    "lint-staged": "^15.2.11",
+    "lint-staged": "^15.3.0",
     "local-cypress": "^1.2.6",
     "mdx-bundler": "^10.0.3",
     "next-sitemap": "^4.2.3",
