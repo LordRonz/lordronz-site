@@ -6,6 +6,7 @@ import Image from 'next/image';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import GitHubCard from '@/components/content/card/GitHubCard';
+import GitHubEmbed from '@/components/content/card/GitHubEmbed';
 import CustomCode, { Pre } from '@/components/content/CustomCode';
 import SplitImage, { Split } from '@/components/content/SplitImage';
 import CloudinaryImg from '@/components/images/CloudinaryImg';
@@ -23,6 +24,7 @@ const MDXComponents = {
   Split,
   TechIcons,
   GitHubCard,
+  GitHubEmbed,
 };
 
 export default MDXComponents;
