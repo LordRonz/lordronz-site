@@ -64,7 +64,7 @@ const Footer = () => {
           <div className='flex justify-center'>
             <NowPlaying />
           </div>
-          <div className='flex gap-x-1.5'>
+          <div className='flex gap-x-3'>
             <div className='flex items-center justify-center'>
               <CopyEmail />
             </div>
@@ -73,10 +73,10 @@ const Footer = () => {
                 <Tooltip key={social.link} content={social.label}>
                   <UnstyledLink
                     aria-label={social.label}
-                    className='inline-flex items-center justify-center rounded-sm focus:outline-none group focus-visible:ring focus-visible:ring-primary-300 p-1.5'
+                    className='inline-flex items-center justify-center rounded-sm focus:outline-none group focus-visible:ring focus-visible:ring-primary-300'
                     href={social.link}
                   >
-                    <social.icon className='my-auto h-6 w-6 align-middle text-gray-600 transition-all group-hover:text-primary-300 dark:text-gray-300 group-hover:dark:text-primary-300' />
+                    <social.icon className='my-auto h-7 w-7 align-middle text-gray-600 transition-all group-hover:text-primary-300 dark:text-gray-300 group-hover:dark:text-primary-300' />
                   </UnstyledLink>
                 </Tooltip>
               );
