@@ -3,28 +3,7 @@ import { ImageResponse } from 'next/og';
 
 import { WEBSITE_URL } from '@/constants/env';
 
-export const imageMetadata = [
-  {
-    contentType: 'image/png',
-    size: { width: 32, height: 32 },
-    id: 'tiny',
-  },
-  {
-    contentType: 'image/png',
-    size: { width: 48, height: 48 },
-    id: 'small',
-  },
-  {
-    contentType: 'image/png',
-    size: { width: 72, height: 72 },
-    id: 'medium',
-  },
-  {
-    contentType: 'image/png',
-    size: { width: 96, height: 96 },
-    id: 'big',
-  },
-];
+import { imageMetadata } from './icon';
 
 // Image metadata
 export function generateImageMetadata() {
@@ -32,13 +11,13 @@ export function generateImageMetadata() {
 }
 
 // Image generation
-const Icon = ({ id }: { id: string }) => {
+const AppleIcon = ({ id }: { id: string }) => {
   const size = generateImageMetadata().find((im) => im.id === id)?.size;
   return new ImageResponse(
     (
       // ImageResponse JSX element
       <img
-        alt='icon'
+        alt='apple icon'
         src={WEBSITE_URL + '/favicon/favicon-96x96.png'}
         {...size}
       />
@@ -52,4 +31,4 @@ const Icon = ({ id }: { id: string }) => {
   );
 };
 
-export default Icon;
+export default AppleIcon;
