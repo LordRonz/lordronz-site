@@ -8,9 +8,10 @@ const Wave = ({ children, className, ...rest }: WaveType) => {
   const [triggerWave, setTriggerWave] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setTriggerWave(true);
     }, 1200);
+    return () => clearTimeout(timeout);
   }, []);
 
   return (

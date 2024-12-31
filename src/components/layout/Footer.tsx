@@ -182,7 +182,7 @@ const FooterLinks = ({ className }: { className?: string }) => {
       {footerLinks.map(({ href, text, tooltip }) => (
         <Tooltip key={href} content={tooltip}>
           <UnstyledLink
-            className='animated-underline rounded-sm text-sm font-medium focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-gray-200'
+            className='animated-underline rounded-sm text-sm font-medium focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-gray-200 py-1 px-0.5'
             href={href}
           >
             {text}
