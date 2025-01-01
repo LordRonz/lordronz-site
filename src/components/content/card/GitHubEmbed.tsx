@@ -1,5 +1,6 @@
 import { ExternalLink, GitFork, Star } from 'lucide-react';
 import React from 'react';
+import { stringToColor } from 'string-palette';
 import useSWR from 'swr';
 
 import { Card } from '@/components/ui/card';
@@ -93,7 +94,10 @@ const GitHubEmbed: React.FC<GitHubEmbedProps> = ({ repo, className }) => {
           </div>
           {repository.language && (
             <div className='flex items-center gap-1 text-xs text-gray-600 dark:text-gray-300'>
-              <div className='h-2 w-2 rounded-full bg-blue-500' />
+              <div
+                className='h-2 w-2 rounded-full'
+                style={{ backgroundColor: stringToColor(repository.language) }}
+              />
               <span>{repository.language}</span>
             </div>
           )}
