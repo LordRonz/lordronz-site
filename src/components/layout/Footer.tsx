@@ -4,6 +4,7 @@ import {
   SiHackerrank,
   SiLeetcode,
   SiLinkedin,
+  SiNpm,
   SiStackoverflow,
   SiYoutube,
 } from 'react-icons/si';
@@ -47,6 +48,11 @@ const socials = [
     label: 'Stack Overflow',
     link: `${url_shortener}/stackoverflow`,
     icon: SiStackoverflow,
+  },
+  {
+    label: 'NPM',
+    link: `${url_shortener}/npm`,
+    icon: SiNpm,
   },
   {
     label: 'YouTube',
