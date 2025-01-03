@@ -105,7 +105,6 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
               </li>
             ))}
           </ul>
-          {/* eslint-disable-next-line prettier/prettier */}
           <label className='swap swap-rotate btn-circle btn border-transparent bg-transparent text-dark outline-primary-200 hover:border-transparent hover:bg-gray-300 hover:outline-1 dark:text-light hover:dark:bg-gray-600 md:hidden'>
             <input
               type='checkbox'
