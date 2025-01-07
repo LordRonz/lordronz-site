@@ -1,17 +1,19 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { GrDocumentText } from 'react-icons/gr';
 
 import ShimmerButton from '@/components/buttons/ShimmerButton';
 import ShinyButton from '@/components/buttons/ShinyButton';
-import Graphic from '@/components/layout/Graphic';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import { MainTitle } from '@/components/typography/MainTitle';
 import Wave from '@/components/Wave';
 import useUmami from '@/hooks/useUmami';
 import clsxm from '@/lib/clsxm';
+
+const Graphic = dynamic(() => import('@/components/layout/Graphic'));
 
 const HomePage = () => {
   const umami = useUmami();
