@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence } from 'framer-motion';
-import NextNProgress from 'nextjs-progressbar';
+import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 import { SWRConfig } from 'swr';
 
 import Footer from '@/components/layout/Footer';
@@ -24,10 +24,12 @@ const ClientLayout = ({ children }: { children: React.ReactNode }) => {
           fetch(...args).then((res) => res.json()),
       }}
     >
-      <NextNProgress
+      <ProgressBar
         color='#4a353a'
         startPosition={0.2}
         options={{ showSpinner: false }}
+        shallowRouting
+        height='3px'
       />
       <AnimatePresence
         mode='wait'
