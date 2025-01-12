@@ -17,7 +17,8 @@ const nextConfig = async (
       return [
         {
           source: '/quotes-api/:slug*',
-          destination: 'https://quotes-api-go-nxokq3kema-ue.a.run.app/:slug*',
+          destination:
+            'https://satisfactory-melli-lordronz-f2473ffe.koyeb.app/:slug*',
         },
         {
           source: '/umami/script.js',
