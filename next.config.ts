@@ -70,6 +70,13 @@ const nextConfig = async (
           },
         },
       },
+      optimizePackageImports: [
+        'react-intersection-observer',
+        'framer-motion',
+        '@react-three/fiber',
+        '@react-three/drei',
+        'motion',
+      ],
     },
     images: {
       remotePatterns: [
