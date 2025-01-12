@@ -1,6 +1,5 @@
 'use client';
 
-import axios from 'axios';
 import { Terminal } from 'lucide-react';
 import { useCallback, useEffect, useState, useTransition } from 'react';
 import { MdOutlineRefresh } from 'react-icons/md';
@@ -25,9 +24,8 @@ const QuotesPage = () => {
   const fetchRandomQuote = useCallback(async () => {
     startTransition(async () => {
       try {
-        const { data: result } = await axios.get<RandomQuoteResponse>(
-          `${QUOTES_API_URL}/random`,
-        );
+        const rawResult = await fetch(`${QUOTES_API_URL}/random`);
+        const result = (await rawResult.json()) as RandomQuoteResponse;
         setQuoteData({ quote: result[0].quote, author: result[0].author });
       } catch {
         toast({
