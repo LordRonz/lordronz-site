@@ -150,7 +150,7 @@
     "esbuild": "^0.24.2",
     "eslint": "^9.18.0",
     "eslint-config-next": "^15.1.4",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-jest": "^28.10.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
