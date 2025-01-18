@@ -1,6 +1,7 @@
 'use client';
 
 import { Terminal } from 'lucide-react';
+import queryString from 'query-string';
 import { useCallback, useEffect, useState, useTransition } from 'react';
 import { MdOutlineRefresh } from 'react-icons/md';
 
@@ -13,7 +14,7 @@ import type { RandomQuoteResponse } from '@/types/quote';
 
 const QUOTES_API_URL = '/quotes-api';
 
-const QuotesPage = () => {
+const QuotesPage = ({ tagParam }: { tagParam?: string }) => {
   const [quoteData, setQuoteData] = useState<{
     quote?: string;
     author?: string;
@@ -24,7 +25,14 @@ const QuotesPage = () => {
   const fetchRandomQuote = useCallback(async () => {
     startTransition(async () => {
       try {
-        const rawResult = await fetch(`${QUOTES_API_URL}/random`);
+        const rawResult = await fetch(
+          queryString.stringifyUrl({
+            url: `${QUOTES_API_URL}/random`,
+            query: {
+              tag: tagParam,
+            },
+          }),
+        );
         const result = (await rawResult.json()) as RandomQuoteResponse;
         setQuoteData({ quote: result[0].quote, author: result[0].author });
       } catch {
@@ -36,7 +44,7 @@ const QuotesPage = () => {
         });
       }
     });
-  }, [toast]);
+  }, [tagParam, toast]);
 
   useEffect(() => {
     fetchRandomQuote();
