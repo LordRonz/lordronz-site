@@ -2,6 +2,7 @@
   "extends": ["stylelint-config-standard"],
   "rules": {
     "at-rule-no-unknown": [true, { "ignoreAtRules": ["tailwind", "layer"] }],
+    "at-rule-no-deprecated": null,
     "property-no-vendor-prefix": [true, { "ignoreProperties": ["transform"] }]
   }
 }
