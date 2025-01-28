@@ -401,14 +401,14 @@ importers:
         specifier: ^4.0.2
         version: 4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.5.1(prettier@3.4.2))
       stylelint:
-        specifier: ^16.13.2
-        version: 16.13.2(typescript@5.7.3)
+        specifier: ^16.14.1
+        version: 16.14.1(typescript@5.7.3)
       stylelint-config-prettier:
         specifier: ^9.0.5
-        version: 9.0.5(stylelint@16.13.2(typescript@5.7.3))
+        version: 9.0.5(stylelint@16.14.1(typescript@5.7.3))
       stylelint-config-standard:
         specifier: ^37.0.0
-        version: 37.0.0(stylelint@16.13.2(typescript@5.7.3))
+        version: 37.0.0(stylelint@16.14.1(typescript@5.7.3))
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.10.4(@swc/helpers@0.5.15))(@types/node@22.10.10)(typescript@5.7.3))
@@ -9597,8 +9597,8 @@ packages:
     peerDependencies:
       stylelint: ^16.13.0
 
-  stylelint@16.13.2:
-    resolution: {integrity: sha512-wDlgh0mRO9RtSa3TdidqHd0nOG8MmUyVKl+dxA6C1j8aZRzpNeEgdhFmU5y4sZx4Fc6r46p0fI7p1vR5O2DZqA==}
+  stylelint@16.14.1:
+    resolution: {integrity: sha512-oqCL7AC3786oTax35T/nuLL8p2C3k/8rHKAooezrPGRvUX0wX+qqs5kMWh5YYT4PHQgVDobHT4tw55WgpYG6Sw==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -22252,20 +22252,20 @@ snapshots:
       postcss: 8.5.1
       postcss-selector-parser: 6.1.2
 
-  stylelint-config-prettier@9.0.5(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-config-prettier@9.0.5(stylelint@16.14.1(typescript@5.7.3)):
     dependencies:
-      stylelint: 16.13.2(typescript@5.7.3)
+      stylelint: 16.14.1(typescript@5.7.3)
 
-  stylelint-config-recommended@15.0.0(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-config-recommended@15.0.0(stylelint@16.14.1(typescript@5.7.3)):
     dependencies:
-      stylelint: 16.13.2(typescript@5.7.3)
+      stylelint: 16.14.1(typescript@5.7.3)
 
-  stylelint-config-standard@37.0.0(stylelint@16.13.2(typescript@5.7.3)):
+  stylelint-config-standard@37.0.0(stylelint@16.14.1(typescript@5.7.3)):
     dependencies:
-      stylelint: 16.13.2(typescript@5.7.3)
-      stylelint-config-recommended: 15.0.0(stylelint@16.13.2(typescript@5.7.3))
+      stylelint: 16.14.1(typescript@5.7.3)
+      stylelint-config-recommended: 15.0.0(stylelint@16.14.1(typescript@5.7.3))
 
-  stylelint@16.13.2(typescript@5.7.3):
+  stylelint@16.14.1(typescript@5.7.3):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-tokenizer': 3.0.3
