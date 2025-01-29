@@ -2,19 +2,6 @@
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 
-const withOpacity =
-  (variable: string) =>
-  ({ opacityValue }: { opacityValue?: string }) =>
-    opacityValue === undefined
-      ? `rgb(var(${variable}))`
-      : `rgb(var(${variable}) / ${opacityValue})`;
-
-const getColorShades = (shades: number[], name = 'primary') =>
-  shades.reduce(
-    (a, v) => ({ ...a, [v]: withOpacity(`--tw-clr-${name}-${v}`) }),
-    {},
-  );
-
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
@@ -32,9 +19,18 @@ export default {
       },
       colors: {
         // Customize it on globals.css :root
-        primary: getColorShades([
-          50, 100, 200, 300, 400, 500, 600, 700, 800, 900,
-        ]),
+        primary: {
+          50: 'rgb(var(--tw-clr-primary-50) / <alpha-value>)',
+          100: 'rgb(var(--tw-clr-primary-100) / <alpha-value>)',
+          200: 'rgb(var(--tw-clr-primary-200) / <alpha-value>)',
+          300: 'rgb(var(--tw-clr-primary-300) / <alpha-value>)',
+          400: 'rgb(var(--tw-clr-primary-400) / <alpha-value>)',
+          500: 'rgb(var(--tw-clr-primary-500) / <alpha-value>)',
+          600: 'rgb(var(--tw-clr-primary-600) / <alpha-value>)',
+          700: 'rgb(var(--tw-clr-primary-700) / <alpha-value>)',
+          800: 'rgb(var(--tw-clr-primary-800) / <alpha-value>)',
+          900: 'rgb(var(--tw-clr-primary-900) / <alpha-value>)',
+        },
         dark: '#111',
         light: '#ddd',
       },
