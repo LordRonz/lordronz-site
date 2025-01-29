@@ -5,7 +5,7 @@ import * as React from 'react';
 import clsxm from '@/lib/clsxm';
 
 const buttonVariants = cva(
-  'group inline-flex items-center justify-center rounded whitespace-nowrap font-medium ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-zinc-950 dark:focus-visible:ring-zinc-300 active:scale-[0.99] duration-500 hover:scale-[1.02]',
+  'group inline-flex items-center justify-center rounded-sm whitespace-nowrap font-medium ring-offset-white transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-zinc-950 dark:focus-visible:ring-zinc-300 active:scale-[0.99] duration-500 hover:scale-[1.02]',
   {
     variants: {
       variant: {
@@ -13,7 +13,7 @@ const buttonVariants = cva(
         destructive:
           'bg-red-500 text-zinc-50 dark:bg-red-900 dark:text-zinc-50',
         outline:
-          'border border-zinc-300 bg-white dark:border-zinc-800 dark:bg-zinc-950 hover:dark:bg-zinc-800 hover:bg-zinc-200',
+          'border border-zinc-300 bg-white dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-800 hover:bg-zinc-200',
         secondary:
           'bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-50',
         ghost: 'hover:bg-zinc-200 dark:hover:bg-zinc-700',

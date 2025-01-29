@@ -24,9 +24,9 @@ const ButtonLink = ({
   <UnstyledLink
     {...rest}
     className={clsxm(
-      'inline-flex items-center rounded px-4 py-2 font-semibold',
-      'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
-      'shadow-sm',
+      'inline-flex items-center rounded-sm px-4 py-2 font-semibold',
+      'focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-500',
+      'shadow-xs',
       'scale-100 transform-gpu hover:scale-[1.03] active:scale-[0.97]',
       'transition duration-300',
       'animate-shadow',

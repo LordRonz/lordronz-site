@@ -20,7 +20,7 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
     <li
       className={clsxm(
         'w-full rounded-md border border-gray-300 bg-gray-200 dark:border-gray-600 dark:bg-dark',
-        'scale-100 hover:scale-[1.02] hover:border-primary-300 active:scale-[0.97] motion-safe:transform-gpu hover:dark:border-primary-300',
+        'scale-100 hover:scale-[1.02] hover:border-primary-300 active:scale-[0.97] motion-safe:transform-gpu dark:hover:border-primary-300',
         'transition duration-100',
         'motion-reduce:hover:scale-100',
         'animate-shadow',
@@ -29,7 +29,7 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
       title={post.title}
     >
       <UnstyledLink
-        className='block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300'
+        className='block h-full rounded-md focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300'
         href={`/blog/${post.slug}`}
         data-umami-event='Blog Card Click'
         data-umami-event-slug={post.slug}
@@ -54,7 +54,7 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
             {post.tags.split(',').map((tag) => (
               <Tag
                 tabIndex={-1}
-                className='bg-opacity-80 dark:!bg-opacity-60'
+                className='bg-gray-100/80 dark:bg-gray-700/60'
                 key={tag}
                 tag={tag}
               >

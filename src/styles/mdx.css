@@ -1,6 +1,4 @@
-.prose {
-  max-width: 50rem;
-}
+@reference "./globals.css"
 
 code {
   counter-reset: line;
@@ -21,16 +19,20 @@ code > [data-line]::before {
   @apply !text-inherit;
 }
 
-html.light code[data-theme*=' '],
-html.light code[data-theme*=' '] span {
-  color: var(--shiki-light);
-  background-color: var(--shiki-light-bg);
+@media (prefers-color-scheme: dark) {
+  pre code[data-theme],
+  pre code[data-theme] span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+  }
 }
 
-html.dark code[data-theme*=' '],
-html.dark code[data-theme*=' '] span {
-  color: var(--shiki-dark);
-  background-color: var(--shiki-dark-bg);
+@media (prefers-color-scheme: light) {
+  pre code[data-theme],
+  pre code[data-theme] span {
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
+  }
 }
 
 .prose a {
@@ -91,7 +93,7 @@ html.dark code[data-theme*=' '] span {
 
 /* Apply shadow to Youtube Embed */
 .mdx.prose .yt-lite {
-  @apply overflow-hidden rounded shadow-sm dark:shadow-none;
+  @apply overflow-hidden rounded-sm shadow-sm dark:shadow-none;
 }
 
 /** HASH ANCHOR */
@@ -209,7 +211,7 @@ html.dark pre {
 [data-highlighted-chars] {
   box-shadow: 0 0 0 4px var(--tw-shadow-color);
 
-  @apply rounded bg-sky-200/50 shadow-sky-200/50 dark:bg-zinc-600/50 dark:shadow-zinc-600/50;
+  @apply rounded-sm bg-sky-200/50 shadow-sky-200/50 dark:bg-zinc-600/50 dark:shadow-zinc-600/50;
 }
 
 [data-chars-id] {

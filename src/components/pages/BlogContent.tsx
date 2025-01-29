@@ -110,9 +110,9 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
               <UnstyledLink
                 href={COMMIT_HISTORY_LINK}
                 className={clsxm(
-                  'inline-flex items-center gap-1 rounded-sm font-medium',
+                  'inline-flex items-center gap-1 rounded-xs font-medium',
                   'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-primary-300',
-                  'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+                  'focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300',
                 )}
               >
                 <MdHistory className='text-lg' />
@@ -134,10 +134,7 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
           </div>
           <div className='flex flex-col-reverse md:flex-row gap-y-3 justify-between mt-4 items-start'>
             {!frontmatter?.englishOnly && (
-              <CustomLink
-                href={languageLink}
-                className='flex-grow-0 flex-shrink'
-              >
+              <CustomLink href={languageLink} className='grow-0 shrink'>
                 {langLinkContent}
               </CustomLink>
             )}
@@ -160,7 +157,7 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
 
         <hr className='dark:border-gray-600' />
 
-        <section className='lg:grid lg:grid-cols-[auto,250px] lg:gap-8'>
+        <section className='lg:grid lg:grid-cols-[auto_250px] lg:gap-8'>
           <article className='mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
             <Component
               components={

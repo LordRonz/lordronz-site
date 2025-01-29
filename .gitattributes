@@ -52,6 +52,7 @@
 *.tsx             text
 *.xml             text
 *.xhtml           text diff=html
+*.mdx             linguist-detectable=false
 
 # Docker
 Dockerfile        text

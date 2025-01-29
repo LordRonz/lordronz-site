@@ -9,8 +9,8 @@ const CustomLink = ({ children, className, ...rest }: UnstyledLinkProps) => (
     {...rest}
     className={clsxm(
       'animated-underline custom-link inline-flex items-center font-semibold transition-all',
-      'focus:outline-none focus-visible:rounded focus-visible:ring focus-visible:ring-primary-500',
-      'border-b border-dotted border-dark hover:border-black/0',
+      'focus:outline-hidden focus-visible:rounded-sm focus-visible:ring-3 focus-visible:ring-primary-500',
+      'border-b border-dotted border-dark hover:border-black/0 dark:border-gray-200 dark:hover:border-gray-200/0',
       className,
     )}
   >

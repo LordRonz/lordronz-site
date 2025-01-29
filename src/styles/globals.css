@@ -1,35 +1,86 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  /* Customize these variable */
-
-  /* https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo */
-
-  --tw-clr-primary-50: 253 232 237;
-  --tw-clr-primary-100: 249 185 200;
-  --tw-clr-primary-200: 244 138 163;
-  --tw-clr-primary-300: 240 92 126;
-  --tw-clr-primary-400: 235 39 84;
-  --tw-clr-primary-500: 210 19 63;
-  --tw-clr-primary-600: 163 15 49;
-  --tw-clr-primary-700: 117 11 35;
-  --tw-clr-primary-800: 70 6 21;
-  --tw-clr-primary-900: 23 2 7;
-  --clr-primary-50: rgb(var(--tw-clr-primary-50)); /* #fde8ed */
-  --clr-primary-100: rgb(var(--tw-clr-primary-100)); /* #f9b9c8 */
-  --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #f48aa3 */
-  --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #f05c7e */
-  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #eb2754 */
-  --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #d2133f */
-  --clr-primary-600: rgb(var(--tw-clr-primary-600)); /* #a30f31 */
-  --clr-primary-700: rgb(var(--tw-clr-primary-700)); /* #750b23 */
-  --clr-primary-800: rgb(var(--tw-clr-primary-800)); /* #460615 */
-  --clr-primary-900: rgb(var(--tw-clr-primary-900)); /* #170207 */
+@plugin "daisyui" {
+  themes: false;
 }
 
+@config '../../tailwind.config.ts';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
 @layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility animated-underline {
+  background-image: linear-gradient(#3330, #3330),
+    linear-gradient(to right, var(--clr-primary-300), var(--clr-primary-100));
+  background-size:
+    100% 2px,
+    0 2px;
+  background-position:
+    100% 100%,
+    0 100%;
+  background-repeat: no-repeat;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: 0.3s ease;
+    transition-property: background-size, color, background-color, border-color;
+  }
+
+  &:hover {
+    background-size:
+      0 2px,
+      100% 2px;
+  }
+
+  &:focus-visible {
+    background-size:
+      0 2px,
+      100% 2px;
+  }
+}
+
+@layer utilities {
+  :root {
+    /* Customize these variable */
+
+    /* https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo */
+
+    --tw-clr-primary-50: 253 232 237;
+    --tw-clr-primary-100: 249 185 200;
+    --tw-clr-primary-200: 244 138 163;
+    --tw-clr-primary-300: 240 92 126;
+    --tw-clr-primary-400: 235 39 84;
+    --tw-clr-primary-500: 210 19 63;
+    --tw-clr-primary-600: 163 15 49;
+    --tw-clr-primary-700: 117 11 35;
+    --tw-clr-primary-800: 70 6 21;
+    --tw-clr-primary-900: 23 2 7;
+    --clr-primary-50: rgb(var(--tw-clr-primary-50)); /* #fde8ed */
+    --clr-primary-100: rgb(var(--tw-clr-primary-100)); /* #f9b9c8 */
+    --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #f48aa3 */
+    --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #f05c7e */
+    --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #eb2754 */
+    --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #d2133f */
+    --clr-primary-600: rgb(var(--tw-clr-primary-600)); /* #a30f31 */
+    --clr-primary-700: rgb(var(--tw-clr-primary-700)); /* #750b23 */
+    --clr-primary-800: rgb(var(--tw-clr-primary-800)); /* #460615 */
+    --clr-primary-900: rgb(var(--tw-clr-primary-900)); /* #170207 */
+  }
+
   /* #region  /**=========== Typography =========== */
   h1 {
     @apply font-primary text-2xl font-bold md:text-4xl;
@@ -60,46 +111,21 @@
     @apply mx-auto w-11/12;
   }
 
-  .bg-dark a.custom-link {
-    @apply border-gray-200 hover:border-gray-200/0;
-  }
-
   /* Class to adjust with sticky footer */
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
   }
 }
 
-@layer utilities {
-  .animated-underline {
-    background-image: linear-gradient(#3330, #3330),
-      linear-gradient(to right, var(--clr-primary-300), var(--clr-primary-100));
-    background-size:
-      100% 2px,
-      0 2px;
-    background-position:
-      100% 100%,
-      0 100%;
-    background-repeat: no-repeat;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .animated-underline {
-      transition: 0.3s ease;
-      transition-property: background-size, color, background-color,
-        border-color;
-    }
-  }
-
-  .animated-underline:hover,
-  .animated-underline:focus-visible {
-    background-size:
-      0 2px,
-      100% 2px;
-  }
+@utility prose {
+  max-width: 50rem;
 }
 
 /* YT Lite */
 .yt-lite::before {
   content: none !important;
+}
+
+@theme {
+  --font-primary: var(--font-geist-sans), 'sans-serif';
 }

@@ -79,10 +79,10 @@ const Footer = () => {
                 <Tooltip key={social.link} content={social.label}>
                   <UnstyledLink
                     aria-label={social.label}
-                    className='inline-flex items-center justify-center rounded-sm focus:outline-none group focus-visible:ring focus-visible:ring-primary-300'
+                    className='inline-flex items-center justify-center rounded-xs focus:outline-hidden group focus-visible:ring-3 focus-visible:ring-primary-300'
                     href={social.link}
                   >
-                    <social.icon className='my-auto h-7 w-7 align-middle text-gray-600 transition-all group-hover:text-primary-300 dark:text-gray-300 group-hover:dark:text-primary-300' />
+                    <social.icon className='my-auto h-7 w-7 align-middle text-gray-600 transition-all group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300' />
                   </UnstyledLink>
                 </Tooltip>
               );
@@ -188,7 +188,7 @@ const FooterLinks = ({ className }: { className?: string }) => {
       {footerLinks.map(({ href, text, tooltip }) => (
         <Tooltip key={href} content={tooltip}>
           <UnstyledLink
-            className='animated-underline rounded-sm text-sm font-medium focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:text-gray-200 py-1 px-0.5'
+            className='animated-underline rounded-xs text-sm font-medium focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:text-gray-200 py-1 px-0.5'
             href={href}
           >
             {text}
