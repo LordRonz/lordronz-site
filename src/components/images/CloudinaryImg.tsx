@@ -70,7 +70,7 @@ const CloudinaryImg = ({
   return (
     <figure
       className={clsxm(className, {
-        'overflow-hidden rounded-md shadow dark:shadow-none': !noStyle,
+        'overflow-hidden rounded-md shadow-sm dark:shadow-none': !noStyle,
         'mx-auto w-full': mdx && +width <= 800,
       })}
       style={{

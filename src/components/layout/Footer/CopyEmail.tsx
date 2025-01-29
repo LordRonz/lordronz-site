@@ -36,7 +36,7 @@ const CopyEmail = () => {
         >
           <div
             aria-label='Mail button'
-            className='rounded-sm align-middle focus:outline-none focus-visible:ring focus-visible:ring-primary-300 group'
+            className='rounded-xs align-middle focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 group'
           >
             <FiMail className='my-auto h-8 w-8 -mt-0.5 md:-mt-0.5 align-middle text-gray-600 group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300' />
           </div>

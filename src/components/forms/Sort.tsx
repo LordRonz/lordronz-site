@@ -53,7 +53,7 @@ const Sort = (props: SortProps) => {
       <Button
         className={clsxm(
           'rounded-md bg-gray-200 py-1 text-left font-medium dark:bg-dark sm:text-sm',
-          'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+          'focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300',
           'border border-gray-300 dark:border-gray-600',
           'scale-100 transform-gpu hover:scale-[1.03] active:scale-[0.97]',
           'transition duration-100',
@@ -71,7 +71,7 @@ const Sort = (props: SortProps) => {
       </Button>
       <CustomTab
         categories={sortOptionsMemo}
-        className='flex-shrink-0'
+        className='shrink-0'
         onChange={onCustomTabChange}
         defaultIndex={defaultIndex}
       />

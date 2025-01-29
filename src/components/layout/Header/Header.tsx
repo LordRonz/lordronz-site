@@ -84,19 +84,19 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
                 <UnstyledLink
                   href={href}
                   className={clsxm(
-                    'animated-underline rounded-sm py-1 transition-all',
+                    'animated-underline rounded-xs py-1 transition-all',
                     'font-medium text-black dark:text-light',
                     'group dark:hover:text-primary-300',
-                    'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+                    'focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300',
                     href === baseRoute && 'font-bold',
                   )}
                 >
                   <span
                     className={clsxm(
                       'transition-all',
-                      'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/10 p-0.5 rounded-sm',
+                      'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/10 p-0.5 rounded-xs',
                       href === baseRoute &&
-                        'bg-primary-300/50 group-hover:bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
+                        'bg-primary-300/50 group-hover:bg-primary-300/50 dark:bg-linear-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
                     )}
                   >
                     {label}
@@ -105,7 +105,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
               </li>
             ))}
           </ul>
-          <label className='swap swap-rotate btn-circle btn border-transparent bg-transparent text-dark outline-primary-200 hover:border-transparent hover:bg-gray-300 hover:outline-1 dark:text-light hover:dark:bg-gray-600 md:hidden'>
+          <label className='swap swap-rotate btn-circle btn border-transparent bg-transparent text-dark outline-primary-200 hover:border-transparent hover:bg-gray-300 hover:outline-1 dark:text-light dark:hover:bg-gray-600 md:hidden'>
             <input
               type='checkbox'
               className='hidden'
@@ -147,7 +147,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
         id='drawer-navigation'
         ref={ref}
         className={clsxm(
-          'fixed left-0 top-0 z-[99] h-screen w-80 overflow-y-auto bg-light p-4 duration-300 dark:bg-dark',
+          'fixed left-0 top-0 z-99 h-screen w-80 overflow-y-auto bg-light p-4 duration-300 dark:bg-dark',
           !sideNav && '-translate-x-full',
         )}
         tabIndex={-1}
@@ -189,19 +189,19 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
                 <UnstyledLink
                   href={href}
                   className={clsxm(
-                    'animated-underline rounded-sm py-1 transition-all',
+                    'animated-underline rounded-xs py-1 transition-all',
                     'font-medium text-black dark:text-light',
                     'group dark:hover:text-primary-300',
-                    'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+                    'focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300',
                     href === baseRoute && 'font-bold',
                   )}
                 >
                   <span
                     className={clsxm(
                       'transition-all',
-                      'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0 p-0.5 rounded-sm',
+                      'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0 p-0.5 rounded-xs',
                       href === baseRoute &&
-                        'bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
+                        'bg-primary-300/50 dark:bg-linear-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
                     )}
                   >
                     {label}

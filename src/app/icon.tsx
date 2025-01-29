@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from 'next/og';
 
 import { WEBSITE_URL } from '@/constants/env';

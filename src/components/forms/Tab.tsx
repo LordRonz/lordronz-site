@@ -41,9 +41,9 @@ const CustomTab = (props: Readonly<CustomTabProps>) => {
               value={category}
               className={clsxm(
                 'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
-                'ring-primary-200/60 ring-offset-2 ring-offset-primary-400 focus:outline-none focus:ring-2',
+                'ring-primary-200/60 ring-offset-2 ring-offset-primary-400 focus:outline-hidden focus:ring-2',
                 category === tab
-                  ? 'bg-primary-300 text-black shadow'
+                  ? 'bg-primary-300 text-black shadow-sm'
                   : ' text-gray-700 dark:text-gray-200 hover:bg-white/[0.12] dark:hover:text-white hover:text-black',
               )}
             >

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import type { Config } from 'tailwindcss';
-import { fontFamily } from 'tailwindcss/defaultTheme';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
@@ -13,9 +12,6 @@ export default {
         screens: {
           '2xl': '1400px',
         },
-      },
-      fontFamily: {
-        primary: ['var(--font-geist-sans)', ...fontFamily.sans],
       },
       colors: {
         // Customize it on globals.css :root
@@ -90,13 +86,9 @@ export default {
   variants: {
     extend: {},
   },
-  daisyui: {
-    themes: [],
-  },
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
-    require('daisyui'),
     require('tailwindcss-animate'),
   ],
-} satisfies Config;
+};

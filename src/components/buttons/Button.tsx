@@ -33,9 +33,9 @@ const Button = ({
       disabled={disabled}
       aria-label={rest['aria-label'] ?? 'A custom button'}
       className={clsxm(
-        'inline-flex items-center rounded px-4 py-2 font-semibold',
-        'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
-        'shadow-sm',
+        'inline-flex items-center rounded-sm px-4 py-2 font-semibold',
+        'focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-500',
+        'shadow-xs',
         !disabled
           ? 'animate-shadow scale-100 transform-gpu transition duration-300 hover:scale-[1.03] active:scale-[0.97]'
           : '',
@@ -75,7 +75,7 @@ const Button = ({
         ],
         'disabled:cursor-not-allowed',
         isLoading &&
-          'relative !cursor-wait !text-transparent !transition-none hover:!text-transparent',
+          'relative cursor-wait! text-transparent! transition-none! hover:text-transparent!',
         className,
       )}
       {...rest}

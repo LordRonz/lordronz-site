@@ -7,7 +7,12 @@ type QuoteProps = {
 
 const Quote = ({ className, quote, author }: QuoteProps) => {
   return (
-    <figure className={clsxm('mx-auto max-w-screen-md text-center', className)}>
+    <figure
+      className={clsxm(
+        'mx-auto max-w-(--breakpoint-md) text-center',
+        className,
+      )}
+    >
       <svg
         aria-hidden='true'
         className='mx-auto mb-3 h-12 w-12 text-gray-400 dark:text-gray-600'

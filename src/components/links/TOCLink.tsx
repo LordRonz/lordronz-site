@@ -23,7 +23,7 @@ const TOCLink = ({
       href={`#${id}`}
       id={`link-${id}`}
       className={clsxm(
-        'font-medium hover:text-gray-700 focus:outline-none dark:hover:text-gray-200',
+        'font-medium hover:text-gray-700 focus:outline-hidden dark:hover:text-gray-200',
         'focus-visible:text-gray-700 dark:focus-visible:text-gray-200',
         activeSection === id
           ? 'text-gray-900 dark:text-gray-100'

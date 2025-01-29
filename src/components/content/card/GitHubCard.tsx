@@ -34,7 +34,7 @@ const GitHubCard = ({ repo, className }: GitHubCardProps) => {
       <UnstyledLink
         href={repository.html_url}
         className={clsxm(
-          '!block max-w-xl',
+          'block! max-w-xl',
           'not-prose px-4 py-3',
           'rounded-lg border border-gray-300 dark:border-gray-600',
           'scale-100 transform-gpu hover:scale-[1.02] active:scale-[0.97]',
@@ -45,7 +45,7 @@ const GitHubCard = ({ repo, className }: GitHubCardProps) => {
       >
         <div className='flex items-center gap-2 text-sm md:text-base'>
           <SiGithub className='ml-0.5 shrink-0 text-[1.2em]' />
-          <Accent className={clsxm('truncate overflow-ellipsis font-semibold')}>
+          <Accent className={clsxm('truncate text-ellipsis font-semibold')}>
             {repository.full_name}
           </Accent>
         </div>
@@ -67,7 +67,7 @@ const GitHubCard = ({ repo, className }: GitHubCardProps) => {
   ) : (
     <div
       className={clsxm(
-        'mx-auto !block max-w-xl',
+        'mx-auto block! max-w-xl',
         'not-prose px-4 py-3',
         'rounded-lg border border-gray-300 dark:border-gray-600',
         'animate-pulse bg-gray-300 dark:bg-gray-600',
