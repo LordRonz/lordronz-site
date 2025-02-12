@@ -148,7 +148,7 @@
     "cssnano": "^7.0.6",
     "cypress": "^14.0.0",
     "daisyui": "5.0.0-beta.2",
-    "esbuild": "^0.24.2",
+    "esbuild": "^0.25.0",
     "eslint": "^9.19.0",
     "eslint-config-next": "^15.1.6",
     "eslint-config-prettier": "^10.0.1",
