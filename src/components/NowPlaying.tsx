@@ -131,12 +131,8 @@ const NowPlaying = () => {
         .box {
           --border-size: 3px;
           --border-angle: 0turn;
-          background-image: conic-gradient(
-              from var(--border-angle),
-              #ddd,
-              #ddd 50%,
-              #ddd
-            ),
+          background-image:
+            conic-gradient(from var(--border-angle), #ddd, #ddd 50%, #ddd),
             conic-gradient(
               from var(--border-angle),
               transparent 20%,
@@ -153,12 +149,8 @@ const NowPlaying = () => {
         }
 
         :is(.dark .box) {
-          background-image: conic-gradient(
-              from var(--border-angle),
-              #111 0%,
-              #111 0%,
-              #111 0%
-            ),
+          background-image:
+            conic-gradient(from var(--border-angle), #111 0%, #111 0%, #111 0%),
             conic-gradient(
               from var(--border-angle),
               transparent 20%,

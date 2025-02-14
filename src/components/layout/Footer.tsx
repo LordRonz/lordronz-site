@@ -97,12 +97,8 @@ const Footer = () => {
         .footer-divider {
           --border-size: 1px;
           --border-angle: 0turn;
-          background-image: conic-gradient(
-              from var(--border-angle),
-              #ddd 0%,
-              #ddd 0%,
-              #ddd 0%
-            ),
+          background-image:
+            conic-gradient(from var(--border-angle), #ddd 0%, #ddd 0%, #ddd 0%),
             conic-gradient(
               from var(--border-angle),
               transparent 20%,
@@ -118,12 +114,8 @@ const Footer = () => {
         }
 
         :is(.dark .footer-divider) {
-          background-image: conic-gradient(
-              from var(--border-angle),
-              #111 0%,
-              #111 0%,
-              #111 0%
-            ),
+          background-image:
+            conic-gradient(from var(--border-angle), #111 0%, #111 0%, #111 0%),
             conic-gradient(
               from var(--border-angle),
               transparent 20%,
