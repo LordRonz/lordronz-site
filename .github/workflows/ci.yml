@@ -15,7 +15,6 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 'latest'
           run_install: false
 
       - name: Get pnpm store directory
@@ -53,7 +52,6 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 'latest'
           run_install: false
 
       - name: Get pnpm store directory
@@ -90,7 +88,6 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 'latest'
           run_install: false
 
       - name: Get pnpm store directory
@@ -127,7 +124,6 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 'latest'
           run_install: false
 
       - name: Get pnpm store directory
@@ -164,7 +160,6 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 'latest'
           run_install: false
 
       - name: Get pnpm store directory
@@ -202,7 +197,6 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 'latest'
           run_install: false
 
       - name: Get pnpm store directory
