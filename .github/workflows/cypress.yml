@@ -34,6 +34,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
+          install: true
           headless: true
           build: pnpm build-ci
           start: pnpm start
