@@ -10,7 +10,7 @@ overrides:
 
 patchedDependencies:
   rehype-pretty-code:
-    hash: pqcnbsdo7j3pivq2sd7sb46lby
+    hash: c428109363c4ad1ac4aeded19ab653deeeabdd9d20a047073469fe18c4f2b7db
     path: patches/rehype-pretty-code.patch
 
 importers:
@@ -118,7 +118,7 @@ importers:
         version: 17.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       rehype-pretty-code:
         specifier: ^0.14.0
-        version: 0.14.0(patch_hash=pqcnbsdo7j3pivq2sd7sb46lby)(shiki@2.3.2)
+        version: 0.14.0(patch_hash=c428109363c4ad1ac4aeded19ab653deeeabdd9d20a047073469fe18c4f2b7db)(shiki@2.3.2)
       request:
         specifier: ^2.88.2
         version: 2.88.2
@@ -20973,7 +20973,7 @@ snapshots:
       hast-util-from-html: 2.0.3
       unified: 11.0.5
 
-  rehype-pretty-code@0.14.0(patch_hash=pqcnbsdo7j3pivq2sd7sb46lby)(shiki@2.3.2):
+  rehype-pretty-code@0.14.0(patch_hash=c428109363c4ad1ac4aeded19ab653deeeabdd9d20a047073469fe18c4f2b7db)(shiki@2.3.2):
     dependencies:
       '@types/hast': 3.0.4
       hast-util-to-string: 3.0.1
