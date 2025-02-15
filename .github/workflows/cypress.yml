@@ -29,12 +29,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/Cypress
+          key:
+            cypress-${{ runner.os }}-cypress-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - run: pnpm cypress install
+
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          install: true
           headless: true
           build: pnpm build-ci
           start: pnpm start
