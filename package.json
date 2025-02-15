@@ -201,6 +201,7 @@
     "vitest": "^3.0.5",
     "webpack": "^5.98.0"
   },
+  "packageManager": "pnpm@10.4.0",
   "pnpm": {
     "patchedDependencies": {
       "rehype-pretty-code": "patches/rehype-pretty-code.patch"
