@@ -289,8 +289,8 @@ importers:
         specifier: ^14.0.3
         version: 14.0.3
       daisyui:
-        specifier: 5.0.0-beta.2
-        version: 5.0.0-beta.2
+        specifier: 5.0.0-beta.8
+        version: 5.0.0-beta.8
       esbuild:
         specifier: ^0.25.0
         version: 0.25.0
@@ -5166,8 +5166,8 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-  daisyui@5.0.0-beta.2:
-    resolution: {integrity: sha512-H1gXtcQhjcKze3UBq23dJUyKYIxHrVIKb6XtDfnSh6Ft4d0BMfPOwuvzIsuEe5PkbBm9kZH0ny+aQqiDosqpPQ==}
+  daisyui@5.0.0-beta.8:
+    resolution: {integrity: sha512-jSokqm5i+Pv1jG80wliNzMHjmcF+iMx5xRUpk0/QExVoVNyQNWeCsaWJQubPvUq7bt9nzSsQTR2uIZBoyIIoaA==}
 
   damerau-levenshtein@1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
@@ -16059,7 +16059,7 @@ snapshots:
       untildify: 4.0.0
       yauzl: 2.10.0
 
-  daisyui@5.0.0-beta.2: {}
+  daisyui@5.0.0-beta.8: {}
 
   damerau-levenshtein@1.0.8: {}
 
