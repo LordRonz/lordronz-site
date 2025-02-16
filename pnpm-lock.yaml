@@ -10,7 +10,7 @@ overrides:
 
 patchedDependencies:
   rehype-pretty-code:
-    hash: c428109363c4ad1ac4aeded19ab653deeeabdd9d20a047073469fe18c4f2b7db
+    hash: pqcnbsdo7j3pivq2sd7sb46lby
     path: patches/rehype-pretty-code.patch
 
 importers:
@@ -118,7 +118,7 @@ importers:
         version: 17.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       rehype-pretty-code:
         specifier: ^0.14.0
-        version: 0.14.0(patch_hash=c428109363c4ad1ac4aeded19ab653deeeabdd9d20a047073469fe18c4f2b7db)(shiki@2.3.2)
+        version: 0.14.0(patch_hash=pqcnbsdo7j3pivq2sd7sb46lby)(shiki@2.3.2)
       request:
         specifier: ^2.88.2
         version: 2.88.2
@@ -313,8 +313,8 @@ importers:
         specifier: ^12.1.1
         version: 12.1.1(eslint@9.20.1(jiti@2.4.2))
       eslint-plugin-storybook:
-        specifier: ^0.11.2
-        version: 0.11.2(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
+        specifier: ^0.11.3
+        version: 0.11.3(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
       eslint-plugin-unused-imports:
         specifier: ^4.1.4
         version: 4.1.4(@typescript-eslint/eslint-plugin@8.24.0(@typescript-eslint/parser@8.24.0(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.20.1(jiti@2.4.2))
@@ -5695,11 +5695,12 @@ packages:
     peerDependencies:
       eslint: '>=5.0.0'
 
-  eslint-plugin-storybook@0.11.2:
-    resolution: {integrity: sha512-0Z4DUklJrC+GHjCRXa7PYfPzWC15DaVnwaOYenpgXiCEijXPZkLKCms+rHhtoRcWccP7Z8DpOOaP1gc3P9oOwg==}
+  eslint-plugin-storybook@0.11.3:
+    resolution: {integrity: sha512-gDBnBZiyk4ZG7OMSJRaHBcuJ8TMCXgMIQ3HB/XvtN0SvSio2ZOIeYD3yGj39g/DbyCe/Bg02j/ip9tWlDEs82A==}
     engines: {node: '>= 18'}
     peerDependencies:
       eslint: '>=8'
+      typescript: '>=4.8.4 <5.8.0'
 
   eslint-plugin-unused-imports@4.1.4:
     resolution: {integrity: sha512-YptD6IzQjDardkl0POxnnRBhU1OEePMV0nd6siHaRBbd+lyh6NAhFEobiznKU7kTsSsDeSD62Pe7kAM1b7dAZQ==}
@@ -16745,15 +16746,15 @@ snapshots:
     dependencies:
       eslint: 9.20.1(jiti@2.4.2)
 
-  eslint-plugin-storybook@0.11.2(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3):
+  eslint-plugin-storybook@0.11.3(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3):
     dependencies:
       '@storybook/csf': 0.1.13
       '@typescript-eslint/utils': 8.24.0(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
       eslint: 9.20.1(jiti@2.4.2)
       ts-dedent: 2.2.0
+      typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
-      - typescript
 
   eslint-plugin-unused-imports@4.1.4(@typescript-eslint/eslint-plugin@8.24.0(@typescript-eslint/parser@8.24.0(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.20.1(jiti@2.4.2)):
     dependencies:
@@ -20973,7 +20974,7 @@ snapshots:
       hast-util-from-html: 2.0.3
       unified: 11.0.5
 
-  rehype-pretty-code@0.14.0(patch_hash=c428109363c4ad1ac4aeded19ab653deeeabdd9d20a047073469fe18c4f2b7db)(shiki@2.3.2):
+  rehype-pretty-code@0.14.0(patch_hash=pqcnbsdo7j3pivq2sd7sb46lby)(shiki@2.3.2):
     dependencies:
       '@types/hast': 3.0.4
       hast-util-to-string: 3.0.1
