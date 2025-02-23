@@ -103,7 +103,7 @@
     "@commitlint/config-conventional": "^19.7.1",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.20.0",
-    "@inquirer/prompts": "^7.3.1",
+    "@inquirer/prompts": "^7.3.2",
     "@jest/globals": "^29.7.0",
     "@jest/types": "^29.6.3",
     "@netlify/plugin-nextjs": "^5.9.4",
