@@ -64,7 +64,7 @@
     "@radix-ui/react-toast": "^1.2.6",
     "@radix-ui/react-tooltip": "^1.1.8",
     "@react-three/drei": "^9.121.5",
-    "@react-three/fiber": "9.0.0-rc.1",
+    "@react-three/fiber": "9.0.4",
     "@serwist/next": "^9.0.11",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
