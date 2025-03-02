@@ -4,6 +4,7 @@ import { GeistSans } from 'geist/font/sans';
 import type { Viewport } from 'next';
 import Script from 'next/script';
 import { ThemeProvider } from 'next-themes';
+import { unstable_ViewTransition as ViewTransition } from 'react';
 
 import clsxm from '@/lib/clsxm';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
@@ -39,7 +40,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           defaultTheme='dark'
           enableSystem={false}
         >
-          <ClientLayout>{children}</ClientLayout>
+          <ViewTransition>
+            <ClientLayout>{children}</ClientLayout>
+          </ViewTransition>
         </ThemeProvider>
       </body>
     </html>

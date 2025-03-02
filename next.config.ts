@@ -71,6 +71,7 @@ const nextConfig = async (
           },
         },
       },
+      viewTransition: true,
       optimizePackageImports: [
         'react-intersection-observer',
         'framer-motion',
