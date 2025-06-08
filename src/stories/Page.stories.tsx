@@ -1,6 +1,6 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import { userEvent, within } from '@storybook/test';
+import type { Meta, StoryFn } from '@storybook/nextjs';
 import React from 'react';
+import { userEvent, within } from 'storybook/test';
 
 import { Page } from './Page';
 
