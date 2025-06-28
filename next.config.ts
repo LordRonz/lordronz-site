@@ -62,15 +62,15 @@ const nextConfig = async (
 
       return config;
     },
-    experimental: {
-      turbo: {
-        rules: {
-          '*.svg': {
-            loaders: ['@svgr/webpack'], // https://github.com/vercel/turbo/issues/4832
-            as: '*.js',
-          },
+    turbopack: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'], // https://github.com/vercel/turbo/issues/4832
+          as: '*.js',
         },
       },
+    },
+    experimental: {
       viewTransition: true,
       optimizePackageImports: [
         'react-intersection-observer',
