@@ -13,9 +13,7 @@ tags: 'frontend,backend,rabbitmq,go,typescript,sse,microservices'
 How I accidentally designed a fullstack micro-architecture just to push new
 posts to the top.
 
-⸻
-
-🧠 Background
+## 🧠 Background
 
 What started as a simple frontend project to display posts in a feed turned into
 an unexpected journey into system design. I wanted one thing: when a new post is
@@ -24,9 +22,7 @@ made, users should see a “🔄 New posts available” button, just like Twitte
 The simplest idea? Polling. The better idea? Server-Sent Events. The fun idea?
 Let's architect a real-time event-driven system with RabbitMQ.
 
-⸻
-
-🏗️ Overview of the Architecture
+## 🏗️ Overview of the Architecture
 
 <CloudinaryImg
   mdx
@@ -36,23 +32,25 @@ Let's architect a real-time event-driven system with RabbitMQ.
   height={1356}
 />
 
-Let's walk through what happens when someone posts a feed item: 1. Client sends
-a POST /feeds request. 2. API inserts into PostgreSQL and publishes an event to
-RabbitMQ. 3. A separate consumer service picks up that event and broadcasts it
-via Server-Sent Events (SSE) to connected clients.
+Let's walk through what happens when someone posts a feed item:
+
+1. Client sends a `POST /feeds` request.
+2. API inserts into PostgreSQL and publishes an event to RabbitMQ.
+3. A separate consumer service picks up that event and broadcasts it via
+   Server-Sent Events (SSE) to connected clients.
 
 It's decoupled, real-time, and scalable. Here's how I built it.
 
-⸻
+## 🧩 Tech Stack
 
-🧩 Tech Stack • Frontend: Next.js (App Router), TanStack Query, Tailwind,
-shadcn/ui • Backend API: Go + net/http • Database: PostgreSQL • Event Queue:
-RabbitMQ • Real-time Layer: Server-Sent Events (SSE) • Infra: Docker (RabbitMQ,
-Postgres)
+- Frontend: Next.js (App Router), TanStack Query, Tailwind, shadcn/ui
+- Backend API: Go + net/http
+- Database: PostgreSQL
+- Event Queue: RabbitMQ
+- Real-time Layer: Server-Sent Events (SSE)
+- Infra: Docker (RabbitMQ, Postgres)
 
-⸻
-
-🔧 Feed Insertion Flow
+## 🔧 Feed Insertion Flow
 
 API (Go) handles POST /feeds, inserts into the DB, and publishes a FeedCreated
 event to RabbitMQ:
@@ -68,9 +66,7 @@ _ = queue.PublishFeedCreated(queue.FeedEvent{
 
 This decouples DB writes from broadcasting logic.
 
-⸻
-
-📨 Event Broadcasting with RabbitMQ + SSE
+## 📨 Event Broadcasting with RabbitMQ + SSE
 
 A separate consumer service listens to the feed.created queue and uses an
 in-memory SSE pool to push to all connected clients:
@@ -88,9 +84,7 @@ func ConsumeAndBroadcast() {
 
 This design lets us horizontally scale consumers later.
 
-⸻
-
-📺 Frontend: Receiving New Feeds
+## 📺 Frontend: Receiving New Feeds
 
 We are going to use TanStack Query for data fetching, generally this is how
 TanStack Query works:
@@ -120,9 +114,7 @@ Then we show a pulse button:
 )}
 ```
 
-⸻
-
-📦 Pagination with Cursor
+## 📦 Pagination with Cursor
 
 We use a base64-encoded composite cursor:
 
@@ -143,27 +135,25 @@ LIMIT $3
 
 This ensures no items are skipped across pages.
 
-⸻
+## 🎯 Why RabbitMQ?
 
-🎯 Why RabbitMQ? 1. Separation of concerns: API focuses only on DB
-operations. 2. Reliability: Even if the broadcaster is down, messages are
-buffered. 3. Scalability: Multiple consumers can process events (analytics,
-push, etc.).
+1. Separation of concerns: API focuses only on DB operations.
 
-⸻
+2. Reliability: Even if the broadcaster is down, messages are buffered.
 
-📡 Why SSE over WebSocket? • Easier to implement • Reconnects out of the box •
+3. Scalability: Multiple consumers can process events (analytics, push, etc.).
+
+## 📡 Why SSE over WebSocket? • Easier to implement • Reconnects out of the box •
+
 Great for one-way communication like feeds
 
-WebSocket is great too—but SSE won here for simplicity and performance.
+WebSocket is great too, but SSE won here for simplicity and performance.
 
-⸻
+## 🧠 What I Learned • Real-time UX requires backend orchestration.
 
-🧠 What I Learned • Real-time UX requires backend orchestration. • Message
-queues simplify scaling and reliability. • Cursor pagination is trickier than
-you think. • Simplicity matters: SSE > WS for one-way streams.
-
-⸻
+- Message queues simplify scaling and reliability.
+- Cursor pagination is trickier than you think.
+- Simplicity matters: SSE > WS for one-way streams.
 
 ## The Repo
 
@@ -174,7 +164,7 @@ Here's the repo for this project:
 - Backend:
   [`https://github.com/lordronz/news-feed-backend/`](https://github.com/lordronz/news-feed-backend/)
 
-🧵 Final Thoughts
+## 🧵 Final Thoughts
 
 This started with just a scrollable list. But like most engineering journeys,
 solving a UI problem exposed gaps in architecture—and that's where the real fun
