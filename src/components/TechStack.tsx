@@ -3,6 +3,7 @@ import {
   SiCplusplus,
   SiDjango,
   SiExpress,
+  SiFlutter,
   SiGo,
   SiMongodb,
   SiNestjs,
@@ -89,6 +90,18 @@ const stacks = [
         authenticated website. I am using React Native to develop a native
         multi-platform apps. I chose React Native because it is so convenient to
         use if you know React.
+      </>
+    ),
+  },
+  {
+    id: 'flutter',
+    icon: SiFlutter,
+    tooltip: (
+      <>
+        <CustomLink href='https://flutter.dev/'>Flutter</CustomLink> is a UI
+        toolkit by Google for building natively compiled applications for
+        mobile, web, and desktop from a single codebase. I use Flutter when I
+        want pixel-perfect control or smooth animations across platforms.
       </>
     ),
   },
