@@ -95,7 +95,7 @@
     "string-palette": "^0.0.2",
     "swr": "^2.3.4",
     "tailwind-merge": "^3.3.1",
-    "yet-another-react-lightbox": "^3.24.0"
+    "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
     "@commander-js/extra-typings": "^14.0.0",
