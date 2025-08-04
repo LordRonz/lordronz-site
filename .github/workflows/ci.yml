@@ -31,7 +31,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install Node
-        uses: actions/setup-node@v4.2.0
+        uses: actions/setup-node@v4.4.0
         with:
           node-version: '22'
           cache: 'pnpm'
@@ -68,7 +68,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install Node
-        uses: actions/setup-node@v4.2.0
+        uses: actions/setup-node@v4.4.0
         with:
           node-version: '22'
           cache: 'pnpm'
@@ -104,7 +104,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install Node
-        uses: actions/setup-node@v4.2.0
+        uses: actions/setup-node@v4.4.0
         with:
           node-version: '22'
           cache: 'pnpm'
@@ -140,7 +140,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install Node
-        uses: actions/setup-node@v4.2.0
+        uses: actions/setup-node@v4.4.0
         with:
           node-version: '22'
           cache: 'pnpm'
@@ -176,7 +176,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install Node
-        uses: actions/setup-node@v4.2.0
+        uses: actions/setup-node@v4.4.0
         with:
           node-version: '22'
           cache: 'pnpm'
@@ -213,7 +213,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install Node.js
-        uses: actions/setup-node@v4.2.0
+        uses: actions/setup-node@v4.4.0
         with:
           node-version: 22.x
           cache: 'pnpm'
