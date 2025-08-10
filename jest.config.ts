@@ -19,7 +19,7 @@ const customJestConfig: Config.InitialOptions = {
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/.next/',
-    '<rootDir>/cypress/',
+    '<rootDir>/e2e/',
     '<rootDir>/out/',
   ],
   testEnvironment: 'jest-environment-jsdom',
