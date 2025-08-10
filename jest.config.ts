@@ -21,6 +21,7 @@ const customJestConfig: Config.InitialOptions = {
     '<rootDir>/.next/',
     '<rootDir>/e2e/',
     '<rootDir>/out/',
+    '<rootDir>/tests-examples/',
   ],
   testEnvironment: 'jest-environment-jsdom',
 };
