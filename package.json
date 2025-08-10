@@ -145,7 +145,7 @@
     "cross-env": "^10.0.0",
     "css-loader": "^7.1.2",
     "cssnano": "^7.1.0",
-    "daisyui": "5.0.47",
+    "daisyui": "5.0.50",
     "esbuild": "^0.25.8",
     "eslint": "^9.32.0",
     "eslint-config-next": "^15.4.4",
