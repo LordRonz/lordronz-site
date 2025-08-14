@@ -146,7 +146,7 @@
     "css-loader": "^7.1.2",
     "cssnano": "^7.1.0",
     "daisyui": "5.0.50",
-    "esbuild": "^0.25.8",
+    "esbuild": "^0.25.9",
     "eslint": "^9.33.0",
     "eslint-config-next": "^15.4.6",
     "eslint-config-prettier": "^10.1.8",
