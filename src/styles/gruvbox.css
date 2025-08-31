@@ -208,13 +208,14 @@ pre[class*='language-'] {
   color: var(--foreground);
   background: var(--background);
   text-shadow: none;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  word-wrap: normal;
+  overflow-wrap: normal;
   line-height: 1.5;
   tab-size: 4;
   hyphens: none;

@@ -11,12 +11,19 @@
           "config",
           "utility",
           "theme",
-          "reference"
+          "reference",
+          "media"
         ]
       }
     ],
     "import-notation": null,
     "at-rule-no-deprecated": null,
-    "property-no-vendor-prefix": [true, { "ignoreProperties": ["transform"] }]
+    "property-no-vendor-prefix": [true, { "ignoreProperties": ["transform"] }],
+    "declaration-no-important": null,
+    "no-invalid-position-declaration": null,
+    "selector-class-pattern": null,
+    "selector-id-pattern": null,
+    "nesting-selector-no-missing-scoping-root": null,
+    "custom-property-pattern": null
   }
 }
