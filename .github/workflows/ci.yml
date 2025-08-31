@@ -150,8 +150,8 @@ jobs:
       - name: Run stylelint
         run: pnpm stylelint
 
-  jest:
-    name: Run Jest testing
+  vitest:
+    name: Run Vitest testing
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -183,7 +183,7 @@ jobs:
 
       - name: Install packages
         run: pnpm install
-      - name: Run Jest
+      - name: Run Vitest
         run: pnpm test
 
   build:

@@ -1,13 +1,10 @@
-/* eslint-env jest */
-
-import '@testing-library/jest-dom';
-
 import { render, screen } from '@testing-library/react';
 import { act } from 'react';
+import { vi } from 'vitest';
 
 import Wave from '@/components/Wave';
 
-jest.mock('next/router', () => ({
+vi.mock('next/router', () => ({
   useRouter() {
     return {
       route: '/',
@@ -20,11 +17,11 @@ jest.mock('next/router', () => ({
 
 describe('Wave', () => {
   it('renders a wave', () => {
-    jest.useFakeTimers(); // Use fake timers
+    vi.useFakeTimers(); // Use fake timers
     render(<Wave data-testid='wave' />);
 
     // Fast-forward timers by 1200ms
-    act(() => jest.advanceTimersByTime(2000));
+    act(() => vi.advanceTimersByTime(2000));
 
     const wave = screen.getByTestId('wave');
 

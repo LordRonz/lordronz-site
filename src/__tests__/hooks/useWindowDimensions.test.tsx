@@ -1,6 +1,7 @@
 // useWindowDimensions.test.js
 import { renderHook } from '@testing-library/react';
 import { act } from 'react';
+import { vi } from 'vitest';
 
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 
@@ -34,7 +35,7 @@ describe('useWindowDimensions', () => {
   test('should unsubscribe from resize events on unmount', () => {
     const { unmount } = renderHook(() => useWindowDimensions());
 
-    const spyRemoveEventListener = jest.spyOn(window, 'removeEventListener');
+    const spyRemoveEventListener = vi.spyOn(window, 'removeEventListener');
     unmount();
 
     expect(spyRemoveEventListener).toHaveBeenCalledWith(

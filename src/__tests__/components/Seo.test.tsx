@@ -1,12 +1,9 @@
-/* eslint-env jest */
-
-import '@testing-library/jest-dom';
-
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import type * as SeoModule from '@/components/Seo';
 
-jest.mock('next/router', () => ({
+vi.mock('next/router', () => ({
   useRouter() {
     return {
       route: '/',
@@ -21,15 +18,13 @@ describe('Render SEO', () => {
   let Seo: typeof SeoModule.default;
   beforeEach(async () => {
     process.env.NEXT_PUBLIC_HOSTNAME = 'banger.com';
-    jest.isolateModules(async () => {
-      return import('@/components/Seo').then((module) => {
-        Seo = module.default;
-      });
-    });
+    vi.resetModules();
+    const seoModule = await import('@/components/Seo');
+    Seo = seoModule.default;
   });
 
   afterAll(() => {
-    jest.resetModules();
+    vi.resetAllMocks();
   });
 
   it('renders a seo', () => {

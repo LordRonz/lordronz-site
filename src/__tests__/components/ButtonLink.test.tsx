@@ -2,6 +2,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
+import { vi } from 'vitest';
 
 import ButtonLink, {
   type ButtonLinkProps,
@@ -69,7 +70,7 @@ describe('ButtonLink', () => {
 
   it('handles click events', () => {
     const user = userEvent.setup();
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     render(<ButtonLink {...mockProps} onClick={onClick} />);
 
     const button = screen.getByRole('link', { name: 'Button Text' });

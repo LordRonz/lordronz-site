@@ -1,12 +1,9 @@
-/* eslint-env jest */
-
-import '@testing-library/jest-dom';
-
 import { fireEvent, render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import PageProgress from '@/components/PageProgress';
 
-jest.mock('next/router', () => ({
+vi.mock('next/router', () => ({
   useRouter() {
     return {
       route: '/',

@@ -4,7 +4,6 @@ import openGraphDefault, { openGraph } from '@/lib/og';
 
 describe('open graph test', () => {
   it('should return correct open graph url', () => {
-    expect.hasAssertions();
     const result = openGraph({
       description: 'Test',
       siteName: `${WEBSITE_HOSTNAME}`,
@@ -17,7 +16,6 @@ describe('open graph test', () => {
     );
   });
   it('should return trimmed logo url', () => {
-    expect.hasAssertions();
     const result = openGraph({
       description: 'Test',
       siteName: `${WEBSITE_HOSTNAME}`,
@@ -30,7 +28,6 @@ describe('open graph test', () => {
     );
   });
   it('should return gradient api route url', () => {
-    expect.hasAssertions();
     const result = openGraph({
       description: 'Test',
       siteName: `${WEBSITE_HOSTNAME}`,
@@ -44,7 +41,6 @@ describe('open graph test', () => {
     );
   });
   it('should return general api route url', () => {
-    expect.hasAssertions();
     const result = openGraph({
       description: 'Test',
       siteName: `${WEBSITE_HOSTNAME}`,
@@ -58,7 +54,6 @@ describe('open graph test', () => {
     );
   });
   it('should return correct logo', () => {
-    expect.hasAssertions();
     const result = openGraph({
       description: 'Test',
       siteName: `${WEBSITE_HOSTNAME}`,
@@ -71,7 +66,6 @@ describe('open graph test', () => {
     );
   });
   it('should return empty template title', () => {
-    expect.hasAssertions();
     const result = openGraph({
       description: 'Test',
       siteName: `${WEBSITE_HOSTNAME}`,
@@ -83,7 +77,6 @@ describe('open graph test', () => {
     );
   });
   it('should return correct logo width', () => {
-    expect.hasAssertions();
     const result = openGraph({
       description: 'Test',
       siteName: `${WEBSITE_HOSTNAME}`,
@@ -97,7 +90,6 @@ describe('open graph test', () => {
   });
 
   it('should return correct logo width (default import)', () => {
-    expect.hasAssertions();
     const result = openGraphDefault({
       description: 'Test',
       siteName: `${WEBSITE_HOSTNAME}`,

@@ -1,12 +1,9 @@
-/* eslint-env jest */
-
-import '@testing-library/jest-dom';
-
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import CoolButton from '@/components/buttons/CoolButton';
 
-jest.mock('next/router', () => ({
+vi.mock('next/router', () => ({
   useRouter() {
     return {
       route: '/',
@@ -19,8 +16,8 @@ jest.mock('next/router', () => ({
 
 describe('CoolButton', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
-    jest.useFakeTimers();
+    vi.clearAllMocks();
+    vi.useRealTimers();
   });
   it('renders a coolbutton', async () => {
     const { rerender } = render(

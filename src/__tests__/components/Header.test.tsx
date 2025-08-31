@@ -1,12 +1,9 @@
-/* eslint-env jest */
-
-import '@testing-library/jest-dom';
-
 import { fireEvent, render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import Header, { links } from '@/components/layout/Header/Header';
 
-jest.mock('next/router', () => ({
+vi.mock('next/router', () => ({
   useRouter() {
     return {
       route: '/blog',
@@ -19,11 +16,11 @@ jest.mock('next/router', () => ({
 
 describe('Header clipboard', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('renders a header', async () => {

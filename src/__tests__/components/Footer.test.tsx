@@ -1,14 +1,11 @@
-/* eslint-env jest */
-
-import '@testing-library/jest-dom';
-
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
+import { vi } from 'vitest';
 
 import Footer from '@/components/layout/Footer';
 import { TooltipProvider } from '@/components/ui/tooltip';
 
-jest.mock('next/router', () => ({
+vi.mock('next/router', () => ({
   useRouter() {
     return {
       route: '/',
@@ -21,17 +18,17 @@ jest.mock('next/router', () => ({
 
 describe('Footer clipboard', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     mockAllIsIntersecting(true);
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('renders a footer and click copy to clipboard', async () => {
     const jsdomPrompt = window.prompt;
-    window.prompt = jest.fn();
+    window.prompt = vi.fn();
 
     render(
       <TooltipProvider>
@@ -46,7 +43,7 @@ describe('Footer clipboard', () => {
     fireEvent.mouseOver(button);
     fireEvent.click(button);
 
-    act(() => jest.advanceTimersByTime(2000));
+    act(() => vi.advanceTimersByTime(2000));
 
     expect(button).toBeInTheDocument();
     window.prompt = jsdomPrompt;

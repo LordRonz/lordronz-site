@@ -3,7 +3,6 @@ import { defaultMeta, generateSeoMetadata } from '@/lib/generateSeoMetadata';
 describe('generateSeoMetadata libs', () => {
   describe('generateSeoMetadata', () => {
     it('should return metadata object which has several properties', () => {
-      expect.hasAssertions();
       const result = generateSeoMetadata();
 
       expect(result).toHaveProperty('openGraph');
@@ -14,7 +13,6 @@ describe('generateSeoMetadata libs', () => {
     });
 
     it('should return metadata object which has several properties and given some props', () => {
-      expect.hasAssertions();
       const templateTitle = 'Test title';
       const description = 'test desc';
       const result = generateSeoMetadata({
@@ -36,7 +34,6 @@ describe('generateSeoMetadata libs', () => {
     });
 
     it('should return metadata object which has several properties and given some props with null title', () => {
-      expect.hasAssertions();
       const result = generateSeoMetadata({
         description: null,
         openGraph: { images: ['test images'] },
