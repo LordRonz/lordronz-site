@@ -391,8 +391,8 @@ importers:
         specifier: ^1.1.5
         version: 1.1.5
       serwist:
-        specifier: ^9.2.0
-        version: 9.2.0(typescript@5.9.2)
+        specifier: ^9.2.1
+        version: 9.2.1(typescript@5.9.2)
       sort-package-json:
         specifier: ^3.4.0
         version: 3.4.0
@@ -9800,6 +9800,14 @@ packages:
 
   serwist@9.2.0:
     resolution: {integrity: sha512-T5ZVNQeJ0ivVbDQtvlCm+KCy0JXFpmr+UCXdzg/Ep7bePWfQA405GfITZzbSZkwl2WpJSICGwGpggYJOBuud6A==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
+  serwist@9.2.1:
+    resolution: {integrity: sha512-icp1GQB3h9q1OqYeSw+iTTY0OZ3io+fzNG0Ot3p6Xe5DEZlSRn61FmGx9mq76q0CeMtZYBmmuw4tyIS1O76Lbw==}
     peerDependencies:
       typescript: '>=5.0.0'
     peerDependenciesMeta:
@@ -22453,6 +22461,12 @@ snapshots:
       randombytes: 2.1.0
 
   serwist@9.2.0(typescript@5.9.2):
+    dependencies:
+      idb: 8.0.3
+    optionalDependencies:
+      typescript: 5.9.2
+
+  serwist@9.2.1(typescript@5.9.2):
     dependencies:
       idb: 8.0.3
     optionalDependencies:
