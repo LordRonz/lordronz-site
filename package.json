@@ -63,7 +63,7 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@react-three/drei": "^10.7.4",
     "@react-three/fiber": "9.3.0",
-    "@serwist/next": "^9.2.0",
+    "@serwist/next": "^9.2.1",
     "axios": "^1.11.0",
     "class-variance-authority": "^0.7.1",
     "cloudinary-build-url": "^0.2.4",

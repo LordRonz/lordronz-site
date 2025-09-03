@@ -48,8 +48,8 @@ importers:
         specifier: 9.3.0
         version: 9.3.0(@types/react@19.1.12)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(three@0.172.0)
       '@serwist/next':
-        specifier: ^9.2.0
-        version: 9.2.0(next@15.5.2(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(@playwright/test@1.55.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)(webpack@5.101.3(@swc/core@1.11.31)(esbuild@0.25.9))
+        specifier: ^9.2.1
+        version: 9.2.1(next@15.5.2(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(@playwright/test@1.55.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)(webpack@5.101.3(@swc/core@1.11.31)(esbuild@0.25.9))
       axios:
         specifier: ^1.11.0
         version: 1.11.0
@@ -3432,8 +3432,8 @@ packages:
   '@rushstack/eslint-patch@1.12.0':
     resolution: {integrity: sha512-5EwMtOqvJMMa3HbmxLlF74e+3/HhwBTMcvt3nqVJgGCozO6hzIPOBlwm8mGVNR9SN2IJpxSnlxczyDjcn7qIyw==}
 
-  '@serwist/build@9.2.0':
-    resolution: {integrity: sha512-pmRq0gtg2ZgAHEtyBSVDEibU23ZqrgjeMae+17Z8XS2winZ8rvHCjfvSKGOlqjDWJ7g9NbZRokGGK1T8CYUkBA==}
+  '@serwist/build@9.2.1':
+    resolution: {integrity: sha512-mMCBZi82jVCxIhOu/D3ifkfmiuhdFHuelWK1zRlASLbkogH7YsS6qvGTl37vWBTVAWNKcKfVWLR6tq9AUB7BSg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       typescript: '>=5.0.0'
@@ -3441,8 +3441,8 @@ packages:
       typescript:
         optional: true
 
-  '@serwist/next@9.2.0':
-    resolution: {integrity: sha512-BQiKhoyEqjZF0rxEWIIiDs46yrmddEbF8kbVsJ/sJMC/xo17gSLouY/hlQMUFOMJ1jQGuZ/L7ep4qhzefcsa1g==}
+  '@serwist/next@9.2.1':
+    resolution: {integrity: sha512-CCTvZYSWK1hCmANViGLd7LvVc9r9wd4aaVX4Uk0F6fC0/Xn05GY52di7LGZ2NveGr1g+NjQvQSBhfxCQK95NIg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       next: '>=14.0.0'
@@ -3451,8 +3451,8 @@ packages:
       typescript:
         optional: true
 
-  '@serwist/webpack-plugin@9.2.0':
-    resolution: {integrity: sha512-J7Q7pPQxzVHgS4H+AlEUuo7CkuokoR01/ufxnCDBsk0OMn1ljjpP0kc8WpfzEtLd8d3WNvPBwBMN4Zi9703+mA==}
+  '@serwist/webpack-plugin@9.2.1':
+    resolution: {integrity: sha512-tBVlKifGP96aV7A8HD0xXIJAu6/sTyfRc827LFuLajNaX2d/dpo/0sMxO45jEI+GS7vaUdTcSl5DqcaRkkQ9wQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       typescript: '>=5.0.0'
@@ -3463,8 +3463,8 @@ packages:
       webpack:
         optional: true
 
-  '@serwist/window@9.2.0':
-    resolution: {integrity: sha512-fz96MqC1kZznuFCMCiG70+Z2IPLxByyq4lsDmiVlzX1nPpoCezJXRs0jKE4TV0d2Aipn/WemN26wdmOvuOJxPQ==}
+  '@serwist/window@9.2.1':
+    resolution: {integrity: sha512-XkfV7+crhT4ArJCMcRle9AmzrxDjMRS6ExJwSPGmCqdb4JH/VyhcmJZljwoEpuZ1zh0cNvnWC8xEQ4p85jhxnQ==}
     peerDependencies:
       typescript: '>=5.0.0'
     peerDependenciesMeta:
@@ -5106,10 +5106,6 @@ packages:
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
-
-  chalk@5.4.1:
-    resolution: {integrity: sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w==}
-    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
   chalk@5.6.0:
     resolution: {integrity: sha512-46QrSQFyVSEyYAgQ22hQ+zDa60YHA4fBstHmtSApj1Y5vKtG27fWowW03jCk5KcbXEWPZUIR894aARCA/G1kfQ==}
@@ -9806,6 +9802,14 @@ packages:
       typescript:
         optional: true
 
+  serwist@9.2.1:
+    resolution: {integrity: sha512-icp1GQB3h9q1OqYeSw+iTTY0OZ3io+fzNG0Ot3p6Xe5DEZlSRn61FmGx9mq76q0CeMtZYBmmuw4tyIS1O76Lbw==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
 
@@ -11151,8 +11155,8 @@ packages:
     resolution: {integrity: sha512-U/PBtDf35ff0D8X8D0jfdzHYEPFxAI7jJlxZXwCSez5M3190m+QobIfh+sWDWSHMCWWJN2AWamkegn6vr6YBTw==}
     engines: {node: '>=18'}
 
-  zod@4.0.5:
-    resolution: {integrity: sha512-/5UuuRPStvHXu7RS+gmvRf4NXrNxpSllGwDnCBcJZtQsKrviYXm54yDGV2KYNLT5kq0lHGcl7lqWJLgSaG+tgA==}
+  zod@4.1.5:
+    resolution: {integrity: sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==}
 
   zustand@4.5.7:
     resolution: {integrity: sha512-CHOUy7mu3lbD6o6LJLfllpjkzhHXSBlX8B9+qPddUsIfeF5S/UZ5q0kmCsnRqT1UHFQZchNFDDzMbQsuesHWlw==}
@@ -14589,44 +14593,44 @@ snapshots:
 
   '@rushstack/eslint-patch@1.12.0': {}
 
-  '@serwist/build@9.2.0(typescript@5.9.2)':
+  '@serwist/build@9.2.1(typescript@5.9.2)':
     dependencies:
       common-tags: 1.8.2
       glob: 10.4.5
       pretty-bytes: 6.1.1
       source-map: 0.8.0-beta.0
-      zod: 4.0.5
+      zod: 4.1.5
     optionalDependencies:
       typescript: 5.9.2
 
-  '@serwist/next@9.2.0(next@15.5.2(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(@playwright/test@1.55.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)(webpack@5.101.3(@swc/core@1.11.31)(esbuild@0.25.9))':
+  '@serwist/next@9.2.1(next@15.5.2(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(@playwright/test@1.55.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)(webpack@5.101.3(@swc/core@1.11.31)(esbuild@0.25.9))':
     dependencies:
-      '@serwist/build': 9.2.0(typescript@5.9.2)
-      '@serwist/webpack-plugin': 9.2.0(typescript@5.9.2)(webpack@5.101.3(@swc/core@1.11.31)(esbuild@0.25.9))
-      '@serwist/window': 9.2.0(typescript@5.9.2)
-      chalk: 5.4.1
+      '@serwist/build': 9.2.1(typescript@5.9.2)
+      '@serwist/webpack-plugin': 9.2.1(typescript@5.9.2)(webpack@5.101.3(@swc/core@1.11.31)(esbuild@0.25.9))
+      '@serwist/window': 9.2.1(typescript@5.9.2)
+      chalk: 5.6.0
       glob: 10.4.5
       next: 15.5.2(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(@playwright/test@1.55.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      serwist: 9.2.0(typescript@5.9.2)
-      zod: 4.0.5
+      serwist: 9.2.1(typescript@5.9.2)
+      zod: 4.1.5
     optionalDependencies:
       typescript: 5.9.2
     transitivePeerDependencies:
       - webpack
 
-  '@serwist/webpack-plugin@9.2.0(typescript@5.9.2)(webpack@5.101.3(@swc/core@1.11.31)(esbuild@0.25.9))':
+  '@serwist/webpack-plugin@9.2.1(typescript@5.9.2)(webpack@5.101.3(@swc/core@1.11.31)(esbuild@0.25.9))':
     dependencies:
-      '@serwist/build': 9.2.0(typescript@5.9.2)
+      '@serwist/build': 9.2.1(typescript@5.9.2)
       pretty-bytes: 6.1.1
-      zod: 4.0.5
+      zod: 4.1.5
     optionalDependencies:
       typescript: 5.9.2
       webpack: 5.101.3(@swc/core@1.11.31)(esbuild@0.25.9)
 
-  '@serwist/window@9.2.0(typescript@5.9.2)':
+  '@serwist/window@9.2.1(typescript@5.9.2)':
     dependencies:
       '@types/trusted-types': 2.0.7
-      serwist: 9.2.0(typescript@5.9.2)
+      serwist: 9.2.1(typescript@5.9.2)
     optionalDependencies:
       typescript: 5.9.2
 
@@ -16576,8 +16580,6 @@ snapshots:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
-
-  chalk@5.4.1: {}
 
   chalk@5.6.0: {}
 
@@ -22458,6 +22460,12 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.2
 
+  serwist@9.2.1(typescript@5.9.2):
+    dependencies:
+      idb: 8.0.3
+    optionalDependencies:
+      typescript: 5.9.2
+
   set-blocking@2.0.0: {}
 
   set-function-length@1.2.2:
@@ -24012,7 +24020,7 @@ snapshots:
 
   yoctocolors-cjs@2.1.3: {}
 
-  zod@4.0.5: {}
+  zod@4.1.5: {}
 
   zustand@4.5.7(@types/react@19.1.12)(react@19.1.1):
     dependencies:
