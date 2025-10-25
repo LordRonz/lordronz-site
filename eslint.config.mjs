@@ -1,24 +1,16 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-import { FlatCompat } from '@eslint/eslintrc';
-import js from '@eslint/js';
 import nextEslintPluginNext from '@next/eslint-plugin-next';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
+import prettier from 'eslint-config-prettier/flat';
 import jest from 'eslint-plugin-jest';
+import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import unusedImports from 'eslint-plugin-unused-imports';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
-
-const eslintConfig = [
+const eslintConfig = defineConfig([
   {
     ignores: [
       '**/node_modules',
@@ -26,33 +18,27 @@ const eslintConfig = [
       '**/.next',
       '**/storybook-static',
       '**/public',
+      '**/.netlify',
     ],
   },
-  ...compat.extends(
-    'eslint:recommended',
-    'next',
-    'next/core-web-vitals',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@next/next/recommended',
-    'plugin:jest/recommended',
-    'plugin:prettier/recommended',
-    'plugin:storybook/recommended',
-    'prettier',
-  ),
+  ...nextVitals,
+  ...nextTs,
+  prettier,
+  eslintPluginPrettier,
   {
     plugins: {
       '@typescript-eslint': typescriptEslint,
-      '@next/next': nextEslintPluginNext,
       'simple-import-sort': simpleImportSort,
       'unused-imports': unusedImports,
       jest,
+      next: nextEslintPluginNext,
     },
 
     languageOptions: {
       parser: tsParser,
     },
-
+  },
+  {
     rules: {
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
@@ -79,8 +65,17 @@ const eslintConfig = [
       ],
 
       '@typescript-eslint/consistent-type-imports': 'error',
+      'react-hooks/set-state-in-effect': 'off',
     },
   },
-];
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    '.netlify/**',
+  ]),
+]);
 
 export default eslintConfig;

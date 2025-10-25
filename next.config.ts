@@ -1,6 +1,6 @@
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable import/no-extraneous-dependencies */
+
 import bundleAnalyzer from '@next/bundle-analyzer';
 import withSerwistInit from '@serwist/next';
 import type { NextConfig } from 'next';
@@ -34,6 +34,7 @@ const nextConfig = async (
         },
       }),
     },
+    reactCompiler: true,
     reactStrictMode: true,
     webpack: (config, { dev, isServer }) => {
       // Replace React with Preact only in client production build

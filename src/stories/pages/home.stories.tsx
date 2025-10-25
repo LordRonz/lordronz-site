@@ -4,9 +4,11 @@ import React from 'react';
 
 import Home from '@/app/page';
 
-export default {
+const HomeStory = {
   title: 'Pages/Home',
   component: Home,
 };
 
 export const HomePage = () => <Home />;
+
+export default HomeStory;

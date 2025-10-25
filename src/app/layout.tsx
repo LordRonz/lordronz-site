@@ -4,7 +4,7 @@ import { GeistSans } from 'geist/font/sans';
 import type { Viewport } from 'next';
 import Script from 'next/script';
 import { ThemeProvider } from 'next-themes';
-import { unstable_ViewTransition as ViewTransition } from 'react';
+import { ViewTransition } from 'react';
 
 import clsxm from '@/lib/clsxm';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
@@ -34,7 +34,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           strategy='afterInteractive'
         />
       </head>
-      <body className='bg-light tracking-wide text-dark transition-all duration-300 selection:bg-[rgb(var(--tw-clr-primary-300)_/_30%)] dark:bg-dark dark:text-light'>
+      <body className='bg-light tracking-wide text-dark transition-all duration-300 selection:bg-[rgb(var(--tw-clr-primary-300)/30%)] dark:bg-dark dark:text-light'>
         <ThemeProvider
           attribute='class'
           defaultTheme='dark'

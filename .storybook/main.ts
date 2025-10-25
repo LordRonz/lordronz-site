@@ -2,8 +2,7 @@
 
 // Imports the Storybook's configuration API
 import type { StorybookConfig } from '@storybook/nextjs';
-
-const path = require('path');
+import path from 'path';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -75,9 +74,6 @@ const config: StorybookConfig = {
       },
     },
   }),
-  docs: {
-    autodocs: true,
-  },
 };
 
 export default config;

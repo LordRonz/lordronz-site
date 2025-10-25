@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 // const nextJest = require('next/jest');
 import type { Config } from '@jest/types';
 import nextJest from 'next/jest.js';

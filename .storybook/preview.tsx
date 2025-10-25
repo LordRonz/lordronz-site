@@ -1,8 +1,8 @@
 // .storybook/preview.tsx
 
 import '../src/styles/globals.css';
-import { Preview, Parameters } from '@storybook/react';
-import React from 'react';
+
+import type { Parameters, Preview } from '@storybook/react';
 
 const parameters: Parameters = {
   controls: {
