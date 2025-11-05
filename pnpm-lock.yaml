@@ -168,8 +168,8 @@ importers:
         specifier: ^30.2.0
         version: 30.2.0
       '@netlify/plugin-nextjs':
-        specifier: ^5.14.3
-        version: 5.14.3
+        specifier: ^5.14.5
+        version: 5.14.5
       '@next/bundle-analyzer':
         specifier: 16.0.0
         version: 16.0.0
@@ -2866,8 +2866,8 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@netlify/plugin-nextjs@5.14.3':
-    resolution: {integrity: sha512-R4YIMjnVc1B1Sb64xkVHVQHzSbn6KarwlmtRJoiHA2I1vkM2eNKZ8gY/coDjxuUNY91pCjHA6uq7yiTO++BMiw==}
+  '@netlify/plugin-nextjs@5.14.5':
+    resolution: {integrity: sha512-AEt6p33YoZGnS4oV1oJnQZiMhzVptZJF7MyxygXrIuR0H0o72GBVIyn3/k1pyNtmWYyWL7WjZLLmR0aYt/OYqg==}
     engines: {node: '>=18.0.0'}
 
   '@next/bundle-analyzer@16.0.0':
@@ -14446,7 +14446,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@netlify/plugin-nextjs@5.14.3': {}
+  '@netlify/plugin-nextjs@5.14.5': {}
 
   '@next/bundle-analyzer@16.0.0':
     dependencies:
