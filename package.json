@@ -199,7 +199,7 @@
     "util": "^0.12.5",
     "vfile-matter": "^5.0.1",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^4.0.3",
+    "vitest": "^4.0.7",
     "webpack": "^5.102.1"
   },
   "packageManager": "pnpm@10.4.0",
