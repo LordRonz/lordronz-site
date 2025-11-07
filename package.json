@@ -91,7 +91,7 @@
     "rehype-pretty-code": "^0.14.1",
     "request": "^2.88.2",
     "sharp": "^0.34.4",
-    "shiki": "^3.13.0",
+    "shiki": "^3.15.0",
     "string-palette": "^0.0.3",
     "swr": "^2.3.6",
     "tailwind-merge": "^3.3.1",
