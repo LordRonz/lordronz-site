@@ -1,2 +1,2 @@
-pnpm lint-staged
-pnpm tsc
+bun run lint-staged
+bun run tsc

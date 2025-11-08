@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
       "source": "/(.*)",
@@ -25,5 +26,6 @@
         }
       ]
     }
-  ]
+  ],
+  "bunVersion": "1.x"
 }

@@ -8,29 +8,29 @@
   },
   "scripts": {
     "prebuild": "tsx ./src/scripts/runner.ts",
-    "build": "next build",
+    "build": "bun run --bun next build",
     "postbuild": "next-sitemap",
-    "build-ci": "cross-env CI=true pnpm build",
+    "build-ci": "cross-env CI=true bun run build",
     "build-prod": "cross-env NODE_ENV=production next build",
-    "build-stats": "cross-env ANALYZE=true pnpm build",
+    "build-stats": "cross-env ANALYZE=true bun run build",
     "build-storybook": "cross-env TS_NODE_PROJECT=.storybook/tsconfig.json storybook build",
     "clean": "rimraf .next out",
     "clean:nodemodules": "rimraf node_modules",
     "coverage:coveralls": "vitest run --coverage && coveralls < coverage/lcov.info",
     "create-blog": "tsx ./src/scripts/blog.ts -b",
     "deduplicate": "npx yarn-deduplicate && yarn install",
-    "dev": "next dev --turbo",
+    "dev": "bun run --bun next dev",
     "dev:webpack": "next dev",
     "export": "next export",
     "find-unused": "tsx ./src/scripts/find-unused.ts",
-    "fix-all": "concurrently \"pnpm lint:fix\" \"pnpm test\" \"pnpm tsc\" \"pnpm stylelint:fix\"",
+    "fix-all": "concurrently \"bun run lint:fix\" \"bun run test\" \"bun run tsc\" \"bun run stylelint:fix\"",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "gcp-build": "next build",
-    "preinstall": "npx only-allow pnpm -y",
+    "preinstall": "npx only-allow bun -y",
     "lint": "eslint",
     "lint-staged": "lint-staged",
-    "lint:fix": "eslint src --fix && pnpm format",
+    "lint:fix": "eslint src --fix && bun run format",
     "lint:package": "sort-package-json",
     "lint:strict": "eslint --max-warnings=0 src",
     "list-blog": "tsx ./src/scripts/blog.ts -l",
@@ -40,7 +40,7 @@
     "start": "next start",
     "storybook": "cross-env TS_NODE_PROJECT=.storybook/tsconfig.json cross-env BROWSER=none storybook dev -p 6006 -h localhost",
     "stylelint": "stylelint \"**/*.css\"",
-    "stylelint:fix": "pnpm stylelint --fix",
+    "stylelint:fix": "bun run stylelint --fix",
     "test": "vitest run",
     "test-all": "run-s test",
     "test:coverage": "vitest run --coverage",
@@ -203,9 +203,7 @@
     "webpack": "^5.102.1"
   },
   "packageManager": "pnpm@10.4.0",
-  "pnpm": {
-    "patchedDependencies": {
-      "rehype-pretty-code": "patches/rehype-pretty-code.patch"
-    }
+  "patchedDependencies": {
+    "rehype-pretty-code": "patches/rehype-pretty-code.patch"
   }
 }
