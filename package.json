@@ -202,7 +202,7 @@
     "vitest": "^4.0.3",
     "webpack": "^5.102.1"
   },
-  "packageManager": "pnpm@10.4.0",
+  "packageManager": "bun@1.x",
   "patchedDependencies": {
     "rehype-pretty-code": "patches/rehype-pretty-code.patch"
   }
