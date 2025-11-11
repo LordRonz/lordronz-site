@@ -27,5 +27,7 @@
       ]
     }
   ],
-  "bunVersion": "1.x"
+  "bunVersion": "1.3.2",
+  "buildCommand": "env CI=true npx bun@latest run --bun next build",
+  "installCommand": "npx bun@latest install"
 }
