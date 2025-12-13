@@ -1,7 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { useRef, useState } from 'react';
 import { FiMail } from 'react-icons/fi';
 
 import Accent from '@/components/Accent';
@@ -17,30 +16,43 @@ const CopyEmail = () => {
   const [copyStatus, setCopyStatus] = useState<string>(
     'Click the mail logo to copy',
   );
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(mail);
+
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      setCopyStatus('Copied to clipboard 😳');
+
+      timeoutRef.current = setTimeout(() => {
+        setCopyStatus('Click the mail logo to copy');
+      }, 1469);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
 
   return (
     <Tooltip>
       <TooltipTrigger
         className='p-0 border-0'
+        asChild
+        onPointerDown={(event) => event.preventDefault()}
         onClick={(event) => event.preventDefault()}
       >
-        <CopyToClipboard
-          text={mail}
-          onCopy={() => {
-            setCopyStatus('Copied to clipboard 😳');
-            setTimeout(
-              () => setCopyStatus('Click the mail logo to copy'),
-              1469,
-            );
-          }}
+        <div
+          aria-label='Mail button'
+          role='button'
+          tabIndex={0}
+          onClick={handleCopy}
+          className='rounded-xs align-middle focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 group cursor-pointer'
         >
-          <div
-            aria-label='Mail button'
-            className='rounded-xs align-middle focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 group'
-          >
-            <FiMail className='my-auto h-8 w-8 -mt-0.5 md:-mt-0.5 align-middle text-gray-600 group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300' />
-          </div>
-        </CopyToClipboard>
+          <FiMail className='my-auto h-8 w-8 -mt-0.5 md:-mt-0.5 align-middle text-gray-600 group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300' />
+        </div>
       </TooltipTrigger>
       <TooltipContent
         className='px-0 py-0 border-0 mb-2'

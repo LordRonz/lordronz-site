@@ -63,80 +63,35 @@ const socials = [
 
 const Footer = () => {
   return (
-    <>
-      <footer className='mt-4 pb-8'>
-        <main className='footer-divider layout flex flex-col items-center border-t pt-6 dark:border-gray-600'>
-          <FooterLinks className='pb-4' />
-          <div className='flex justify-center'>
-            <NowPlaying />
+    <footer className='mt-4 pb-8'>
+      <main className='footer-divider layout flex flex-col items-center border-t pt-6 dark:border-gray-600'>
+        <FooterLinks className='pb-4' />
+        <div className='flex justify-center'>
+          <NowPlaying />
+        </div>
+        <div className='flex gap-x-3'>
+          <div className='flex items-center justify-center'>
+            <CopyEmail />
           </div>
-          <div className='flex gap-x-3'>
-            <div className='flex items-center justify-center'>
-              <CopyEmail />
-            </div>
-            {socials.map((social) => {
-              return (
-                <Tooltip key={social.link} content={social.label}>
-                  <UnstyledLink
-                    aria-label={social.label}
-                    className='inline-flex items-center justify-center rounded-xs focus:outline-hidden group focus-visible:ring-3 focus-visible:ring-primary-300'
-                    href={social.link}
-                  >
-                    <social.icon className='my-auto h-7 w-7 align-middle text-gray-600 transition-all group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300' />
-                  </UnstyledLink>
-                </Tooltip>
-              );
-            })}
-          </div>
-          <p className='mt-8 text-sm text-gray-600 dark:text-gray-300'>
-            &copy; {new Date().getFullYear()} Aaron Christopher
-          </p>
-        </main>
-      </footer>
-      <style jsx>{`
-        .footer-divider {
-          --border-size: 1px;
-          --border-angle: 0turn;
-          background-image:
-            conic-gradient(from var(--border-angle), #ddd 0%, #ddd 0%, #ddd 0%),
-            conic-gradient(
-              from var(--border-angle),
-              transparent 20%,
-              #08f,
-              #f03
+          {socials.map((social) => {
+            return (
+              <Tooltip key={social.link} content={social.label}>
+                <UnstyledLink
+                  aria-label={social.label}
+                  className='inline-flex items-center justify-center rounded-xs focus:outline-hidden group focus-visible:ring-3 focus-visible:ring-primary-300'
+                  href={social.link}
+                >
+                  <social.icon className='my-auto h-7 w-7 align-middle text-gray-600 transition-all group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300' />
+                </UnstyledLink>
+              </Tooltip>
             );
-          background-size:
-            100% calc(100% - (var(--border-size) * 2)),
-            cover;
-          background-position: bottom center;
-          background-repeat: no-repeat;
-          animation: bg-spin 2s linear infinite;
-        }
-
-        :is(.dark .footer-divider) {
-          background-image:
-            conic-gradient(from var(--border-angle), #111 0%, #111 0%, #111 0%),
-            conic-gradient(
-              from var(--border-angle),
-              transparent 20%,
-              #08f,
-              #f03
-            );
-        }
-
-        @keyframes bg-spin {
-          to {
-            --border-angle: 1turn;
-          }
-        }
-
-        @property --border-angle {
-          syntax: '<angle>';
-          inherits: true;
-          initial-value: 0turn;
-        }
-      `}</style>
-    </>
+          })}
+        </div>
+        <p className='mt-8 text-sm text-gray-600 dark:text-gray-300'>
+          &copy; {new Date().getFullYear()} Aaron Christopher
+        </p>
+      </main>
+    </footer>
   );
 };
 
