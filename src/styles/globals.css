@@ -25,7 +25,8 @@
 }
 
 @utility animated-underline {
-  background-image: linear-gradient(#3330, #3330),
+  background-image:
+    linear-gradient(#3330, #3330),
     linear-gradient(to right, var(--clr-primary-300), var(--clr-primary-100));
   background-size:
     100% 2px,
@@ -114,6 +115,45 @@
   /* Class to adjust with sticky footer */
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
+  }
+
+  /* Wave animation hover */
+  .wave-hover:hover {
+    animation: wave 2.25s ease-in-out infinite;
+  }
+
+  /* Footer divider animation */
+  .footer-divider {
+    --border-size: 1px;
+    --border-angle: 0turn;
+
+    background-image:
+      conic-gradient(from var(--border-angle), #ddd 0%, #ddd 0%, #ddd 0%),
+      conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+    background-size:
+      100% calc(100% - (var(--border-size) * 2)),
+      cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    animation: bg-spin 2s linear infinite;
+  }
+
+  :is(.dark .footer-divider) {
+    background-image:
+      conic-gradient(from var(--border-angle), #111 0%, #111 0%, #111 0%),
+      conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+  }
+
+  @keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
+  }
+
+  @property --border-angle {
+    syntax: '<angle>';
+    inherits: true;
+    initial-value: 0turn;
   }
 }
 
