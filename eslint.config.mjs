@@ -27,7 +27,6 @@ const eslintConfig = defineConfig([
   eslintPluginPrettier,
   {
     plugins: {
-      '@typescript-eslint': typescriptEslint,
       'simple-import-sort': simpleImportSort,
       'unused-imports': unusedImports,
       jest,
