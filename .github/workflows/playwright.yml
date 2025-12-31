@@ -10,17 +10,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - uses: oven-sh/setup-bun@v2
+        name: Install Bun
         with:
-          node-version: lts/*
-      - name: Install dependencies
-        run: npm install -g pnpm && pnpm install
-      - name: Install dependencies
-        run: pnpm run build
+          bun-version: 'latest'
+
+      - uses: actions/cache@v4
+        name: Setup Bun cache
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-store-${{ hashFiles('**/bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-store-
+
+      - name: Install packages
+        run: bun install
+
+      - name: Build project
+        run: bun run build
+
       - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
+        run: bunx playwright install --with-deps
+
       - name: Run Playwright tests
-        run: pnpm exec playwright test
+        run: bunx playwright test
+
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:

@@ -13,14 +13,12 @@ export function generateImageMetadata() {
 const AppleIcon = ({ id }: { id: string }) => {
   const size = generateImageMetadata().find((im) => im.id === id)?.size;
   return new ImageResponse(
-    (
-      // ImageResponse JSX element
-      <img
-        alt='apple icon'
-        src={WEBSITE_URL + '/favicon/favicon-96x96.png'}
-        {...size}
-      />
-    ),
+    // ImageResponse JSX element
+    <img
+      alt='apple icon'
+      src={WEBSITE_URL + '/favicon/favicon-96x96.png'}
+      {...size}
+    />,
     // ImageResponse options
     {
       // For convenience, we can re-use the exported icons size metadata
