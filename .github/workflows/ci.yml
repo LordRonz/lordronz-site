@@ -12,35 +12,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
+      - uses: oven-sh/setup-bun@v2
+        name: Install Bun
         with:
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+          bun-version: 'latest'
 
       - uses: actions/cache@v4
-        name: Setup pnpm cache
+        name: Setup Bun cache
         with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-store-${{ hashFiles('**/bun.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install Node
-        uses: actions/setup-node@v4.2.0
-        with:
-          node-version: '22'
-          cache: 'pnpm'
+            ${{ runner.os }}-bun-store-
 
       - name: Install packages
-        run: pnpm install
+        run: bun install
 
       - name: Run ESLint
-        run: pnpm lint
+        run: bun run lint
 
   tsc:
     name: Run Type Check
@@ -49,34 +38,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
+      - uses: oven-sh/setup-bun@v2
+        name: Install Bun
         with:
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+          bun-version: 'latest'
 
       - uses: actions/cache@v4
-        name: Setup pnpm cache
+        name: Setup Bun cache
         with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-store-${{ hashFiles('**/bun.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install Node
-        uses: actions/setup-node@v4.2.0
-        with:
-          node-version: '22'
-          cache: 'pnpm'
+            ${{ runner.os }}-bun-store-
 
       - name: Install packages
-        run: pnpm install
+        run: bun install
       - name: Run type check
-        run: pnpm tsc
+        run: bun run tsc
 
   prettier:
     name: Run Prettier Check
@@ -85,34 +63,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
+      - uses: oven-sh/setup-bun@v2
+        name: Install Bun
         with:
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+          bun-version: 'latest'
 
       - uses: actions/cache@v4
-        name: Setup pnpm cache
+        name: Setup Bun cache
         with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-store-${{ hashFiles('**/bun.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install Node
-        uses: actions/setup-node@v4.2.0
-        with:
-          node-version: '22'
-          cache: 'pnpm'
+            ${{ runner.os }}-bun-store-
 
       - name: Install packages
-        run: pnpm install
+        run: bun install
       - name: Run prettier
-        run: pnpm format
+        run: bun run format
 
   stylelint:
     name: Run Stylelint Check
@@ -121,34 +88,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
+      - uses: oven-sh/setup-bun@v2
+        name: Install Bun
         with:
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+          bun-version: 'latest'
 
       - uses: actions/cache@v4
-        name: Setup pnpm cache
+        name: Setup Bun cache
         with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-store-${{ hashFiles('**/bun.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install Node
-        uses: actions/setup-node@v4.2.0
-        with:
-          node-version: '22'
-          cache: 'pnpm'
+            ${{ runner.os }}-bun-store-
 
       - name: Install packages
-        run: pnpm install
+        run: bun install
       - name: Run stylelint
-        run: pnpm stylelint
+        run: bun run stylelint
 
   vitest:
     name: Run Vitest testing
@@ -157,34 +113,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
+      - uses: oven-sh/setup-bun@v2
+        name: Install Bun
         with:
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+          bun-version: 'latest'
 
       - uses: actions/cache@v4
-        name: Setup pnpm cache
+        name: Setup Bun cache
         with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-store-${{ hashFiles('**/bun.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install Node
-        uses: actions/setup-node@v4.2.0
-        with:
-          node-version: '22'
-          cache: 'pnpm'
+            ${{ runner.os }}-bun-store-
 
       - name: Install packages
-        run: pnpm install
+        run: bun install
       - name: Run Vitest
-        run: pnpm test
+        run: bun run test
 
   build:
     name: Build
@@ -194,32 +139,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
+      - uses: oven-sh/setup-bun@v2
+        name: Install Bun
         with:
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+          bun-version: 'latest'
 
       - uses: actions/cache@v4
-        name: Setup pnpm cache
+        name: Setup Bun cache
         with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-store-${{ hashFiles('**/bun.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4.2.0
-        with:
-          node-version: 22.x
-          cache: 'pnpm'
+            ${{ runner.os }}-bun-store-
 
       - name: Install Packages
-        run: pnpm install
+        run: bun install
 
       - name: Build project
-        run: pnpm build
+        run: bun run build
