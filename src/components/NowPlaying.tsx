@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { animate } from 'motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import useSWR from 'swr';
 
@@ -20,7 +20,7 @@ export const AnimatedBars = ({
           'scaleY(1.5) translateY(-0.082rem)',
           'scaleY(1.0) translateY(0rem)',
         ],
-      } as any, // TODO: Remove any when things are not alpha
+      },
       {
         duration: 1.0,
         repeat: Infinity,
@@ -80,18 +80,23 @@ export const AnimatedBars = ({
 };
 
 const NowPlaying = () => {
+  const [mounted, setMounted] = useState(false);
   const { ref, inView } = useInView();
 
   const { data } = useSWR<NowPlayingSong>(inView ? '/api/now-playing' : null, {
     refreshInterval: 20000,
   });
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <>
       <Tooltip content={'Time to flex my latest banger in the playlist 🎧'}>
         <div
           className={clsxm(
-            !!data?.songUrl && 'box',
+            mounted && !!data?.songUrl && 'now-playing-box',
             'mb-8 flex w-full max-w-sm items-center justify-center gap-x-2 rounded-xs px-2 py-1 md:max-w-(--breakpoint-md)',
           )}
           ref={ref}
@@ -127,50 +132,6 @@ const NowPlaying = () => {
           </div>
         </div>
       </Tooltip>
-      <style jsx>{`
-        .box {
-          --border-size: 3px;
-          --border-angle: 0turn;
-          background-image:
-            conic-gradient(from var(--border-angle), #ddd, #ddd 50%, #ddd),
-            conic-gradient(
-              from var(--border-angle),
-              transparent 20%,
-              #08f,
-              #f03
-            );
-          background-size:
-            calc(100% - (var(--border-size) * 2))
-              calc(100% - (var(--border-size) * 2)),
-            cover;
-          background-position: center center;
-          background-repeat: no-repeat;
-          animation: bg-spin 3s linear infinite;
-        }
-
-        :is(.dark .box) {
-          background-image:
-            conic-gradient(from var(--border-angle), #111 0%, #111 0%, #111 0%),
-            conic-gradient(
-              from var(--border-angle),
-              transparent 20%,
-              #08f,
-              #f03
-            );
-        }
-
-        @keyframes bg-spin {
-          to {
-            --border-angle: 1turn;
-          }
-        }
-
-        @property --border-angle {
-          syntax: '<angle>';
-          inherits: true;
-          initial-value: 0turn;
-        }
-      `}</style>
     </>
   );
 };

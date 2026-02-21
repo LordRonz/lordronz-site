@@ -155,6 +155,44 @@
     inherits: true;
     initial-value: 0turn;
   }
+
+  .marker-root .marker-highlight {
+    background-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+  }
+
+  .marker-root.marker-visible .marker-highlight {
+    animation: marker-highlight 1s 1s 1 normal forwards;
+  }
+
+  @keyframes marker-highlight {
+    to {
+      background-position: 0 0;
+    }
+  }
+
+  .now-playing-box {
+    --border-size: 3px;
+    --border-angle: 0turn;
+
+    background-image:
+      conic-gradient(from var(--border-angle), #ddd, #ddd 50%, #ddd),
+      conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+    background-size:
+      calc(100% - (var(--border-size) * 2))
+        calc(100% - (var(--border-size) * 2)),
+      cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation: bg-spin 3s linear infinite;
+  }
+
+  :is(.dark .now-playing-box) {
+    background-image:
+      conic-gradient(from var(--border-angle), #111 0%, #111 0%, #111 0%),
+      conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+  }
 }
 
 @utility prose {
