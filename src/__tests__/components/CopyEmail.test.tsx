@@ -1,45 +1,18 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 
 import CopyEmail from '@/components/layout/Footer/CopyEmail';
 import { TooltipProvider } from '@/components/ui/tooltip';
 
-let mockOnCopy: ((text: string, result: boolean) => void) | undefined;
-vi.mock('react-copy-to-clipboard', () => ({
-  CopyToClipboard: ({
-    children,
-    onCopy,
-    text,
-  }: {
-    children: React.ReactNode;
-    onCopy: (text: string, result: boolean) => void;
-    text: string;
-  }) => {
-    mockOnCopy = onCopy;
-    return (
-      <div
-        data-testid='copy-to-clipboard'
-        onClick={() => {
-          onCopy(text, true);
-        }}
-      >
-        {children}
-      </div>
-    );
-  },
-}));
+const writeText = vi.fn().mockResolvedValue(undefined);
+Object.assign(navigator, { clipboard: { writeText } });
 
 const renderWithTooltipProvider = (component: React.JSX.Element) =>
   render(<TooltipProvider>{component}</TooltipProvider>);
 
 describe('CopyEmail', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
-  });
-
-  afterEach(() => {
-    vi.runOnlyPendingTimers();
-    vi.useRealTimers();
+    writeText.mockClear();
   });
 
   it('renders the mail button', () => {
@@ -54,19 +27,19 @@ describe('CopyEmail', () => {
 
     expect(screen.getByLabelText('Mail button')).toBeInTheDocument();
 
-    expect(screen.getByTestId('copy-to-clipboard')).toBeInTheDocument();
-
     const mailIcon = screen.getByLabelText('Mail button').querySelector('svg');
     expect(mailIcon).toBeInTheDocument();
   });
 
-  it('has correct email in the component', () => {
+  it('has correct email and copies to clipboard on click', async () => {
     renderWithTooltipProvider(<CopyEmail />);
 
     expect(screen.getByLabelText('Mail button')).toBeInTheDocument();
 
-    expect(screen.getByTestId('copy-to-clipboard')).toBeInTheDocument();
+    fireEvent.click(screen.getByLabelText('Mail button'));
 
-    expect(mockOnCopy).toBeDefined();
+    await waitFor(() => {
+      expect(writeText).toHaveBeenCalledWith('me@aaronct.dev');
+    });
   });
 });
