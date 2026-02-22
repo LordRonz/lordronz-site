@@ -44,7 +44,7 @@ const CopyEmail = () => {
         onPointerDown={(event) => event.preventDefault()}
         onClick={(event) => event.preventDefault()}
       >
-        <div
+        <button
           aria-label='Mail button'
           role='button'
           tabIndex={0}
@@ -52,7 +52,7 @@ const CopyEmail = () => {
           className='rounded-xs align-middle focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 group cursor-pointer'
         >
           <FiMail className='my-auto h-8 w-8 -mt-0.5 md:-mt-0.5 align-middle text-gray-600 group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300' />
-        </div>
+        </button>
       </TooltipTrigger>
       <TooltipContent
         className='px-0 py-0 border-0 mb-2'
