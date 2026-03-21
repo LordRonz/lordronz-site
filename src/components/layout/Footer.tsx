@@ -3,12 +3,12 @@ import {
   SiGitlab,
   SiHackerrank,
   SiLeetcode,
-  SiLinkedin,
   SiNpm,
   SiStackoverflow,
   SiYoutube,
 } from 'react-icons/si';
 
+import LinkedinLogo from '@/assets/images/linkedin-logo.svg';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import NowPlaying from '@/components/NowPlaying';
 import Tooltip from '@/components/Tooltip';
@@ -42,7 +42,7 @@ const socials = [
   {
     label: 'LinkedIn',
     link: `${url_shortener}/linkedin`,
-    icon: SiLinkedin,
+    icon: LinkedinLogo,
   },
   {
     label: 'Stack Overflow',
