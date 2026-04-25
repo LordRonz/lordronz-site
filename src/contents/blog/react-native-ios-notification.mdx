@@ -1,0 +1,443 @@
+---
+title: 'iOS communication push with avatar (React Native + OneSignal NSE)'
+publishedAt: '2026-04-25'
+description:
+  'Notification Service Extension on iOS 15+: download an avatar URL, donate
+  INSendMessageIntent, merge into UNNotificationContent, then hand off to
+  OneSignal. Payload shape, gotchas, and references.'
+banner: 'pexels-joey-kyber-31917-119569_khczr3'
+tags: 'react-native,ios,swift,push-notifications,onesignal,intents'
+---
+
+## Intro
+
+If you ship a React Native app and want **iOS-style communication
+notifications** (the layout with a **circular sender avatar**, name, and
+thread-ish subtitle), there's no way avoiding using Swift. The main app can
+register for push notifications, but **modifying** what the notification looks
+like is the job of a **Notification Service Extension**
+(`UNNotificationServiceExtension`).
+
+I use [OneSignal](https://onesignal.com/) as the push notification provider.
+Here's how it works underneath the hood. It will parse OneSignal's `userInfo`,
+pull a structured `communication` blob (sender name, ids, optional group name,
+**avatar URL**), download the image, build an
+[`INSendMessageIntent`](https://developer.apple.com/documentation/intents/insendmessageintent),
+donate an
+[`INInteraction`](https://developer.apple.com/documentation/intents/ininteraction),
+then call
+[`UNNotificationContent.updating(from:)`](<https://developer.apple.com/documentation/usernotifications/unnotificationcontent/updating(from:)>)
+so the system renders the communication notification. After that, forward the
+request to
+[`OneSignalExtension`](https://documentation.onesignal.com/docs/service-extensions)
+so rich media / default processing still runs.
+
+Apple's docs:
+[Modifying content in newly delivered notifications](https://developer.apple.com/documentation/usernotifications/modifying-content-in-newly-delivered-notifications)
+and
+[Handling communication notifications and Focus status updates](https://developer.apple.com/documentation/usernotifications/handling-communication-notifications-and-focus-status-updates).
+
+---
+
+## What it looks like
+
+<CloudinaryImg
+  mdx
+  publicId='lordronz-site/blog/lock_notif_ovrbat'
+  alt='lock screen communication notification with circular sender avatar'
+  width={1170}
+  height={2532}
+/>
+
+<CloudinaryImg
+  mdx
+  publicId='lordronz-site/blog/ios_notif_qlp6ec'
+  alt='expanded communication notification'
+  width={1170}
+  height={240}
+/>
+
+---
+
+## Requirements and payload
+
+We will have to configure some things and set up the payload correctly. You can
+use different namings for the variable / payload, but I will use the following
+ones.
+
+1. **Mutable content** - The APNs payload must request modification
+   (`mutable-content` / OneSignal equivalent) or the NSE **never runs**. Enable
+   that for the notifications you want to enrich
+   ([Apple: mutable-content](https://developer.apple.com/documentation/usernotifications/modifying-content-in-newly-delivered-notifications)).
+
+2. **Structured `userInfo`** - The Swift below reads:
+
+   `userInfo["custom"] as? [String: Any]` → `["a"]` → `["communication"]`
+
+   with fields like `sender_name`, `sender_uid` / `sender_id`,
+   `conversation_id`, optional `group_name`, `recipients`, and `avatar_url`.
+   Align your OneSignal **additional data** so the runtime dictionary matches
+   what you parse. If your provider flattens keys differently, adjust the
+   guards.
+
+3. **Time constraint** -
+   [`didReceive(_:withContentHandler:)`](<https://developer.apple.com/documentation/usernotifications/unnotificationserviceextension/didreceive(_:withcontenthandler:)>)
+   must finish within roughly **30 seconds**. If not, you get
+   [`serviceExtensionTimeWillExpire()`](<https://developer.apple.com/documentation/usernotifications/unnotificationserviceextension/serviceextensiontimewillexpire()>).
+   Avatar download uses a **5s cancel** so a stuck CDN does not eat the whole
+   time constraint.
+
+---
+
+## Example: OneSignal REST API
+
+Use env vars or a secrets manager for the API key - **never** commit real keys
+boys.
+
+```bash
+curl --request POST \
+  --url 'https://api.onesignal.com/notifications' \
+  --header 'Authorization: Key YOUR_ONESIGNAL_REST_API_KEY' \
+  --header 'accept: application/json' \
+  --header 'content-type: application/json' \
+  --data '{
+  "app_id": "YOUR_APP_ID",
+  "target_channel": "push",
+  "headings": { "en": "The message title" },
+  "subtitle": { "en": "Design / group line" },
+  "app_url": "your-app-scheme://circle/1114",
+  "contents": { "en": "This is a test." },
+  "data": {
+    "communication": {
+      "sender_name": "Avatar Bot",
+      "sender_uid": "avatar-bot-1",
+      "conversation_id": "avatar-test-convo",
+      "avatar_url": "https://example.com/avatars/bot.png"
+    }
+  },
+  "include_subscription_ids": ["YOUR_TEST_SUBSCRIPTION_ID"]
+}'
+```
+
+Map `data` fields to whatever ends up under `custom` → `a` on device for your
+OneSignal / SDK version, the Xcode debugger's `userInfo` print is the source of
+truth.
+
+---
+
+## Swift: `NotificationService`
+
+Extension flow:
+
+- Copy `request.content` to `bestAttemptContent`.
+- On **iOS 15+**, parse `communication`, optionally **URLSession** the
+  `avatar_url`, validate with `UIImage(data:)`, build **`INSendMessageIntent`**
+  with `INImage(imageData:)`, **`setImage(_:forParameterNamed:)`** on sender /
+  `speakableGroupName` when needed.
+- **`INInteraction(intent:response:).donate`** with `direction = .incoming`.
+- On success, **`try request.content.updating(from: intent)`**, copy back to
+  `bestAttemptContent`, **restore `subtitle`** if the intent path cleared it,
+  then **`OneSignalExtension.didReceiveNotificationExtensionRequest`** with your
+  `contentHandler`.
+- On failure or iOS &lt; 15, skip communication and forward to OneSignal only.
+- **Group name quirk**: For `INSendMessageIntent`, a non-nil
+  `speakableGroupName` can imply a **group**; if the backend sends too few
+  `recipients`, **placeholder `INPerson`** rows pad to two so the group layout
+  behaves.
+- **`serviceExtensionTimeWillExpire`**: delegate to
+  `OneSignalExtension.serviceExtensionTimeWillExpireRequest` when possible, then
+  always invoke `contentHandler` with the last good content.
+
+```swift
+import UserNotifications
+import Intents
+import OneSignalExtension
+import UIKit
+import os
+
+class NotificationService: UNNotificationServiceExtension {
+
+    private static let log: OSLog = {
+        let subsystem = Bundle.main.bundleIdentifier ?? "nse"
+        return OSLog(subsystem: subsystem, category: "NotificationService")
+    }()
+
+    private var contentHandler: ((UNNotificationContent) -> Void)?
+    private var receivedRequest: UNNotificationRequest?
+    private var bestAttemptContent: UNMutableNotificationContent?
+
+    override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+        os_log(.default, log: Self.log, "[NSE] didReceive called, identifier: %{public}@", request.identifier)
+        self.receivedRequest = request
+        self.contentHandler = contentHandler
+        self.bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
+
+        if #available(iOS 15.0, *) {
+            os_log(.default, log: Self.log, "[NSE] iOS 15+, trying communication intent")
+            tryBuildAndDonateCommunicationIntent(from: request)
+        } else {
+            os_log(.default, log: Self.log, "[NSE] iOS < 15, forwarding without communication")
+            forwardRequestToExtension()
+        }
+    }
+
+    @available(iOS 15.0, *)
+    private func tryBuildAndDonateCommunicationIntent(from request: UNNotificationRequest) {
+        guard let custom = request.content.userInfo["custom"] as? [String: Any],
+              let a = custom["a"] as? [String: Any],
+              let communication = a["communication"] as? [String: Any],
+              let senderName = communication["sender_name"] as? String else {
+            os_log(.default, log: Self.log, "[NSE] tryBuild: missing custom.a.communication or sender_name, forwarding")
+            forwardRequestToExtension()
+            return
+        }
+        os_log(.default, log: Self.log, "[NSE] tryBuild: sender_name=%{public}@", senderName)
+
+        let avatarUrlString = communication["avatar_url"] as? String
+        guard let urlString = avatarUrlString, let avatarURL = URL(string: urlString) else {
+            os_log(.default, log: Self.log, "[NSE] tryBuild: no avatar_url or invalid URL, donating with nil avatar")
+            donateIntent(from: request, avatarData: nil)
+            return
+        }
+        os_log(.default, log: Self.log, "[NSE] tryBuild: downloading avatar from %{public}@", urlString)
+
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: avatarURL) { [weak self] data, _, error in
+            if let err = error {
+                os_log(.error, log: Self.log, "[NSE] avatar download error: %{public}@", String(describing: err))
+            }
+            let imageData: Data? = {
+                guard let data = data, !data.isEmpty, UIImage(data: data) != nil else {
+                    os_log(.default, log: Self.log, "[NSE] avatar: no data or invalid image, bytes=%{public}d", data?.count ?? 0)
+                    return nil
+                }
+                os_log(.default, log: Self.log, "[NSE] avatar: got valid image, bytes=%{public}d", data.count)
+                return data
+            }()
+            self?.donateIntent(from: request, avatarData: imageData)
+        }
+        task.resume()
+
+        DispatchQueue.global().asyncAfter(deadline: .now() + 5) {
+            if task.state == .running {
+                os_log(.default, log: Self.log, "[NSE] avatar download timeout, cancelling")
+                task.cancel()
+            }
+        }
+    }
+
+    @available(iOS 15.0, *)
+    private func donateIntent(from request: UNNotificationRequest, avatarData: Data?) {
+        os_log(.default, log: Self.log, "[NSE] donateIntent: avatarData bytes=%{public}d", avatarData?.count ?? 0)
+        guard let intent = genMessageIntent(from: request, avatarData: avatarData) else {
+            os_log(.error, log: Self.log, "[NSE] donateIntent: genMessageIntent returned nil")
+            forwardRequestToExtension()
+            return
+        }
+        os_log(.default, log: Self.log, "[NSE] donateIntent: donating interaction")
+
+        let interaction = INInteraction(intent: intent, response: nil)
+        interaction.direction = .incoming
+
+        interaction.donate { [weak self] error in
+            if let err = error {
+                os_log(.error, log: Self.log, "[NSE] donate failed: %{public}@", String(describing: err))
+            } else {
+                os_log(.default, log: Self.log, "[NSE] donate succeeded")
+            }
+            guard let self = self, error == nil else {
+                self?.forwardRequestToExtension()
+                return
+            }
+
+            do {
+                let content = try request.content.updating(from: intent)
+                self.bestAttemptContent = (content.mutableCopy() as? UNMutableNotificationContent)
+
+                let originalSubtitle = request.content.subtitle
+                if !originalSubtitle.isEmpty {
+                    self.bestAttemptContent?.subtitle = originalSubtitle
+                    os_log(.default, log: Self.log, "[NSE] Restored original subtitle: %{public}@", originalSubtitle)
+                }
+
+                os_log(.default, log: Self.log, "[NSE] content updated from intent, forwarding")
+                self.forwardRequestToExtension()
+            } catch {
+                os_log(.error, log: Self.log, "[NSE] updating content from intent failed: %{public}@", String(describing: error))
+                self.forwardRequestToExtension()
+            }
+        }
+    }
+
+    @available(iOS 15.0, *)
+    private func genMessageIntent(from request: UNNotificationRequest, avatarData: Data? = nil) -> INSendMessageIntent? {
+        guard let custom = request.content.userInfo["custom"] as? [String: Any],
+              let a = custom["a"] as? [String: Any],
+              let communication = a["communication"] as? [String: Any],
+              let senderName = communication["sender_name"] as? String else {
+            os_log(.default, log: Self.log, "[NSE] genMessageIntent: guard failed, nil intent")
+            return nil
+        }
+
+        let senderId = communication["sender_uid"] as? String ?? communication["sender_id"] as? String ?? ""
+        let conversationId = communication["conversation_id"] as? String ?? ""
+        let groupName = communication["group_name"] as? String
+        let fallbackGroupName = extractSubtitle(from: request)
+        let groupNameToUse = groupName ?? fallbackGroupName
+        let recipientIds = communication["recipients"] as? [String]
+        os_log(.default, log: Self.log, "[NSE] genMessageIntent: senderId=%{public}@ conversationId=%{public}@ recipientCount=%{public}d", senderId, conversationId, recipientIds?.count ?? 0)
+
+        let handle = INPersonHandle(value: senderId, type: .unknown)
+
+        var avatar: INImage? = nil
+        if let data = avatarData, !data.isEmpty {
+            avatar = INImage(imageData: data)
+            os_log(.default, log: Self.log, "[NSE] genMessageIntent: using downloaded avatar")
+        }
+
+        let sender = INPerson(
+            personHandle: handle,
+            nameComponents: nil,
+            displayName: senderName,
+            image: avatar,
+            contactIdentifier: nil,
+            customIdentifier: senderId,
+            isMe: false,
+            suggestionType: .none
+        )
+
+        var recipients: [INPerson] = recipientIds?.map { recipientId in
+            INPerson(
+                personHandle: INPersonHandle(value: recipientId, type: .unknown),
+                nameComponents: nil,
+                displayName: nil,
+                image: nil,
+                contactIdentifier: nil,
+                customIdentifier: recipientId,
+                isMe: false,
+                suggestionType: .none
+            )
+        } ?? []
+
+        if groupNameToUse != nil && recipients.count < 2 {
+            let needed = 2 - recipients.count
+            if needed > 0 {
+                for index in 1...needed {
+                    let placeholderId = "placeholder-\(index)"
+                    recipients.append(
+                        INPerson(
+                            personHandle: INPersonHandle(value: placeholderId, type: .unknown),
+                            nameComponents: nil,
+                            displayName: nil,
+                            image: nil,
+                            contactIdentifier: nil,
+                            customIdentifier: placeholderId,
+                            isMe: false,
+                            suggestionType: .none
+                        )
+                    )
+                }
+            }
+        }
+
+        let intent = INSendMessageIntent(
+            recipients: recipients,
+            outgoingMessageType: .outgoingMessageText,
+            content: request.content.body,
+            speakableGroupName: groupNameToUse != nil ? INSpeakableString(spokenPhrase: groupNameToUse!) : nil,
+            conversationIdentifier: conversationId,
+            serviceName: nil,
+            sender: sender,
+            attachments: nil
+        )
+
+        if let avatar = avatar {
+            intent.setImage(avatar, forParameterNamed: \.sender)
+            intent.setImage(avatar, forParameterNamed: \.speakableGroupName)
+            os_log(.default, log: Self.log, "[NSE] genMessageIntent: setImage for sender")
+        } else {
+            os_log(.default, log: Self.log, "[NSE] genMessageIntent: no avatar image set")
+        }
+
+        return intent
+    }
+
+    private func extractSubtitle(from request: UNNotificationRequest) -> String? {
+        let subtitle = request.content.subtitle
+        if !subtitle.isEmpty {
+            return subtitle
+        }
+
+        let userInfo = request.content.userInfo
+
+        if let aps = userInfo["aps"] as? [String: Any],
+           let alert = aps["alert"] as? [String: Any],
+           let apsSubtitle = alert["subtitle"] as? String,
+           !apsSubtitle.isEmpty {
+            return apsSubtitle
+        }
+
+        if let custom = userInfo["custom"] as? [String: Any],
+           let a = custom["a"] as? [String: Any],
+           let customSubtitle = a["subtitle"] as? String,
+           !customSubtitle.isEmpty {
+            return customSubtitle
+        }
+
+        if let osData = userInfo["os_data"] as? [String: Any],
+           let osSubtitle = osData["subtitle"] as? String,
+           !osSubtitle.isEmpty {
+            return osSubtitle
+        }
+
+        return nil
+    }
+
+    private func forwardRequestToExtension() {
+        os_log(.default, log: Self.log, "[NSE] forwardRequestToExtension")
+        guard let receivedRequest = receivedRequest,
+              let bestAttemptContent = bestAttemptContent else {
+            os_log(.error, log: Self.log, "[NSE] forwardRequestToExtension: missing request or content")
+            return
+        }
+        OneSignalExtension.didReceiveNotificationExtensionRequest(
+            receivedRequest,
+            with: bestAttemptContent,
+            withContentHandler: contentHandler
+        )
+        os_log(.default, log: Self.log, "[NSE] forwardRequestToExtension: done")
+    }
+
+    override func serviceExtensionTimeWillExpire() {
+        os_log(.default, log: Self.log, "[NSE] serviceExtensionTimeWillExpire")
+        guard let contentHandler = contentHandler,
+              let bestAttemptContent = bestAttemptContent else { return }
+
+        if let receivedRequest = receivedRequest {
+            OneSignalExtension.serviceExtensionTimeWillExpireRequest(receivedRequest, with: bestAttemptContent)
+        }
+        contentHandler(bestAttemptContent)
+    }
+}
+```
+
+---
+
+## Closing
+
+React Native stays responsible for subscription and in-app UX, but the **NSE**
+is where you bridge **Intents** + **UserNotifications** + your provider's
+extension hooks. Debug with **Console.app** filtered on your extension's
+subsystem, print **`userInfo`** once, and align payload keys with the guards
+above. And now you would have a beautiful iOS Notification!
+
+**References**
+
+- Apple -
+  [Modifying content in newly delivered notifications](https://developer.apple.com/documentation/usernotifications/modifying-content-in-newly-delivered-notifications)
+- Apple -
+  [Handling communication notifications and Focus status updates](https://developer.apple.com/documentation/usernotifications/handling-communication-notifications-and-focus-status-updates)
+- Apple -
+  [`UNNotificationServiceExtension`](https://developer.apple.com/documentation/usernotifications/unnotificationserviceextension)
+- OneSignal -
+  [iOS service extension](https://documentation.onesignal.com/docs/service-extensions)
