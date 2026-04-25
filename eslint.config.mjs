@@ -18,6 +18,7 @@ const eslintConfig = defineConfig([
       '**/storybook-static',
       '**/public',
       '**/.netlify',
+      '**/coverage',
     ],
   },
   ...nextVitals,
