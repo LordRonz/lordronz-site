@@ -1,12 +1,17 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useCallback, useMemo, useState } from 'react';
 
-import CustomLightbox from '@/components/images/CustomLightbox';
 import ProjectCard, { type Project } from '@/components/ProjectCard';
 import { MainTitle } from '@/components/typography/MainTitle';
 import { LINK_SHORTENER_URL } from '@/constants/env';
 import clsxm from '@/lib/clsxm';
+
+const CustomLightbox = dynamic(
+  () => import('@/components/images/CustomLightbox'),
+  { ssr: false },
+);
 
 const projects: Project[] = [
   {
@@ -134,11 +139,13 @@ const ProjectsPage = () => {
           </div>
         </article>
       </section>
-      <CustomLightbox
-        open={isLightboxOpen}
-        close={closeLightbox}
-        slides={slides}
-      />
+      {isLightboxOpen && (
+        <CustomLightbox
+          open={isLightboxOpen}
+          close={closeLightbox}
+          slides={slides}
+        />
+      )}
     </>
   );
 };
