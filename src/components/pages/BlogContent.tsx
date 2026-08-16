@@ -22,9 +22,14 @@ import type { BlogFrontmatter, BlogType } from '@/types/frontmatters';
 
 type SingleBlogPageProps = {
   recommendations: BlogFrontmatter[];
+  translationSlug?: string;
 } & BlogType;
 
-const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
+const SingleBlogPage = ({
+  code,
+  frontmatter,
+  translationSlug,
+}: SingleBlogPageProps) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
   //#region  //*=========== Link Constants ===========
@@ -41,11 +46,6 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
   const isEnglish = useMemo(
     () => cleanSlug === frontmatter.slug,
     [cleanSlug, frontmatter.slug],
-  );
-
-  const languageLink = useMemo(
-    () => `/blog/${isEnglish ? 'id-' : ''}${cleanSlug}`,
-    [cleanSlug, isEnglish],
   );
 
   const langLinkContent = useMemo(
@@ -133,8 +133,11 @@ const SingleBlogPage = ({ code, frontmatter }: SingleBlogPageProps) => {
             </div>
           </div>
           <div className='flex flex-col-reverse md:flex-row gap-y-3 justify-between mt-4 items-start'>
-            {!frontmatter?.englishOnly && (
-              <CustomLink href={languageLink} className='grow-0 shrink'>
+            {translationSlug !== undefined && (
+              <CustomLink
+                href={`/blog/${translationSlug}`}
+                className='grow-0 shrink'
+              >
                 {langLinkContent}
               </CustomLink>
             )}
