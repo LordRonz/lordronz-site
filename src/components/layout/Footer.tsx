@@ -1,3 +1,4 @@
+import { FaLinkedin } from 'react-icons/fa6';
 import {
   SiGithub,
   SiGitlab,
@@ -8,10 +9,8 @@ import {
   SiYoutube,
 } from 'react-icons/si';
 
-import LinkedinLogo from '@/assets/images/linkedin-logo.svg';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import NowPlaying from '@/components/NowPlaying';
-import Tooltip from '@/components/Tooltip';
 import { LINK_SHORTENER_URL } from '@/constants/env';
 import clsxm from '@/lib/clsxm';
 
@@ -42,7 +41,7 @@ const socials = [
   {
     label: 'LinkedIn',
     link: `${url_shortener}/linkedin`,
-    icon: LinkedinLogo,
+    icon: FaLinkedin,
   },
   {
     label: 'Stack Overflow',
@@ -64,26 +63,30 @@ const socials = [
 const Footer = () => {
   return (
     <footer className='mt-4 pb-8'>
-      <main className='footer-divider layout flex flex-col items-center border-t pt-6 dark:border-gray-600'>
+      <main className='layout flex flex-col items-center border-t border-zinc-200 pt-6 dark:border-zinc-800'>
         <FooterLinks className='pb-4' />
         <div className='flex justify-center'>
           <NowPlaying />
         </div>
-        <div className='flex gap-x-3'>
+        <div className='flex flex-wrap justify-center gap-1'>
           <div className='flex items-center justify-center'>
             <CopyEmail />
           </div>
           {socials.map((social) => {
             return (
-              <Tooltip key={social.link} content={social.label}>
-                <UnstyledLink
-                  aria-label={social.label}
-                  className='inline-flex items-center justify-center rounded-xs focus:outline-hidden group focus-visible:ring-3 focus-visible:ring-primary-300'
-                  href={social.link}
-                >
-                  <social.icon className='my-auto h-7 w-7 align-middle text-gray-600 transition-all group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300' />
-                </UnstyledLink>
-              </Tooltip>
+              <UnstyledLink
+                key={social.link}
+                aria-label={social.label}
+                title={social.label}
+                className='group inline-flex size-11 items-center justify-center rounded-full focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300'
+                href={social.link}
+              >
+                <social.icon
+                  aria-hidden='true'
+                  focusable='false'
+                  className='my-auto h-6 w-6 align-middle text-gray-600 transition-colors duration-[160ms] group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300'
+                />
+              </UnstyledLink>
             );
           })}
         </div>
@@ -95,34 +98,33 @@ const Footer = () => {
   );
 };
 
-const footerLinks: { href: string; text: string; tooltip: React.ReactNode }[] =
-  [
-    {
-      href: 'https://go.aaronct.dev/trakteer',
-      text: 'Trakteer',
-      tooltip: 'Support me through Trakteer!',
-    },
-    {
-      href: 'https://go.aaronct.dev/saweria',
-      text: 'Saweria',
-      tooltip: 'Support me through Saweria!',
-    },
-    {
-      href: 'https://go.aaronct.dev/github-sponsor',
-      text: 'GitHub Sponsor',
-      tooltip: 'Support me through GitHub Sponsor!',
-    },
-    {
-      href: 'https://github.com/lordronz/lordronz-site',
-      text: 'Source Code',
-      tooltip: "View this website's source code",
-    },
-    {
-      href: '/components',
-      text: 'Components',
-      tooltip: 'Component collections by Aaron',
-    },
-  ];
+const footerLinks: { href: string; text: string; tooltip: string }[] = [
+  {
+    href: 'https://go.aaronct.dev/trakteer',
+    text: 'Trakteer',
+    tooltip: 'Support me through Trakteer!',
+  },
+  {
+    href: 'https://go.aaronct.dev/saweria',
+    text: 'Saweria',
+    tooltip: 'Support me through Saweria!',
+  },
+  {
+    href: 'https://go.aaronct.dev/github-sponsor',
+    text: 'GitHub Sponsor',
+    tooltip: 'Support me through GitHub Sponsor!',
+  },
+  {
+    href: 'https://github.com/lordronz/lordronz-site',
+    text: 'Source Code',
+    tooltip: "View this website's source code",
+  },
+  {
+    href: '/components',
+    text: 'Components',
+    tooltip: 'Component collections by Aaron',
+  },
+];
 
 const FooterLinks = ({ className }: { className?: string }) => {
   return (
@@ -133,14 +135,14 @@ const FooterLinks = ({ className }: { className?: string }) => {
       )}
     >
       {footerLinks.map(({ href, text, tooltip }) => (
-        <Tooltip key={href} content={tooltip}>
-          <UnstyledLink
-            className='animated-underline rounded-xs text-sm font-medium focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:text-gray-200 py-1 px-0.5'
-            href={href}
-          >
-            {text}
-          </UnstyledLink>
-        </Tooltip>
+        <UnstyledLink
+          key={href}
+          title={tooltip}
+          className='animated-underline rounded-xs px-0.5 py-1 text-sm font-medium focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:text-gray-200'
+          href={href}
+        >
+          {text}
+        </UnstyledLink>
       ))}
     </div>
   );

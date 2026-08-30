@@ -6,6 +6,7 @@ import useSWR from 'swr';
 import Accent from '@/components/Accent';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import clsxm from '@/lib/clsxm';
+import fetchJson from '@/lib/fetchJson';
 
 interface GitHubRepo {
   full_name: string;
@@ -27,6 +28,7 @@ type GitHubCardProps = {
 const GitHubCard = ({ repo, className }: GitHubCardProps) => {
   const { data: repository, error } = useSWR<GitHubRepo>(
     `https://api.github.com/repos/${repo}`,
+    fetchJson,
   );
 
   return !error && repository ? (

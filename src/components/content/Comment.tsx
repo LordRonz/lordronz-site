@@ -1,12 +1,13 @@
 import type { Theme } from '@giscus/react';
 import Giscus from '@giscus/react';
-import { useTheme } from 'next-themes';
+
+import useColorMode from '@/hooks/useColorMode';
 
 const REPO_ID = 'R_kgDOGnxT4Q';
 const CATEGORY_ID = 'DIC_kwDOGnxT4c4CSHzx';
 
 const Comment = () => {
-  const { theme } = useTheme();
+  const { theme } = useColorMode();
 
   return (
     <Giscus

@@ -7,9 +7,9 @@ export const revalidate = 10; // in seconds
 export const runtime = 'edge';
 
 export const GET = async () => {
-  const response = await getNowPlaying();
+  const response = await getNowPlaying().catch(() => null);
 
-  if (response.status === 204 || !response.ok) {
+  if (!response || response.status === 204 || !response.ok) {
     return Response.json({ isPlaying: false });
   }
 

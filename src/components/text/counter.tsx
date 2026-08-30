@@ -1,5 +1,5 @@
 import { useInView, useMotionValue, useSpring } from 'framer-motion';
-import { memo, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
@@ -33,7 +33,7 @@ interface CounterProps {
   className?: string;
 }
 
-export const Formatter = {
+const Formatter = {
   number: (value: number) =>
     Intl.NumberFormat('en-US').format(+value.toFixed(0)),
   currency: (value: number) =>
@@ -42,7 +42,7 @@ export const Formatter = {
     ),
 };
 
-export default memo(function Counter({
+export default function Counter({
   format = Formatter.number,
   targetValue,
   direction = 'up',
@@ -74,12 +74,14 @@ export default memo(function Counter({
   }, [isInView, delay, isGoingUp, targetValue, motionValue, hasRun]);
 
   useEffect(() => {
-    springValue.on('change', (value) => {
+    const unsubscribe = springValue.on('change', (value) => {
       if (ref.current) {
         ref.current.textContent = format ? format(value) : String(value);
       }
     });
+
+    return () => unsubscribe();
   }, [springValue, format]);
 
   return <span ref={ref} className={clsxm(className)} />;
-});
+}

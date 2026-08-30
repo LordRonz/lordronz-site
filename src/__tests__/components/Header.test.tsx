@@ -1,28 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { vi } from 'vitest';
 
 import Header, { links } from '@/components/layout/Header/Header';
 
-vi.mock('next/router', () => ({
-  useRouter() {
-    return {
-      route: '/blog',
-      pathname: '',
-      query: '',
-      asPath: '',
-    };
-  },
-}));
-
-describe('Header clipboard', () => {
-  beforeEach(() => {
-    vi.useFakeTimers();
-  });
-
-  afterEach(() => {
-    vi.useRealTimers();
-  });
-
+describe('Header', () => {
   it('renders a header', async () => {
     render(
       <div style={{ height: '2048px' }}>
@@ -60,53 +40,51 @@ describe('Header clipboard', () => {
     });
   });
 
-  it('opens sidebar', async () => {
-    render(
-      <div style={{ height: '2048px', width: '500px' }}>
-        <Header />
-      </div>,
+  it('toggles color mode', () => {
+    document.documentElement.classList.add('dark');
+    render(<Header />);
+
+    fireEvent.click(
+      screen.getAllByRole('button', { name: /Color mode toggle/i })[0],
     );
 
-    const sidebarToggle = screen.getByRole('checkbox');
-
-    fireEvent.click(sidebarToggle);
-
-    expect(sidebarToggle).toBeInTheDocument();
+    expect(document.documentElement).not.toHaveClass('dark');
   });
 
-  it('closes sidebar', async () => {
+  it('connects the mobile trigger to the navigation popover', () => {
     render(
       <div style={{ height: '2048px', width: '500px' }}>
         <Header />
       </div>,
     );
 
-    const sidebarToggle = screen.getByRole('checkbox');
+    const sidebarToggle = screen.getByRole('button', {
+      name: /Open navigation menu/i,
+    });
 
-    fireEvent.click(sidebarToggle);
+    expect(sidebarToggle).toHaveAttribute('popovertarget', 'drawer-navigation');
+    expect(document.querySelector('#drawer-navigation')).toHaveAttribute(
+      'popover',
+      'auto',
+    );
+  });
+
+  it('connects the close button to the navigation popover', () => {
+    render(
+      <div style={{ height: '2048px', width: '500px' }}>
+        <Header />
+      </div>,
+    );
 
     const closeSidebarButton = screen.getByRole('button', {
       name: /Close sidebar button/i,
+      hidden: true,
     });
 
-    fireEvent.click(closeSidebarButton);
-
-    expect(sidebarToggle).toBeInTheDocument();
-  });
-
-  it('closes sidebar when clicked away', async () => {
-    render(
-      <div style={{ height: '2048px', width: '500px' }}>
-        <Header />
-      </div>,
+    expect(closeSidebarButton).toHaveAttribute(
+      'popovertarget',
+      'drawer-navigation',
     );
-
-    const sidebarToggle = screen.getByRole('checkbox');
-
-    fireEvent.click(sidebarToggle);
-
-    fireEvent.mouseDown(document);
-
-    expect(sidebarToggle).toBeInTheDocument();
+    expect(closeSidebarButton).toHaveAttribute('popovertargetaction', 'hide');
   });
 });

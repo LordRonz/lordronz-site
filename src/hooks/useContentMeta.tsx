@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import useSWR from 'swr';
 
 import { incrementBlogView } from '@/lib/actions/incrementBlogVIew';
+import fetchJson from '@/lib/fetchJson';
 
 const useContentMeta = (
   slug: string,
@@ -11,7 +12,7 @@ const useContentMeta = (
 
   const { data: allContentMeta, mutate } = useSWR<{
     result: { currentViews: number };
-  }>(`/api/content/${slug}`);
+  }>(`/api/content/${slug}`, fetchJson);
 
   useEffect(() => {
     if (runIncrement && ran.current === 0) {

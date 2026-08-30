@@ -1,37 +1,17 @@
-import { m } from 'framer-motion';
-import { memo } from 'react';
-
-import Accent from '@/components/Accent';
-import clsxm from '@/lib/clsxm';
-
-const AnimatedTitle = ({ baseRoute }: { baseRoute: string }) => {
+const AnimatedTitle = () => {
   return (
-    <m.span
-      className='group relative z-50 whitespace-nowrap text-xl font-bold transition duration-300 hover:transition'
-      animate={{ opacity: 1, y: 0 }}
-      initial={{ opacity: 0, y: -10 }}
-    >
-      <span
-        className={clsxm(
-          'opacity-100 transition duration-300 group-hover:opacity-0',
-        )}
-      >
+    <span className='group relative z-50 whitespace-nowrap text-xl font-bold'>
+      <span className='opacity-100 transition duration-300 group-hover:opacity-0'>
         @lordronz{' '}
-        <span
-          className={clsxm(
-            'border px-1 rounded-md border-primary-200 font-mono',
-            '/' === baseRoute &&
-              'bg-primary-300/50 group-hover:bg-primary-300/50 dark:bg-linear-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
-          )}
-        >
+        <span className='rounded-md border border-primary-200 px-1 font-mono'>
           {'/'}
         </span>
       </span>
-      <Accent className='absolute left-0 bg-clip-text text-transparent opacity-0 transition duration-300 hover:bg-linear-to-r group-hover:opacity-100'>
+      <span className='absolute left-0 bg-linear-to-tr from-primary-300 via-rose-700/70 to-sky-500 bg-clip-text text-transparent opacity-0 transition duration-300 hover:bg-linear-to-r group-hover:opacity-100 dark:from-primary-300 dark:via-primary-100/70 dark:to-sky-300'>
         Aaron Christopher
-      </Accent>
-    </m.span>
+      </span>
+    </span>
   );
 };
 
-export default memo(AnimatedTitle);
+export default AnimatedTitle;

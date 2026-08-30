@@ -5,7 +5,7 @@ import * as React from 'react';
 import clsxm from '@/lib/clsxm';
 
 const buttonVariants = cva(
-  'group inline-flex items-center justify-center rounded-sm whitespace-nowrap font-medium ring-offset-white transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-zinc-950 dark:focus-visible:ring-zinc-300 active:scale-[0.99] duration-500 hover:scale-[1.02]',
+  'group inline-flex items-center justify-center rounded-sm whitespace-nowrap font-medium ring-offset-white transition-[color,background-color,border-color,box-shadow,transform] duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-zinc-950 dark:focus-visible:ring-zinc-300 motion-safe:active:scale-[0.97]',
   {
     variants: {
       variant: {
@@ -64,13 +64,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {leftIcon && (
-          <span className='w-0 mr-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:mr-1 group-hover:opacity-100'>
+          <span className='mr-2 shrink-0 transition-transform duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] motion-safe:group-hover:-translate-x-0.5'>
             {leftIcon}
           </span>
         )}
         <Slottable>{props.children}</Slottable>
         {rightIcon && (
-          <span className='w-0 ml-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:ml-2 group-hover:opacity-100'>
+          <span className='ml-2 shrink-0 transition-transform duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] motion-safe:group-hover:translate-x-0.5'>
             {rightIcon}
           </span>
         )}

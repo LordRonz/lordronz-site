@@ -20,10 +20,6 @@ const nextConfig = async (
           destination:
             'https://satisfactory-melli-lordronz-f2473ffe.koyeb.app/:slug*',
         },
-        {
-          source: '/umami/script.js',
-          destination: 'https://cloud.umami.is/script.js',
-        },
       ];
     },
     poweredByHeader: false,
@@ -34,7 +30,7 @@ const nextConfig = async (
         },
       }),
     },
-    reactCompiler: true,
+    reactCompiler: false,
     reactStrictMode: true,
     webpack: (config, { dev, isServer }) => {
       // Replace React with Preact only in client production build
@@ -72,12 +68,10 @@ const nextConfig = async (
       },
     },
     experimental: {
-      viewTransition: true,
+      inlineCss: false,
       optimizePackageImports: [
         'react-intersection-observer',
         'framer-motion',
-        '@react-three/fiber',
-        '@react-three/drei',
         'motion',
       ],
     },

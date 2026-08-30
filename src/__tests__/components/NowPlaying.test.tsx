@@ -1,7 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import axios from 'axios';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
-import { SWRConfig } from 'swr';
 import { vi } from 'vitest';
 
 import NowPlaying, { AnimatedBars } from '@/components/NowPlaying';
@@ -42,29 +40,22 @@ describe('NowPlaying', () => {
     expect(button).toBeInTheDocument();
   });
 
-  it('renders a now playing with swr value', async () => {
+  it('renders a now playing with fetched value', async () => {
     vi.useRealTimers();
 
-    vi.spyOn(axios, 'get').mockResolvedValueOnce({
-      data: {
+    vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({
+        isPlaying: true,
         songUrl: `${WEBSITE_URL}`,
         title: 'banger',
         artist: 'Test Artist',
-      },
-    });
+      }),
+    } as Response);
 
     render(
       <TooltipProvider>
-        <SWRConfig
-          value={{
-            fetcher: (url) => axios.get(url).then((res) => res.data),
-            dedupingInterval: 0,
-            focusThrottleInterval: 0,
-            provider: () => new Map(),
-          }}
-        >
-          <NowPlaying />
-        </SWRConfig>
+        <NowPlaying />
       </TooltipProvider>,
     );
 

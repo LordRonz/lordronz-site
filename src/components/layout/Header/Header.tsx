@@ -1,14 +1,8 @@
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useTheme } from 'next-themes';
-import { useEffect, useRef, useState } from 'react';
-import { useClickAway } from 'react-use';
 
 import ColorModeToggle from '@/components/ColorModeToggle';
 import SkipToContent from '@/components/layout/Header/SkipToContent';
 import UnstyledLink from '@/components/links/UnstyledLink';
-import PageProgress from '@/components/PageProgress';
-import clsxm from '@/lib/clsxm';
 
 import AnimatedTitle from './animated-title';
 
@@ -23,149 +17,66 @@ export const links: Links = [
   { href: '/blog', label: 'Blog' },
 ];
 
+const navLinkClassName =
+  'animated-underline group rounded-xs py-1 font-medium text-black focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:text-light dark:hover:text-primary-300';
+
 const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
-  const { theme, setTheme } = useTheme();
-
-  //#region  //*=========== Route Functionality ===========
-  const pathname = usePathname();
-  /** Ex: /sigma/titid -> ['', 'sigma', 'titid'] */
-  const arrOfRoute = pathname?.split('/') || [];
-  const baseRoute = `/${arrOfRoute[1]}`;
-  //#endregion  //*======== Route Functionality ===========
-
-  //#region  //*=========== Scroll Shadow ===========
-  const [onTop, setOnTop] = useState<boolean>(true);
-  useEffect(() => {
-    const handleScroll = () => {
-      setOnTop(window.scrollY === 0);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  //#endregion  //*======== Scroll Shadow ===========
-
-  const [sideNav, setSideNav] = useState(false);
-
-  const [isSideNavClosed, setIsSideNavClosed] = useState(true);
-
-  const closeSideNav = () => {
-    setSideNav(false);
-    setTimeout(() => setIsSideNavClosed(true), 310);
-  };
-
-  const ref = useRef(null);
-
-  useClickAway(ref, () => {
-    if (sideNav) {
-      closeSideNav();
-    }
-  });
-
   return (
-    <header
-      className={clsxm(
-        'sticky top-0 z-50 transition-shadow',
-        !onTop && 'shadow-lg',
-      )}
-      {...rest}
-    >
+    <header className='sticky top-0 z-50' {...rest}>
       <SkipToContent />
-      <PageProgress color='#ff9a9a' />
-      <div className='bg-light transition-all dark:bg-dark dark:text-light'>
-        <nav className={clsxm('layout flex items-center justify-between py-4')}>
-          <Link href='/' passHref>
-            <AnimatedTitle baseRoute={baseRoute} />
+      <div className='bg-light transition-colors dark:bg-dark dark:text-light'>
+        <nav className='layout flex items-center justify-between py-4'>
+          <Link href='/' prefetch={false}>
+            <AnimatedTitle />
           </Link>
           <ul className='hidden items-center justify-between space-x-3 text-xs md:flex md:space-x-4 md:text-base'>
             {links.map(({ href, label }) => (
-              <li key={`${href}${label}`}>
-                <UnstyledLink
-                  href={href}
-                  className={clsxm(
-                    'animated-underline rounded-xs py-1 transition-all',
-                    'font-medium text-black dark:text-light',
-                    'group dark:hover:text-primary-300',
-                    'focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300',
-                    href === baseRoute && 'font-bold',
-                  )}
-                >
-                  <span
-                    className={clsxm(
-                      'transition-all',
-                      'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/10 p-0.5 rounded-xs',
-                      href === baseRoute &&
-                        'bg-primary-300/50 group-hover:bg-primary-300/50 dark:bg-linear-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
-                    )}
-                  >
+              <li key={href}>
+                <UnstyledLink href={href} className={navLinkClassName}>
+                  <span className='rounded-xs bg-primary-300/0 p-0.5 transition-colors duration-150 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/10 motion-reduce:transition-none'>
                     {label}
                   </span>
                 </UnstyledLink>
               </li>
             ))}
           </ul>
-          <label className='swap swap-rotate btn-circle btn border-transparent bg-transparent text-dark outline-primary-200 hover:border-transparent hover:bg-gray-300 hover:outline-1 dark:text-light dark:hover:bg-gray-600 md:hidden'>
-            <input
-              type='checkbox'
-              className='hidden'
-              onChange={() => {
-                if (isSideNavClosed) {
-                  setSideNav(true);
-                  setIsSideNavClosed(false);
-                }
-              }}
-              checked={sideNav}
-            />
+          <button
+            type='button'
+            aria-label='Open navigation menu'
+            className='inline-flex size-11 cursor-pointer items-center justify-center rounded-full text-dark transition-colors hover:bg-gray-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:text-light dark:hover:bg-gray-700 md:hidden'
+            popoverTarget='drawer-navigation'
+          >
             <svg
-              className='swap-off fill-current'
-              xmlns='http://www.w3.org/2000/svg'
-              width='32'
+              aria-hidden='true'
+              className='fill-current'
               height='32'
               viewBox='0 0 512 512'
+              width='32'
             >
               <path d='M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z' />
             </svg>
-            <svg
-              className='swap-on fill-current'
-              xmlns='http://www.w3.org/2000/svg'
-              width='32'
-              height='32'
-              viewBox='0 0 512 512'
-            >
-              <polygon points='400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49' />
-            </svg>
-          </label>
-          <ColorModeToggle
-            value={theme}
-            onChange={setTheme}
-            className='hidden md:block'
-          />
+          </button>
+          <ColorModeToggle className='hidden md:block' />
         </nav>
       </div>
       <div
         id='drawer-navigation'
-        ref={ref}
-        className={clsxm(
-          'fixed left-0 top-0 z-99 h-screen w-80 overflow-y-auto bg-light p-4 duration-300 dark:bg-dark',
-          !sideNav && '-translate-x-full',
-        )}
-        tabIndex={-1}
-        aria-labelledby='drawer-navigation-label'
+        aria-label='Mobile navigation'
+        className='mobile-navigation-drawer inset-y-0 left-0 z-99 m-0 h-dvh w-80 max-w-[calc(100vw-3.5rem)] overflow-y-auto border-0 bg-light p-4 shadow-2xl dark:bg-dark dark:text-light'
+        popover='auto'
       >
         <button
           type='button'
-          aria-controls='drawer-navigation'
           aria-label='Close sidebar button'
-          className='absolute right-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white'
-          onClick={() => closeSideNav()}
+          className='absolute right-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:hover:bg-gray-600 dark:hover:text-white'
+          popoverTarget='drawer-navigation'
+          popoverTargetAction='hide'
         >
           <svg
             aria-hidden='true'
             className='h-5 w-5'
             fill='currentColor'
             viewBox='0 0 20 20'
-            xmlns='http://www.w3.org/2000/svg'
           >
             <path
               fillRule='evenodd'
@@ -175,35 +86,15 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
           </svg>
           <span className='sr-only'>Close menu</span>
         </button>
-        <div className='mt-4 overflow-y-auto py-4'>
+        <nav className='mt-4 overflow-y-auto py-4' aria-label='Mobile'>
           <ul className='space-y-2'>
             {links.map(({ href, label }) => (
               <li
-                key={`${href}${label}`}
-                className={clsxm(
-                  'flex items-center justify-center rounded-lg py-1 text-lg',
-                  href === baseRoute &&
-                    'bg-primary-100/50 dark:bg-primary-800/50',
-                )}
+                key={href}
+                className='flex items-center justify-center rounded-lg py-1 text-lg'
               >
-                <UnstyledLink
-                  href={href}
-                  className={clsxm(
-                    'animated-underline rounded-xs py-1 transition-all',
-                    'font-medium text-black dark:text-light',
-                    'group dark:hover:text-primary-300',
-                    'focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300',
-                    href === baseRoute && 'font-bold',
-                  )}
-                >
-                  <span
-                    className={clsxm(
-                      'transition-all',
-                      'bg-primary-300/0 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0 p-0.5 rounded-xs',
-                      href === baseRoute &&
-                        'bg-primary-300/50 dark:bg-linear-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent',
-                    )}
-                  >
+                <UnstyledLink href={href} className={navLinkClassName}>
+                  <span className='rounded-xs bg-primary-300/0 p-0.5 transition-colors duration-150 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0 motion-reduce:transition-none'>
                     {label}
                   </span>
                 </UnstyledLink>
@@ -211,14 +102,9 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
             ))}
           </ul>
           <div className='mt-8 flex items-center justify-center'>
-            <ColorModeToggle
-              value={theme}
-              onChange={setTheme}
-              className='h-12 w-12'
-              iconClassName='text-4xl'
-            />
+            <ColorModeToggle className='h-12 w-12' iconClassName='text-4xl' />
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );

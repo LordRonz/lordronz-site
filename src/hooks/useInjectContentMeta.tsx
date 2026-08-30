@@ -4,6 +4,7 @@ import useSWR from 'swr';
 import { contentMetaFlag } from '@/constants/env';
 import { cleanBlogPrefix } from '@/lib/blog';
 import { pickContentMeta } from '@/lib/contentMeta';
+import fetchJson from '@/lib/fetchJson';
 import type {
   ContentType,
   InjectedMeta,
@@ -18,6 +19,7 @@ const useInjectContentMeta = <T extends ContentType>(
 ) => {
   const { data, error } = useSWR<{ result: ContentMeta[] }>(
     contentMetaFlag && !initialData ? '/api/content' : null,
+    fetchJson,
   );
 
   const contentMeta = initialData ?? data?.result;

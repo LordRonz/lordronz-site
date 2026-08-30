@@ -1,7 +1,6 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 import Button from '@/components/buttons/Button';
@@ -9,11 +8,12 @@ import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
 import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
+import useColorMode from '@/hooks/useColorMode';
 
 const CoolButton = dynamic(() => import('@/components/buttons/CoolButton'));
 
 const ComponentsPage = () => {
-  const { theme } = useTheme();
+  const { theme } = useColorMode();
 
   const [mounted, setMounted] = useState(false);
 

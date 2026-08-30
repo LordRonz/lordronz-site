@@ -1,9 +1,5 @@
 @import 'tailwindcss';
 
-@plugin "daisyui" {
-  themes: false;
-}
-
 @config '../../tailwind.config.ts';
 
 /*
@@ -118,42 +114,18 @@
   }
 
   /* Wave animation hover */
-  .wave-hover:hover {
-    animation: wave 2.25s ease-in-out infinite;
-  }
-
-  /* Footer divider animation */
-  .footer-divider {
-    --border-size: 1px;
-    --border-angle: 0turn;
-
-    background-image:
-      conic-gradient(from var(--border-angle), #ddd 0%, #ddd 0%, #ddd 0%),
-      conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
-    background-size:
-      100% calc(100% - (var(--border-size) * 2)),
-      cover;
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    animation: bg-spin 2s linear infinite;
-  }
-
-  :is(.dark .footer-divider) {
-    background-image:
-      conic-gradient(from var(--border-angle), #111 0%, #111 0%, #111 0%),
-      conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
-  }
-
-  @keyframes bg-spin {
-    to {
-      --border-angle: 1turn;
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .wave-hover:hover {
+      animation: wave 2.25s ease-in-out infinite;
     }
   }
 
-  @property --border-angle {
-    syntax: '<angle>';
-    inherits: true;
-    initial-value: 0turn;
+  .wave-once {
+    animation: wave 2.25s 1.2s ease-in-out 1;
+  }
+
+  .hero-light-rail {
+    animation: hero-light-rail 900ms cubic-bezier(0.23, 1, 0.32, 1) both;
   }
 
   .marker-root .marker-highlight {
@@ -172,26 +144,39 @@
     }
   }
 
-  .now-playing-box {
-    --border-size: 3px;
-    --border-angle: 0turn;
-
-    background-image:
-      conic-gradient(from var(--border-angle), #ddd, #ddd 50%, #ddd),
-      conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
-    background-size:
-      calc(100% - (var(--border-size) * 2))
-        calc(100% - (var(--border-size) * 2)),
-      cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    animation: bg-spin 3s linear infinite;
+  .now-playing-bar {
+    transform-origin: bottom;
+    animation: now-playing-bar 1s ease-in-out infinite alternate;
   }
 
-  :is(.dark .now-playing-box) {
-    background-image:
-      conic-gradient(from var(--border-angle), #111 0%, #111 0%, #111 0%),
-      conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+  @media (prefers-reduced-motion: reduce) {
+    .hero-light-rail,
+    .now-playing-bar,
+    .wave-once {
+      animation: none;
+    }
+  }
+
+  @keyframes hero-light-rail {
+    from {
+      background-position: 100% 0;
+      opacity: 0.35;
+    }
+
+    to {
+      background-position: 0 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes now-playing-bar {
+    from {
+      transform: scaleY(0.45);
+    }
+
+    to {
+      transform: scaleY(1);
+    }
   }
 }
 
@@ -205,5 +190,50 @@
 }
 
 @theme {
-  --font-primary: var(--font-geist-sans), 'sans-serif';
+  --font-primary: ui-sans-serif, system-ui, sans-serif;
+}
+
+.mobile-navigation-drawer {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    overlay 300ms allow-discrete,
+    display 300ms allow-discrete;
+}
+
+.mobile-navigation-drawer:popover-open {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-navigation-drawer::backdrop {
+  background: transparent;
+  transition:
+    background-color 300ms ease-out,
+    overlay 300ms allow-discrete,
+    display 300ms allow-discrete;
+}
+
+.mobile-navigation-drawer:popover-open::backdrop {
+  background: rgb(0 0 0 / 50%);
+}
+
+@starting-style {
+  .mobile-navigation-drawer:popover-open {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  .mobile-navigation-drawer:popover-open::backdrop {
+    background: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-navigation-drawer,
+  .mobile-navigation-drawer::backdrop {
+    transition: none;
+  }
 }

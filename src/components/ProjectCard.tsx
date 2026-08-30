@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { memo } from 'react';
 import { MdOpenInNew } from 'react-icons/md';
 import { SiGithub } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
@@ -40,7 +39,7 @@ const ProjectCard = ({
         className={clsxm(
           'card',
           'relative transform overflow-hidden rounded-lg bg-gray-300 transition duration-200 hover:-translate-y-1 dark:bg-gray-800',
-          'opacity-0 transition-all duration-500 ease-out motion-reduce:opacity-100',
+          'opacity-0 transition-[opacity,transform,border-color] duration-500 ease-out motion-reduce:opacity-100',
           'border-primary-400 hover:border-t-2',
           inView && 'opacity-100',
         )}
@@ -57,6 +56,7 @@ const ProjectCard = ({
               alt={project.title ?? 'Project Image'}
               src={`/images/${imageLinkPrefix}/${project.image}`}
               fill
+              sizes='(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw'
               className='object-cover'
             />
           </button>
@@ -85,7 +85,7 @@ const ProjectCard = ({
                 rel='noopener noreferrer'
                 title='Open demo'
               >
-                <MdOpenInNew className='h-6 w-6 align-middle text-gray-600 transition-all hover:scale-105 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
+                <MdOpenInNew className='h-6 w-6 align-middle text-gray-600 transition-[color,transform] hover:scale-105 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
               </a>
             )}
             {project.github && (
@@ -97,7 +97,7 @@ const ProjectCard = ({
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <SiGithub className='h-6 w-6 align-middle text-gray-600 transition-all hover:scale-105 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
+                <SiGithub className='h-6 w-6 align-middle text-gray-600 transition-[color,transform] hover:scale-105 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300' />
               </a>
             )}
             <div className='flex-1'></div>
@@ -143,4 +143,4 @@ const ProjectCard = ({
   );
 };
 
-export default memo(ProjectCard);
+export default ProjectCard;

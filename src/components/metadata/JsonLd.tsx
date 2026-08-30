@@ -13,7 +13,7 @@ export type JsonLdProps = {
   jsonLd?: WithContext<Thing>;
 };
 
-export const defaultJsonLd: WithContext<ProfilePage> = {
+const defaultJsonLd: WithContext<ProfilePage> = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
   name: MY_NAME,
@@ -56,7 +56,9 @@ const JsonLd = ({ children, jsonLd = defaultJsonLd }: JsonLdProps) => {
     <>
       <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
       />
       {children}
     </>

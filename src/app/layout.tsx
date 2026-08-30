@@ -1,15 +1,10 @@
 import '@/styles/globals.css';
 
-import { GeistSans } from 'geist/font/sans';
 import type { Viewport } from 'next';
-import Script from 'next/script';
-import { ThemeProvider } from 'next-themes';
-import { ViewTransition } from 'react';
 
-import clsxm from '@/lib/clsxm';
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header/Header';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
-
-import ClientLayout from './ClientLayout';
 
 export const viewport: Viewport = {
   themeColor: 'black',
@@ -23,27 +18,27 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang='en'
-      className={clsxm(GeistSans.variable, 'scroll-smooth font-primary')}
+      className='scroll-smooth font-primary'
       suppressHydrationWarning
     >
       <head>
-        <Script
-          defer
-          src='/umami/script.js'
-          data-website-id='51739fff-d062-4217-9533-180ec6523428'
-          strategy='afterInteractive'
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{const t=localStorage.getItem('theme')==='light'?'light':'dark';document.documentElement.classList.toggle('dark',t==='dark');document.documentElement.style.colorScheme=t}catch{document.documentElement.classList.add('dark')}`,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `addEventListener('load',()=>{if(location.hostname==='www.aaronct.dev'){const s=document.createElement('script');s.defer=true;s.src='https://cloud.umami.is/script.js';s.dataset.websiteId='51739fff-d062-4217-9533-180ec6523428';document.head.appendChild(s)}})`,
+          }}
         />
       </head>
-      <body className='bg-light tracking-wide text-dark transition-all duration-300 selection:bg-[rgb(var(--tw-clr-primary-300)/30%)] dark:bg-dark dark:text-light'>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='dark'
-          enableSystem={false}
-        >
-          <ViewTransition>
-            <ClientLayout>{children}</ClientLayout>
-          </ViewTransition>
-        </ThemeProvider>
+      <body className='bg-light tracking-wide text-dark transition-colors duration-300 selection:bg-[rgb(var(--tw-clr-primary-300)/30%)] dark:bg-dark dark:text-light motion-reduce:transition-none'>
+        <div className='flex min-h-screen flex-col justify-between'>
+          <Header />
+          <main id='content'>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

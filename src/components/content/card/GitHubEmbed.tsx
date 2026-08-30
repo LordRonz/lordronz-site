@@ -4,6 +4,7 @@ import { stringToColor } from 'string-palette';
 import useSWR from 'swr';
 
 import { Card } from '@/components/ui/card';
+import fetchJson from '@/lib/fetchJson';
 
 interface GitHubRepo {
   full_name: string;
@@ -28,6 +29,7 @@ interface GitHubEmbedProps {
 const GitHubEmbed: React.FC<GitHubEmbedProps> = ({ repo, className }) => {
   const { data: repository, error } = useSWR<GitHubRepo>(
     `https://api.github.com/repos/${repo}`,
+    fetchJson,
   );
 
   if (error) {

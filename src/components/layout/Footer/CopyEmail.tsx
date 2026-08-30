@@ -1,14 +1,6 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { FiMail } from 'react-icons/fi';
-
-import Accent from '@/components/Accent';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 
 const mail = 'me@aaronct.dev';
 
@@ -37,40 +29,30 @@ const CopyEmail = () => {
   };
 
   return (
-    <Tooltip>
-      <TooltipTrigger
-        className='p-0 border-0'
-        asChild
-        onPointerDown={(event) => event.preventDefault()}
-        onClick={(event) => event.preventDefault()}
+    <button
+      type='button'
+      aria-label='Mail button'
+      title={copyStatus}
+      onClick={handleCopy}
+      className='group inline-flex size-11 cursor-pointer items-center justify-center rounded-full align-middle focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300'
+    >
+      <svg
+        aria-hidden='true'
+        className='my-auto h-7 w-7 align-middle text-gray-600 transition-colors duration-[160ms] group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300'
+        fill='none'
+        stroke='currentColor'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='2'
+        viewBox='0 0 24 24'
       >
-        <button
-          aria-label='Mail button'
-          role='button'
-          tabIndex={0}
-          onClick={handleCopy}
-          className='rounded-xs align-middle focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 group cursor-pointer'
-        >
-          <FiMail className='my-auto h-8 w-8 -mt-0.5 md:-mt-0.5 align-middle text-gray-600 group-hover:text-primary-300 dark:text-gray-300 dark:group-hover:text-primary-300' />
-        </button>
-      </TooltipTrigger>
-      <TooltipContent
-        className='px-0 py-0 border-0 mb-2'
-        onPointerDownOutside={(event) => {
-          event.preventDefault();
-        }}
-      >
-        <div
-          className='inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-primary-500 dark:bg-dark dark:text-gray-200'
-          data-testid='copy-status'
-        >
-          {copyStatus}{' '}
-          <code>
-            <Accent className='inline-block font-medium'>{mail}</Accent>
-          </code>
-        </div>
-      </TooltipContent>
-    </Tooltip>
+        <path d='M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z' />
+        <path d='m22 6-10 7L2 6' />
+      </svg>
+      <span className='sr-only' aria-live='polite'>
+        {copyStatus}: {mail}
+      </span>
+    </button>
   );
 };
 

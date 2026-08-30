@@ -8,11 +8,18 @@ import { MdOutlineRefresh } from 'react-icons/md';
 import Quote from '@/components/content/Quote';
 import Spinner from '@/components/Spinner';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Toaster } from '@/components/ui/toast/toaster';
 import { useToast } from '@/components/ui/toast/use-toast';
 import clsxm from '@/lib/clsxm';
 import type { RandomQuoteResponse } from '@/types/quote';
 
 const QUOTES_API_URL = '/quotes-api';
+
+const fetchQuote = async (url: string) => {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+  return response.json() as Promise<RandomQuoteResponse>;
+};
 
 const QuotesPage = ({ tagParam }: { tagParam?: string }) => {
   const [quoteData, setQuoteData] = useState<{
@@ -25,7 +32,7 @@ const QuotesPage = ({ tagParam }: { tagParam?: string }) => {
   const fetchRandomQuote = useCallback(async () => {
     startTransition(async () => {
       try {
-        const rawResult = await fetch(
+        const result = await fetchQuote(
           queryString.stringifyUrl({
             url: `${QUOTES_API_URL}/random`,
             query: {
@@ -33,7 +40,6 @@ const QuotesPage = ({ tagParam }: { tagParam?: string }) => {
             },
           }),
         );
-        const result = (await rawResult.json()) as RandomQuoteResponse;
         setQuoteData({ quote: result[0].quote, author: result[0].author });
       } catch {
         toast({
@@ -63,6 +69,7 @@ const QuotesPage = ({ tagParam }: { tagParam?: string }) => {
 
   return (
     <section className='flex flex-col items-center justify-center'>
+      <Toaster />
       {isLoading ? (
         <Spinner className='h-12 w-12' />
       ) : quoteData.quote ? (
@@ -77,8 +84,9 @@ const QuotesPage = ({ tagParam }: { tagParam?: string }) => {
         </Alert>
       )}
       <button
+        aria-label='Load another quote'
         className={clsxm(
-          'btn-accent btn-circle btn mt-4',
+          'mt-4 inline-flex size-12 items-center justify-center rounded-full bg-primary-500 text-white transition-colors hover:bg-primary-600 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:bg-primary-300 dark:text-primary-950 dark:hover:bg-primary-200',
           isLoading && 'hidden',
         )}
         onClick={handleRefreshClick}

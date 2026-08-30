@@ -31,8 +31,9 @@ export function generateImageMetadata() {
 }
 
 // Image generation
-const Icon = ({ id }: { id: string }) => {
-  const size = generateImageMetadata().find((im) => im.id === id)?.size;
+const Icon = async ({ id }: { id: Promise<string> }) => {
+  const imageId = await id;
+  const size = generateImageMetadata().find((im) => im.id === imageId)?.size;
   return new ImageResponse(
     // ImageResponse JSX element
     <img
