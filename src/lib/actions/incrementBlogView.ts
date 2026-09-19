@@ -14,8 +14,8 @@ export const incrementBlogView = async (slug: string) => {
       t.update(ref, { currentViews: FieldValue.increment(1) });
       return (doc.data()?.currentViews + 1) as number;
     } else {
-      t.set(ref, { currentViews: 0 });
-      return (doc.data()?.currentViews ?? 0) as number;
+      t.set(ref, { currentViews: 1 });
+      return 1;
     }
   });
 

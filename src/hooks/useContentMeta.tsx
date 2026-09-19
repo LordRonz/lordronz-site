@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import useSWR from 'swr';
 
-import { incrementBlogView } from '@/lib/actions/incrementBlogVIew';
+import { incrementBlogView } from '@/lib/actions/incrementBlogView';
 import fetchJson from '@/lib/fetchJson';
 
 const useContentMeta = (
