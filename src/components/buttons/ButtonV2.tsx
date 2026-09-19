@@ -1,4 +1,6 @@
-import { Slot, Slottable } from '@radix-ui/react-slot';
+'use client';
+
+import { Button as ButtonPrimitive } from '@base-ui/react/button';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
@@ -35,30 +37,18 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    Omit<ButtonPrimitive.Props, 'className'>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
+  className?: string;
   rightIcon?: React.ReactNode;
   leftIcon?: React.ReactNode;
   hideIcon?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className,
-      variant,
-      size,
-      asChild = false,
-      rightIcon,
-      leftIcon,
-      ...props
-    },
-    ref,
-  ) => {
-    const Comp = asChild ? Slot : 'button';
+  ({ className, variant, size, rightIcon, leftIcon, ...props }, ref) => {
     return (
-      <Comp
+      <ButtonPrimitive
         className={clsxm(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
@@ -68,13 +58,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             {leftIcon}
           </span>
         )}
-        <Slottable>{props.children}</Slottable>
+        {props.children}
         {rightIcon && (
           <span className='ml-2 shrink-0 transition-transform duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] motion-safe:group-hover:translate-x-0.5'>
             {rightIcon}
           </span>
         )}
-      </Comp>
+      </ButtonPrimitive>
     );
   },
 );

@@ -55,6 +55,7 @@
     "webpack": "^5"
   },
   "dependencies": {
+    "@base-ui/react": "^1.8.0",
     "@emotion/is-prop-valid": "^1.4.0",
     "@giscus/react": "^3.1.0",
     "@google-cloud/firestore": "^8.7.1",
