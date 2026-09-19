@@ -1,4 +1,4 @@
-import { isValidElement, memo } from 'react';
+import { isValidElement, memo, useId } from 'react';
 
 import {
   Tooltip as BaseTooltip,
@@ -26,6 +26,7 @@ const Tooltip = ({
   spanClassName,
   withUnderline = false,
 }: TooltipTextProps) => {
+  const contentId = useId();
   const trigger = withUnderline ? (
     <span className={clsxm('underline', 'decoration-dotted', spanClassName)}>
       {children}
@@ -37,17 +38,25 @@ const Tooltip = ({
   );
 
   return (
-    <TooltipProvider delayDuration={200}>
-      <BaseTooltip>
-        <TooltipTrigger asChild className='border-0 p-0'>
-          {trigger}
-        </TooltipTrigger>
+    <TooltipProvider delay={200}>
+      <BaseTooltip
+        onOpenChange={(_, eventDetails) => {
+          if (eventDetails.reason === 'outside-press') eventDetails.cancel();
+        }}
+      >
+        <TooltipTrigger
+          render={trigger}
+          aria-describedby={contentId}
+          className='border-0 p-0'
+        />
         <TooltipContent
+          id={contentId}
           className='px-0 py-0 border-0 mb-2 max-w-60'
-          onPointerDownOutside={(event) => {
-            event.preventDefault();
+          collisionAvoidance={{
+            side: 'none',
+            align: 'none',
+            fallbackAxisSide: 'none',
           }}
-          avoidCollisions={false}
         >
           <div
             className={clsxm(
