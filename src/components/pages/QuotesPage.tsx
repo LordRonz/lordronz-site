@@ -9,7 +9,7 @@ import Quote from '@/components/content/Quote';
 import Spinner from '@/components/Spinner';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Toaster } from '@/components/ui/toast/toaster';
-import { useToast } from '@/components/ui/toast/use-toast';
+import { toastManager } from '@/components/ui/toast/use-toast';
 import clsxm from '@/lib/clsxm';
 import type { RandomQuoteResponse } from '@/types/quote';
 
@@ -27,7 +27,6 @@ const QuotesPage = ({ tagParam }: { tagParam?: string }) => {
     author?: string;
   }>({});
   const [isLoading, startTransition] = useTransition();
-  const { toast } = useToast();
 
   const fetchRandomQuote = useCallback(async () => {
     startTransition(async () => {
@@ -42,15 +41,16 @@ const QuotesPage = ({ tagParam }: { tagParam?: string }) => {
         );
         setQuoteData({ quote: result[0].quote, author: result[0].author });
       } catch {
-        toast({
+        toastManager.add({
           title: 'Failed to fetch quotes',
           description: 'Try to skibidi around',
-          className: 'dark:bg-dark bg-light',
-          duration: 5000,
+          data: { className: 'dark:bg-dark bg-light' },
+          timeout: 5000,
+          priority: 'high',
         });
       }
     });
-  }, [tagParam, toast]);
+  }, [tagParam]);
 
   useEffect(() => {
     fetchRandomQuote();

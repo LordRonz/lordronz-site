@@ -2,34 +2,52 @@
 
 import {
   Toast,
+  ToastAction,
   ToastClose,
+  ToastContent,
   ToastDescription,
+  ToastPortal,
   ToastProvider,
   ToastTitle,
   ToastViewport,
 } from '@/components/ui/toast/toast';
-import { useToast } from '@/components/ui/toast/use-toast';
+import { toastManager, useToast } from '@/components/ui/toast/use-toast';
 
-export function Toaster() {
+function ToastList() {
   const { toasts } = useToast();
 
   return (
-    <ToastProvider>
-      {toasts.map(function ({ id, title, description, action, ...props }) {
-        return (
-          <Toast key={id} {...props}>
-            <div className='grid gap-1'>
-              {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
-            </div>
-            {action}
-            <ToastClose />
+    <ToastPortal>
+      <ToastViewport>
+        {toasts.map((toast) => (
+          <Toast
+            key={toast.id}
+            toast={toast}
+            swipeDirection='right'
+            className={toast.data?.className}
+            variant={toast.data?.variant}
+          >
+            <ToastContent className='flex w-full items-center justify-between space-x-4'>
+              <div className='grid gap-1'>
+                {toast.title && <ToastTitle>{toast.title}</ToastTitle>}
+                {toast.description && (
+                  <ToastDescription>{toast.description}</ToastDescription>
+                )}
+              </div>
+              {toast.actionProps && <ToastAction {...toast.actionProps} />}
+              <ToastClose />
+            </ToastContent>
           </Toast>
-        );
-      })}
-      <ToastViewport />
+        ))}
+      </ToastViewport>
+    </ToastPortal>
+  );
+}
+
+export function Toaster() {
+  return (
+    <ToastProvider toastManager={toastManager} limit={1}>
+      <ToastList />
     </ToastProvider>
   );
 }
