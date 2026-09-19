@@ -26,7 +26,7 @@ const CustomTab = (props: Readonly<CustomTabProps>) => {
               'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
               'ring-primary-200/60 ring-offset-2 ring-offset-primary-400 focus:outline-hidden focus:ring-2',
               'text-gray-700 transition-colors duration-200 hover:bg-white/12 hover:text-black dark:text-gray-200 dark:hover:text-white',
-              'data-[state=active]:bg-primary-300 data-[state=active]:text-black data-[state=active]:shadow-sm',
+              'data-active:bg-primary-300 data-active:text-black data-active:shadow-sm',
             )}
           >
             {category}
