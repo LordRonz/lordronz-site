@@ -49,6 +49,7 @@
     "vitest": "vitest"
   },
   "resolutions": {
+    "@grpc/grpc-js": "^1.14.4",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
     "jackspeak": "2.1.1",
