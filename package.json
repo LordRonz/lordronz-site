@@ -63,7 +63,7 @@
     "axios": "^1.19.0",
     "class-variance-authority": "^0.7.1",
     "cloudinary-build-url": "^0.2.4",
-    "clsx": "^2.1.1",
+    "cn": "^0.3.0",
     "date-fns": "^4.4.0",
     "firebase-admin": "^13.10.0",
     "framer-motion": "^12.43.0",
@@ -87,7 +87,6 @@
     "shiki": "^4.4.3",
     "string-palette": "^0.0.3",
     "swr": "^2.5.1",
-    "tailwind-merge": "^3.6.0",
     "yet-another-react-lightbox": "^3.32.2"
   },
   "devDependencies": {

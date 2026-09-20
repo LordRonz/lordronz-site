@@ -1,6 +1,5 @@
 'use client';
-
-import clsxm from 'clsx';
+import { clsx as clsxm } from 'cn';
 import { useEffect, useRef, useState } from 'react';
 
 import fetchJson from '@/lib/fetchJson';

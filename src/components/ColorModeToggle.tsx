@@ -1,6 +1,5 @@
 'use client';
-
-import clsxm from 'clsx';
+import { clsx as clsxm } from 'cn';
 import React, { useSyncExternalStore } from 'react';
 
 import useColorMode from '@/hooks/useColorMode';
