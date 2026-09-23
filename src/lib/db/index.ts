@@ -1,4 +1,11 @@
-import admin, { type FirebaseError, type ServiceAccount } from 'firebase-admin';
+import { type FirebaseError } from 'firebase-admin';
+import {
+  cert,
+  getApps,
+  initializeApp,
+  type ServiceAccount,
+} from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 
 import { DB_COLLECTION_NAME } from '@/constants/db';
 
@@ -6,10 +13,10 @@ const serviceAccount = JSON.parse(
   (process.env.FIREBASE_SERVICE_ACCOUNT_KEY as string) || '""',
 );
 
-if (!admin.apps.length) {
+if (!getApps().length) {
   try {
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount as ServiceAccount),
+    initializeApp({
+      credential: cert(serviceAccount as ServiceAccount),
     });
   } catch (error) {
     console.log(
@@ -19,7 +26,7 @@ if (!admin.apps.length) {
   }
 }
 
-export const db = () => admin.firestore();
+export const db = () => getFirestore();
 
 export const viewRef = () => db().collection(DB_COLLECTION_NAME);
 

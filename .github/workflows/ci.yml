@@ -6,7 +6,7 @@ on:
 
 jobs:
   lint:
-    name: Run ESLint
+    name: Run Oxlint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,7 +28,7 @@ jobs:
       - name: Install packages
         run: bun install
 
-      - name: Run ESLint
+      - name: Run Oxlint
         run: bun run lint
 
   tsc:

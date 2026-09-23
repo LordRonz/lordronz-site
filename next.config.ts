@@ -1,6 +1,3 @@
-/* eslint-disable unused-imports/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import bundleAnalyzer from '@next/bundle-analyzer';
 import withSerwistInit from '@serwist/next';
 import type { NextConfig } from 'next';
@@ -32,17 +29,7 @@ const nextConfig = async (
     },
     reactCompiler: false,
     reactStrictMode: true,
-    webpack: (config, { dev, isServer }) => {
-      // Replace React with Preact only in client production build
-      // if (!dev && !isServer) {
-      //   Object.assign(config.resolve.alias, {
-      //     'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-      //     react: 'preact/compat',
-      //     'react-dom/test-utils': 'preact/test-utils',
-      //     'react-dom': 'preact/compat',
-      //   });
-      // }
-
+    webpack: (config) => {
       config.module.rules.push({
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,

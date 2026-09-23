@@ -18,6 +18,7 @@
     ],
     "import-notation": null,
     "at-rule-no-deprecated": null,
+    "at-rule-prelude-no-invalid": null,
     "property-no-vendor-prefix": [true, { "ignoreProperties": ["transform"] }],
     "declaration-no-important": null,
     "no-invalid-position-declaration": null,

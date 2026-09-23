@@ -12,13 +12,7 @@ const config: StorybookConfig = {
 
   framework: '@storybook/nextjs', // 👈 Add this
 
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    'storybook-dark-mode',
-    '@storybook/addon-mdx-gfm',
-    '@storybook/addon-webpack5-compiler-swc',
-  ],
+  addons: ['storybook-dark-mode'],
 
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
@@ -33,8 +27,8 @@ const config: StorybookConfig = {
       config.resolve.alias = {
         ...config.resolve?.alias,
         '@': [
-          path.resolve(__dirname, '../src/'),
-          path.resolve(__dirname, '../'),
+          path.resolve(import.meta.dirname, '../src/'),
+          path.resolve(import.meta.dirname, '../'),
         ],
       };
     }
@@ -45,7 +39,7 @@ const config: StorybookConfig = {
      */
     if (config.resolve?.roots) {
       config.resolve.roots = [
-        path.resolve(__dirname, '../public'),
+        path.resolve(import.meta.dirname, '../public'),
         'node_modules',
       ];
     }
@@ -65,15 +59,6 @@ const config: StorybookConfig = {
 
     return config;
   },
-  swc: () => ({
-    jsc: {
-      transform: {
-        react: {
-          runtime: 'automatic',
-        },
-      },
-    },
-  }),
 };
 
 export default config;

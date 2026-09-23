@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "react", "nextjs", "jsx-a11y", "import"],
+  "jsPlugins": ["eslint-plugin-simple-import-sort"],
+  "categories": { "correctness": "error" },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/.next/**",
+    "**/storybook-static/**",
+    "**/public/**",
+    "**/.netlify/**",
+    "**/coverage/**",
+    "**/playwright-report/**",
+    "**/test-results/**",
+    "next-env.d.ts"
+  ],
+  "rules": {
+    "no-unused-vars": [
+      "warn",
+      { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+    ],
+    "typescript/consistent-type-imports": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "jsx-a11y/control-has-associated-label": "off",
+    "jsx-a11y/no-redundant-roles": "off",
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/heading-has-content": "off",
+    "react/set-state-in-effect": "off"
+  },
+  "overrides": [
+    {
+      "files": ["src/__tests__/**"],
+      "rules": { "nextjs/no-html-link-for-pages": "off" }
+    },
+    {
+      "files": ["src/app/icon.tsx", "src/app/apple-icon.tsx"],
+      "rules": { "nextjs/no-img-element": "off" }
+    }
+  ]
+}

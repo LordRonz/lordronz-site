@@ -1,5 +1,5 @@
 {
-  "src/**/*.{js,jsx,ts,tsx}": ["eslint --max-warnings=0", "prettier -w"],
+  "src/**/*.{js,jsx,ts,tsx}": ["oxlint --deny-warnings", "prettier -w"],
   "src/**/*.{json,css,scss,md,mdx}": ["prettier -w"],
   "./**/*.{js,ts,md,json,yml,yaml,html}": ["prettier -w"],
   "src/**/*.css": ["stylelint"],
