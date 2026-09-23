@@ -24,7 +24,7 @@ const ComponentsPage = () => {
   return (
     <section className=''>
       <div className='layout flex min-h-screen flex-col'>
-        <h1 className='mb-4 mt-10'>Components</h1>
+        <h1 className='mt-10 mb-4'>Components</h1>
         <p className='mb-4'>
           <ArrowLink href='/' openNewTab={false} direction='left'>
             Back To Home

@@ -153,16 +153,16 @@ const TwentyFortyEightGame: React.FC = () => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100'>
-      <h1 className='text-4xl font-bold mb-4'>2048</h1>
+    <div className='flex min-h-screen flex-col items-center justify-center bg-gray-100'>
+      <h1 className='mb-4 text-4xl font-bold'>2048</h1>
       <p className='mb-6 text-lg'>Score: {score}</p>
-      <div className='grid gap-2 bg-gray-400 p-4 rounded-md shadow-md'>
+      <div className='grid gap-2 rounded-md bg-gray-400 p-4 shadow-md'>
         {board.map((row, i) => (
           <div key={i} className='grid grid-cols-4 gap-2'>
             {row.map((tile, j) => (
               <div
                 key={j}
-                className={`h-20 w-20 flex items-center justify-center text-2xl font-bold rounded-md ${
+                className={`flex h-20 w-20 items-center justify-center rounded-md text-2xl font-bold ${
                   tile
                     ? tileColors[tile as keyof typeof tileColors] ||
                       'bg-gray-300 text-gray-800'

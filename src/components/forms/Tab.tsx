@@ -17,7 +17,7 @@ const CustomTab = (props: Readonly<CustomTabProps>) => {
       className={clsxm('w-full max-w-xs sm:px-0', className)}
       onValueChange={onChange}
     >
-      <TabsList className='relative flex space-x-1 rounded-xl bg-gray-100 dark:bg-gray-700 p-0 transition-colors'>
+      <TabsList className='relative flex space-x-1 rounded-xl bg-gray-100 p-0 transition-colors dark:bg-gray-700'>
         {categories.map((category) => (
           <TabsTrigger
             key={category}

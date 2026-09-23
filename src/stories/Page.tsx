@@ -19,7 +19,7 @@ export const Page: React.FC = () => {
       />
 
       <section className="m-[0_auto] max-w-[600px] p-[48px_20px] font-['Nunito_Sans','Helvetica_Neue',Helvetica,Arial,sans-serif] text-[14px] leading-[24px] text-[#333] dark:text-[#eee]">
-        <h2 className='m-[0_0_4px] inline-block align-top text-[32px] font-black leading-none'>
+        <h2 className='m-[0_0_4px] inline-block align-top text-[32px] leading-none font-black'>
           Pages in Storybook
         </h2>
         <p className='m-[1em_0]'>
@@ -70,8 +70,8 @@ export const Page: React.FC = () => {
           </a>
           .
         </p>
-        <div className='tip-wrapper mb-[40px] mt-[40px] text-[13px] leading-[20px]'>
-          <span className='tip mr-[10px] inline-block rounded-[1em] bg-[#e7fdd8] p-[4px_12px] align-top text-[11px] font-bold leading-[12px] text-[#66bf3c]'>
+        <div className='tip-wrapper mt-[40px] mb-[40px] text-[13px] leading-[20px]'>
+          <span className='tip mr-[10px] inline-block rounded-[1em] bg-[#e7fdd8] p-[4px_12px] align-top text-[11px] leading-[12px] font-bold text-[#66bf3c]'>
             Tip
           </span>{' '}
           Adjust the width of the canvas with the{' '}
@@ -80,7 +80,7 @@ export const Page: React.FC = () => {
             height='10'
             viewBox='0 0 12 12'
             xmlns='http://www.w3.org/2000/svg'
-            className='mr-[4px] mt-[3px] inline-block h-[12px] w-[12px] align-top'
+            className='mt-[3px] mr-[4px] inline-block h-[12px] w-[12px] align-top'
           >
             <g fill='none' fillRule='evenodd'>
               <path

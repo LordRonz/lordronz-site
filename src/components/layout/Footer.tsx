@@ -138,7 +138,7 @@ const FooterLinks = ({ className }: { className?: string }) => {
         <UnstyledLink
           key={href}
           title={tooltip}
-          className='animated-underline rounded-xs px-0.5 py-1 text-sm font-medium focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:text-gray-200'
+          className='rounded-xs animated-underline px-0.5 py-1 text-sm font-medium focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:text-gray-200'
           href={href}
         >
           {text}

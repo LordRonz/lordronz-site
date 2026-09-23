@@ -111,7 +111,7 @@ code > [data-line]::before {
 }
 
 .hash-anchor::after {
-  @apply invisible absolute -right-5 top-1/2 -translate-y-1/2 text-lg text-primary-400 dark:text-primary-300;
+  @apply invisible absolute top-1/2 -right-5 -translate-y-1/2 text-lg text-primary-400 dark:text-primary-300;
 
   content: '#';
 }
@@ -266,5 +266,5 @@ html.dark .prose [data-theme='light'] {
 
 /* Word Wrap */
 [data-word-wrap='true'] [data-line] {
-  @apply whitespace-pre-wrap break-words;
+  @apply break-words whitespace-pre-wrap;
 }

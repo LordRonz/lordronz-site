@@ -44,7 +44,7 @@ export const Header = ({
             />
           </g>
         </svg>
-        <h1 className='m-[6px_0_6px_10px] inline-block align-top text-[20px] font-black leading-none'>
+        <h1 className='m-[6px_0_6px_10px] inline-block align-top text-[20px] leading-none font-black'>
           Acme
         </h1>
       </div>

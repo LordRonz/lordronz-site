@@ -53,15 +53,15 @@ const CustomCode = (
 
       {!!language && (
         <>
-          <div className='absolute left-6 top-0 rounded-b-md border border-t-0 border-gray-600 px-2 py-1'>
-            <span className='select-none bg-linear-to-tr from-primary-300 to-primary-400 bg-clip-text font-medium text-transparent'>
+          <div className='absolute top-0 left-6 rounded-b-md border border-t-0 border-gray-600 px-2 py-1'>
+            <span className='bg-linear-to-tr from-primary-300 to-primary-400 bg-clip-text font-medium text-transparent select-none'>
               {language}
             </span>
           </div>
           <CopyToClipboard text={textToCopy} onCopy={onCopy}>
             <button
               aria-label='Copy code to clipboard'
-              className='absolute md:right-2 md:top-2 right-1 top-1 block rounded-sm border border-gray-600 p-2 text-lg transition-colors hover:bg-gray-400 dark:hover:bg-gray-700 md:block'
+              className='absolute top-1 right-1 block rounded-sm border border-gray-600 p-2 text-lg transition-colors hover:bg-gray-400 md:top-2 md:right-2 md:block dark:hover:bg-gray-700'
             >
               {isCopied ? (
                 <FiCheck aria-hidden='true' className='text-primary-400' />

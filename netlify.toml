@@ -1,8 +1,8 @@
 # example netlify.toml
 [build]
-  command = "pnpm build"
-  publish = ".next"
+command = "pnpm build"
+publish = ".next"
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs"
+package = "@netlify/plugin-nextjs"
 

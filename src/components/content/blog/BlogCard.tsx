@@ -64,7 +64,7 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
           </div>
         </div>
         <div className='p-4'>
-          <h1 className='text-gray-800 dark:text-gray-100 text-base font-bold md:text-lg'>
+          <h1 className='text-base font-bold text-gray-800 md:text-lg dark:text-gray-100'>
             {post.title}
           </h1>
           <div className='mt-2 flex items-center justify-start gap-2 text-sm font-medium text-gray-600 dark:text-gray-300'>
@@ -84,7 +84,7 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
               </Accent>
             </div>
           </div>
-          <p className='mb-2 mt-4 text-sm text-gray-600 dark:text-gray-300'>
+          <p className='mt-4 mb-2 text-sm text-gray-600 dark:text-gray-300'>
             <span className='font-bold text-gray-800 dark:text-gray-100'>
               {format(
                 parse(

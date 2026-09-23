@@ -26,7 +26,7 @@ const Quote = ({ className, quote, author }: QuoteProps) => {
         />
       </svg>
       <blockquote>
-        <p className='text-2xl font-medium italic text-gray-900 dark:text-white'>
+        <p className='text-2xl font-medium text-gray-900 italic dark:text-white'>
           {'"'}
           {quote}
           {'"'}

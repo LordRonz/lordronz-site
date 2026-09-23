@@ -106,7 +106,7 @@ const SingleProductContentPage = ({
             <hr className='dark:border-gray-600' />
 
             <section className='lg:grid lg:grid-cols-[auto_250px] lg:gap-8'>
-              <article className='mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
+              <article className='mdx mx-auto prose mt-4 w-full transition-colors dark:prose-invert'>
                 {/* eslint-disable-next-line react-hooks/static-components */}
                 <Component
                   components={

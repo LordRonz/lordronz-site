@@ -51,7 +51,7 @@ const Tooltip = ({
         />
         <TooltipContent
           id={contentId}
-          className='px-0 py-0 border-0 mb-2 max-w-60'
+          className='mb-2 max-w-60 border-0 px-0 py-0'
           collisionAvoidance={{
             side: 'none',
             align: 'none',

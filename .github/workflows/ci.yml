@@ -56,8 +56,8 @@ jobs:
       - name: Run type check
         run: bun run tsc
 
-  prettier:
-    name: Run Prettier Check
+  oxfmt:
+    name: Run Oxfmt Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -78,8 +78,8 @@ jobs:
 
       - name: Install packages
         run: bun install
-      - name: Run prettier
-        run: bun run format
+      - name: Run Oxfmt
+        run: bun run format:check
 
   stylelint:
     name: Run Stylelint Check

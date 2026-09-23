@@ -33,7 +33,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
             {links.map(({ href, label }) => (
               <li key={href}>
                 <UnstyledLink href={href} className={navLinkClassName}>
-                  <span className='rounded-xs bg-primary-300/0 p-0.5 transition-colors duration-150 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/10 motion-reduce:transition-none'>
+                  <span className='rounded-xs bg-primary-300/0 p-0.5 transition-colors duration-150 group-hover:bg-primary-300/20 motion-reduce:transition-none dark:group-hover:bg-primary-300/10'>
                     {label}
                   </span>
                 </UnstyledLink>
@@ -43,7 +43,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
           <button
             type='button'
             aria-label='Open navigation menu'
-            className='inline-flex size-11 cursor-pointer items-center justify-center rounded-full text-dark transition-colors hover:bg-gray-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:text-light dark:hover:bg-gray-700 md:hidden'
+            className='inline-flex size-11 cursor-pointer items-center justify-center rounded-full text-dark transition-colors hover:bg-gray-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 md:hidden dark:text-light dark:hover:bg-gray-700'
             popoverTarget='drawer-navigation'
           >
             <svg
@@ -68,7 +68,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
         <button
           type='button'
           aria-label='Close sidebar button'
-          className='absolute right-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:hover:bg-gray-600 dark:hover:text-white'
+          className='absolute top-2.5 right-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-primary-300 dark:hover:bg-gray-600 dark:hover:text-white'
           popoverTarget='drawer-navigation'
           popoverTargetAction='hide'
         >
@@ -94,7 +94,7 @@ const Header = ({ ...rest }: React.ComponentPropsWithoutRef<'header'>) => {
                 className='flex items-center justify-center rounded-lg py-1 text-lg'
               >
                 <UnstyledLink href={href} className={navLinkClassName}>
-                  <span className='rounded-xs bg-primary-300/0 p-0.5 transition-colors duration-150 group-hover:bg-primary-300/20 dark:group-hover:bg-primary-300/0 motion-reduce:transition-none'>
+                  <span className='rounded-xs bg-primary-300/0 p-0.5 transition-colors duration-150 group-hover:bg-primary-300/20 motion-reduce:transition-none dark:group-hover:bg-primary-300/0'>
                     {label}
                   </span>
                 </UnstyledLink>

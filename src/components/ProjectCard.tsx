@@ -61,7 +61,7 @@ const ProjectCard = ({
             />
           </button>
         )}
-        <div className='space-y-2 px-4 pb-16 pt-4'>
+        <div className='space-y-2 px-4 pt-4 pb-16'>
           {project.demo ? (
             <a
               href={project.demo}

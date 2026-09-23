@@ -13,8 +13,8 @@ export const AnimatedBars = ({
   return (
     <div className='flex w-auto shrink-0 items-end overflow-hidden' {...rest}>
       <span className='now-playing-bar mr-[3px] h-2 w-1 bg-primary-300 opacity-75 dark:bg-primary-500' />
-      <span className='now-playing-bar mr-[3px] h-1 w-1 bg-primary-300 dark:bg-primary-500 [animation-delay:-0.35s]' />
-      <span className='now-playing-bar h-3 w-1 bg-primary-300 opacity-80 dark:bg-primary-500 [animation-delay:-0.7s]' />
+      <span className='now-playing-bar mr-[3px] h-1 w-1 bg-primary-300 [animation-delay:-0.35s] dark:bg-primary-500' />
+      <span className='now-playing-bar h-3 w-1 bg-primary-300 opacity-80 [animation-delay:-0.7s] dark:bg-primary-500' />
     </div>
   );
 };
@@ -79,7 +79,7 @@ const NowPlaying = () => {
       <div className='inline-flex flex-col truncate text-xs sm:flex-row md:text-sm'>
         {data?.songUrl ? (
           <a
-            className='capsize max-w-max truncate font-medium  text-gray-800 dark:text-gray-200'
+            className='capsize max-w-max truncate font-medium text-gray-800 dark:text-gray-200'
             href={data.songUrl}
             target='_blank'
             rel='noopener noreferrer'
@@ -91,7 +91,7 @@ const NowPlaying = () => {
             Not Playing
           </p>
         )}
-        <span className='capsize mx-2 hidden text-gray-500 dark:text-gray-300 sm:block'>
+        <span className='capsize mx-2 hidden text-gray-500 sm:block dark:text-gray-300'>
           {' - '}
         </span>
         <p className='capsize truncate text-gray-500 dark:text-gray-300'>

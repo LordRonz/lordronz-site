@@ -95,7 +95,7 @@ const AboutPage = () => {
         )}
       >
         <article className='layout'>
-          <h2 className='mb-8 text-2xl md:text-4xl 2xl:text-5xl inline-flex items-center gap-x-2'>
+          <h2 className='mb-8 inline-flex items-center gap-x-2 text-2xl md:text-4xl 2xl:text-5xl'>
             <FaCode />
             Tech Stack
           </h2>

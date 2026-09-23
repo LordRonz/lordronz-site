@@ -22,7 +22,7 @@ const HomePage = () => {
         <div className='lg:col-span-2'>
           <MainTitle
             title='Henlo there '
-            className='whitespace-nowrap text-[2.5rem] leading-[0.95] tracking-[-0.035em] sm:text-6xl lg:text-7xl'
+            className='text-[2.5rem] leading-[0.95] tracking-[-0.035em] whitespace-nowrap sm:text-6xl lg:text-7xl'
           >
             <Wave title='Hello' className='motion-reduce:animate-none'>
               👋
@@ -33,7 +33,7 @@ const HomePage = () => {
             className='hero-light-rail mt-7 block h-px w-full max-w-4xl bg-[linear-gradient(90deg,transparent,var(--clr-primary-300),#38bdf8,transparent)] bg-[length:200%_100%]'
           />
         </div>
-        <p className='max-w-[62ch] text-base leading-7 text-zinc-700 dark:text-zinc-300 md:text-xl md:leading-8'>
+        <p className='max-w-[62ch] text-base leading-7 text-zinc-700 md:text-xl md:leading-8 dark:text-zinc-300'>
           I am a passionate programmer and love tinkering with Python to
           automate my personal tasks. I possess extensive experience with
           backend technologies and system administration. Additionally, I have

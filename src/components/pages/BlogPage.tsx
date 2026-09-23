@@ -233,7 +233,7 @@ const BlogPage = ({
           </SkipNavTag>
         </div>
         <div
-          className='relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between'
+          className='relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 md:flex-row md:items-center md:justify-between dark:text-gray-300'
           data-fade='4'
         >
           <CustomTab categories={langCategories} onChange={onTabChange} />

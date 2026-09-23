@@ -12,10 +12,10 @@ const CVPage = () => {
 
   return (
     <section className={clsxm('flex flex-row items-center justify-center')}>
-      <article className='layout flex justify-center items-center'>
+      <article className='layout flex items-center justify-center'>
         {loading && (
-          <div className='w-3/4 space-y-4 flex flex-col items-center'>
-            <Skeleton className='h-4 w-3/5 mb-4' />
+          <div className='flex w-3/4 flex-col items-center space-y-4'>
+            <Skeleton className='mb-4 h-4 w-3/5' />
             {[...Array(15)].map((_, i) => (
               <Skeleton className='h-4 w-full' key={`skeleton-${i}`} />
             ))}

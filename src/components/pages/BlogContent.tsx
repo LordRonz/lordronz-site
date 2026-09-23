@@ -132,16 +132,16 @@ const SingleBlogPage = ({
               </Accent>
             </div>
           </div>
-          <div className='flex flex-col-reverse md:flex-row gap-y-3 justify-between mt-4 items-start'>
+          <div className='mt-4 flex flex-col-reverse items-start justify-between gap-y-3 md:flex-row'>
             {translationSlug !== undefined && (
               <CustomLink
                 href={`/blog/${translationSlug}`}
-                className='grow-0 shrink'
+                className='shrink grow-0'
               >
                 {langLinkContent}
               </CustomLink>
             )}
-            <div className='flex gap-x-2 text-xs md:text-sm items-center'>
+            <div className='flex items-center gap-x-2 text-xs md:text-sm'>
               <p>Support me:</p>
               <div className='flex gap-x-3'>
                 <CustomLink href='https://go.aaronct.dev/trakteer'>
@@ -161,7 +161,7 @@ const SingleBlogPage = ({
         <hr className='dark:border-gray-600' />
 
         <section className='lg:grid lg:grid-cols-[auto_250px] lg:gap-8'>
-          <article className='mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
+          <article className='mdx mx-auto prose mt-4 w-full transition-colors dark:prose-invert'>
             {/* eslint-disable-next-line react-hooks/static-components */}
             <Component
               components={

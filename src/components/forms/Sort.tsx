@@ -49,7 +49,7 @@ const Sort = (props: SortProps) => {
   );
 
   return (
-    <div className='flex gap-x-2 justify-end'>
+    <div className='flex justify-end gap-x-2'>
       <Button
         className={clsxm(
           'rounded-md bg-gray-200 py-1 text-left font-medium dark:bg-dark sm:text-sm',

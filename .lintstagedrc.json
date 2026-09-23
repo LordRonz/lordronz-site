@@ -1,7 +1,12 @@
 {
-  "src/**/*.{js,jsx,ts,tsx}": ["oxlint --deny-warnings", "prettier -w"],
-  "src/**/*.{json,css,scss,md,mdx}": ["prettier -w"],
-  "./**/*.{js,ts,md,json,yml,yaml,html}": ["prettier -w"],
+  "src/**/*.{js,jsx,ts,tsx}": [
+    "oxlint --deny-warnings",
+    "oxfmt --no-error-on-unmatched-pattern"
+  ],
+  "src/**/*.{json,css,scss,md,mdx}": ["oxfmt --no-error-on-unmatched-pattern"],
+  "./**/*.{js,ts,md,json,yml,yaml,html}": [
+    "oxfmt --no-error-on-unmatched-pattern"
+  ],
   "src/**/*.css": ["stylelint"],
   "package.json": ["sort-package-json"]
 }

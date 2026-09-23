@@ -33,7 +33,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           }}
         />
       </head>
-      <body className='bg-light tracking-wide text-dark transition-colors duration-300 selection:bg-[rgb(var(--tw-clr-primary-300)/30%)] dark:bg-dark dark:text-light motion-reduce:transition-none'>
+      <body className='bg-light tracking-wide text-dark transition-colors duration-300 selection:bg-[rgb(var(--tw-clr-primary-300)/30%)] motion-reduce:transition-none dark:bg-dark dark:text-light'>
         <div className='flex min-h-screen flex-col justify-between'>
           <Header />
           <main id='content'>{children}</main>

@@ -34,7 +34,7 @@ const GitHubEmbed: React.FC<GitHubEmbedProps> = ({ repo, className }) => {
 
   if (error) {
     return (
-      <Card className='w-full max-w-xl p-4 bg-red-50 dark:bg-red-900/10'>
+      <Card className='w-full max-w-xl bg-red-50 p-4 dark:bg-red-900/10'>
         <p className='text-sm text-red-500 dark:text-red-400'>
           Failed to load repository data
         </p>
@@ -44,10 +44,7 @@ const GitHubEmbed: React.FC<GitHubEmbedProps> = ({ repo, className }) => {
 
   if (!repository) {
     return (
-      <div
-        className='w-full max-w-xl rounded-lg border border-gray-300 dark:border-gray-600
-        p-4 h-[111px] animate-pulse bg-gray-300 dark:bg-gray-600'
-      />
+      <div className='h-[111px] w-full max-w-xl animate-pulse rounded-lg border border-gray-300 bg-gray-300 p-4 dark:border-gray-600 dark:bg-gray-600' />
     );
   }
 
@@ -57,21 +54,13 @@ const GitHubEmbed: React.FC<GitHubEmbedProps> = ({ repo, className }) => {
         href={repository.html_url}
         target='_blank'
         rel='noopener noreferrer'
-        className={`
-          block max-w-xl
-          px-4 py-3
-          rounded-lg border border-gray-300 dark:border-gray-600
-          scale-100 transform-gpu hover:scale-[1.02] active:scale-[0.97]
-          transition duration-100
-          hover:shadow-lg
-          ${className}
-        `}
+        className={`block max-w-xl scale-100 transform-gpu rounded-lg border border-gray-300 px-4 py-3 transition duration-100 hover:scale-[1.02] hover:shadow-lg active:scale-[0.97] dark:border-gray-600 ${className} `}
       >
         <div className='flex items-center gap-2'>
           {/* Repository Name and Icon */}
           <div className='flex items-center gap-2 text-sm md:text-base'>
             <ExternalLink className='h-5 w-5 shrink-0' />
-            <span className='font-semibold text-primary-500 dark:text-primary-400 truncate'>
+            <span className='truncate font-semibold text-primary-500 dark:text-primary-400'>
               {repository.full_name}
             </span>
           </div>
