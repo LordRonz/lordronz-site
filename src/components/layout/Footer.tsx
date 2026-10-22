@@ -17,6 +17,7 @@ import clsxm from '@/lib/clsxm';
 import CopyEmail from './Footer/CopyEmail';
 
 const url_shortener = LINK_SHORTENER_URL;
+const copyrightYear = new Date().getFullYear();
 const socials = [
   {
     label: 'GitHub',
@@ -91,7 +92,7 @@ const Footer = () => {
           })}
         </div>
         <p className='mt-8 text-sm text-gray-600 dark:text-gray-300'>
-          &copy; {new Date().getFullYear()} Aaron Christopher
+          &copy; {copyrightYear} Aaron Christopher
         </p>
       </main>
     </footer>

@@ -90,7 +90,7 @@ const BlogCard = ({ post, className, checkTagged }: BlogCardProps) => {
                 parse(
                   post.lastUpdated ?? post.publishedAt,
                   'yyyy-MM-dd',
-                  new Date(),
+                  new Date(0),
                 ),
                 'MMM d, yyyy',
               )}
