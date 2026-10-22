@@ -27,7 +27,7 @@
       ]
     }
   ],
-  "bunVersion": "1.4.0",
+  "bunVersion": "1.4.4",
   "buildCommand": "env CI=true npx bun@latest run --bun next build",
   "installCommand": "bun install"
 }
