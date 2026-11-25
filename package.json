@@ -19,7 +19,7 @@
     "coverage:coveralls": "vitest run --coverage && coveralls < coverage/lcov.info",
     "create-blog": "bun ./src/scripts/blog.ts -b",
     "deduplicate": "npx yarn-deduplicate && yarn install",
-    "dev": "bun run --bun next dev",
+    "dev": "next dev",
     "dev:webpack": "next dev",
     "export": "next export",
     "find-unused": "bun ./src/scripts/find-unused.ts",
