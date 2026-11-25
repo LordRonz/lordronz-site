@@ -2,7 +2,7 @@
 
 import { format } from 'date-fns';
 import { getMDXComponent } from 'mdx-bundler/client';
-import { useEffect, useMemo, useState } from 'react';
+import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi';
 import { MdHistory } from 'react-icons/md';
 
@@ -18,16 +18,17 @@ import useContentMeta from '@/hooks/useContentMeta';
 import useScrollSpy from '@/hooks/useScrollSpy';
 import { cleanBlogPrefix } from '@/lib/blog';
 import clsxm from '@/lib/clsxm';
-import type { BlogFrontmatter, BlogType } from '@/types/frontmatters';
+import type { BlogType } from '@/types/frontmatters';
 
 type SingleBlogPageProps = {
-  recommendations: BlogFrontmatter[];
+  postNavigation: ReactNode;
   translationSlug?: string;
 } & BlogType;
 
 const SingleBlogPage = ({
   code,
   frontmatter,
+  postNavigation,
   translationSlug,
 }: SingleBlogPageProps) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
@@ -161,17 +162,20 @@ const SingleBlogPage = ({
         <hr className='dark:border-gray-600' />
 
         <section className='lg:grid lg:grid-cols-[auto_250px] lg:gap-8'>
-          <article className='mdx mx-auto prose mt-4 w-full transition-colors dark:prose-invert'>
-            {/* eslint-disable-next-line react-hooks/static-components */}
-            <Component
-              components={
-                {
-                  ...MDXComponents,
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                } as any
-              }
-            />
-          </article>
+          <div className='mx-auto w-full max-w-[50rem] min-w-0'>
+            <article className='mdx prose mt-4 transition-colors dark:prose-invert'>
+              {/* eslint-disable-next-line react-hooks/static-components */}
+              <Component
+                components={
+                  {
+                    ...MDXComponents,
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  } as any
+                }
+              />
+            </article>
+            {postNavigation}
+          </div>
 
           <aside className='py-4'>
             <div className='sticky top-36'>

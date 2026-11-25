@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 
+import BlogPostNavigation from '@/components/content/blog/BlogPostNavigation';
 import SingleBlogPage from '@/components/pages/BlogContent';
-import { getBlogTranslationSlug } from '@/lib/blog';
+import { getAdjacentBlogPosts, getBlogTranslationSlug } from '@/lib/blog';
 import { generateSeoMetadata } from '@/lib/generateSeoMetadata';
-import { getFileBySlug, getFiles, getRecommendations } from '@/lib/mdx';
+import { getAllFilesFrontmatter, getFileBySlug, getFiles } from '@/lib/mdx';
 
 export const generateMetadata = async ({
   params,
@@ -30,28 +31,26 @@ export const generateStaticParams = async () => {
   }));
 };
 
-const getPosts = async (slug: string) => {
-  const [post, recommendations, files] = await Promise.all([
-    getFileBySlug('blog', slug),
-    getRecommendations(slug),
-    getFiles('blog'),
-  ]);
-  const availableSlugs = files.map((file) => file.replace(/\.mdx$/, ''));
-  const translationSlug = getBlogTranslationSlug(slug, availableSlugs);
-
-  return { ...post, recommendations, translationSlug };
-};
 type tParams = Promise<{ slug: string }>;
 const Page = async ({ params }: { params: tParams }) => {
-  const { code, frontmatter, recommendations, translationSlug } =
-    await getPosts((await params).slug);
+  const { slug } = await params;
+  const [{ code, frontmatter }, posts] = await Promise.all([
+    getFileBySlug('blog', slug),
+    getAllFilesFrontmatter('blog'),
+  ]);
+  const translationSlug = getBlogTranslationSlug(
+    slug,
+    posts.map((post) => post.slug),
+  );
 
   return (
     <SingleBlogPage
       code={code}
       frontmatter={frontmatter}
-      recommendations={recommendations}
       translationSlug={translationSlug}
+      postNavigation={
+        <BlogPostNavigation {...getAdjacentBlogPosts(slug, posts)} />
+      }
     />
   );
 };
